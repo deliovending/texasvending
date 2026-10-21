@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Raleway", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Fjalla One", "Arial Narrow", sans-serif;
+  --font-mono: "Space Mono", ui-monospace, monospace;
+  --color-brand: #bc2127;
+  --color-brand-dark: #9c1b20;
+  --color-ink: #223165;
+  --color-ink-dark: #18234a;
+  --radius-soft: 45px;
+}
+
+@layer base {
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: 0.01em;
+  }
+}
+
+@layer components {
+  /* Small uppercase label above section headings */
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-brand);
+  }
+
+  .btn {
+    display: inline-block;
+    border-radius: 9999px;
+    padding: 0.85rem 1.75rem;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: background-color 150ms, color 150ms, border-color 150ms;
+  }
+
+  .btn-primary {
+    background-color: var(--color-brand);
+    color: #fff;
+  }
+
+  .btn-primary:hover {
+    background-color: var(--color-brand-dark);
+  }
+
+  .btn-outline {
+    border: 2px solid currentColor;
+  }
+
+  .btn-outline:hover {
+    background-color: rgb(255 255 255 / 0.1);
+  }
+}

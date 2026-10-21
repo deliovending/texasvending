@@ -1,0 +1,28 @@
+---
+import { Image } from 'astro:assets';
+import meetingImage from '../assets/images/office-meeting-salad-water.png';
+---
+
+<section class="py-20 md:py-28">
+	<div class="mx-auto grid max-w-6xl items-center gap-12 px-4 md:grid-cols-2">
+		<Image
+			src={meetingImage}
+			alt="Coworkers laughing during a meeting with fresh salads and bottled water on the table"
+			widths={[480, 768, 1100]}
+			sizes="(min-width: 768px) 50vw, 100vw"
+			class="w-full rounded-soft shadow-xl"
+		/>
+		<div>
+			<p class="eyebrow">Why it matters</p>
+			<h2 class="mt-3 text-4xl uppercase md:text-5xl">Break Rooms Your Team Looks Forward To</h2>
+			<p class="mt-6 text-lg leading-relaxed text-slate-600">
+				A good break room is more than a snack stop. It keeps people on site, gives them a minute to
+				recharge, and shows them you care.
+			</p>
+			<p class="mt-4 text-lg leading-relaxed text-slate-600">
+				Fresh salads, cold water, and good coffee turn a quick break into a better workday. We make
+				that easy for DFW businesses, at no cost to you.
+			</p>
+		</div>
+	</div>
+</section>

@@ -1,0 +1,27 @@
+---
+interface Props {
+	items?: { title: string; text: string }[];
+}
+
+const {
+	items = [
+		{ title: 'Free placement', text: 'No cost for equipment, delivery, or setup at qualifying sites.' },
+		{ title: 'No long-term contract', text: 'Flexible agreements you can live with.' },
+		{ title: 'Local team', text: 'Based in Dallas and serving all of North Texas.' },
+		{ title: '24/7 support', text: 'After-hours repairs for sites that never close.' },
+	],
+} = Astro.props;
+---
+
+<section aria-label="Why businesses trust Texas Vending" class="border-y border-slate-200 bg-white">
+	<ul class="mx-auto grid max-w-6xl gap-6 px-4 py-8 sm:grid-cols-2 lg:grid-cols-4">
+		{
+			items.map((item) => (
+				<li>
+					<p class="font-semibold text-brand">{item.title}</p>
+					<p class="mt-1 text-sm text-slate-600">{item.text}</p>
+				</li>
+			))
+		}
+	</ul>
+</section>

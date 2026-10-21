@@ -1,0 +1,86 @@
+---
+import { Image } from 'astro:assets';
+import lg from '../assets/testimonials/lg.png';
+import samsung from '../assets/testimonials/samsung.jpeg';
+import walmart from '../assets/testimonials/walmart.png';
+import samsClub from '../assets/testimonials/Sams-Club-Logo-300x189.jpg';
+import toyota from '../assets/testimonials/toyota-1.png';
+import ericsson from '../assets/testimonials/ericsson.png';
+
+// Copied from the testimonial area on texasvending.com/about-us/cities/desoto-vending/
+const testimonials = [
+	{
+		quote:
+			"What's great about Texas Vending is they follow through, listen to product requests, and make sure the breakroom stays in good shape",
+		name: 'Hanna F.',
+		role: 'Office Manager, LG Workplace Services',
+		logo: lg,
+		company: 'LG',
+	},
+	{
+		quote:
+			'Texas Vending has done a great job keeping up with demand, maintaining the equipment, and communicating clearly with our team',
+		name: 'Daniel R.',
+		role: 'Facility Manager, Samsung Operations',
+		logo: samsung,
+		company: 'Samsung',
+	},
+	{
+		quote:
+			'Texas Vending has been dependable with restocking and machine upkeep, and they are much more attentive than other vendors we have dealt with',
+		name: 'James T.',
+		role: 'Maintenance Manager, Walmart Logistics Facility',
+		logo: walmart,
+		company: 'Walmart',
+	},
+	{
+		quote:
+			'Their team is responsive, organized, and easy to reach. We value partners who take ownership of their service',
+		name: 'Matthew B.',
+		role: 'Director of Facilities, Sam’s Club Distribution Center',
+		logo: samsClub,
+		company: 'Sam’s Club',
+	},
+	{
+		quote:
+			'Texas Vending has been easy to work with from day one. Their team keeps the machines clean, stocked, and running well, and they are quick to respond whenever we need something.',
+		name: 'Melissa R.',
+		role: 'Office Manager, Toyota Distribution Facility',
+		logo: toyota,
+		company: 'Toyota',
+	},
+	{
+		quote:
+			'Far exceeded our expectations of setting up the micro market in our office. Their communication is top notch, often updating us with implementation progress or any issues that came up.',
+		name: 'Scott M.',
+		role: 'Facilities Manager, Ericsson Warehouse & Logistics Center',
+		logo: ericsson,
+		company: 'Ericsson',
+	},
+];
+---
+
+<section class="bg-slate-100 py-20 md:py-28">
+	<div class="mx-auto max-w-6xl px-4">
+		<div class="mx-auto max-w-2xl text-center">
+			<p class="eyebrow">Kind words</p>
+			<h2 class="mt-3 text-4xl uppercase md:text-5xl">What DFW Businesses Say</h2>
+		</div>
+		<ul class="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+			{
+				testimonials.map((t) => (
+					<li>
+						<figure class="flex h-full flex-col rounded-soft bg-white p-10 shadow-sm">
+							<Image src={t.logo} alt={`${t.company} logo`} height={48} class="h-12 w-auto self-start object-contain" />
+							<blockquote class="mt-6 flex-1 text-lg text-slate-700">“{t.quote}”</blockquote>
+							<figcaption class="mt-6 border-t border-slate-200 pt-5">
+								<span class="block font-semibold">{t.name}</span>
+								<span class="block text-sm text-slate-500">{t.role}</span>
+							</figcaption>
+						</figure>
+					</li>
+				))
+			}
+		</ul>
+	</div>
+</section>

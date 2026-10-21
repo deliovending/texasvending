@@ -1,0 +1,85 @@
+---
+import Icon from './Icon.astro';
+
+const services = [
+	{
+		icon: 'vending',
+		name: 'Snacks Without the Drive',
+		label: 'Vending Machines',
+		href: '/our-services/vending-machine/',
+		text: 'Snack and drink machines installed, stocked, and serviced at no cost to qualifying locations.',
+		cta: 'Stock up',
+	},
+	{
+		icon: 'market',
+		name: 'A Store in Your Break Room',
+		label: 'Micro Markets',
+		href: '/our-services/micro-markets/',
+		text: 'Self-checkout markets with fresh meals, snacks, and drinks, open around the clock.',
+		cta: 'Shop fresh',
+	},
+	{
+		icon: 'cooler',
+		name: 'Open, Grab, and Go',
+		label: 'AI Smart Coolers',
+		href: '/our-services/ai-smart-cooler/',
+		text: 'Smart coolers that charge automatically when someone takes an item. No lines, no cash.',
+		cta: 'Grab one',
+	},
+	{
+		icon: 'coffee',
+		name: 'Better Coffee, Every Cup',
+		label: 'Coffee & Water',
+		href: '/our-services/coffee-water/',
+		text: 'Office coffee brewers and filtered water, with supplies delivered on schedule.',
+		cta: 'Pour a cup',
+	},
+	{
+		icon: 'wrench',
+		name: 'Back Up and Running',
+		label: 'Vending Repair',
+		href: '/our-services/vending-repair/',
+		text: 'Local technicians fix card readers, coolers, and coin mechs, no matter who supplied the machine.',
+		cta: 'Fix it',
+	},
+	{
+		icon: 'truck',
+		name: 'Moved Safely, Set Up Right',
+		label: 'Vending Moving',
+		href: '/our-services/vending-moving/',
+		text: 'We move machines across the building or across town, then level, connect, and test them.',
+		cta: 'Move it',
+	},
+] as const;
+---
+
+<section id="services" class="bg-slate-100 py-20 md:py-28">
+	<div class="mx-auto max-w-6xl px-4">
+		<div class="mx-auto max-w-2xl text-center">
+			<p class="eyebrow">What we do</p>
+			<h2 class="mt-3 text-4xl uppercase md:text-5xl">Vending and Breakroom Services</h2>
+		</div>
+
+		<ul class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+			{
+				services.map((service) => (
+					<li class="flex flex-col items-center rounded-soft bg-white p-10 text-center shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+						<span class="flex h-20 w-20 items-center justify-center rounded-full bg-brand/10 text-brand">
+							<Icon name={service.icon} class="h-10 w-10" />
+						</span>
+						<p class="eyebrow mt-6 !text-[0.7rem] !text-slate-500">{service.label}</p>
+						<h3 class="mt-2 text-2xl">{service.name}</h3>
+						<p class="mt-3 flex-1 text-slate-600">{service.text}</p>
+						<a href={service.href} class="btn btn-primary mt-6" aria-label={`${service.cta}: ${service.label}`}>
+							{service.cta}
+						</a>
+					</li>
+				))
+			}
+		</ul>
+
+		<p class="mt-10 text-center">
+			<a href="/our-services/" class="font-semibold text-brand hover:underline">See all services</a>
+		</p>
+	</div>
+</section>

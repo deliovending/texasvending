@@ -1,0 +1,35 @@
+---
+import Icon from './Icon.astro';
+
+const features = [
+	{ icon: 'card', text: 'Cashless payment on every machine: cards, mobile wallets, and tap-to-pay.' },
+	{ icon: 'signal', text: 'Real-time monitoring tells us what is running low before it runs out.' },
+	{ icon: 'leaf', text: 'Fresh meals, protein snacks, and better-for-you drinks next to the classics.' },
+	{ icon: 'wrench', text: 'Local technicians, with same-day fixes for refrigeration problems.' },
+	{ icon: 'clock', text: 'Service visits planned around your shifts, docks, and badge rules.' },
+	{ icon: 'truck', text: 'We repair, move, or replace machines, no matter who supplied them.' },
+] as const;
+---
+
+<section class="py-20 md:py-28">
+	<div class="mx-auto max-w-6xl px-4">
+		<div class="max-w-2xl">
+			<p class="eyebrow">Smart technology</p>
+			<h2 class="mt-3 text-4xl uppercase md:text-5xl">Cashless, Connected, Always Stocked</h2>
+			<p class="mt-6 text-lg leading-relaxed text-slate-600">
+				Our equipment reports sales as they happen. That means fewer empty slots, faster repairs, and
+				restocks that match what your team actually buys.
+			</p>
+		</div>
+		<ul class="mt-12 grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
+			{
+				features.map((feature) => (
+					<li class="flex gap-4">
+						<Icon name={feature.icon} class="h-10 w-10 shrink-0 text-brand" />
+						<p class="text-slate-700">{feature.text}</p>
+					</li>
+				))
+			}
+		</ul>
+	</div>
+</section>

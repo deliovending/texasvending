@@ -1,0 +1,179 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SchemaMarkup from '../components/SchemaMarkup.astro';
+import TrustBar from '../components/TrustBar.astro';
+import FAQ from '../components/FAQ.astro';
+import CTA from '../components/CTA.astro';
+import { PHONE_DISPLAY, PHONE_TEL } from '../consts';
+import { faqPageSchema } from '../lib/schema';
+
+const faqs = [
+	{
+		question: 'Do you serve all of AllianceTexas, or only the Fort Worth part?',
+		answer:
+			'We serve the whole AllianceTexas area, including the parts outside Fort Worth city limits. We also serve the rest of Fort Worth and North Texas.',
+	},
+	{
+		question: 'Is a vending machine really free?',
+		answer:
+			'Yes, for qualifying locations. We cover the equipment, delivery, setup, stocking, and repairs. You provide the floor space and a power outlet.',
+	},
+	{
+		question: 'Our building has a lot of truck drivers and visitors. Can vending handle that?',
+		answer:
+			'Yes. Cashless machines and smart coolers work well for drivers and visitors. We can place a unit near the driver area so they do not need to enter the warehouse.',
+	},
+	{
+		question: 'Can you work around our dock schedule and badge rules?',
+		answer:
+			'Yes. We plan service visits around your shift changes and access rules. Our route drivers follow your check-in steps.',
+	},
+	{
+		question: 'Our headcount jumps during peak season. Do we need new equipment?',
+		answer:
+			'Not always. We often restock more often first. If that is not enough, we can add a machine, a cooler, or a micro market for the busy months.',
+	},
+	{
+		question: 'We already have machines from another company. Can you take over?',
+		answer:
+			'Yes. We can replace, repair, or move existing machines, no matter who supplied them.',
+	},
+];
+---
+
+<BaseLayout
+	title="AllianceTexas Vending Services | Fort Worth"
+	description="AllianceTexas vending services for warehouses, offices, and logistics sites in Fort Worth. Free placement, cashless machines, and local 24/7 service."
+>
+	<SchemaMarkup slot="head" schema={faqPageSchema(faqs)} />
+
+	<section class="relative isolate overflow-hidden bg-ink text-white">
+		<div
+			class="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top_right,rgba(188,33,39,0.5),transparent_60%),radial-gradient(ellipse_at_bottom_left,rgba(24,35,74,0.9),transparent_60%)]"
+			aria-hidden="true"
+		>
+		</div>
+		<div class="mx-auto max-w-3xl px-4 py-20 md:py-28">
+			<p class="eyebrow !text-white/60">Fort Worth &amp; North Texas</p>
+			<h1 class="mt-4 text-5xl leading-[1.05] uppercase md:text-6xl">
+				AllianceTexas Vending Services for Fort Worth Businesses
+			</h1>
+			<p class="mt-6 text-lg text-white/80">
+				Your night shift clocks in at 10 p.m. The nearest food is a drive away, and breaks are short.
+				So your team eats whatever is left in the old machine, if it works at all. Maybe it is
+				empty. Maybe it only takes cash. Maybe it has been broken for two weeks and nobody knows who
+				to call.
+			</p>
+			<p class="mt-4 text-lg text-white/80">
+				Texas Vending fixes that. We put free, fully stocked vending machines, smart coolers, and
+				micro markets in AllianceTexas buildings. Then we keep them full and working, day and night.
+			</p>
+			<div class="mt-8 flex flex-wrap gap-4">
+				<a href="/contact-us/" class="btn btn-primary">Book a Free Site Visit</a>
+				<a href={`tel:${PHONE_TEL}`} class="btn btn-outline">
+					Call {PHONE_DISPLAY}
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<TrustBar />
+
+	<div class="mx-auto max-w-3xl px-4 py-16 text-lg leading-relaxed text-slate-700 [&_h2]:mt-14 [&_h2]:mb-4 [&_h2]:text-4xl [&_h2]:uppercase [&_h2]:text-slate-900 [&_h3]:mt-6 [&_h3]:text-2xl [&_h3]:text-slate-900 [&_p]:mt-4 [&_a]:font-semibold [&_a]:text-brand [&_a:hover]:underline">
+		<h2 class="!mt-0">What Are AllianceTexas Vending Services?</h2>
+		<p>
+			AllianceTexas is a 27,000-acre business and residential area in north Fort Worth. It reaches
+			across nine cities in Tarrant and Denton counties. More than 600 companies and over 73,000
+			workers are based there. Many of them work in large warehouses, at Perot Field Fort Worth
+			Alliance Airport, or around the BNSF rail yard.
+		</p>
+		<p>
+			Our AllianceTexas vending services give those workers good food and drinks without leaving the
+			building. We supply and stock:
+		</p>
+		<ul class="mt-4 list-disc space-y-2 pl-6">
+			<li><a href="/our-services/vending-machine/">Snack and drink vending machines</a></li>
+			<li><a href="/our-services/micro-markets/">Micro markets</a> with fresh meals and self-checkout</li>
+			<li><a href="/our-services/ai-smart-cooler/">AI smart coolers</a> for grab-and-go items</li>
+			<li><a href="/our-services/coffee-water/">Office coffee and water service</a></li>
+		</ul>
+		<p>
+			We also handle <a href="/our-services/vending-repair/">vending machine repair</a> and
+			<a href="/our-services/vending-moving/">vending machine moving</a> across Fort Worth and North
+			Texas.
+		</p>
+
+		<h2>Who It's For</h2>
+		<p>
+			If people work at your site and get hungry, we can help. Most of our Alliance clients fall into
+			one of these groups:
+		</p>
+		<h3>Warehouses and distribution centers</h3>
+		<p>
+			Big buildings mean long walks to the break room. Short breaks mean no time to drive for food.
+			We size the setup to your building so nobody wastes their break walking.
+		</p>
+		<h3>Airport, rail, and trucking sites</h3>
+		<p>
+			Drivers and carriers come and go all day. Cashless machines and smart coolers let them grab
+			something fast, even if they never set foot in the main building.
+		</p>
+		<h3>Manufacturing plants</h3>
+		<p>
+			Three shifts need food at three different times. We keep machines full for the 2 a.m. crew, not
+			just the day shift.
+		</p>
+		<h3>Offices, schools, and apartments</h3>
+		<p>
+			Alliance is more than warehouses. We also serve offices, school campuses, and apartment
+			communities across the area.
+		</p>
+
+		<h2>How It Works</h2>
+		<p>Getting started is simple. Most sites go from first call to a stocked machine in four steps.</p>
+		<ol class="mt-4 list-decimal space-y-3 pl-6">
+			<li><strong>Reach out.</strong> Call us or fill out our <a href="/contact-us/">contact form</a>. Tell us about your building and team size.</li>
+			<li><strong>Site walk.</strong> We visit your location before we quote. We look at your space, your power, and your traffic.</li>
+			<li><strong>Free install.</strong> We deliver and set up your equipment at no cost. You provide the floor space and a power outlet.</li>
+			<li><strong>We run it.</strong> We stock, clean, and repair everything. You do not have to manage a thing.</li>
+		</ol>
+
+		<h2>What to Expect</h2>
+		<p>Once your equipment is in place, here is what working with us looks like:</p>
+		<ul class="mt-4 list-disc space-y-2 pl-6">
+			<li><strong>Smart restocking.</strong> Our machines report sales in real time. We restock when items run low, not on a random calendar.</li>
+			<li><strong>Visits that fit your schedule.</strong> We plan around your shift changes, dock schedule, and badge rules.</li>
+			<li><strong>Cashless payment.</strong> Every machine takes cards, mobile wallets, and tap-to-pay.</li>
+			<li><strong>Fast repairs.</strong> A broken cooler can spoil food, so we treat refrigeration problems as same-day fixes.</li>
+			<li><strong>Healthy choices.</strong> Fresh meals, protein snacks, and better-for-you drinks, plus the classic favorites.</li>
+			<li><strong>Room to grow.</strong> If your team grows or peak season hits, we add equipment or service more often.</li>
+		</ul>
+
+		<h2>Why Choose Texas Vending</h2>
+		<p>
+			Plenty of companies can drop off a machine. Fewer can keep it full at a building that never
+			closes. Here is what sets us apart:
+		</p>
+		<ul class="mt-4 list-disc space-y-2 pl-6">
+			<li><strong>We are local.</strong> Our team is based in Dallas and works North Texas every day.</li>
+			<li><strong>We know Alliance.</strong> We understand long buildings, round-the-clock shifts, and strict site access.</li>
+			<li><strong>No long-term contract.</strong> We earn your business by doing the job well.</li>
+			<li><strong>One partner for everything.</strong> Vending, micro markets, coffee, repairs, and moves all come from one team.</li>
+			<li><strong>We take over old machines.</strong> Already have equipment from someone else? We can repair it, move it, or replace it.</li>
+		</ul>
+		<p>
+			Want to see if your site qualifies for free vending? Call us at
+			<a href={`tel:${PHONE_TEL}`}>{PHONE_DISPLAY}</a> or <a href="/contact-us/">send us a message</a>.
+		</p>
+	</div>
+
+	<div class="bg-slate-50">
+		<FAQ faqs={faqs} />
+	</div>
+
+	<CTA
+		heading="Get Free Vending at Your AllianceTexas Site"
+		text="Book a free site visit. We will look at your space and recommend the right machines for your team. No cost and no long-term contract."
+		buttonLabel="Book a Free Site Visit"
+	/>
+</BaseLayout>

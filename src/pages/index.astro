@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SchemaMarkup from '../components/SchemaMarkup.astro';
+import Hero from '../components/Hero.astro';
+import Services from '../components/Services.astro';
+import Mission from '../components/Mission.astro';
+import Partnership from '../components/Partnership.astro';
+import Brands from '../components/Brands.astro';
+import FoodAndCoffee from '../components/FoodAndCoffee.astro';
+import Technology from '../components/Technology.astro';
+import Testimonials from '../components/Testimonials.astro';
+import CTA from '../components/CTA.astro';
+import FAQ from '../components/FAQ.astro';
+import { homeFaqs } from '../data/faqs';
+import { faqPageSchema, localBusinessSchema } from '../lib/schema';
+---
+
+<BaseLayout
+	title="Free Vending Machine | DFW"
+	description="Get a free vending machine for your DFW business. Texas Vending installs, stocks, and services vending machines, micro markets, and coffee at zero cost."
+>
+	<SchemaMarkup slot="head" schema={[localBusinessSchema(), faqPageSchema(homeFaqs)]} />
+	<Hero />
+	<Services />
+	<Mission />
+	<Partnership />
+	<Brands />
+	<FoodAndCoffee />
+	<Technology />
+	<Testimonials />
+	<FAQ faqs={homeFaqs} />
+	<CTA />
+</BaseLayout>

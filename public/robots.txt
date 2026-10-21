@@ -1,0 +1,12 @@
+# Googlebot follows only its own group, so the disallows are repeated here.
+User-agent: Googlebot
+Allow: /
+Disallow: /thank-you
+Disallow: /404
+
+User-agent: *
+Allow: /
+Disallow: /thank-you
+Disallow: /404
+
+Sitemap: https://texasvending.com/sitemap-index.xml

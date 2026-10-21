@@ -1,0 +1,64 @@
+---
+import { Image } from 'astro:assets';
+import coke from '../assets/brands/coke.png';
+import pepsi from '../assets/brands/pepsi.png';
+import drPepper from '../assets/brands/drp.png';
+import sunkist from '../assets/brands/sunkist_logo.png';
+import monster from '../assets/brands/monster.png';
+import redBull from '../assets/brands/red_bull_logo.png';
+import fritoLay from '../assets/brands/fritolay.png';
+import snyders from '../assets/brands/snyders_logo.png';
+import mars from '../assets/brands/mars.png';
+import hershey from '../assets/brands/hershey.png';
+import jackLinks from '../assets/brands/jack_links.png';
+import freshleys from '../assets/brands/freshleys.png';
+import dolly from '../assets/brands/dolly_logo.png';
+import rootedGrounds from '../assets/brands/logo_rgc.png';
+import ellis from '../assets/brands/ellis-coffee-logo.png';
+import starbucks from '../assets/brands/sbx.png';
+import advancePierre from '../assets/brands/pierre_logo.png';
+import ruiz from '../assets/brands/ruiz_logo.png';
+
+// Same brands, in the same order, as the live texasvending.com homepage
+const brands = [
+	{ name: 'Coca-Cola', logo: coke },
+	{ name: 'Pepsi', logo: pepsi },
+	{ name: 'Dr Pepper', logo: drPepper },
+	{ name: 'Sunkist', logo: sunkist },
+	{ name: 'Monster Energy', logo: monster },
+	{ name: 'Red Bull', logo: redBull },
+	{ name: 'Frito-Lay', logo: fritoLay },
+	{ name: "Snyder's of Hanover", logo: snyders },
+	{ name: 'Mars', logo: mars },
+	{ name: "Hershey's", logo: hershey },
+	{ name: "Jack Link's", logo: jackLinks },
+	{ name: "Mrs. Freshley's", logo: freshleys },
+	{ name: 'Dolly Madison Bakery', logo: dolly },
+	{ name: 'Rooted Grounds Coffee Co.', logo: rootedGrounds },
+	{ name: 'Ellis Coffee', logo: ellis },
+	{ name: 'Starbucks', logo: starbucks },
+	{ name: 'AdvancePierre Foods', logo: advancePierre },
+	{ name: 'Ruiz Foods', logo: ruiz },
+];
+---
+
+<section class="py-20 md:py-28">
+	<div class="mx-auto max-w-6xl px-4">
+		<div class="mx-auto max-w-2xl text-center">
+			<p class="eyebrow">Brands your team knows</p>
+			<h2 class="mt-3 text-4xl uppercase md:text-5xl">Delivering Favorite Brands</h2>
+			<p class="mt-5 text-lg text-slate-600">
+				Name-brand drinks, snacks, coffee, and meals, stocked to match what your team actually buys.
+			</p>
+		</div>
+		<ul class="mt-14 grid grid-cols-3 gap-4 sm:grid-cols-4 md:gap-6 lg:grid-cols-6">
+			{
+				brands.map((brand) => (
+					<li class="flex items-center justify-center rounded-3xl bg-white p-4 shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-1 hover:shadow-md">
+						<Image src={brand.logo} alt={`${brand.name} logo`} width={160} class="h-auto w-full max-w-[140px]" />
+					</li>
+				))
+			}
+		</ul>
+	</div>
+</section>
