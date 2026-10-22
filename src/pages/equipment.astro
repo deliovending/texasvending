@@ -1,114 +1,192 @@
 ---
+import { Image } from 'astro:assets';
 import ServiceLayout from '../layouts/ServiceLayout.astro';
 import MediaSection from '../components/MediaSection.astro';
 import PhotoPair from '../components/PhotoPair.astro';
-import hero from '../assets/equipment/four-door-smart-cooler.jpeg';
-import branded from '../assets/equipment/texas-vending-smart-coolers.png';
-import vendingAndMarket from '../assets/equipment/vending-and-micro-market.webp';
-import spiralMachine from '../assets/equipment/spiral-snack-machine.jpg';
-import cardReader from '../assets/equipment/card-reader.webp';
-import coolerTypes from '../assets/equipment/smart-cooler-types.jpg';
-import traditional from '../assets/equipment/traditional-vending.jpeg';
+import hero from '../assets/equipment/micro-market-install.webp';
+import drinkMachine from '../assets/equipment/drink-machine.webp';
+import snackMachine from '../assets/equipment/snack-machine.webp';
+import comboMachine from '../assets/equipment/combo-machine.webp';
+import freezerCooler from '../assets/equipment/freezer-cooler.jpg';
+import coolerRow from '../assets/equipment/cooler-row-market.webp';
+import coffeeMachines from '../assets/equipment/coffee-machines.webp';
+import waterMachines from '../assets/equipment/water-machines.webp';
+import cashless from '../assets/equipment/cashless-vending-keypad.webp';
+import installing from '../assets/equipment/technicians-installing-cooler.webp';
+import moving from '../assets/equipment/moving-wrapped-equipment.webp';
+
+const machines = [
+	{
+		name: 'Drink Machine',
+		image: drinkMachine,
+		alt: 'Glass-front drink vending machine stocked with bottled sodas, water, and sports drinks',
+		text: 'Bottled and canned drinks: soda, water, tea, sports drinks, and energy drinks.',
+	},
+	{
+		name: 'Snack Machine',
+		image: snackMachine,
+		alt: 'Spiral snack vending machine stocked with chips, candy, and pastries',
+		text: 'Chips, candy, pastries, protein bars, and better-for-you snacks.',
+	},
+	{
+		name: 'Combo Machine',
+		image: comboMachine,
+		alt: 'Vending machine with snacks, bottled drinks, and packaged foods in one cabinet',
+		text: 'Snacks and drinks in one cabinet, for break rooms with limited space.',
+	},
+	{
+		name: 'Frozen Machine',
+		image: freezerCooler,
+		alt: 'Freezer cooler stocked with burritos, pizzas, and ice cream',
+		text: 'Ice cream, frozen meals, breakfast items, frozen snacks, and protein treats.',
+	},
+];
+
+const vendingBrands = ['BevMAX', 'Vendo', 'AMS', 'Seaga'];
+const coolerBrands = ['HAHA Vending', 'True', 'Dukers', 'Atosa', 'Imbera', '365 Retail Markets'];
+const coffeeBrands = ['Keurig', 'Nestlé', 'BUNN', 'Lavazza', 'Newco', 'Cafection'];
+const waterBrands = ['Bevi', 'Quench', 'Brio', 'Evoca'];
+const paymentBrands = ['Cantaloupe', 'CPI'];
 
 const faqs = [
 	{
-		question: 'What vending equipment do you offer?',
+		question: 'What types of equipment does Texas Vending provide?',
 		answer:
-			'Snack, drink, combo, and refrigerated vending machines, AI smart coolers, micro market coolers, shelves, and self-checkout kiosks, plus office coffee brewers and water coolers.',
+			'Snack machines, drink machines, combo machines, frozen machines, smart coolers, micro market equipment, coffee machines, water machines, and ice machines for workplaces across DFW.',
+	},
+	{
+		question: 'Which vending machine brands do you install?',
+		answer: 'We install machines from suppliers including BevMAX, Vendo, AMS, and Seaga, matched to your space and product mix.',
+	},
+	{
+		question: 'What is the difference between a drink machine and a smart cooler?',
+		answer:
+			'A drink machine holds bottled and canned drinks. A smart cooler holds cold drinks plus fresh food like salads, wraps, sandwiches, and meals, and charges automatically for what you take.',
+	},
+	{
+		question: 'Do your machines accept cashless payment?',
+		answer: 'Yes. Our equipment accepts credit and debit cards, Apple Pay and other mobile wallets, and tap-to-pay.',
+	},
+	{
+		question: 'What can go in a frozen machine?',
+		answer: 'Ice cream, frozen meals, breakfast items, frozen snacks, protein treats, and other products that need freezer storage.',
 	},
 	{
 		question: 'Is the equipment free?',
 		answer:
-			'Vending machines, smart coolers, and micro markets are installed, set up, and serviced at no cost to locations with at least 50 people in total foot traffic, counting employees and visitors. Coffee machine installation is free; coffee, tea, and supplies are paid.',
-	},
-	{
-		question: 'Is every machine cashless?',
-		answer: 'Yes. Every machine accepts credit and debit cards, mobile wallets such as Apple Pay and Google Pay, and tap-to-pay.',
-	},
-	{
-		question: 'How do you choose where the equipment goes?',
-		answer:
-			'We walk your site first and check the space, power, and traffic. Then we recommend the equipment and the best spot for it.',
-	},
-	{
-		question: 'Who maintains the equipment?',
-		answer: 'We do. Local technicians respond to reported service issues within 24 hours, including after hours.',
+			'Vending machines, smart coolers, and micro markets are installed, set up, and serviced at no cost to locations with at least 50 people in total foot traffic, counting employees and visitors. Coffee and water machine installation is free; consumables such as coffee, tea, water, and supplies are paid.',
 	},
 ];
 ---
 
 <ServiceLayout
 	title="Vending Equipment for DFW Businesses"
-	description="Cashless vending machines, AI smart coolers, micro market equipment, and coffee brewers for DFW workplaces. Installed and serviced free at qualifying sites."
+	description="Drink, snack, combo, and frozen vending machines, smart coolers, micro markets, coffee, and water machines for DFW workplaces. Cashless, installed by our team."
 	h1="Vending Equipment for DFW Businesses"
 	eyebrow="Equipment"
-	intro="Texas Vending installs modern, cashless equipment in Dallas–Fort Worth workplaces: snack and drink machines, AI smart coolers, micro markets, and coffee brewers. At qualifying locations, the equipment, installation, setup, and ongoing service cost you nothing."
+	intro="Texas Vending installs the right equipment for your space: drink, snack, combo, and frozen vending machines, smart coolers, micro markets, and coffee and water machines. Every machine is cashless, and vending equipment is installed and serviced at no cost to qualifying locations."
 	heroImage={hero}
-	heroAlt="Man choosing a drink from a multi-door smart cooler"
+	heroAlt="Break room micro market with drink coolers, a snack rack, a self-checkout kiosk, and a fresh food cooler"
 	serviceType="Vending equipment placement"
 	crumb="Equipment"
 	parent={{ name: 'Equipment', url: '/equipment/' }}
 	faqs={faqs}
 	cta={{
 		heading: 'Find the Right Equipment for Your Site',
-		text: 'We will walk your space and recommend the machines that fit your team, power, and traffic. No long-term contract.',
+		text: 'We will walk your space and match the machines to your team, power, and traffic. No long-term contract.',
 	}}
 >
-	<MediaSection image={spiralMachine} alt="Spiral snack vending machine stocked with chips and candy" heading="Vending Machines" eyebrow="Snack, drink, and combo">
-		<p>Classic machines for any break room, sized to your space:</p>
-		<ul>
-			<li><strong>Snack machines</strong> for chips, candy, pastries, and protein bars</li>
-			<li><strong>Drink machines</strong> for sodas, water, sports drinks, and energy drinks</li>
-			<li><strong>Combo machines</strong> with snacks and drinks in one cabinet</li>
-			<li><strong>Refrigerated machines</strong> for sandwiches, salads, and other fresh food</li>
+	<section class="mx-auto max-w-6xl px-4 py-16 md:py-20">
+		<div class="mx-auto max-w-3xl text-center">
+			<p class="eyebrow">Vending machines</p>
+			<h2 class="mt-3 text-4xl uppercase md:text-5xl">Machines for Every Break Room</h2>
+			<p class="mt-4 text-lg text-slate-600">
+				We install snack, drink, combo, and frozen machines from suppliers including <strong>{vendingBrands.join(', ')}</strong>. During a site survey, we pick the best spot for each machine. See our <a href="/our-services/vending-machine/" class="font-semibold text-brand hover:underline">vending machine service</a>.
+			</p>
+		</div>
+		<ul class="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+			{
+				machines.map((machine) => (
+					<li class="overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-slate-200">
+						<Image
+							src={machine.image}
+							alt={machine.alt}
+							widths={[300, 500]}
+							sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+							class="aspect-[3/4] w-full bg-white object-contain p-4"
+						/>
+						<div class="p-6">
+							<h3 class="text-2xl uppercase text-ink">{machine.name}</h3>
+							<p class="mt-2 text-slate-600">{machine.text}</p>
+						</div>
+					</li>
+				))
+			}
 		</ul>
-		<p>See our <a href="/our-services/vending-machine/">vending machine service</a>.</p>
+	</section>
+
+	<MediaSection image={coolerRow} alt="Row of glass-door drink and fresh food coolers beside micro market shelving" heading="Smart Coolers and Micro Markets" eyebrow="Fresh food equipment">
+		<p>
+			For fresh meals and the widest selection, we install <a href="/our-services/ai-smart-cooler/">AI smart coolers</a> and <a href="/our-services/micro-markets/">micro markets</a> with glass-door coolers, open shelving, and self-checkout kiosks.
+		</p>
+		<p>Equipment brands we work with include:</p>
+		<ul>
+			{coolerBrands.map((brand) => <li>{brand}</li>)}
+		</ul>
 	</MediaSection>
 
-	<MediaSection image={branded} alt="Texas Vending branded smart coolers stocked with drinks and snacks" heading="AI Smart Coolers" eyebrow="Tap, grab, and go" reverse>
+	<MediaSection image={coffeeMachines} alt="Lineup of office coffee machines, from a single-cup brewer to a bean-to-cup machine" heading="Coffee Machines" eyebrow="Office coffee" reverse>
 		<p>
-			Smart coolers unlock with a tap, let people take what they want, and charge automatically when the door closes. They
-			hold fresh meals and cold drinks in about the footprint of a refrigerator.
+			We match the coffee machine to your space, staff size, and daily use: single-cup brewing, traditional commercial coffee, or café-style drinks. Brands include:
 		</p>
-		<p>Learn how <a href="/our-services/ai-smart-cooler/">AI smart coolers</a> work.</p>
+		<ul>
+			{coffeeBrands.map((brand) => <li>{brand}</li>)}
+		</ul>
+		<p>
+			Coffee machine installation is free. You pay only for the coffee, tea, and supplies you use. See <a href="/our-services/coffee-water/">coffee and water service</a>.
+		</p>
+	</MediaSection>
+
+	<MediaSection image={waterMachines} alt="Two filtered water machines with touch-screen dispensers" heading="Water and Ice Machines" eyebrow="Hydration">
+		<p>
+			We provide filtered water dispensers, water coolers, bottled water, and ice machines for offices, warehouses, gyms, schools, and busy break rooms. Water equipment brands include:
+		</p>
+		<ul>
+			{waterBrands.map((brand) => <li>{brand}</li>)}
+		</ul>
+		<p>Water machine installation is free, and we handle restocking, service, and ongoing support. You pay only for water and other consumables.</p>
+	</MediaSection>
+
+	<MediaSection image={cashless} alt="Man paying at a vending machine keypad with a card" heading="Cashless on Every Machine" eyebrow="Payments" reverse>
+		<p>Fewer people carry cash, so every machine we install accepts:</p>
+		<ul>
+			<li>Credit and debit cards</li>
+			<li>Apple Pay and other mobile wallets</li>
+			<li>Tap-to-pay through modern card readers</li>
+		</ul>
+		<p>
+			Payment hardware comes from brands including {paymentBrands.join(' and ')}. Our equipment also reports sales in real time, so we restock before items run out.
+		</p>
 	</MediaSection>
 
 	<PhotoPair
 		photos={[
 			{
-				image: coolerTypes,
-				alt: 'Glass-front drink machine next to a 24-hour smart vending cooler',
-				caption: 'Drink machines and smart coolers can share one break room.',
+				image: installing,
+				alt: 'Two technicians unboxing and installing a cooler in a break room',
+				caption: 'We deliver, install, and set up every machine.',
 			},
 			{
-				image: traditional,
-				alt: 'Glass-front vending machine stocked with snacks and drinks',
-				caption: 'Glass-front machines show every product before you buy.',
+				image: moving,
+				alt: 'Worker moving shrink-wrapped equipment on a pallet through an office entrance',
+				caption: 'Need a machine moved? We handle that too.',
 			},
 		]}
 	/>
 
-	<MediaSection image={vendingAndMarket} alt="Vending machines beside fresh food coolers and snack shelves" heading="Micro Market Equipment" eyebrow="Self-checkout stores">
+	<div class="mx-auto max-w-3xl px-4 pb-16 text-center text-lg text-slate-700">
 		<p>
-			A micro market combines glass-door coolers, open shelves, and a self-checkout kiosk. It carries the widest variety,
-			from fresh meals to snacks and drinks, and stays open around the clock.
+			Machines are serviced by local technicians who respond to reported issues within 24 hours. See <a href="/our-services/vending-repair/" class="font-semibold text-brand hover:underline">vending repair</a> and <a href="/our-services/vending-moving/" class="font-semibold text-brand hover:underline">vending moving</a>.
 		</p>
-		<p>
-			See <a href="/our-services/micro-markets/">micro markets</a>. We also install office coffee brewers and water coolers
-			through our <a href="/our-services/coffee-water/">coffee and water service</a>.
-		</p>
-	</MediaSection>
-
-	<MediaSection image={cardReader} alt="Card being inserted into the reader on a vending machine" heading="Cashless and Connected" eyebrow="Technology" reverse>
-		<p>Every machine and market we install accepts:</p>
-		<ul>
-			<li>Credit and debit cards</li>
-			<li>Mobile wallets such as Apple Pay and Google Pay</li>
-			<li>Tap-to-pay</li>
-		</ul>
-		<p>
-			Our equipment also reports sales in real time, so we restock before items run out. Before installation, we walk your
-			site to pick the best location for each machine. Need a machine fixed or moved? See <a href="/our-services/vending-repair/">vending repair</a> and <a href="/our-services/vending-moving/">vending moving</a>.
-		</p>
-	</MediaSection>
+	</div>
 </ServiceLayout>
