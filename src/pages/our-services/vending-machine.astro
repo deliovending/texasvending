@@ -1,0 +1,140 @@
+---
+import ServiceLayout from '../../layouts/ServiceLayout.astro';
+import MediaSection from '../../components/MediaSection.astro';
+import PhotoPair from '../../components/PhotoPair.astro';
+import MidCTA from '../../components/MidCTA.astro';
+import hero from '../../assets/services/vending-machine/snack-drink-vending-machines.jpeg';
+import tapToPay from '../../assets/services/vending-machine/tap-to-pay-vending-machine.jpg';
+import fullLine from '../../assets/services/vending-machine/full-line-vending-setup.jpeg';
+import glassDoor from '../../assets/services/vending-machine/glass-door-drink-vending-machine.jpg';
+import stocked from '../../assets/services/vending-machine/stocked-vending-machines.jpeg';
+import cashless from '../../assets/services/vending-machine/cashless-vending-machine.webp';
+import cardPayment from '../../assets/services/vending-machine/card-payment-vending-machine.jpg';
+
+const faqs = [
+	{
+		question: 'Is a vending machine really free for my business?',
+		answer:
+			'Yes, at qualifying locations. Texas Vending pays for the machine, delivery, setup, stocking, and repairs. A location qualifies with at least 50 people in total foot traffic, counting employees and visitors.',
+	},
+	{
+		question: 'What types of vending machines do you offer?',
+		answer: 'We offer snack, beverage, combo, and refrigerated vending machines, all with cashless payment.',
+	},
+	{
+		question: 'Do your vending machines take cards and phones?',
+		answer: 'Yes. Every machine accepts credit and debit cards, mobile wallets such as Apple Pay and Google Pay, and tap-to-pay.',
+	},
+	{
+		question: 'How do you keep machines from running out?',
+		answer:
+			'Our machines report sales in real time, so we restock based on what is running low. Each location also gets its own restocking schedule.',
+	},
+	{
+		question: 'Is there a contract?',
+		answer: 'No long-term contract is required.',
+	},
+	{
+		question: 'Who fixes the machine if it breaks?',
+		answer:
+			'We do. Local technicians respond to reported service issues within 24 hours, including after hours.',
+	},
+];
+---
+
+<ServiceLayout
+	title="Free Vending Machines for DFW Businesses"
+	description="Free vending machine placement for Dallas–Fort Worth offices, warehouses, and facilities. Snack, drink, and fresh food machines, cashless, with no contract."
+	h1="Free Vending Machines for DFW Businesses"
+	eyebrow="Vending machine service"
+	intro="Texas Vending installs, stocks, and services snack, drink, and fresh food vending machines at no cost to qualifying businesses across Dallas–Fort Worth. Every machine is cashless, and no long-term contract is required."
+	heroImage={hero}
+	heroAlt="Row of snack and drink vending machines with lit glass fronts"
+	serviceType="Vending machine service"
+	crumb="Vending Machines"
+	faqs={faqs}
+	cta={{
+		heading: 'Get a Free Vending Machine',
+		text: 'Tell us about your location. We will walk the site and recommend the right machines. No cost and no long-term contract.',
+	}}
+>
+	<MediaSection image={tapToPay} alt="Employee paying at a snack vending machine with a phone" heading="What Free Vending Includes" eyebrow="Zero cost">
+		<p>
+			"Free" means your business pays nothing for the equipment or the work to keep it running. At qualifying locations, we
+			cover:
+		</p>
+		<ul>
+			<li>The vending machine itself</li>
+			<li>Delivery, placement, and setup</li>
+			<li>Stocking and restocking</li>
+			<li>Cleaning, maintenance, and repairs</li>
+		</ul>
+		<p>
+			You provide the floor space and a power outlet. There is no installation fee, no service fee, and no long-term contract.
+		</p>
+	</MediaSection>
+
+	<MediaSection image={fullLine} alt="Full line of snack, drink, and fresh food vending machines in a break room" heading="Snack, Drink, Combo, and Fresh Food Machines" eyebrow="Machine types" reverse>
+		<p>We match the machine to your space and your team:</p>
+		<h3>Snack machines</h3>
+		<p>Chips, candy, pastries, protein bars, and better-for-you snacks.</p>
+		<h3>Beverage machines</h3>
+		<p>Cold sodas, water, sports drinks, energy drinks, and teas from brands like Coca-Cola, Pepsi, Dr Pepper, Monster, and Red Bull.</p>
+		<h3>Combo machines</h3>
+		<p>Snacks and drinks in one cabinet, for break rooms with limited space.</p>
+		<h3>Refrigerated fresh food machines</h3>
+		<p>
+			Sandwiches, wraps, salads, yogurt, and fruit cups. See our <a href="/fresh-food/">fresh food</a> options.
+		</p>
+	</MediaSection>
+
+	<PhotoPair
+		photos={[
+			{
+				image: glassDoor,
+				alt: 'Woman choosing a packaged meal from a glass-door fresh food machine',
+				caption: 'Glass-door fresh food machines hold sandwiches, salads, and meals.',
+			},
+			{
+				image: stocked,
+				alt: 'Row of glass-door drink coolers beside snack racks and a self-checkout kiosk',
+				caption: 'Larger sites can pair drink coolers and snacks with self-checkout.',
+			},
+		]}
+	/>
+	<MidCTA />
+
+
+	<MediaSection image={cashless} alt="Phone held to the touch-screen payment reader on a drink vending machine" heading="Cashless Payment and Real-Time Stock" eyebrow="Smart technology">
+		<p>
+			Every Texas Vending machine accepts credit and debit cards, mobile wallets, and tap-to-pay. Nobody has to hunt for
+			cash or an ATM on a short break.
+		</p>
+		<p>
+			Our machines also report sales as they happen. That tells us what is running low before it runs out, so we restock
+			what your team actually buys. Each location gets its own restocking schedule, and we plan visits around your shifts,
+			docks, and badge rules.
+		</p>
+		<p>
+			Want a product you don't see? Ask. We add specific products and brands when there is enough demand at your location.
+		</p>
+	</MediaSection>
+
+	<MediaSection image={cardPayment} alt="Woman paying with a card at a vending machine" heading="Who Qualifies and How It Works" eyebrow="Getting started" reverse>
+		<p>
+			A location qualifies for free vending with at least 50 people in total foot traffic, counting employees and visitors.
+			Offices, warehouses, distribution centers, plants, and healthcare facilities across North Texas all qualify when they
+			meet that number.
+		</p>
+		<ol>
+			<li><strong>Reach out.</strong> Call or use our <a href="/contact-us/">contact form</a>.</li>
+			<li><strong>Site walk.</strong> We visit to check your space, power, and traffic.</li>
+			<li><strong>Free install.</strong> We deliver, place, and set up the machines.</li>
+			<li><strong>We run it.</strong> We stock, clean, and repair everything.</li>
+		</ol>
+		<p>
+			Want to discount prices for your team? Ask us about subsidized vending. Comparing providers? Use our{' '}
+			<a href="/blog/vending-contract-checklist/">vending contract checklist</a>.
+		</p>
+	</MediaSection>
+</ServiceLayout>

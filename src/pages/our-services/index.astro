@@ -1,0 +1,140 @@
+---
+import { Image } from 'astro:assets';
+import ServiceLayout from '../../layouts/ServiceLayout.astro';
+import MidCTA from '../../components/MidCTA.astro';
+import hero from '../../assets/services/our-services/office-breakroom-smart-vending.png';
+import vendingImage from '../../assets/services/our-services/snack-drink-vending-machines.jpeg';
+import microMarketImage from '../../assets/services/our-services/micro-market-breakroom.jpeg';
+import smartCoolerImage from '../../assets/services/our-services/smart-cooler-breakroom.jpeg';
+import coffeeImage from '../../assets/services/our-services/office-coffee-station.jpg';
+import repairImage from '../../assets/services/our-services/technician-inspecting-vending-machine.jpg';
+import movingImage from '../../assets/services/our-services/vending-machines-installed.jpeg';
+import { services } from '../../data/services';
+
+// Card photos, keyed by service page
+const cardImages: Record<string, { image: ImageMetadata; alt: string }> = {
+	'/our-services/vending-machine/': { image: vendingImage, alt: 'Row of snack and drink vending machines' },
+	'/our-services/micro-markets/': { image: microMarketImage, alt: 'Break room micro market with shelves, coolers, and a self-checkout kiosk' },
+	'/our-services/ai-smart-cooler/': { image: smartCoolerImage, alt: 'Two-door 24-hour smart cooler in an office break room' },
+	'/our-services/coffee-water/': { image: coffeeImage, alt: 'Office coffee station with a brewer and mugs' },
+	'/our-services/vending-repair/': { image: repairImage, alt: 'Technician inspecting a vending machine with a clipboard' },
+	'/our-services/vending-moving/': { image: movingImage, alt: 'Snack and drink vending machines set up in a break room' },
+};
+
+const faqs = [
+	{
+		question: 'What services does Texas Vending provide?',
+		answer:
+			'Vending machines, micro markets, AI smart coolers, office coffee and water service, fresh food, vending machine repair, and vending machine moving for businesses across Dallas–Fort Worth.',
+	},
+	{
+		question: 'Is there a cost to install vending machines, micro markets, or smart coolers?',
+		answer:
+			'No, at qualifying locations. Equipment, delivery, and setup are free when a location has at least 50 people in total foot traffic, counting employees and visitors.',
+	},
+	{
+		question: 'Which service is right for my break room?',
+		answer:
+			'It depends on your space, traffic, and shifts. Vending machines fit small spaces, smart coolers add fresh food in a small footprint, and micro markets give larger teams the most variety. We recommend a mix after a free site walk.',
+	},
+	{
+		question: 'Do you require a long-term contract?',
+		answer: 'No. No long-term contract is required.',
+	},
+	{
+		question: 'Which areas do you serve?',
+		answer: 'We are based in Dallas and serve Dallas–Fort Worth and the surrounding North Texas cities.',
+	},
+];
+---
+
+<ServiceLayout
+	title="Vending & Breakroom Services in DFW"
+	description="Vending machines, micro markets, AI smart coolers, coffee and water, repair, and moving for Dallas–Fort Worth businesses. Free placement, no contract."
+	h1="Vending and Breakroom Services in DFW"
+	eyebrow="Our services"
+	intro="Texas Vending stocks and services everything your break room needs: vending machines, micro markets, AI smart coolers, and office coffee and water. We also repair and move vending equipment across Dallas–Fort Worth. Placement is free at qualifying locations, with no long-term contract."
+	heroImage={hero}
+	heroAlt="Office break room with smart vending coolers, seating, and coworkers on a break"
+	serviceType="Vending and breakroom services"
+	crumb="Our Services"
+	faqs={faqs}
+>
+	<section class="mx-auto max-w-6xl px-4 py-16 md:py-20">
+		<div class="mx-auto max-w-2xl text-center">
+			<p class="eyebrow">What we do</p>
+			<h2 class="mt-3 text-4xl uppercase md:text-5xl">Six Ways to Fuel Your Team</h2>
+			<p class="mt-4 text-lg text-slate-600">
+				Pick one service or combine them. One local team handles stocking, repairs, and support for all of it.
+			</p>
+		</div>
+		<ul class="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+			{
+				services.map((service) => (
+					<li>
+						<a href={service.href} class="group block h-full overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-slate-200 transition hover:ring-brand">
+							<Image
+								src={cardImages[service.href].image}
+								alt={cardImages[service.href].alt}
+								widths={[400, 600]}
+								sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+								class="aspect-[3/2] w-full object-cover transition group-hover:scale-105"
+							/>
+							<div class="p-6">
+								<h3 class="text-2xl uppercase text-ink">{service.name}</h3>
+								<p class="mt-2 text-slate-600">{service.summary}</p>
+								<span class="eyebrow mt-4 inline-block">Learn more →</span>
+							</div>
+						</a>
+					</li>
+				))
+			}
+		</ul>
+	</section>
+
+	<MidCTA />
+
+	<div class="bg-slate-50">
+		<div class="mx-auto max-w-3xl px-4 py-16 text-lg leading-relaxed text-slate-700 [&_a]:font-semibold [&_a]:text-brand [&_a:hover]:underline [&_h2]:mt-14 [&_h2]:mb-4 [&_h2]:text-4xl [&_h2]:uppercase [&_h2]:text-slate-900 [&_h3]:mt-6 [&_h3]:text-2xl [&_h3]:text-slate-900 [&_li]:mt-2 [&_p]:mt-4">
+			<h2 class="!mt-0">Which Service Fits Your Break Room?</h2>
+			<h3>Small space or a small team</h3>
+			<p>
+				A <a href="/our-services/vending-machine/">vending machine</a> or an{' '}
+				<a href="/our-services/ai-smart-cooler/">AI smart cooler</a> fits in a corner and needs only a power outlet. Smart
+				coolers add fresh meals in the footprint of a refrigerator.
+			</p>
+			<h3>Large teams and several shifts</h3>
+			<p>
+				A <a href="/our-services/micro-markets/">micro market</a> gives people the most variety, from fresh meals to snacks
+				and drinks, with self-checkout that stays open around the clock.
+			</p>
+			<h3>Every office</h3>
+			<p>
+				Add <a href="/our-services/coffee-water/">office coffee and filtered water</a> to any setup.
+			</p>
+
+			<h2>What Every Service Includes</h2>
+			<ul class="list-disc pl-6">
+				<li><strong>Free placement</strong> at locations with at least 50 people in total foot traffic, counting employees and visitors</li>
+				<li><strong>No long-term contract</strong></li>
+				<li><strong>Cashless payment</strong> on every machine and market: cards, mobile wallets, and tap-to-pay</li>
+				<li><strong>Real-time monitoring</strong> so we restock before items run out</li>
+				<li><strong>24-hour response</strong> to reported service issues, from local technicians</li>
+			</ul>
+
+			<h2>Who We Serve</h2>
+			<p>
+				We serve <a href="/industries-we-serve/corporate-offices/">corporate offices</a>,{' '}
+				<a href="/industries-we-serve/warehouses/">warehouses</a>,{' '}
+				<a href="/industries-we-serve/logistics/">logistics and distribution centers</a>,{' '}
+				<a href="/industries-we-serve/manufacturing-facilities/">manufacturing plants</a>,{' '}
+				<a href="/industries-we-serve/hospitals/">hospitals</a>, and more across Dallas–Fort Worth. We plan service visits
+				around your shifts, docks, and badge rules.
+			</p>
+			<p>
+				Not sure where to start? <a href="/contact-us/">Book a free site visit</a>. We walk your space before we recommend
+				anything.
+			</p>
+		</div>
+	</div>
+</ServiceLayout>

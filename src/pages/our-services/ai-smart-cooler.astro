@@ -1,0 +1,126 @@
+---
+import ServiceLayout from '../../layouts/ServiceLayout.astro';
+import MediaSection from '../../components/MediaSection.astro';
+import PhotoPair from '../../components/PhotoPair.astro';
+import MidCTA from '../../components/MidCTA.astro';
+import hero from '../../assets/services/ai-smart-cooler/smart-cooler-breakroom.jpeg';
+import branded from '../../assets/services/ai-smart-cooler/texas-vending-smart-coolers.png';
+import tapUnlock from '../../assets/services/ai-smart-cooler/smart-cooler-tap-to-unlock.jpg';
+import mobilePay from '../../assets/services/ai-smart-cooler/smart-cooler-mobile-payment.jpg';
+import putBack from '../../assets/services/ai-smart-cooler/smart-cooler-put-item-back.jpg';
+import freshMeals from '../../assets/services/ai-smart-cooler/smart-cooler-fresh-meals.jpeg';
+import officeFridge from '../../assets/services/ai-smart-cooler/smart-fridge-office.webp';
+
+const faqs = [
+	{
+		question: 'How does an AI smart cooler work?',
+		answer:
+			'Tap a card or phone to unlock the door, take what you want, and close the door. The cooler detects what you took and charges you automatically.',
+	},
+	{
+		question: 'Can I put an item back if I change my mind?',
+		answer: 'Yes. Put it back before you close the door and you are not charged for it.',
+	},
+	{
+		question: 'What can a smart cooler hold?',
+		answer:
+			'Fresh meals, sandwiches, salads, wraps, yogurt, cold drinks, and snacks. It holds items a coil vending machine cannot.',
+	},
+	{
+		question: 'Is a smart cooler free?',
+		answer:
+			'Yes, at qualifying locations. A location qualifies with at least 50 people in total foot traffic, counting employees and visitors. We cover the cooler, delivery, setup, stocking, and service.',
+	},
+	{
+		question: 'Smart cooler or micro market: which is better?',
+		answer:
+			'A smart cooler needs about the floor space of a refrigerator and suits smaller or secured areas. A micro market offers more variety for larger break rooms. We recommend the right fit after a site walk.',
+	},
+];
+---
+
+<ServiceLayout
+	title="AI Smart Coolers for DFW Workplaces"
+	description="Free AI smart cooler placement for DFW offices, warehouses, and hospitals. Tap to unlock, grab fresh food, and get charged automatically. No contract."
+	h1="AI Smart Coolers for DFW Workplaces"
+	eyebrow="AI smart cooler service"
+	intro="An AI smart cooler is a self-service fridge that unlocks with a tap, lets people grab fresh meals and drinks, and charges them automatically when they close the door. Texas Vending places, stocks, and services smart coolers at no cost to qualifying Dallas–Fort Worth businesses."
+	heroImage={hero}
+	heroAlt="Two-door 24-hour smart vending cooler in an office break room next to microwaves"
+	serviceType="Smart cooler vending service"
+	crumb="AI Smart Coolers"
+	faqs={faqs}
+	cta={{
+		heading: 'Get a Free AI Smart Cooler',
+		text: 'Book a site walk and we will find the best spot for a smart cooler in your building. No cost and no long-term contract.',
+	}}
+>
+	<MediaSection image={tapUnlock} alt="Hand opening a smart cooler door after tapping to unlock" heading="Tap, Grab, and Go" eyebrow="How it works">
+		<ol>
+			<li><strong>Tap to unlock.</strong> Use a credit or debit card, a mobile wallet, or tap-to-pay.</li>
+			<li><strong>Take what you want.</strong> Open the door and pick any items.</li>
+			<li><strong>Close the door.</strong> The cooler detects what you took and charges you automatically.</li>
+		</ol>
+		<p>
+			There is no line, no keypad, and no coil that jams. A purchase takes seconds, which matters when a break is only 15
+			minutes long.
+		</p>
+	</MediaSection>
+
+	<MediaSection image={freshMeals} alt="Smart cooler shelves stocked with fresh salads, sandwiches, and drinks" heading="Real Meals, Not Just Snacks" eyebrow="What we stock" reverse>
+		<p>
+			Smart coolers hold items that don't fit in a spiral machine: sandwiches, salads, wraps, ready-to-eat meals, yogurt,
+			and fruit cups, along with cold drinks and snacks.
+		</p>
+		<p>
+			We change the mix based on what sells, and we add specific products when there is enough demand. See our{' '}
+			<a href="/fresh-food/">fresh food</a> menu.
+		</p>
+	</MediaSection>
+
+	<PhotoPair
+		photos={[
+			{
+				image: mobilePay,
+				alt: 'Phone held to a smart cooler payment reader to unlock the door',
+				caption: 'Unlock with a card, a phone wallet, or tap-to-pay.',
+			},
+			{
+				image: putBack,
+				alt: 'Person returning a drink to a smart cooler shelf',
+				caption: 'Changed your mind? Put the item back before you close the door.',
+			},
+		]}
+	/>
+	<MidCTA />
+
+
+	<MediaSection image={branded} alt="Texas Vending branded smart coolers stocked with drinks and snacks" heading="Built for Every Shift" eyebrow="Where smart coolers fit">
+		<p>
+			A smart cooler needs little more floor space than a refrigerator and a power outlet. That makes it a strong fit for:
+		</p>
+		<ul>
+			<li>Warehouse and plant break rooms with short breaks</li>
+			<li>Badge-access staff lounges in hospitals and clinics</li>
+			<li>Office kitchens and lobbies</li>
+			<li>Sites that run nights and weekends</li>
+		</ul>
+		<p>
+			Real-time monitoring tells our team what is running low, and we plan restocking around your shifts, docks, and badge
+			rules.
+		</p>
+	</MediaSection>
+
+	<MediaSection image={officeFridge} alt="Coworkers sharing a meal in an office break room with a smart fridge behind them" heading="Free Placement, Local Service" eyebrow="What you get" reverse>
+		<ul>
+			<li><strong>$0</strong> for the cooler, delivery, and setup at qualifying locations</li>
+			<li>Qualifies with at least 50 people in total foot traffic, counting employees and visitors</li>
+			<li>No long-term contract</li>
+			<li>24-hour response to reported service issues, including after hours</li>
+		</ul>
+		<p>
+			Need more variety? Consider a <a href="/our-services/micro-markets/">micro market</a>. Running a hospital? Read our
+			guide to <a href="/blog/dallas-healthcare-vending-services/">Dallas healthcare vending services</a>.
+		</p>
+	</MediaSection>
+</ServiceLayout>

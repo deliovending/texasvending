@@ -1,0 +1,137 @@
+---
+import ServiceLayout from '../../layouts/ServiceLayout.astro';
+import MediaSection from '../../components/MediaSection.astro';
+import PhotoPair from '../../components/PhotoPair.astro';
+import MidCTA from '../../components/MidCTA.astro';
+import hero from '../../assets/services/micro-markets/micro-market-breakroom.jpeg';
+import freshCoolers from '../../assets/services/micro-markets/micro-market-fresh-food-coolers.jpg';
+import shelves from '../../assets/services/micro-markets/micro-market-shelves.png';
+import selfCheckout from '../../assets/services/micro-markets/micro-market-self-checkout.jpg';
+import coffeeCounter from '../../assets/services/micro-markets/micro-market-coffee-counter.jpg';
+import openShelving from '../../assets/services/micro-markets/micro-market-open-shelving.jpg';
+import drinksSnacks from '../../assets/services/micro-markets/micro-market-drinks-snacks.webp';
+
+const faqs = [
+	{
+		question: 'What is a micro market?',
+		answer:
+			'A micro market is a small self-service store in your break room. Employees pick items from open shelves and glass-door coolers, then pay at a self-checkout kiosk.',
+	},
+	{
+		question: 'How much does a micro market cost my business?',
+		answer:
+			'Nothing at qualifying locations. Texas Vending covers the design, equipment, delivery, setup, stocking, and service. A location qualifies with at least 50 people in total foot traffic, counting employees and visitors.',
+	},
+	{
+		question: 'Is a micro market better than a vending machine?',
+		answer:
+			'It offers more variety, including fresh meals, and lets people pick up and read products before buying. A vending machine fits smaller spaces. We recommend the right fit after a site walk.',
+	},
+	{
+		question: 'How do people pay at a micro market?',
+		answer: 'At a self-checkout kiosk with a credit or debit card, a mobile wallet, or tap-to-pay. No cash is needed.',
+	},
+	{
+		question: 'Is a micro market open after hours?',
+		answer: 'Yes. Micro markets are self-checkout, so they stay open around the clock for every shift.',
+	},
+];
+---
+
+<ServiceLayout
+	title="Micro Markets in Dallas–Fort Worth"
+	description="Free micro market installation for DFW workplaces. A self-checkout break room store with fresh meals, snacks, and drinks, open 24/7. No long-term contract."
+	h1="Micro Markets for DFW Break Rooms"
+	eyebrow="Micro market service"
+	intro="A micro market puts a self-checkout store in your break room, with fresh meals, snacks, and cold drinks your team can grab at any hour. Texas Vending designs, installs, stocks, and services micro markets at no cost to qualifying Dallas–Fort Worth businesses."
+	heroImage={hero}
+	heroAlt="Break room micro market with snack shelves, drink coolers, and a self-checkout kiosk"
+	serviceType="Micro market service"
+	crumb="Micro Markets"
+	faqs={faqs}
+	cta={{
+		heading: 'Get a Free Micro Market',
+		text: 'Book a site walk. We will look at your space and traffic and design a market that fits. No cost and no long-term contract.',
+	}}
+>
+	<MediaSection image={freshCoolers} alt="Micro market with glass-door coolers of fresh meals and drinks beside snack shelves" heading="What Is a Micro Market?" eyebrow="How it works">
+		<p>
+			A micro market is a small, unattended store inside your workplace. Instead of a coil machine with a few dozen
+			slots, employees walk up to open shelves and glass-door coolers, pick what they want, and pay at a self-checkout
+			kiosk.
+		</p>
+		<p>
+			People can pick up a product, read the label, and change their mind. That makes a micro market a good fit for fresh
+			meals and for teams with different tastes and diets.
+		</p>
+		<p>
+			In Texas, micro markets are licensed as{' '}
+			<a href="https://www.dshs.texas.gov/retail-food-establishments/general-faqs-retail-food-establishments/self-service-food-market">Self-Service Food Markets</a>,
+			a type of retail food establishment.
+		</p>
+	</MediaSection>
+
+	<MediaSection image={shelves} alt="Micro market wall of labeled snack shelves and drink coolers" heading="Fresh Meals, Snacks, and Drinks" eyebrow="What we stock" reverse>
+		<p>A micro market carries far more than a vending machine:</p>
+		<ul>
+			<li><strong>Fresh food:</strong> sandwiches, salads, wraps, and ready-to-eat meals</li>
+			<li><strong>Breakfast:</strong> burritos, boiled eggs, yogurt, and fruit cups</li>
+			<li><strong>Drinks:</strong> sodas, water, teas, protein shakes, and cold brew coffee</li>
+			<li><strong>Snacks:</strong> chips, candy, protein bars, and better-for-you options</li>
+		</ul>
+		<p>
+			We change the mix based on what sells, and we add specific products and brands when there is enough demand. See our{' '}
+			<a href="/fresh-food/">fresh food</a> menu.
+		</p>
+	</MediaSection>
+
+	<PhotoPair
+		photos={[
+			{
+				image: coffeeCounter,
+				alt: 'Micro market with drink coolers, snack racks, and a coffee and tea counter',
+				caption: 'Pair a micro market with a coffee station for one complete break room.',
+			},
+			{
+				image: openShelving,
+				alt: 'Open micro market shelving with snacks, drinks, and seating nearby',
+				caption: 'Open shelves let people see and pick up every product.',
+			},
+		]}
+	/>
+	<MidCTA />
+
+
+	<MediaSection image={selfCheckout} alt="Hand tapping a touch-screen self-checkout display" heading="Self-Checkout, Open 24/7" eyebrow="For every shift">
+		<p>
+			Checkout takes seconds. Employees scan their items and pay with a card, a mobile wallet, or tap-to-pay. No cashier
+			and no cash.
+		</p>
+		<p>
+			Because it is self-service, a micro market stays open around the clock. Your night and weekend crews get the same
+			food as the day shift.
+		</p>
+		<p>
+			Real-time monitoring tells our team when the market needs service, and we plan restocking visits around your shifts,
+			docks, and badge rules.
+		</p>
+	</MediaSection>
+
+	<MediaSection image={drinksSnacks} alt="Micro market with drink coolers and snack displays along a break room wall" heading="Is a Micro Market Right for Your Site?" eyebrow="Choosing the right fit" reverse>
+		<p>
+			A location qualifies for a free micro market with at least 50 people in total foot traffic, counting employees and
+			visitors. Micro markets work well in:
+		</p>
+		<ul>
+			<li>Offices and corporate break rooms</li>
+			<li>Warehouses and distribution centers with several shifts</li>
+			<li>Manufacturing plants</li>
+			<li>Hospitals, clinics, and other round-the-clock sites</li>
+		</ul>
+		<p>
+			Short on space? An <a href="/our-services/ai-smart-cooler/">AI smart cooler</a> or a{' '}
+			<a href="/our-services/vending-machine/">vending machine</a> may fit better. We walk your site before we recommend
+			anything.
+		</p>
+	</MediaSection>
+</ServiceLayout>

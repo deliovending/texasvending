@@ -1,0 +1,136 @@
+---
+import ServiceLayout from '../../layouts/ServiceLayout.astro';
+import MediaSection from '../../components/MediaSection.astro';
+import PhotoPair from '../../components/PhotoPair.astro';
+import MidCTA from '../../components/MidCTA.astro';
+import { industries } from '../../data/industries';
+import hero from '../../assets/industries/corporate-offices/office-lounge-vending.png';
+import officeLounge from '../../assets/industries/corporate-offices/office-lounge.png';
+import smartFridge from '../../assets/industries/corporate-offices/office-smart-fridge.webp';
+import meetingSalads from '../../assets/industries/corporate-offices/office-meeting-salads.jpg';
+import teamBreak from '../../assets/industries/corporate-offices/team-break.jpg';
+import officeLunch from '../../assets/industries/corporate-offices/office-lunch.jpg';
+
+const faqs = [
+	{
+		question: 'Does our office qualify for free vending?',
+		answer:
+			'An office qualifies with at least 50 people in total foot traffic, counting employees and visitors. Equipment, delivery, and setup then cost $0, with no installation fee, no service fee, and no long-term contract.',
+	},
+	{
+		question: 'Is office coffee service free?',
+		answer:
+			'Coffee machine installation is free. Coffee, tea, and supplies are paid. Brands include Starbucks, Ellis Coffee, and Rooted Grounds Coffee Co.',
+	},
+	{
+		question: 'Can we offer snacks and meals as an employee perk?',
+		answer:
+			'Yes. Subsidized vending is available on request. The company covers part of the price, so employees pay less at the machine or market.',
+	},
+	{
+		question: 'Can employees request specific products?',
+		answer:
+			'Yes. We track what sells and listen to requests. Specific products and brands are added when there is enough demand.',
+	},
+	{
+		question: 'Do you serve offices on several floors or in shared buildings?',
+		answer:
+			'Yes. We walk the building first and recommend where equipment should go. Service visits are planned around your hours and building access rules.',
+	},
+];
+---
+
+<ServiceLayout
+	title="Corporate Office Vending Services in DFW"
+	description="Free smart coolers, micro markets, vending, and coffee machine setup for Dallas–Fort Worth corporate offices. Cashless, fresh food, and no long-term contract."
+	h1="Corporate Office Vending Services in DFW"
+	eyebrow="Corporate Offices"
+	intro="Texas Vending stocks Dallas–Fort Worth offices with smart coolers, micro markets, vending machines, and coffee, so teams can grab breakfast, lunch, or a snack without leaving the building. Placement is free at qualifying offices, and there is no long-term contract."
+	heroImage={hero}
+	heroAlt="Office lounge with people on sofas and two smart vending coolers behind them"
+	serviceType="Corporate office vending services"
+	crumb="Corporate Offices"
+	parent={{ name: 'Industries We Serve', url: '/industries-we-serve/' }}
+	related={{ heading: 'Other Industries We Serve', items: industries }}
+	faqs={faqs}
+	cta={{
+		heading: 'Upgrade Your Office Break Room',
+		text: 'Tell us your headcount, floors, and office hours. We will walk the space and recommend the right setup. No cost for equipment and no long-term contract.',
+	}}
+>
+	<MediaSection image={officeLounge} alt="Coworkers brainstorming in a bright office lounge with bean bags and a coffee bar" heading="Keeping Teams in the Office Through the Day" eyebrow="The challenge">
+		<p>
+			Offices ask more of the break room than they used to. Teams come in for meetings, client visits, and collaboration
+			days, and they expect the office to make that easy. A lunch run that eats an hour, or a coffee line down the
+			street, pulls people out of the building at the times you most want them together.
+		</p>
+		<p>
+			Office managers and HR teams also have enough to manage. Ordering snacks, restocking a fridge, and chasing
+			reimbursements is time taken from real work. A break room that stocks itself solves both problems.
+		</p>
+		<p>
+			Visitors notice the break room too. A client waiting for a meeting or a candidate on interview day sees an empty,
+			cash-only machine very differently from a clean cooler of fresh food and a working coffee machine.
+		</p>
+	</MediaSection>
+
+	<MediaSection image={smartFridge} alt="Coworkers sharing lunch at a table near a touch-screen smart fridge" heading="Break Room Options for Every Office Size" eyebrow="What we install" reverse>
+		<p>The right setup depends on your space, headcount, and how your office uses its break room:</p>
+		<ul>
+			<li><a href="/our-services/ai-smart-cooler/">AI smart coolers</a> for fresh meals in a small kitchen or pantry</li>
+			<li><a href="/our-services/micro-markets/">Micro markets</a> for larger cafés with open shelves and self-checkout</li>
+			<li><a href="/our-services/vending-machine/">Snack and drink vending machines</a> for lobbies and side break areas</li>
+			<li><a href="/our-services/coffee-water/">Coffee machines and water</a> with Starbucks, Ellis Coffee, and Rooted Grounds Coffee Co.</li>
+		</ul>
+		<p>
+			Smart coolers unlock with a tap and charge automatically for what is taken. Put an item back before the door
+			closes, and you are not charged. Our <a href="/fresh-food/">fresh food menu</a> covers sandwiches, wraps, salads,
+			yogurt, fruit cups, and better-for-you drinks for working lunches.
+		</p>
+		<h3>Fitting a Multi-Floor Office</h3>
+		<p>
+			In a building with several floors, one break room may be an elevator ride away for half the staff. We look at where
+			teams sit and meet, then tell you whether a smart cooler on a second floor or a coffee station near the conference
+			rooms would get more use than one larger setup. Shared buildings often have rules for deliveries and loading
+			docks, and we plan around them.
+		</p>
+	</MediaSection>
+
+	<PhotoPair
+		photos={[
+			{
+				image: meetingSalads,
+				alt: 'Coworkers in a meeting with packaged salads and bottled water on the table',
+				caption: 'Salads and bottled water make a working lunch easy to pull together.',
+			},
+			{
+				image: teamBreak,
+				alt: 'Coworkers talking around a table of snacks and drinks in an office',
+				caption: 'A stocked break room gives teams a reason to gather and talk.',
+			},
+		]}
+	/>
+	<MidCTA />
+
+
+	<MediaSection image={officeLunch} alt="Coworkers chatting over coffee and pastries in a bright office café" heading="Service That Stays Out of Your Way" eyebrow="How we serve offices">
+		<ul>
+			<li><strong>Stocked on real data.</strong> Equipment reports sales in real time, so we restock what is running low and drop what does not sell.</li>
+			<li><strong>Visits that fit your building.</strong> We set a restocking schedule for your office and plan around your hours, security desk, and badge rules.</li>
+			<li><strong>Cashless.</strong> Cards, mobile wallets, and tap-to-pay on every machine, micro market, and coffee system.</li>
+			<li><strong>Subsidized vending on request.</strong> Lower prices for your team as a workplace perk.</li>
+			<li><strong>24-hour response.</strong> Local technicians respond to reported issues within 24 hours, including after hours.</li>
+		</ul>
+		<p>
+			Office attendance can swing from day to day with hybrid schedules. Real-time sales data lets us stock for your busy
+			days instead of guessing, so Tuesday lunch does not sell out and Friday food does not go to waste.
+		</p>
+		<p>
+			Coffee often matters most. We install the machine at no cost, and you pay for the coffee, tea, and supplies you
+			use. Pick from Starbucks, Ellis Coffee, or Rooted Grounds Coffee Co. based on what your team likes.
+		</p>
+		<p>
+			Switching from another provider? Our <a href="/blog/vending-contract-checklist/">vending contract checklist</a> shows what to look for before you sign.
+		</p>
+	</MediaSection>
+</ServiceLayout>

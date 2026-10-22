@@ -1,0 +1,131 @@
+---
+import ServiceLayout from '../../../layouts/ServiceLayout.astro';
+import MediaSection from '../../../components/MediaSection.astro';
+import PhotoPair from '../../../components/PhotoPair.astro';
+import MidCTA from '../../../components/MidCTA.astro';
+import { cities, cityHref, cityPhotoAlt } from '../../../data/cities';
+import { services } from '../../../data/services';
+import hero from '../../../assets/cities/office-campus.jpeg';
+import warehouse from '../../../assets/cities/warehouse-cafeteria.avif';
+import office from '../../../assets/cities/office-breakroom-coolers.png';
+import smartCooler from '../../../assets/cities/smart-cooler-kiosk.jpeg';
+import microMarket from '../../../assets/cities/micro-market-stations.jpg';
+import technician from '../../../assets/cities/technician-vending.jpg';
+
+// Regions in display order, each with its cities sorted by name
+const regionOrder = [
+	'Dallas and Central',
+	'Fort Worth and Tarrant County',
+	'DFW Airport Area',
+	'Collin County and North',
+	'North Corridor',
+	'East of Dallas',
+	'South Dallas and Ellis County',
+];
+const regions = regionOrder.map((region) => ({
+	region,
+	cities: cities.filter((city) => city.region === region).sort((a, b) => a.name.localeCompare(b.name)),
+}));
+
+const faqs = [
+	{
+		question: 'Which cities does Texas Vending serve?',
+		answer:
+			'We serve Dallas–Fort Worth and North Texas, including Dallas, Fort Worth, Arlington, Plano, Irving, Frisco, McKinney, the North Corridor up to Sherman, and southern Dallas County down to Waxahachie.',
+	},
+	{
+		question: 'My city is not listed. Can you still help?',
+		answer: 'Probably. Contact us with your address. If you are in North Texas, we will tell you whether we can serve your site.',
+	},
+	{
+		question: 'Is placement free in every city?',
+		answer:
+			'Yes, for locations with at least 50 people in total foot traffic, counting employees and visitors. Equipment, delivery, and setup are free.',
+	},
+	{
+		question: 'Where is your office?',
+		answer: 'Our office is at 2777 N Stemmons Fwy, Dallas, TX 75207.',
+	},
+	{
+		question: 'How fast do you respond to service calls?',
+		answer: 'Local technicians respond to reported service issues within 24 hours, including after hours.',
+	},
+];
+---
+
+<ServiceLayout
+	title="Cities We Serve in North Texas"
+	description="Texas Vending serves Dallas, Fort Worth, Plano, Irving, Frisco, McKinney, Sherman, DeSoto, and more across North Texas. Free placement, no contract."
+	h1="Cities We Serve in North Texas"
+	eyebrow="Service area"
+	intro="Texas Vending serves businesses across Dallas–Fort Worth and North Texas, from Sherman in the north to Waxahachie in the south and from Fort Worth to Forney. Find your city below to see how we serve local workplaces."
+	heroImage={hero}
+	heroAlt={cityPhotoAlt['office-campus.jpeg']}
+	serviceType="Vending and breakroom services"
+	areaServed="Dallas–Fort Worth and North Texas"
+	crumb="Cities We Serve"
+	parent={{ name: 'About Us', url: '/about-us/' }}
+	related={{ heading: 'Our Services', items: services }}
+	faqs={faqs}
+>
+	<section class="mx-auto max-w-6xl px-4 py-16 md:py-20">
+		<div class="mx-auto max-w-2xl text-center">
+			<p class="eyebrow">Find your city</p>
+			<h2 class="mt-3 text-4xl uppercase md:text-5xl">Our North Texas Service Area</h2>
+		</div>
+		<div class="mt-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+			{
+				regions.map(({ region, cities: regionCities }) => (
+					<div>
+						<h3 class="text-2xl uppercase text-ink">{region}</h3>
+						<ul class="mt-4 space-y-2">
+							{regionCities.map((city) => (
+								<li>
+									<a href={cityHref(city)} class="font-semibold text-brand hover:underline">
+										{city.name}
+									</a>
+									{city.towns && <span class="text-slate-600"> (includes {city.towns.map((town) => town.name).filter((name) => name !== city.name).join(', ')})</span>}
+								</li>
+							))}
+						</ul>
+					</div>
+				))
+			}
+		</div>
+	</section>
+
+	<MediaSection image={warehouse} alt={cityPhotoAlt['warehouse-cafeteria.avif']} heading="One Local Team for All of DFW" eyebrow="Based in Dallas">
+		<p>
+			Our team is based in Dallas and works across North Texas every day. Whether your site is an office tower in Las
+			Colinas, a distribution center in DeSoto, or a plant in Sherman, you get the same service:
+		</p>
+		<ul>
+			<li>Free placement at locations with at least 50 people in total foot traffic, counting employees and visitors</li>
+			<li>No long-term contract</li>
+			<li>Cashless payment on every machine</li>
+			<li>24-hour response to reported service issues</li>
+		</ul>
+	</MediaSection>
+
+	<PhotoPair
+		photos={[
+			{ image: office, alt: cityPhotoAlt['office-breakroom-coolers.png'], caption: 'Offices across Dallas and Collin County.' },
+			{ image: smartCooler, alt: cityPhotoAlt['smart-cooler-kiosk.jpeg'], caption: 'Fresh food for warehouses and plants on every shift.' },
+		]}
+	/>
+	<MidCTA />
+
+
+	<MediaSection image={microMarket} alt={cityPhotoAlt['micro-market-stations.jpg']} heading="Everything Your Break Room Needs" eyebrow="Our services" reverse>
+		<p>
+			In every city we serve, we install and run <a href="/our-services/vending-machine/">vending machines</a>, <a href="/our-services/micro-markets/">micro markets</a>, <a href="/our-services/ai-smart-cooler/">AI smart coolers</a>, and <a href="/our-services/coffee-water/">office coffee and water</a>. We also offer <a href="/fresh-food/">fresh food</a>.
+		</p>
+	</MediaSection>
+
+	<MediaSection image={technician} alt={cityPhotoAlt['technician-vending.jpg']} heading="Repairs and Moves Across North Texas" eyebrow="Service">
+		<p>
+			Our technicians handle <a href="/our-services/vending-repair/">vending repair</a> and <a href="/our-services/vending-moving/">vending moving</a> across the service area, no matter who supplied the machine.
+		</p>
+		<p>Not sure if we cover your city? <a href="/contact-us/">Contact us</a> with your address.</p>
+	</MediaSection>
+</ServiceLayout>

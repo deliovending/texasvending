@@ -1,0 +1,136 @@
+---
+import ServiceLayout from '../../layouts/ServiceLayout.astro';
+import MediaSection from '../../components/MediaSection.astro';
+import PhotoPair from '../../components/PhotoPair.astro';
+import MidCTA from '../../components/MidCTA.astro';
+import { industries } from '../../data/industries';
+import hero from '../../assets/industries/logistics/distribution-center-breakroom.jpeg';
+import coolersCheckout from '../../assets/industries/logistics/drink-coolers-self-checkout.jpeg';
+import freshFood from '../../assets/industries/logistics/smart-cooler-fresh-food.jpeg';
+import burritos from '../../assets/industries/logistics/smart-cooler-burritos.jpg';
+import tapToPay from '../../assets/industries/logistics/tap-to-pay-vending.jpg';
+import planning from '../../assets/industries/logistics/planning-vending-service.jpg';
+
+const faqs = [
+	{
+		question: 'Do logistics and distribution centers qualify for free vending?',
+		answer:
+			'A location qualifies with at least 50 people in total foot traffic, counting employees and visitors. At a distribution center, drivers, temps, and vendors who come through the building count toward that total. Equipment, delivery, and setup then cost $0, with no long-term contract.',
+	},
+	{
+		question: 'Can drivers and visitors use the machines?',
+		answer:
+			'Yes. Every machine, micro market, and smart cooler is cashless and takes cards, mobile wallets, and tap-to-pay. We can place equipment in a driver lounge or check-in area so drivers do not need to enter the floor.',
+	},
+	{
+		question: 'Do you serve distribution centers that run 24/7?',
+		answer:
+			'Yes. Micro markets are self-checkout and open around the clock, and smart coolers need no cashier. Night and weekend crews get the same food as the day shift.',
+	},
+	{
+		question: 'Will restocking get in the way of our docks?',
+		answer:
+			'No. We plan service visits around your shifts, docks, and badge rules. Equipment reports sales in real time, so each visit restocks what is actually running low.',
+	},
+	{
+		question: 'Can you take over or repair machines we already have?',
+		answer:
+			'Yes. Our local technicians repair and move vending machines no matter who supplied them, and they respond to reported issues within 24 hours, including after hours.',
+	},
+];
+---
+
+<ServiceLayout
+	title="Logistics Vending Services in DFW"
+	description="Free vending, micro markets, and smart coolers for logistics and distribution centers in Dallas–Fort Worth. Cashless, open 24/7, and planned around your docks."
+	h1="Vending for Logistics & Distribution Centers in DFW"
+	eyebrow="Logistics & Distribution"
+	intro="Texas Vending installs vending machines, micro markets, and AI smart coolers in Dallas–Fort Worth distribution centers, so pickers, dock crews, and drivers can eat without leaving the site. Placement is free at qualifying locations, and we plan service around your docks and shifts."
+	heroImage={hero}
+	heroAlt="Large break room with bar tables, stools, and a wall of glass-door coolers"
+	serviceType="Logistics vending services"
+	crumb="Logistics & Distribution"
+	parent={{ name: 'Industries We Serve', url: '/industries-we-serve/' }}
+	related={{ heading: 'Other Industries We Serve', items: industries }}
+	faqs={faqs}
+	cta={{
+		heading: 'Get Free Vending for Your Distribution Center',
+		text: 'Tell us your headcount, shifts, and where drivers check in. We will walk the site and recommend equipment. No cost and no long-term contract.',
+	}}
+>
+	<MediaSection image={coolersCheckout} alt="Row of glass-door drink coolers, snack racks, and a self-checkout kiosk" heading="Drivers, Pickers, and Dock Crews on Different Clocks" eyebrow="The challenge">
+		<p>
+			A distribution center never empties at once. Inbound crews start before dawn, pickers work through the night, and
+			drivers arrive whenever their route allows. Each group needs food at a different hour.
+		</p>
+		<p>
+			Many DFW logistics buildings sit along highway corridors and in industrial parks, far from restaurants. A driver
+			waiting on a load cannot leave the yard. A picker on a short break cannot drive off site and get back on time. When
+			food is inside the building, breaks stay on schedule and nobody goes without.
+		</p>
+		<p>
+			Peak season adds another layer. Temp workers and seasonal hires push headcount up fast, and the break room has to
+			keep up without anyone on your team placing orders.
+		</p>
+		<p>
+			Drivers and outside vendors also count toward the traffic that qualifies a site, so a building with a modest crew
+			and a busy dock may qualify for free placement.
+		</p>
+	</MediaSection>
+
+	<MediaSection image={freshFood} alt="Two-door cooler of salads, sandwiches, fruit cups, and yogurt beside a self-checkout kiosk" heading="Equipment Matched to Your Dock and Driver Traffic" eyebrow="What we install" reverse>
+		<p>We walk the site first, then place equipment where people actually pass:</p>
+		<ul>
+			<li><a href="/our-services/vending-machine/">Snack and drink vending machines</a> for driver lounges, check-in windows, and dispatch offices</li>
+			<li><a href="/our-services/micro-markets/">Self-checkout micro markets</a> for main break rooms that serve several shifts</li>
+			<li><a href="/our-services/ai-smart-cooler/">AI smart coolers</a> for fresh meals where floor space is tight</li>
+			<li>Coffee machines and water service for early starts and long routes</li>
+		</ul>
+		<p>
+			Cold drinks matter here. We carry Coca-Cola, Pepsi, Dr Pepper, Monster, and Red Bull, plus better-for-you drinks.
+			Our <a href="/fresh-food/">fresh food menu</a> adds sandwiches, wraps, salads, breakfast burritos, boiled eggs, and
+			protein snacks, so a long shift is fueled by more than chips.
+		</p>
+		<h3>Placement on a Large Site</h3>
+		<p>
+			A cross-dock or fulfillment building can be a long walk from end to end. One break room by the main entrance may
+			not serve the far docks. During the site walk, we look at where people clock in, where drivers wait, and how long
+			each walk takes. A smart cooler at the far end of the building or a vending machine at the driver window often
+			does more than a bigger setup in one spot.
+		</p>
+	</MediaSection>
+
+	<PhotoPair
+		photos={[
+			{
+				image: burritos,
+				alt: 'Single-door smart cooler stocked with burritos, pizzas, and ice cream',
+				caption: 'Burritos and ready-to-eat meals fill the gap when nearby kitchens are closed.',
+			},
+			{
+				image: tapToPay,
+				alt: 'Woman paying at a snack vending machine with a phone app',
+				caption: 'Drivers pay by card, phone, or tap, so nobody needs cash.',
+			},
+		]}
+	/>
+	<MidCTA />
+
+
+	<MediaSection image={planning} alt="Woman with a calculator and paperwork at a counter beside lit drink coolers" heading="Service Planned Around Your Dock Schedule" eyebrow="How we serve logistics sites">
+		<ul>
+			<li><strong>Visits that stay out of the way.</strong> We schedule restocking around your shifts, dock windows, and badge rules, so our team never blocks a door or a forklift lane.</li>
+			<li><strong>Restocked on real data.</strong> Equipment reports sales in real time. We bring what is running low and change the mix when a product stops selling.</li>
+			<li><strong>Open around the clock.</strong> Micro markets and smart coolers are self-service, so the overnight crew buys a meal the same way the day shift does.</li>
+			<li><strong>24-hour response.</strong> Local technicians respond to reported issues within 24 hours, including after hours.</li>
+			<li><strong>Room to grow.</strong> When peak season adds people, we can restock more often or add equipment.</li>
+		</ul>
+		<p>
+			Want to offer food as a perk for hard-to-fill shifts? Subsidized vending is available on request, and you choose
+			how much of the price to cover.
+		</p>
+		<p>
+			Already have machines from another vendor? We offer <a href="/our-services/vending-repair/">vending machine repair</a> for any brand. Comparing providers? Use our <a href="/blog/vending-contract-checklist/">vending contract checklist</a> before you sign anything.
+		</p>
+	</MediaSection>
+</ServiceLayout>

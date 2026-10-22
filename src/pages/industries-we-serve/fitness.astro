@@ -1,0 +1,108 @@
+---
+import ServiceLayout from '../../layouts/ServiceLayout.astro';
+import MediaSection from '../../components/MediaSection.astro';
+import PhotoPair from '../../components/PhotoPair.astro';
+import MidCTA from '../../components/MidCTA.astro';
+import { industries } from '../../data/industries';
+import hero from '../../assets/industries/fitness/gym-smart-coolers.jpg';
+import hallwayCoolers from '../../assets/industries/fitness/tap-grab-go-coolers.webp';
+import lobbyCoolers from '../../assets/industries/fitness/smart-cooler-tap-grab-go.jpg';
+import juices from '../../assets/industries/fitness/cold-pressed-juices.jpeg';
+import salad from '../../assets/industries/fitness/green-salad.jpg';
+import proteinCooler from '../../assets/industries/fitness/protein-supplements-cooler.jpg';
+
+const faqs = [
+	{
+		question: 'Do you offer free vending for gyms and fitness centers?',
+		answer:
+			'Yes. At qualifying locations, equipment, delivery, and setup cost $0. There is no installation fee, no service fee, and no long-term contract.',
+	},
+	{
+		question: 'What products do you stock for gym members?',
+		answer:
+			'Protein snacks, better-for-you drinks, salads, wraps, yogurt, fruit cups, and boiled eggs, along with classic snacks and energy drinks. Specific products and brands are added when there is enough demand.',
+	},
+	{
+		question: 'Can members buy food when the front desk is not staffed?',
+		answer:
+			'Yes. Smart coolers and micro markets are self-service and cashless, so members can buy food without help from staff. Micro markets are open around the clock.',
+	},
+	{
+		question: 'Does my gym or recreation center qualify?',
+		answer:
+			'A location qualifies with at least 50 people in total foot traffic, counting employees and visitors. Members, guests, and staff all count toward that one total.',
+	},
+	{
+		question: 'Can you service a vending machine we already own?',
+		answer:
+			'Yes. Our local technicians repair and move vending machines no matter who supplied them, and they respond to reported issues within 24 hours, including after hours.',
+	},
+];
+---
+
+<ServiceLayout
+	title="Gym and Fitness Center Vending in DFW"
+	description="Gym and fitness center vending in Dallas–Fort Worth: smart coolers, micro markets, and machines with protein snacks and fresh food. Free at qualifying sites."
+	h1="Vending for Gyms and Recreation Centers in DFW"
+	eyebrow="Fitness and Recreation"
+	intro="Texas Vending places AI smart coolers, vending machines, and micro markets in Dallas–Fort Worth gyms, fitness clubs, and recreation centers, so members can grab protein snacks, fresh food, and cold drinks without leaving. Placement is free at qualifying sites, with no long-term contract."
+	heroImage={hero}
+	heroAlt="Two stocked smart coolers in a gym beside a stationary bike and dumbbells"
+	serviceType="Gym and fitness center vending services"
+	crumb="Fitness and Recreation Centers"
+	parent={{ name: 'Industries We Serve', url: '/industries-we-serve/' }}
+	related={{ heading: 'Other Industries We Serve', items: industries }}
+	faqs={faqs}
+	cta={{
+		heading: 'Get Free Vending for Your Gym',
+		text: 'Tell us about your hours, members, and floor plan. We will walk the site and recommend the right equipment. No cost and no long-term contract.',
+	}}
+>
+	<MediaSection image={hallwayCoolers} alt="Three glass-door smart coolers with snacks, drinks, and packaged meals in a hallway" heading="Members Train Early, Late, and on Weekends" eyebrow="The challenge">
+		<p>Gyms and recreation centers see traffic from before sunrise to late at night. Members come in before work, at lunch, and after dinner. Recreation centers fill up with youth leagues, swim lessons, pickleball groups, and weekend tournaments, and parents spend hours in the stands.</p>
+		<p>Most of these people want something when they finish: a cold drink, a protein snack, or a real meal on the way home. If the front desk keeps a small snack shelf, staff end up buying stock, handling payments, and tossing expired items instead of helping members. If there is nothing at all, members buy that drink at the gas station down the road.</p>
+		<p>Many clubs also run with a small crew, or no crew at all, during off hours. Food service in a gym has to run without anyone behind a counter.</p>
+	</MediaSection>
+
+	<MediaSection image={lobbyCoolers} alt="Two glass-door coolers stocked with chips, snacks, and sodas in a lobby" heading="Equipment That Fits a Lobby or Locker Hall" eyebrow="What we install" reverse>
+		<p>We walk your facility, look at the floor plan, hours, and member traffic, then recommend:</p>
+		<ul>
+			<li><a href="/our-services/ai-smart-cooler/">AI smart coolers</a> for protein snacks, fresh meals, and cold drinks in a small footprint</li>
+			<li><a href="/our-services/vending-machine/">Vending machines</a> for snacks and drinks near the lobby, courts, or pool</li>
+			<li><a href="/our-services/micro-markets/">Micro markets</a> for large recreation centers and sports complexes that want the most variety</li>
+			<li><a href="/our-services/coffee-water/">Coffee and water service</a> for staff rooms and member lounges</li>
+		</ul>
+		<p>A boutique studio may need one compact cooler by the door. A multi-court recreation center may need equipment in more than one spot, so families do not have to leave a game to find a drink. Glass-front coolers also look at home next to the front desk, which matters in a club that sells memberships on the floor.</p>
+	</MediaSection>
+
+	<PhotoPair
+		photos={[
+			{
+				image: juices,
+				alt: 'Three bottles of green, red, and orange cold-pressed juice on wood',
+				caption: 'Better-for-you drinks sit beside the sports and energy drinks members expect.',
+			},
+			{
+				image: salad,
+				alt: 'Green salad with cucumber, avocado, almonds, and seeds on a wooden plate',
+				caption: 'Salads and wraps give members a real meal after a workout.',
+			},
+		]}
+	/>
+	<MidCTA />
+
+
+	<MediaSection image={proteinCooler} alt="Hand reaching for a tub of protein powder on a cooler shelf" heading="Stocked for Before and After the Workout" eyebrow="How we serve gyms">
+		<p>Fitness members shop differently from office workers. We stock and service for that.</p>
+		<ul>
+			<li><strong>Products that fit the room.</strong> Protein snacks, yogurt, fruit cups, boiled eggs, salads, wraps, and better-for-you drinks from our <a href="/fresh-food/">fresh food program</a>, plus energy drinks like Monster and Red Bull. Specific products and brands are added when there is enough demand.</li>
+			<li><strong>No staff needed.</strong> Smart coolers and micro markets are self-service, so a 24-hour club can sell food while the desk is empty. Micro markets are open around the clock.</li>
+			<li><strong>Tap, grab, go.</strong> Smart coolers unlock with a tap and charge automatically for what is taken. Items put back before the door closes are not charged.</li>
+			<li><strong>Cashless.</strong> Cards, mobile wallets, and tap-to-pay on every machine. Members can pay with the phone already strapped to their arm.</li>
+			<li><strong>Restocked on real data.</strong> Equipment reports sales in real time, so restocking follows what is running low. We set the schedule per location and plan visits around your busiest class times.</li>
+			<li><strong>24-hour response.</strong> Local technicians respond to reported issues within 24 hours, including after hours.</li>
+		</ul>
+		<p>Want to give your own staff a perk too? Subsidized vending, where the employer lowers the price, is available on request.</p>
+		<p>Our team is based in Dallas and serves gyms and recreation centers across Dallas–Fort Worth and North Texas. We walk the facility before recommending equipment.</p>
+	</MediaSection>
+</ServiceLayout>

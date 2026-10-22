@@ -1,0 +1,107 @@
+---
+import ServiceLayout from '../../layouts/ServiceLayout.astro';
+import MediaSection from '../../components/MediaSection.astro';
+import PhotoPair from '../../components/PhotoPair.astro';
+import MidCTA from '../../components/MidCTA.astro';
+import { industries } from '../../data/industries';
+import hero from '../../assets/industries/auto-dealerships/customer-lounge-vending.png';
+import compactMarket from '../../assets/industries/auto-dealerships/compact-micro-market.jpg';
+import drinkCoolers from '../../assets/industries/auto-dealerships/drink-coolers-snacks.webp';
+import espresso from '../../assets/industries/auto-dealerships/espresso.jpg';
+import loungeCoffee from '../../assets/industries/auto-dealerships/lounge-coffee-machine.png';
+import snackWall from '../../assets/industries/auto-dealerships/snack-wall.jpg';
+
+const faqs = [
+	{
+		question: 'Do you provide vending for car dealerships and auto service centers?',
+		answer:
+			'Yes. Texas Vending serves dealerships across Dallas–Fort Worth with vending machines, AI smart coolers, micro markets, and coffee and water service for customer lounges, service departments, and staff break rooms.',
+	},
+	{
+		question: 'Is coffee service free?',
+		answer:
+			'Coffee machine installation is free. Coffee, tea, and supplies are paid.',
+	},
+	{
+		question: 'Can customers pay by card or phone?',
+		answer:
+			'Yes. Every machine, micro market, and coffee system is cashless and takes cards, mobile wallets, and tap-to-pay.',
+	},
+	{
+		question: 'Does our dealership qualify for free vending?',
+		answer:
+			'A location qualifies with at least 50 people in total foot traffic, counting employees and visitors. Customers in the lounge and on the sales floor count as visitors toward that one total.',
+	},
+	{
+		question: 'Can you fix the vending machine we already have?',
+		answer:
+			'Yes. Our local technicians repair and move machines no matter who supplied them, and they respond to reported issues within 24 hours, including after hours.',
+	},
+];
+---
+
+<ServiceLayout
+	title="Auto Dealership Vending Services in DFW"
+	description="Auto dealership vending in Dallas–Fort Worth: snacks, drinks, fresh food, and coffee for customer lounges and service staff. Cashless, no long-term contract."
+	h1="Vending and Coffee for Auto Dealerships in DFW"
+	eyebrow="Auto Dealerships"
+	intro="Texas Vending places vending machines, smart coolers, micro markets, and coffee machines in Dallas–Fort Worth dealership lounges, service departments, and staff break rooms. Customers have something to eat and drink while they wait, and your team stays on site. Placement is free at qualifying sites."
+	heroImage={hero}
+	heroAlt="Staff with name badges sharing cookies near a drink cooler and water dispenser"
+	serviceType="Auto dealership vending services"
+	crumb="Auto Dealerships"
+	parent={{ name: 'Industries We Serve', url: '/industries-we-serve/' }}
+	related={{ heading: 'Other Industries We Serve', items: industries }}
+	faqs={faqs}
+	cta={{
+		heading: 'Get Free Vending for Your Dealership',
+		text: 'Tell us about your lounge, service drive, and staff. We will walk the store and recommend the right equipment. No cost and no long-term contract.',
+	}}
+>
+	<MediaSection image={compactMarket} alt="Compact market with snack shelves, a small freezer, and a glass-door drink cooler" heading="Customers Wait, Staff Stay Busy" eyebrow="The challenge">
+		<p>A dealership has two crowds. Customers sit in the lounge during oil changes, repairs, inspections, and financing paperwork, and some wait for most of a morning. Salespeople, service advisors, technicians, porters, and office staff move between the showroom, service drive, bays, and parts counter all day, often without a set lunch hour.</p>
+		<p>The lounge says a lot about the store. An empty snack basket or a coffee maker nobody cleaned is one more thing for a service advisor to apologize for. Keeping it stocked usually falls to someone who already has a full job.</p>
+		<p>On the employee side, a technician who drives off for lunch leaves a bay sitting idle. Saturday service hours and late sales nights stretch the day even further. Food on site keeps both crowds fed without pulling anyone off the floor.</p>
+	</MediaSection>
+
+	<MediaSection image={drinkCoolers} alt="Row of drink coolers, a fresh food cooler, snack racks, and a checkout kiosk" heading="A Lounge Setup Customers Notice" eyebrow="What we install" reverse>
+		<p>We walk the store, then recommend equipment for the lounge and the back of house:</p>
+		<ul>
+			<li><a href="/our-services/coffee-water/">Coffee machines and water service</a> for the customer lounge and sales offices</li>
+			<li><a href="/our-services/vending-machine/">Vending machines</a> for snacks and drinks in the lounge or near the service drive</li>
+			<li><a href="/our-services/ai-smart-cooler/">AI smart coolers</a> for fresh food and cold drinks in a small, clean footprint</li>
+			<li><a href="/our-services/micro-markets/">Micro markets</a> for large stores or staff break rooms that want the most variety</li>
+		</ul>
+		<p>Many dealerships keep the customer lounge and the employee break room separate. Each area can have its own equipment, sized to the space and the people who use it. A single-brand store may need one cooler and a coffee machine. A large campus with a body shop may need a full market in the break room.</p>
+		<p>Placement matters. We look at where customers sit while they wait, where technicians take breaks, and where there is room for equipment without crowding the showroom or the service drive.</p>
+	</MediaSection>
+
+	<PhotoPair
+		photos={[
+			{
+				image: espresso,
+				alt: 'Espresso pouring from a machine into a white cup',
+				caption: 'Coffee machine installation is free; coffee, tea, and supplies are paid.',
+			},
+			{
+				image: loungeCoffee,
+				alt: 'Smiling coworkers with cups gathered around an espresso machine at a counter',
+				caption: 'Coffee is often the first thing a waiting customer looks for.',
+			},
+		]}
+	/>
+	<MidCTA />
+
+
+	<MediaSection image={snackWall} alt="Woman paying with her phone at a self-checkout kiosk beside drinks and snacks" heading="Hands-Off Service for a Busy Store" eyebrow="How we serve dealerships">
+		<ul>
+			<li><strong>Cashless.</strong> Cards, mobile wallets, and tap-to-pay on every machine, micro market, and coffee system. Your staff never handle cash for the lounge.</li>
+			<li><strong>Restocked on real data.</strong> Equipment reports sales in real time, so restocking follows what is running low. The schedule is set for your store, and visits are planned around showroom hours and service drive traffic.</li>
+			<li><strong>Fresh food.</strong> Sandwiches, wraps, salads, yogurt, and fruit cups from our <a href="/fresh-food/">fresh food program</a> give staff a real lunch and give customers more than a candy bar.</li>
+			<li><strong>Brands people know.</strong> Drinks from Coca-Cola, Pepsi, Dr Pepper, Monster, and Red Bull. Coffee from Starbucks, Ellis Coffee, and Rooted Grounds Coffee Co.</li>
+			<li><strong>24-hour response.</strong> Local technicians respond to reported issues within 24 hours, including after hours. We also offer <a href="/our-services/vending-repair/">vending machine repair</a> for equipment you already own, no matter who supplied it.</li>
+		</ul>
+		<p>Want to treat your team? Subsidized vending, where the dealership lowers prices for employees, is available on request.</p>
+		<p>Our team is based in Dallas and serves dealerships across Dallas–Fort Worth and North Texas. We walk the store before recommending equipment, so the lounge and the break room each get what fits. Changing your layout during a remodel? Our technicians also move machines, no matter who supplied them.</p>
+	</MediaSection>
+</ServiceLayout>

@@ -1,0 +1,154 @@
+---
+import { Image } from 'astro:assets';
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+import MediaSection from '../components/MediaSection.astro';
+import PhotoPair from '../components/PhotoPair.astro';
+import MidCTA from '../components/MidCTA.astro';
+import hero from '../assets/fresh-food/club-sandwich.webp';
+import stocking from '../assets/fresh-food/stocking-fresh-food.jpg';
+import salad from '../assets/fresh-food/garden-salad.webp';
+import sandwich from '../assets/fresh-food/deli-sandwich.webp';
+import wraps from '../assets/fresh-food/chicken-wraps.webp';
+import chickenRice from '../assets/fresh-food/chicken-rice-meal.webp';
+import mealTrays from '../assets/fresh-food/hot-meal-trays.webp';
+import bento from '../assets/fresh-food/bento-box.webp';
+import bowls from '../assets/fresh-food/protein-bowls.webp';
+import grilledWrap from '../assets/fresh-food/grilled-wrap.webp';
+import parfaits from '../assets/fresh-food/yogurt-parfaits.webp';
+import fruit from '../assets/fresh-food/fresh-fruit.webp';
+import factor from '../assets/fresh-food/factor-meals.webp';
+import helloFresh from '../assets/fresh-food/hellofresh-meals.webp';
+
+const menu = [
+	{ name: 'Salads', image: salad, alt: 'Garden salad with tomatoes, cucumber, and red onion in a clear bowl' },
+	{ name: 'Sandwiches', image: sandwich, alt: 'Layered deli sandwich with ham, cheese, and tomato on toasted bread' },
+	{ name: 'Wraps', image: wraps, alt: 'Two chicken wraps with lettuce, tomato, and cheese' },
+	{ name: 'Protein Meals', image: chickenRice, alt: 'Grilled chicken, broccoli, and rice in a takeout container with sauces' },
+	{ name: 'Grain Bowls', image: bowls, alt: 'Grain bowls with egg, chicken, and vegetables beside a bottle of juice' },
+	{ name: 'Grab-and-Go Boxes', image: bento, alt: 'Lunch box with a sandwich, fruit, crackers, and vegetables' },
+	{ name: 'Hot Wraps', image: grilledWrap, alt: 'Grilled wrap cut in half showing vegetables and filling' },
+	{ name: 'Breakfast Parfaits', image: parfaits, alt: 'Yogurt parfaits layered with granola and blueberries' },
+	{ name: 'Fruit', image: fruit, alt: 'Sliced limes, peaches, and fresh berries' },
+];
+
+const faqs = [
+	{
+		question: 'What fresh food can you stock in our break room?',
+		answer:
+			'Sandwiches, wraps, salads, grain bowls, ready-to-eat meals, breakfast items, yogurt parfaits, fruit, and desserts, plus protein snacks and better-for-you drinks.',
+	},
+	{
+		question: 'Do you offer ready-made meals from known brands?',
+		answer: 'Yes. Our fresh food program includes ready-made meals from brands such as HelloFresh and Factor.',
+	},
+	{
+		question: 'Which equipment holds fresh food?',
+		answer: 'AI smart coolers, micro markets, and refrigerated vending machines. We recommend the right one after a site walk.',
+	},
+	{
+		question: 'Can employees buy fresh food at night?',
+		answer: 'Yes. Smart coolers and micro markets are self-service and cashless, so night and weekend shifts can buy meals without a cashier.',
+	},
+	{
+		question: 'Is there a cost to add fresh food?',
+		answer:
+			'Equipment, delivery, and setup are free at locations with at least 50 people in total foot traffic, counting employees and visitors. Employees pay for what they buy, and you can ask about subsidized pricing.',
+	},
+];
+---
+
+<ServiceLayout
+	title="Fresh Food for DFW Break Rooms"
+	description="Fresh sandwiches, wraps, salads, and ready-to-eat meals, including HelloFresh and Factor, for Dallas–Fort Worth break rooms. Sold 24/7 through smart coolers."
+	h1="Fresh Food for DFW Break Rooms"
+	eyebrow="Fresh food"
+	intro="Texas Vending stocks Dallas–Fort Worth break rooms with fresh sandwiches, wraps, salads, ready-to-eat meals, and breakfast, including meals from brands like HelloFresh and Factor. Your team gets a real meal without leaving the building."
+	heroImage={hero}
+	heroAlt="Club sandwich on a plate with cherry tomatoes"
+	serviceType="Workplace fresh food service"
+	crumb="Fresh Food"
+	parent={{ name: 'Fresh Food', url: '/fresh-food/' }}
+	faqs={faqs}
+	cta={{
+		heading: 'Add Fresh Food to Your Break Room',
+		text: 'Book a site walk and we will recommend the right equipment and menu for your team. No long-term contract.',
+	}}
+>
+	<MediaSection image={stocking} alt="Woman loading packaged salads into a refrigerated fresh food machine" heading="Stock the Break Room with Fresh Snacks and Meals" eyebrow="Fresh food program">
+		<p>
+			Give your employees tasty, fresh food choices, including healthy options. From sandwiches, wraps, and salads to fruit, desserts, and ready-to-eat meals, we stock what your team needs to stay energized through the workday.
+		</p>
+		<p>
+			Our menu covers hearty breakfasts, protein-packed lunches, lighter meals, and grab-and-go favorites, all without leaving the building.
+		</p>
+	</MediaSection>
+
+	<section class="bg-slate-50 py-16 md:py-20">
+		<div class="mx-auto max-w-6xl px-4">
+			<div class="mx-auto max-w-2xl text-center">
+				<p class="eyebrow">On the menu</p>
+				<h2 class="mt-3 text-4xl uppercase md:text-5xl">Fresh Meal Options</h2>
+				<p class="mt-4 text-lg text-slate-600">
+					We adjust the menu based on what sells, and we add specific products and brands when there is enough demand.
+				</p>
+			</div>
+			<ul class="mt-12 grid grid-cols-2 gap-6 md:grid-cols-3">
+				{
+					menu.map((item) => (
+						<li>
+							<figure class="overflow-hidden rounded-3xl bg-white shadow-lg">
+								<Image
+									src={item.image}
+									alt={item.alt}
+									widths={[300, 500]}
+									sizes="(min-width: 768px) 33vw, 50vw"
+									class="aspect-[4/3] w-full object-cover"
+								/>
+								<figcaption class="p-4 font-display text-xl uppercase text-ink">{item.name}</figcaption>
+							</figure>
+						</li>
+					))
+				}
+			</ul>
+		</div>
+	</section>
+
+	<MidCTA heading="Want Real Meals On Site?" />
+
+	<MediaSection image={mealTrays} alt="Meal trays of chicken, vegetables, and salad with bottles of juice" heading="Personalized Food Choices for Employee Well-Being" eyebrow="Better breaks">
+		<p>
+			A bag of chips gets someone through an afternoon, but it does not replace lunch. When the nearest restaurant is a drive away, a short break is not enough time for a real meal.
+		</p>
+		<p>
+			Fresh food on site lets employees eat well and still use their whole break to rest. We tailor the mix to your team, from protein-focused meals for physical work to lighter options for office teams.
+		</p>
+	</MediaSection>
+
+	<PhotoPair
+		photos={[
+			{
+				image: helloFresh,
+				alt: 'HelloFresh ready-made meals in branded containers',
+				caption: 'Ready-made meals from HelloFresh.',
+			},
+			{
+				image: factor,
+				alt: 'Prepared Factor meals with salmon, green beans, and a grain bowl',
+				caption: 'Chef-prepared meals from Factor.',
+			},
+		]}
+	/>
+
+
+	<div class="mx-auto max-w-3xl px-4 py-12 text-lg leading-relaxed text-slate-700 [&_a]:font-semibold [&_a]:text-brand [&_a:hover]:underline [&_h2]:text-4xl [&_h2]:uppercase [&_h2]:text-slate-900 [&_li]:mt-2 [&_p]:mt-4">
+		<h2>How We Serve Fresh Food</h2>
+		<ul class="mt-4 list-disc pl-6">
+			<li><a href="/our-services/ai-smart-cooler/">AI smart coolers</a>: tap to unlock, take a meal, and get charged automatically.</li>
+			<li><a href="/our-services/micro-markets/">Micro markets</a>: open coolers and shelves with self-checkout, open around the clock.</li>
+			<li><a href="/our-services/vending-machine/">Refrigerated vending machines</a>: fresh food in a compact machine.</li>
+		</ul>
+		<p>
+			Every option is cashless. Our equipment reports sales in real time, each location gets its own restocking schedule, and local technicians respond to reported issues within 24 hours. See all <a href="/equipment/">equipment</a>.
+		</p>
+	</div>
+</ServiceLayout>

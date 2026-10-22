@@ -1,0 +1,175 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SchemaMarkup from '../components/SchemaMarkup.astro';
+import TrustBar from '../components/TrustBar.astro';
+import MidCTA from '../components/MidCTA.astro';
+import { ADDRESS, EMAIL, PHONE_DISPLAY, PHONE_TEL } from '../consts';
+import { services } from '../data/services';
+import { breadcrumbSchema, localBusinessSchema } from '../lib/schema';
+import { getDefaultOgImage } from '../lib/og';
+import driverImage from '../assets/contact/route-driver-restocking.png';
+import coolerImage from '../assets/contact/smart-cooler-install.jpeg';
+
+const footTrafficOptions = ['Under 50 people', '50–100 people', '101–250 people', 'More than 250 people', 'Not sure'];
+const inputClass =
+	'mt-2 w-full rounded-2xl border border-slate-300 bg-white px-4 py-3 text-slate-900 focus:border-brand focus:ring-2 focus:ring-brand/30 focus:outline-none';
+const labelClass = 'block font-semibold text-slate-900';
+const businessImage = await getDefaultOgImage();
+---
+
+<BaseLayout
+	title="Contact Texas Vending | DFW"
+	description="Contact Texas Vending for free vending, micro market, and smart cooler placement in Dallas–Fort Worth. Call (469) 304-9509 or book a free site visit."
+>
+	<SchemaMarkup
+		slot="head"
+		schema={[localBusinessSchema({ image: businessImage }), breadcrumbSchema([{ name: 'Home', url: '/' }, { name: 'Contact Us', url: '/contact-us/' }])]}
+	/>
+
+	<section class="relative isolate overflow-hidden bg-ink text-white">
+		<div
+			class="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top_right,rgba(188,33,39,0.5),transparent_60%),radial-gradient(ellipse_at_bottom_left,rgba(24,35,74,0.9),transparent_60%)]"
+			aria-hidden="true"
+		>
+		</div>
+		<div class="mx-auto max-w-6xl px-4 py-16 md:py-20">
+			<nav aria-label="Breadcrumb">
+				<ol class="flex flex-wrap gap-2 font-mono text-xs tracking-widest text-white/60 uppercase">
+					<li><a href="/" class="hover:text-white">Home</a></li>
+					<li class="flex gap-2"><span aria-hidden="true">/</span><span aria-current="page">Contact Us</span></li>
+				</ol>
+			</nav>
+			<p class="eyebrow mt-8 !text-white/60">Contact us</p>
+			<h1 class="mt-4 max-w-3xl text-5xl leading-[1.05] uppercase md:text-6xl">Contact Texas Vending</h1>
+			<p class="mt-6 max-w-2xl text-lg text-white/80">
+				Tell us about your location and we will set up a free site visit. Locations with at least 50 people in total foot
+				traffic, counting employees and visitors, get equipment, delivery, and setup at no cost. No long-term contract.
+			</p>
+		</div>
+	</section>
+
+	<TrustBar />
+
+	<section class="mx-auto grid max-w-6xl gap-12 px-4 py-16 md:grid-cols-5 md:py-20">
+		<div class="md:col-span-3">
+			<h2 class="text-4xl uppercase">Book a Free Site Visit</h2>
+			<p class="mt-3 text-slate-600">Fields marked * are required. We reply by phone or email.</p>
+
+			<p id="form-error" class="mt-6 hidden rounded-2xl bg-red-50 p-4 font-semibold text-brand-dark" role="alert"></p>
+
+			<form id="contact-form" action="/api/contact" method="post" class="mt-6 grid gap-5 sm:grid-cols-2">
+				<div>
+					<label for="name" class={labelClass}>Name *</label>
+					<input id="name" name="name" type="text" required autocomplete="name" class={inputClass} />
+				</div>
+				<div>
+					<label for="company" class={labelClass}>Company</label>
+					<input id="company" name="company" type="text" autocomplete="organization" class={inputClass} />
+				</div>
+				<div>
+					<label for="email" class={labelClass}>Email *</label>
+					<input id="email" name="email" type="email" required autocomplete="email" class={inputClass} />
+				</div>
+				<div>
+					<label for="phone" class={labelClass}>Phone</label>
+					<input id="phone" name="phone" type="tel" autocomplete="tel" class={inputClass} />
+				</div>
+				<div>
+					<label for="city" class={labelClass}>City</label>
+					<input id="city" name="city" type="text" autocomplete="address-level2" class={inputClass} />
+				</div>
+				<div>
+					<label for="footTraffic" class={labelClass}>Foot traffic (employees + visitors)</label>
+					<select id="footTraffic" name="footTraffic" class={inputClass}>
+						<option value="">Choose one</option>
+						{footTrafficOptions.map((option) => <option value={option}>{option}</option>)}
+					</select>
+				</div>
+				<fieldset class="sm:col-span-2">
+					<legend class={labelClass}>I'm interested in</legend>
+					<div class="mt-3 grid gap-2 sm:grid-cols-2">
+						{
+							services.map((service) => (
+								<label class="flex items-center gap-3 text-slate-700">
+									<input type="checkbox" name="interest" value={service.name} class="h-5 w-5 accent-brand" />
+									{service.name}
+								</label>
+							))
+						}
+					</div>
+				</fieldset>
+				<div class="sm:col-span-2">
+					<label for="message" class={labelClass}>Message *</label>
+					<textarea id="message" name="message" rows="5" required class={inputClass}></textarea>
+				</div>
+				<!-- Honeypot: hidden from people, filled in by spam bots -->
+				<div class="hidden" aria-hidden="true">
+					<label for="website">Website</label>
+					<input id="website" name="website" type="text" tabindex="-1" autocomplete="off" />
+				</div>
+				<div class="sm:col-span-2">
+					<button type="submit" class="btn btn-primary">Send Message</button>
+				</div>
+			</form>
+		</div>
+
+		<aside class="space-y-8 md:col-span-2">
+			<div class="rounded-3xl bg-slate-100 p-8">
+				<h2 class="text-3xl uppercase">Reach Us Directly</h2>
+				<dl class="mt-6 space-y-5 text-slate-700">
+					<div>
+						<dt class="eyebrow">Phone</dt>
+						<dd class="mt-1 text-lg"><a href={`tel:${PHONE_TEL}`} class="font-semibold text-ink hover:text-brand">{PHONE_DISPLAY}</a></dd>
+					</div>
+					<div>
+						<dt class="eyebrow">Email</dt>
+						<dd class="mt-1 text-lg"><a href={`mailto:${EMAIL}`} class="font-semibold text-ink hover:text-brand">{EMAIL}</a></dd>
+					</div>
+					<div>
+						<dt class="eyebrow">Address</dt>
+						<dd class="mt-1">{ADDRESS.street}<br />{ADDRESS.city}, {ADDRESS.region} {ADDRESS.postalCode}</dd>
+					</div>
+					<div>
+						<dt class="eyebrow">Service</dt>
+						<dd class="mt-1">24/7 support. Local technicians respond to reported issues within 24 hours.</dd>
+					</div>
+				</dl>
+			</div>
+			<Image
+				src={driverImage}
+				alt="Route driver restocking a glass-door drink cooler"
+				widths={[480, 768]}
+				sizes="(min-width: 768px) 40vw, 100vw"
+				class="aspect-[3/2] w-full rounded-3xl object-cover shadow-lg"
+			/>
+			<Image
+				src={coolerImage}
+				alt="Two-door 24-hour smart cooler in an office break room next to microwaves"
+				widths={[480, 768]}
+				sizes="(min-width: 768px) 40vw, 100vw"
+				class="aspect-[3/2] w-full rounded-3xl object-cover shadow-lg"
+			/>
+		</aside>
+	</section>
+
+	<div class="pb-16">
+		<MidCTA heading="Prefer to Talk?" text={`Call us or email ${EMAIL}. Our local team serves businesses across Dallas–Fort Worth.`} buttonLabel="Email Us" href={`mailto:${EMAIL}`} />
+	</div>
+
+	<!-- Shows the error the form function reports through ?error= -->
+	<script is:inline>
+		(function () {
+			var messages = {
+				missing: 'Please fill in your name, a valid email, and a message.',
+				send: 'Sorry, your message could not be sent. Please call (469) 304-9509 or email hi@texasvending.com.',
+			};
+			var error = new URLSearchParams(location.search).get('error');
+			var box = document.getElementById('form-error');
+			if (error && messages[error] && box) {
+				box.textContent = messages[error];
+				box.classList.remove('hidden');
+			}
+		})();
+	</script>
+</BaseLayout>

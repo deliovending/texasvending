@@ -1,0 +1,136 @@
+---
+import ServiceLayout from '../../layouts/ServiceLayout.astro';
+import MediaSection from '../../components/MediaSection.astro';
+import PhotoPair from '../../components/PhotoPair.astro';
+import MidCTA from '../../components/MidCTA.astro';
+import { industries } from '../../data/industries';
+import hero from '../../assets/industries/hospitals/hospital-waiting-room-vending.png';
+import stockingCooler from '../../assets/industries/hospitals/stocking-fresh-food-cooler.jpg';
+import marketFreshFood from '../../assets/industries/hospitals/micro-market-fresh-food.jpeg';
+import saladsCooler from '../../assets/industries/hospitals/fresh-salads-cooler.jpeg';
+import sandwiches from '../../assets/industries/hospitals/smart-cooler-sandwiches.jpeg';
+import grabAndGo from '../../assets/industries/hospitals/grab-and-go-market.jpg';
+
+const faqs = [
+	{
+		question: 'Do hospitals and medical facilities qualify for free vending?',
+		answer:
+			'A location qualifies with at least 50 people in total foot traffic, counting employees and visitors. Most hospitals meet that through staff and visitors alone. Equipment, delivery, and setup then cost $0, with no long-term contract.',
+	},
+	{
+		question: 'Can night shift staff get fresh food after the cafeteria closes?',
+		answer:
+			'Yes. Micro markets are self-checkout and open around the clock, and smart coolers unlock with a tap and charge automatically. Night staff can buy sandwiches, salads, and ready-to-eat meals at any hour.',
+	},
+	{
+		question: 'Can visitors and family members use the machines?',
+		answer:
+			'Yes. Every machine, micro market, and coffee system is cashless and takes cards, mobile wallets, and tap-to-pay, so visitors do not need cash.',
+	},
+	{
+		question: 'Do you also serve clinics and medical office buildings?',
+		answer:
+			'Yes. We serve hospitals, clinics, and medical offices across Dallas–Fort Worth. We walk each site first and recommend equipment that fits its size and traffic.',
+	},
+	{
+		question: 'How fast do you respond to a broken machine?',
+		answer:
+			'Local technicians respond to reported issues within 24 hours, including after hours. We also repair and move machines another company supplied.',
+	},
+];
+---
+
+<ServiceLayout
+	title="Hospital Vending Services in DFW"
+	description="Free smart coolers, micro markets, and vending for Dallas–Fort Worth hospitals and medical facilities. Fresh food for staff and visitors at any hour."
+	h1="Hospital Vending Services in DFW"
+	eyebrow="Hospitals"
+	intro="Texas Vending provides smart coolers, micro markets, vending machines, and coffee for hospitals and medical facilities across Dallas–Fort Worth, so staff and visitors can find fresh food at any hour. Placement is free at qualifying sites, with no long-term contract."
+	heroImage={hero}
+	heroAlt="Large hospital dining area with tables and two lit smart vending coolers"
+	serviceType="Hospital vending services"
+	crumb="Hospitals"
+	parent={{ name: 'Industries We Serve', url: '/industries-we-serve/' }}
+	related={{ heading: 'Other Industries We Serve', items: industries }}
+	faqs={faqs}
+	cta={{
+		heading: 'Get Free Vending for Your Hospital',
+		text: 'Tell us about your staff, shifts, and visitor areas. We will walk the facility and recommend equipment. No cost and no long-term contract.',
+	}}
+>
+	<MediaSection image={stockingCooler} alt="Woman loading packaged salads into a refrigerated vending machine" heading="When the Cafeteria Closes, People Still Need to Eat" eyebrow="The challenge">
+		<p>
+			Hospitals never close, but hospital kitchens do. Nurses, physicians, techs, and environmental services staff on
+			night shift often work through the hours when the cafeteria is dark. A snack machine with chips and candy is not
+			a meal after a long shift.
+		</p>
+		<p>
+			Visitors face the same gap. A parent in the emergency department or a family waiting through surgery may not want
+			to leave the building, even for a quick bite. They need something real close by, and they need to pay without
+			hunting for cash.
+		</p>
+		<p>
+			Clinics and medical office buildings face a smaller version of the same problem. Staff often eat at their desks
+			between patients, and visitors may sit in a waiting room longer than they planned.
+		</p>
+		<p>
+			Staff and visitors both count toward the foot traffic that qualifies a site, so most hospitals and many
+			clinics qualify for free placement.
+		</p>
+	</MediaSection>
+
+	<MediaSection image={marketFreshFood} alt="Woman at a self-checkout kiosk near beverage, fresh food, and hot food cases" heading="Fresh Food for Staff Lounges and Visitor Areas" eyebrow="What we install" reverse>
+		<p>Different parts of a hospital need different equipment. We walk the facility and recommend a mix:</p>
+		<ul>
+			<li><a href="/our-services/ai-smart-cooler/">AI smart coolers</a> for staff lounges and quiet corners with little floor space</li>
+			<li><a href="/our-services/micro-markets/">Self-checkout micro markets</a> for larger staff areas that need open shelves and variety</li>
+			<li>Snack and drink vending machines for lobbies and waiting rooms</li>
+			<li><a href="/our-services/coffee-water/">Coffee machines and water service</a>; coffee machine installation is free, and coffee and supplies are paid</li>
+		</ul>
+		<p>
+			Our <a href="/fresh-food/">fresh food menu</a> includes sandwiches, wraps, salads, ready-to-eat meals, yogurt, fruit
+			cups, boiled eggs, protein snacks, and better-for-you drinks. Specific products are added when there is enough
+			demand.
+		</p>
+		<h3>Staff Areas and Public Areas</h3>
+		<p>
+			Staff usually want food away from the public, in a lounge they can reach between patients. Visitors need something
+			easy to find near the lobby or waiting room. Many hospitals use both: a smart cooler or micro market for staff, and
+			vending machines in public spaces. We recommend a mix after we see how people move through your building.
+		</p>
+	</MediaSection>
+
+	<PhotoPair
+		photos={[
+			{
+				image: saladsCooler,
+				alt: 'Person reaching into a cooler of packaged salads and meal bowls',
+				caption: 'Salads and ready-to-eat meals give night staff a real meal.',
+			},
+			{
+				image: sandwiches,
+				alt: 'Wrapped sandwiches on the shelves of a refrigerated vending machine',
+				caption: 'Sandwiches for families waiting on news who do not want to leave.',
+			},
+		]}
+	/>
+	<MidCTA />
+
+
+	<MediaSection image={grabAndGo} alt="Wood-paneled grab-and-go case with sandwiches, salads, drinks, and snacks" heading="Food Available Around the Clock" eyebrow="How we serve hospitals">
+		<ul>
+			<li><strong>Open at every hour.</strong> Micro markets and smart coolers need no cashier, so night shift gets the same food as day shift.</li>
+			<li><strong>Restocked on real data.</strong> Equipment reports sales in real time, so we restock what is running low and adjust the mix as demand changes.</li>
+			<li><strong>Visits that fit your rules.</strong> We set a restocking schedule for each location and plan service around your shifts and badge rules.</li>
+			<li><strong>Cashless.</strong> Cards, mobile wallets, and tap-to-pay on every machine, market, and coffee system.</li>
+			<li><strong>24-hour response.</strong> Local technicians respond to reported issues within 24 hours, including after hours.</li>
+		</ul>
+		<p>
+			Subsidized vending is available on request, so you can lower prices for staff as a benefit. Already have machines
+			from another vendor? Our <a href="/our-services/vending-repair/">vending machine repair</a> team fixes equipment no matter who supplied it.
+		</p>
+		<p>
+			Planning food access across a hospital, clinic, or medical office building? Read our guide to <a href="/blog/dallas-healthcare-vending-services/">Dallas healthcare vending services</a> for placement and planning advice.
+		</p>
+	</MediaSection>
+</ServiceLayout>
