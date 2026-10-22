@@ -31,7 +31,11 @@ export async function POST(request) {
 
 	const { RESEND_API_KEY, CONTACT_FROM_EMAIL, CONTACT_TO_EMAIL } = process.env;
 	if (!RESEND_API_KEY || !CONTACT_FROM_EMAIL) {
-		console.error('Contact form: RESEND_API_KEY or CONTACT_FROM_EMAIL is not set');
+		// Names and true/false only, never values
+		const visible = Object.keys(process.env).filter((name) => /RESEND|CONTACT/i.test(name));
+		console.error(
+			`Contact form: missing env. RESEND_API_KEY set: ${Boolean(RESEND_API_KEY)}, CONTACT_FROM_EMAIL set: ${Boolean(CONTACT_FROM_EMAIL)}, VERCEL_ENV: ${process.env.VERCEL_ENV}, matching names: ${JSON.stringify(visible)}`,
+		);
 		return redirect('/contact-us/?error=send#contact-form');
 	}
 
