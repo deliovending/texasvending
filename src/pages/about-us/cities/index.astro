@@ -83,7 +83,7 @@ const faqs = [
 									<a href={cityHref(city)} class="font-semibold text-brand hover:underline">
 										{city.name}
 									</a>
-									{city.includes && <span class="text-slate-600"> (includes {city.includes.filter((name) => name !== city.name).join(', ')})</span>}
+									{city.towns && <span class="text-slate-600"> (includes {city.towns.map((town) => town.name).filter((name) => name !== city.name).join(', ')})</span>}
 								</li>
 							))}
 						</ul>

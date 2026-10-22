@@ -16,27 +16,37 @@ const photoFiles = import.meta.glob<ImageMetadata>('../../../assets/cities/*', {
 const photo = (file: string) => ({ image: photoFiles[`../../../assets/cities/${file}`], alt: cityPhotoAlt[file] });
 const [hero, first, second, pairLeft, pairRight, last] = city.photos.map(photo);
 
-// Pages that cover several towns are named for the area, not just the destination city
-const areaName = city.includes ? `the ${city.name} Area` : city.name;
-const title = city.includes ? `Vending Services in the ${city.name} Area` : `Vending Services in ${city.name}, TX`;
-const description = city.includes
-	? `Free vending, micro markets, and smart coolers for ${city.includes.join(', ')}. Cashless, no contract, 24-hour response.`
+// Area pages cover several towns and are named for the area, not just the destination city
+const townNames = city.towns?.map((town) => town.name);
+const areaName = city.towns ? `the ${city.name} Area` : city.name;
+const title = city.towns ? `Vending Services in the ${city.name} Area` : `Vending Services in ${city.name}, TX`;
+const description = townNames
+	? `Free vending, micro markets, and smart coolers for ${townNames.join(', ')}. Cashless, no contract, 24-hour response.`
 	: `Free vending machines, micro markets, and smart coolers for ${city.name}, TX businesses. Cashless, no long-term contract, 24-hour response.`;
-const placeList = city.includes ? city.includes.join(', ') : city.name;
+const placeList = townNames ? townNames.join(', ') : city.name;
 
 const nearbyCities = city.nearby.map(cityBySlug).filter((nearby): nearby is City => Boolean(nearby));
+// "Wikipedia: Plano, Texas" for Wikipedia links, the site name otherwise; repeats get a number
+const sourceLabels = (() => {
+	const seen = new Map<string, number>();
+	return city.sources.map((url) => {
+		const { hostname, pathname } = new URL(url);
+		const base = hostname.endsWith('wikipedia.org')
+			? `Wikipedia: ${decodeURIComponent(pathname.split('/').pop() ?? '').replace(/_/g, ' ')}`
+			: hostname.replace(/^www\./, '');
+		const count = (seen.get(base) ?? 0) + 1;
+		seen.set(base, count);
+		return count > 1 ? `${base} (${count})` : base;
+	});
+})();
 
 const faqs = [
 	{
 		question: `Do you offer free vending machines in ${areaName}?`,
 		answer: `Yes. Texas Vending places vending machines, micro markets, and AI smart coolers at no cost to ${city.name}-area locations with at least 50 people in total foot traffic, counting employees and visitors.`,
 	},
+	...(city.faq ? [city.faq] : []),
 	{
-		question: `What services do you offer in ${areaName}?`,
-		answer:
-			'Vending machines, micro markets, AI smart coolers, office coffee and water, fresh food, vending machine repair, and vending machine moving.',
-	},
-	city.faq ?? {
 		question: `Do you serve cities near ${city.name}?`,
 		answer: `Yes. We also serve ${nearbyCities.map((nearby) => nearby.name).join(', ')}, and the rest of Dallas–Fort Worth.`,
 	},
@@ -54,14 +64,14 @@ const faqs = [
 <ServiceLayout
 	title={title}
 	description={description}
-	h1={city.includes ? `Vending Services in the ${city.name} Area` : `Vending Services in ${city.name}, TX`}
-	eyebrow={city.includes ? city.region : `${city.name}, Texas`}
+	h1={title}
+	eyebrow={city.towns ? city.region : `${city.name}, Texas`}
 	intro={`Texas Vending installs, stocks, and services vending machines, micro markets, AI smart coolers, and office coffee for businesses in ${placeList}. Placement is free at locations with at least 50 people in total foot traffic, counting employees and visitors, and no long-term contract is required.`}
 	heroImage={hero.image}
 	heroAlt={hero.alt}
 	serviceType="Vending and breakroom services"
 	areaServed={`${placeList}, Texas`}
-	crumb={city.includes ? `${city.name} Area` : city.name}
+	crumb={city.towns ? `${city.name} Area` : city.name}
 	parent={{ name: 'Cities We Serve', url: '/about-us/cities/' }}
 	related={{
 		heading: `Cities Near ${city.name}`,
@@ -77,26 +87,46 @@ const faqs = [
 		text: 'Book a free site visit. We will look at your space and recommend the right equipment for your team. No long-term contract.',
 	}}
 >
-	<MediaSection image={first.image} alt={first.alt} heading={`Breakroom Services in ${areaName}`} eyebrow={city.county}>
-		<p>{city.local}</p>
-		{
-			city.includes && (
-				<p>
-					This area includes <strong>{city.includes.join(', ')}</strong>.
-				</p>
-			)
-		}
-		<p>We serve businesses along {city.highways} with:</p>
-		<ul>
-			<li><a href="/our-services/vending-machine/">Vending machines</a> for snacks and drinks</li>
-			<li><a href="/our-services/micro-markets/">Micro markets</a> with fresh meals and self-checkout</li>
-			<li><a href="/our-services/ai-smart-cooler/">AI smart coolers</a> for grab-and-go food</li>
-			<li><a href="/our-services/coffee-water/">Office coffee and water</a></li>
-			<li><a href="/our-services/vending-repair/">Vending repair</a> and <a href="/our-services/vending-moving/">vending moving</a></li>
-		</ul>
+	<MediaSection image={first.image} alt={first.alt} heading={`Doing Business in ${areaName}`} eyebrow={city.county}>
+		{city.about.map((paragraph) => <p>{paragraph}</p>)}
 	</MediaSection>
 
-	<MediaSection image={second.image} alt={second.alt} heading={`Who We Serve in ${areaName}`} eyebrow="Local industries" reverse>
+	<MediaSection image={second.image} alt={second.alt} heading={`Where We Serve in ${areaName}`} eyebrow="Local business areas" reverse>
+		{
+			city.towns && (
+				<>
+					<h3>Towns in this area</h3>
+					<ul>
+						{city.towns.map((town) => (
+							<li>
+								<strong>{town.name}</strong> ({town.county}): {town.note}
+							</li>
+						))}
+					</ul>
+					<h3>Business areas</h3>
+				</>
+			)
+		}
+		<ul>
+			{
+				city.businessAreas.map((area) => (
+					<li>
+						<strong>{area.name}</strong>: {area.note}
+					</li>
+				))
+			}
+		</ul>
+		<p>Main routes: {city.highways}.</p>
+	</MediaSection>
+
+	<PhotoPair
+		photos={[
+			{ ...pairLeft, caption: 'Cashless payment on every machine: cards, mobile wallets, and tap-to-pay.' },
+			{ ...pairRight, caption: 'Fresh food, snacks, and drinks stocked to match what your team buys.' },
+		]}
+	/>
+
+	<MediaSection image={last.image} alt={last.alt} heading={`Breakroom Services for ${areaName} Workplaces`} eyebrow="What we offer">
 		<p>We match equipment to the people, shifts, and space at each site:</p>
 		<ul>
 			{
@@ -107,25 +137,23 @@ const faqs = [
 				))
 			}
 		</ul>
-	</MediaSection>
-
-	<PhotoPair
-		photos={[
-			{ ...pairLeft, caption: 'Cashless payment on every machine: cards, mobile wallets, and tap-to-pay.' },
-			{ ...pairRight, caption: 'Fresh food, snacks, and drinks stocked to match what your team buys.' },
-		]}
-	/>
-
-	<MediaSection image={last.image} alt={last.alt} heading={`How Free Vending Works in ${areaName}`} eyebrow="Getting started">
-		<ol>
-			<li><strong>Reach out.</strong> Call or use our <a href="/contact-us/">contact form</a>.</li>
-			<li><strong>Site walk.</strong> We visit your {city.name} location to check space, power, and traffic.</li>
-			<li><strong>Free install.</strong> We deliver and set up the equipment at no cost to qualifying sites.</li>
-			<li><strong>We run it.</strong> We stock, clean, and repair everything.</li>
-		</ol>
 		<p>
-			Our equipment reports sales in real time, so we restock before items run out, and we plan visits around your shifts,
-			docks, and badge rules. Local technicians respond to reported issues within 24 hours. Comparing providers? Use our <a href="/blog/vending-contract-checklist/">vending contract checklist</a>.
+			We install and run <a href="/our-services/vending-machine/">vending machines</a>, <a href="/our-services/micro-markets/">micro markets</a>, <a href="/our-services/ai-smart-cooler/">AI smart coolers</a>, and <a href="/our-services/coffee-water/">office coffee and water</a>, and we handle <a href="/our-services/vending-repair/">repairs</a> and <a href="/our-services/vending-moving/">moves</a>. We walk your site first, plan visits around your shifts, docks, and badge rules, and respond to reported issues within 24 hours. Comparing providers? Use our <a href="/blog/vending-contract-checklist/">vending contract checklist</a>.
 		</p>
 	</MediaSection>
+
+	<aside class="mx-auto max-w-6xl px-4 pb-12 text-sm text-slate-500">
+		<h2 class="font-mono text-xs tracking-widest uppercase">Sources for local information</h2>
+		<ul class="mt-3 flex flex-wrap gap-x-4 gap-y-1">
+			{
+				city.sources.map((url, i) => (
+					<li>
+						<a href={url} rel="noopener" class="underline hover:text-brand">
+							{sourceLabels[i]}
+						</a>
+					</li>
+				))
+			}
+		</ul>
+	</aside>
 </ServiceLayout>
