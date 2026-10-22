@@ -12,6 +12,26 @@
 
 		{ "source": "/about-us/cities/alliance{/}?", "destination": "/alliance-texas-vending-services/", "statusCode": 301 },
 
+		{ "source": "/about-us/cities/sherman-vending{/}?", "destination": "/about-us/cities/sherman/", "statusCode": 301 },
+		{ "source": "/about-us/cities/:city(melissa|anna|van-alstyne|howe|gunter|celina){/}?", "destination": "/about-us/cities/sherman/", "statusCode": 301 },
+		{ "source": "/about-us/cities/desoto-vending{/}?", "destination": "/about-us/cities/desoto/", "statusCode": 301 },
+		{ "source": "/about-us/cities/:city(red-oak|ferris|lancaster|duncanville){/}?", "destination": "/about-us/cities/desoto/", "statusCode": 301 },
+		{ "source": "/about-us/cities/las-colinas-vending{/}?", "destination": "/about-us/cities/las-colinas/", "statusCode": 301 },
+		{ "source": "/about-us/service-areas/dallas-vending-services{/}?", "destination": "/about-us/cities/dallas/", "statusCode": 301 },
+		{ "source": "/about-us/service-areas/coppell-vending-services{/}?", "destination": "/about-us/cities/coppell/", "statusCode": 301 },
+		{ "source": "/about-us/service-areas{/}?", "destination": "/about-us/cities/", "statusCode": 301 },
+		{ "source": "/industries-we-serve/irving{/}?", "destination": "/about-us/cities/irving/", "statusCode": 301 },
+
+		{ "source": "/about-us/cities/denton{/}?", "destination": "/about-us/cities/", "statusCode": 301 },
+		{ "source": "/about-us/cities/garland-vending{/}?", "destination": "/about-us/cities/rowlett/", "statusCode": 301 },
+		{ "source": "/about-us/cities/grand-prairie-vending{/}?", "destination": "/about-us/cities/arlington/", "statusCode": 301 },
+		{ "source": "/about-us/cities/lewisville-vending{/}?", "destination": "/about-us/cities/the-colony/", "statusCode": 301 },
+		{ "source": "/about-us/cities/mesquite-vending{/}?", "destination": "/about-us/cities/dallas/", "statusCode": 301 },
+		{ "source": "/about-us/cities/northlake-vending{/}?", "destination": "/about-us/cities/roanoke/", "statusCode": 301 },
+		{ "source": "/about-us/cities/rockwall-vending{/}?", "destination": "/about-us/cities/rowlett/", "statusCode": 301 },
+		{ "source": "/about-us/cities/saginaw-vending{/}?", "destination": "/about-us/cities/fort-worth/", "statusCode": 301 },
+		{ "source": "/about-us/cities/terrell-vending{/}?", "destination": "/about-us/cities/forney/", "statusCode": 301 },
+
 		{ "source": "/about{/}?", "destination": "/about-us/", "statusCode": 301 },
 		{ "source": "/contact{/}?", "destination": "/contact-us/", "statusCode": 301 },
 

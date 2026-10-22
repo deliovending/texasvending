@@ -174,6 +174,8 @@ export function serviceSchema(service: {
 	description: string;
 	url: string;
 	image?: string;
+	/** Place name; defaults to Dallas–Fort Worth */
+	areaServed?: string;
 }): ServiceSchema {
 	return {
 		'@context': CONTEXT,
@@ -184,7 +186,7 @@ export function serviceSchema(service: {
 		url: absoluteUrl(service.url),
 		...(service.image && { image: absoluteUrl(service.image) }),
 		provider: businessRef,
-		areaServed: { '@type': 'Place', name: 'Dallas–Fort Worth, Texas' },
+		areaServed: { '@type': 'Place', name: service.areaServed ?? 'Dallas–Fort Worth, Texas' },
 	};
 }
 

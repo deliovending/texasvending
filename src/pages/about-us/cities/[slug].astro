@@ -1,0 +1,131 @@
+---
+import type { ImageMetadata } from 'astro';
+import ServiceLayout from '../../../layouts/ServiceLayout.astro';
+import MediaSection from '../../../components/MediaSection.astro';
+import PhotoPair from '../../../components/PhotoPair.astro';
+import { cities, cityBySlug, cityHref, cityPhotoAlt, industryInfo, type City } from '../../../data/cities';
+
+export function getStaticPaths() {
+	// Alliance has its own page at /alliance-texas-vending-services/
+	return cities.filter((city) => !city.href).map((city) => ({ params: { slug: city.slug }, props: { city } }));
+}
+
+const { city } = Astro.props as { city: City };
+
+const photoFiles = import.meta.glob<ImageMetadata>('../../../assets/cities/*', { eager: true, import: 'default' });
+const photo = (file: string) => ({ image: photoFiles[`../../../assets/cities/${file}`], alt: cityPhotoAlt[file] });
+const [hero, first, second, pairLeft, pairRight, last] = city.photos.map(photo);
+
+// Pages that cover several towns are named for the area, not just the destination city
+const areaName = city.includes ? `the ${city.name} Area` : city.name;
+const title = city.includes ? `Vending Services in the ${city.name} Area` : `Vending Services in ${city.name}, TX`;
+const description = city.includes
+	? `Free vending, micro markets, and smart coolers for ${city.includes.join(', ')}. Cashless, no contract, 24-hour response.`
+	: `Free vending machines, micro markets, and smart coolers for ${city.name}, TX businesses. Cashless, no long-term contract, 24-hour response.`;
+const placeList = city.includes ? city.includes.join(', ') : city.name;
+
+const nearbyCities = city.nearby.map(cityBySlug).filter((nearby): nearby is City => Boolean(nearby));
+
+const faqs = [
+	{
+		question: `Do you offer free vending machines in ${areaName}?`,
+		answer: `Yes. Texas Vending places vending machines, micro markets, and AI smart coolers at no cost to ${city.name}-area locations with at least 50 people in total foot traffic, counting employees and visitors.`,
+	},
+	{
+		question: `What services do you offer in ${areaName}?`,
+		answer:
+			'Vending machines, micro markets, AI smart coolers, office coffee and water, fresh food, vending machine repair, and vending machine moving.',
+	},
+	city.faq ?? {
+		question: `Do you serve cities near ${city.name}?`,
+		answer: `Yes. We also serve ${nearbyCities.map((nearby) => nearby.name).join(', ')}, and the rest of Dallas–Fort Worth.`,
+	},
+	{
+		question: `How fast do you respond to service calls in ${areaName}?`,
+		answer: 'Local technicians respond to reported service issues within 24 hours, including after hours.',
+	},
+	{
+		question: 'Do I need to sign a long-term contract?',
+		answer: 'No. No long-term contract is required.',
+	},
+];
+---
+
+<ServiceLayout
+	title={title}
+	description={description}
+	h1={city.includes ? `Vending Services in the ${city.name} Area` : `Vending Services in ${city.name}, TX`}
+	eyebrow={city.includes ? city.region : `${city.name}, Texas`}
+	intro={`Texas Vending installs, stocks, and services vending machines, micro markets, AI smart coolers, and office coffee for businesses in ${placeList}. Placement is free at locations with at least 50 people in total foot traffic, counting employees and visitors, and no long-term contract is required.`}
+	heroImage={hero.image}
+	heroAlt={hero.alt}
+	serviceType="Vending and breakroom services"
+	areaServed={`${placeList}, Texas`}
+	crumb={city.includes ? `${city.name} Area` : city.name}
+	parent={{ name: 'Cities We Serve', url: '/about-us/cities/' }}
+	related={{
+		heading: `Cities Near ${city.name}`,
+		items: nearbyCities.map((nearby) => ({
+			name: nearby.name,
+			href: cityHref(nearby),
+			summary: `Vending, micro markets, and smart coolers for ${nearby.name} businesses.`,
+		})),
+	}}
+	faqs={faqs}
+	cta={{
+		heading: `Get Free Vending in ${areaName}`,
+		text: 'Book a free site visit. We will look at your space and recommend the right equipment for your team. No long-term contract.',
+	}}
+>
+	<MediaSection image={first.image} alt={first.alt} heading={`Breakroom Services in ${areaName}`} eyebrow={city.county}>
+		<p>{city.local}</p>
+		{
+			city.includes && (
+				<p>
+					This area includes <strong>{city.includes.join(', ')}</strong>.
+				</p>
+			)
+		}
+		<p>We serve businesses along {city.highways} with:</p>
+		<ul>
+			<li><a href="/our-services/vending-machine/">Vending machines</a> for snacks and drinks</li>
+			<li><a href="/our-services/micro-markets/">Micro markets</a> with fresh meals and self-checkout</li>
+			<li><a href="/our-services/ai-smart-cooler/">AI smart coolers</a> for grab-and-go food</li>
+			<li><a href="/our-services/coffee-water/">Office coffee and water</a></li>
+			<li><a href="/our-services/vending-repair/">Vending repair</a> and <a href="/our-services/vending-moving/">vending moving</a></li>
+		</ul>
+	</MediaSection>
+
+	<MediaSection image={second.image} alt={second.alt} heading={`Who We Serve in ${areaName}`} eyebrow="Local industries" reverse>
+		<p>We match equipment to the people, shifts, and space at each site:</p>
+		<ul>
+			{
+				city.focus.map((key) => (
+					<li>
+						<a href={industryInfo[key].href}>{industryInfo[key].label}</a>: {industryInfo[key].need}
+					</li>
+				))
+			}
+		</ul>
+	</MediaSection>
+
+	<PhotoPair
+		photos={[
+			{ ...pairLeft, caption: 'Cashless payment on every machine: cards, mobile wallets, and tap-to-pay.' },
+			{ ...pairRight, caption: 'Fresh food, snacks, and drinks stocked to match what your team buys.' },
+		]}
+	/>
+
+	<MediaSection image={last.image} alt={last.alt} heading={`How Free Vending Works in ${areaName}`} eyebrow="Getting started">
+		<ol>
+			<li><strong>Reach out.</strong> Call or use our <a href="/contact-us/">contact form</a>.</li>
+			<li><strong>Site walk.</strong> We visit your {city.name} location to check space, power, and traffic.</li>
+			<li><strong>Free install.</strong> We deliver and set up the equipment at no cost to qualifying sites.</li>
+			<li><strong>We run it.</strong> We stock, clean, and repair everything.</li>
+		</ol>
+		<p>
+			Our equipment reports sales in real time, so we restock before items run out, and we plan visits around your shifts,
+			docks, and badge rules. Local technicians respond to reported issues within 24 hours. Comparing providers? Use our <a href="/blog/vending-contract-checklist/">vending contract checklist</a>.
+		</p>
+	</MediaSection>
+</ServiceLayout>

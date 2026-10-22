@@ -22,6 +22,8 @@ interface Props {
 	heroAlt: string;
 	/** Schema.org serviceType, e.g. "Vending machine service". Omit on pages that are not a service (no Service schema). */
 	serviceType?: string;
+	/** Service schema areaServed, e.g. "Plano, Texas". Defaults to Dallas–Fort Worth. */
+	areaServed?: string;
 	/** Name in the breadcrumb trail */
 	crumb: string;
 	faqs: { question: string; answer: string }[];
@@ -33,7 +35,7 @@ interface Props {
 }
 
 const { title, description, h1, eyebrow, intro, heroImage, heroAlt, serviceType, crumb, faqs, cta } = Astro.props;
-const { parent = { name: 'Our Services', url: '/our-services/' } } = Astro.props;
+const { parent = { name: 'Our Services', url: '/our-services/' }, areaServed } = Astro.props;
 const path = Astro.url.pathname;
 // A section's landing page gets no parent crumb and no sibling cards
 const isHub = path === parent.url;
@@ -54,7 +56,7 @@ const siblings = related.items.filter((item) => item.href !== path);
 	<SchemaMarkup
 		slot="head"
 		schema={[
-			...(serviceType ? [serviceSchema({ name: h1, serviceType, description, url: path, image: socialImage.src })] : []),
+			...(serviceType ? [serviceSchema({ name: h1, serviceType, description, url: path, image: socialImage.src, areaServed })] : []),
 			breadcrumbSchema(crumbs),
 			faqPageSchema(faqs),
 		]}
