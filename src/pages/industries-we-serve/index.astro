@@ -1,0 +1,135 @@
+---
+import { Image } from 'astro:assets';
+import ServiceLayout from '../../layouts/ServiceLayout.astro';
+import { industries } from '../../data/industries';
+import hero from '../../assets/industries/hub/employee-cafeteria.png';
+import warehouses from '../../assets/industries/warehouses/warehouse-cafeteria.avif';
+import logistics from '../../assets/industries/logistics/distribution-center-breakroom.jpeg';
+import manufacturing from '../../assets/industries/manufacturing-facilities/plant-manager-vending.png';
+import offices from '../../assets/industries/corporate-offices/office-lounge-vending.png';
+import dataCenter from '../../assets/industries/data-center/smart-cooler-breakroom.jpeg';
+import hospitals from '../../assets/industries/hospitals/hospital-waiting-room-vending.png';
+import education from '../../assets/industries/education/student-smart-cooler.jpg';
+import fitness from '../../assets/industries/fitness/gym-smart-coolers.jpg';
+import transportation from '../../assets/industries/transportation-hubs/terminal-smart-coolers.jpeg';
+import dealerships from '../../assets/industries/auto-dealerships/customer-lounge-vending.png';
+import hospitality from '../../assets/industries/hospitality/lobby-micro-market.jpeg';
+
+// Card photo for each industry page, keyed by its URL
+const cardImages: Record<string, { image: ImageMetadata; alt: string }> = {
+	'/industries-we-serve/warehouses/': { image: warehouses, alt: 'Warehouse cafeteria with tables and vending along the wall' },
+	'/industries-we-serve/logistics/': { image: logistics, alt: 'Distribution center break room with bar tables and glass-door coolers' },
+	'/industries-we-serve/manufacturing-facilities/': { image: manufacturing, alt: 'Plant manager in a hard hat near a drink vending machine' },
+	'/industries-we-serve/corporate-offices/': { image: offices, alt: 'Office lounge with sofas and two smart vending coolers' },
+	'/industries-we-serve/data-center/': { image: dataCenter, alt: 'Smart cooler of drinks beside microwaves in a break room' },
+	'/industries-we-serve/hospitals/': { image: hospitals, alt: 'Hospital dining area with two lit smart vending coolers' },
+	'/industries-we-serve/education/': { image: education, alt: 'Young woman tapping the touch screen on a cooler door' },
+	'/industries-we-serve/fitness/': { image: fitness, alt: 'Two smart coolers in a gym beside exercise equipment' },
+	'/industries-we-serve/transportation-hubs/': { image: transportation, alt: 'Two smart vending coolers in an airport terminal' },
+	'/industries-we-serve/auto-dealerships/': { image: dealerships, alt: 'Staff sharing snacks near a drink cooler in a lounge' },
+	'/industries-we-serve/hospitality/': { image: hospitality, alt: 'Micro market with a self-checkout kiosk, shelves, and coolers' },
+};
+
+const faqs = [
+	{
+		question: 'What types of businesses does Texas Vending serve?',
+		answer:
+			'Warehouses, logistics and distribution centers, manufacturing plants, corporate offices, data centers, hospitals, schools and campuses, fitness centers, transportation hubs, auto dealerships, and hospitality venues across Dallas–Fort Worth.',
+	},
+	{
+		question: 'Does my business qualify for free placement?',
+		answer:
+			'A location qualifies with at least 50 people in total foot traffic, counting employees and visitors. Equipment, delivery, and setup are then free.',
+	},
+	{
+		question: 'Can you serve sites that run 24/7?',
+		answer:
+			'Yes. Micro markets and smart coolers are self-service and cashless, so they work at any hour. We plan restocking around your shifts, docks, and badge rules.',
+	},
+	{
+		question: 'Do you serve both employees and visitors?',
+		answer:
+			'Yes. We place equipment for staff-only areas, public waiting areas, and customer lounges, and match the product mix to who uses each spot.',
+	},
+	{
+		question: 'Which areas do you serve?',
+		answer: 'We are based in Dallas and serve Dallas–Fort Worth and the surrounding North Texas cities.',
+	},
+];
+---
+
+<ServiceLayout
+	title="Industries We Serve in DFW"
+	description="Vending, micro markets, smart coolers, and coffee for DFW warehouses, offices, plants, hospitals, schools, gyms, and more. Free placement, no contract."
+	h1="Industries We Serve in Dallas–Fort Worth"
+	eyebrow="Industries we serve"
+	intro="Texas Vending stocks break rooms and lounges for warehouses, offices, plants, hospitals, schools, gyms, transit hubs, dealerships, and hotels across Dallas–Fort Worth. Every site gets equipment and service matched to its people, shifts, and space, with free placement at qualifying locations."
+	heroImage={hero}
+	heroAlt="Employee cafeteria with colorful chairs, tables, and break areas"
+	serviceType="Vending and breakroom services"
+	crumb="Industries We Serve"
+	parent={{ name: 'Industries We Serve', url: '/industries-we-serve/' }}
+	faqs={faqs}
+>
+	<section class="mx-auto max-w-6xl px-4 py-16 md:py-20">
+		<div class="mx-auto max-w-2xl text-center">
+			<p class="eyebrow">Who we serve</p>
+			<h2 class="mt-3 text-4xl uppercase md:text-5xl">Break Room Service for Every Kind of Site</h2>
+			<p class="mt-4 text-lg text-slate-600">
+				A warehouse night shift and a dealership customer lounge need different things. Pick your industry to see how we set
+				it up.
+			</p>
+		</div>
+		<ul class="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+			{
+				industries.map((industry) => (
+					<li>
+						<a href={industry.href} class="group block h-full overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-slate-200 transition hover:ring-brand">
+							<Image
+								src={cardImages[industry.href].image}
+								alt={cardImages[industry.href].alt}
+								widths={[400, 600]}
+								sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+								class="aspect-[3/2] w-full object-cover transition group-hover:scale-105"
+							/>
+							<div class="p-6">
+								<h3 class="text-2xl uppercase text-ink">{industry.name}</h3>
+								<p class="mt-2 text-slate-600">{industry.summary}</p>
+								<span class="eyebrow mt-4 inline-block">Learn more →</span>
+							</div>
+						</a>
+					</li>
+				))
+			}
+		</ul>
+	</section>
+
+	<div class="bg-slate-50">
+		<div class="mx-auto max-w-3xl px-4 py-16 text-lg leading-relaxed text-slate-700 [&_a]:font-semibold [&_a]:text-brand [&_a:hover]:underline [&_h2]:mt-14 [&_h2]:mb-4 [&_h2]:text-4xl [&_h2]:uppercase [&_h2]:text-slate-900 [&_li]:mt-2 [&_p]:mt-4">
+			<h2 class="!mt-0">How We Match Service to Your Industry</h2>
+			<p>Before we recommend anything, we walk your site. We look at:</p>
+			<ul class="list-disc pl-6">
+				<li><strong>Who uses the space:</strong> employees, visitors, students, members, or customers</li>
+				<li><strong>When they use it:</strong> office hours, three shifts, or 24/7</li>
+				<li><strong>Where they are:</strong> one break room, several buildings, or a public lobby</li>
+				<li><strong>Access rules:</strong> badges, docks, and secure areas</li>
+			</ul>
+			<p>
+				Then we recommend the right mix of <a href="/our-services/vending-machine/">vending machines</a>, <a href="/our-services/micro-markets/">micro markets</a>, <a href="/our-services/ai-smart-cooler/">AI smart coolers</a>, and <a href="/our-services/coffee-water/">coffee and water</a>.
+			</p>
+
+			<h2>What Every Site Gets</h2>
+			<ul class="list-disc pl-6">
+				<li><strong>Free placement</strong> at locations with at least 50 people in total foot traffic, counting employees and visitors</li>
+				<li><strong>No long-term contract</strong></li>
+				<li><strong>Cashless payment</strong> on every machine and market</li>
+				<li><strong>Real-time monitoring</strong> so we restock before items run out</li>
+				<li><strong>24-hour response</strong> to reported service issues, from local technicians</li>
+			</ul>
+			<p>
+				Don't see your industry? <a href="/contact-us/">Tell us about your site</a>. If people work or wait there, we can
+				likely help.
+			</p>
+		</div>
+	</div>
+</ServiceLayout>

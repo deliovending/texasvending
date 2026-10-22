@@ -1,0 +1,102 @@
+---
+import ServiceLayout from '../../layouts/ServiceLayout.astro';
+import MediaSection from '../../components/MediaSection.astro';
+import PhotoPair from '../../components/PhotoPair.astro';
+import Testimonials from '../../components/Testimonials.astro';
+import { ADDRESS, EMAIL, PHONE_DISPLAY, PHONE_TEL } from '../../consts';
+import hero from '../../assets/about/local-vending-service.jpg';
+import campus from '../../assets/about/dfw-business-campus.jpeg';
+import breakroom from '../../assets/about/breakroom-smart-coolers.png';
+import teamLunch from '../../assets/about/team-lunch.jpg';
+import teamMeeting from '../../assets/about/team-meeting.jpg';
+import facility from '../../assets/about/facility-breakroom.jpeg';
+
+const faqs = [
+	{
+		question: 'Where is Texas Vending based?',
+		answer: `We are based in Dallas at ${ADDRESS.street}, ${ADDRESS.city}, ${ADDRESS.region} ${ADDRESS.postalCode}, and serve Dallas–Fort Worth and North Texas.`,
+	},
+	{
+		question: 'What does Texas Vending do?',
+		answer:
+			'We install, stock, and service vending machines, micro markets, AI smart coolers, and office coffee and water. We also repair and move vending equipment.',
+	},
+	{
+		question: 'Do you charge installation or service fees?',
+		answer:
+			'No installation fee and no service fee for vending, micro markets, and smart coolers at qualifying locations. Coffee machine installation is free; coffee, tea, and supplies are paid.',
+	},
+	{
+		question: 'Do I need to sign a long-term contract?',
+		answer: 'No. No long-term contract is required.',
+	},
+	{
+		question: 'How do I reach your team?',
+		answer: `Call ${PHONE_DISPLAY} or email ${EMAIL}. Local technicians respond to reported service issues within 24 hours, including after hours.`,
+	},
+];
+---
+
+<ServiceLayout
+	title="About Texas Vending | Dallas"
+	description="Texas Vending is a Dallas-based vending, micro market, smart cooler, and coffee company serving DFW. No installation fee, no service fee, no contract."
+	h1="About Texas Vending"
+	eyebrow="About us"
+	intro="Texas Vending is a Dallas-based breakroom company serving businesses across Dallas–Fort Worth. We install, stock, and service vending machines, micro markets, AI smart coolers, and office coffee, with no installation fee, no service fee, and no long-term contract."
+	heroImage={hero}
+	heroAlt="Man choosing a packaged meal from a refrigerated cooler"
+	crumb="About Us"
+	parent={{ name: 'About Us', url: '/about-us/' }}
+	faqs={faqs}
+	cta={{
+		heading: 'Work With a Local Team',
+		text: 'Tell us about your location. We will walk the site and recommend the right setup. No cost to qualifying sites.',
+	}}
+>
+	<MediaSection image={campus} alt="Glass office buildings and parking on a suburban business campus" heading="Who We Are" eyebrow="Texas company, Texas team">
+		<p>
+			We are a Texas company built to serve fellow Texans. Our team is based in Dallas and works across North Texas every
+			day, from downtown offices to distribution centers on the edge of the Metroplex.
+		</p>
+	</MediaSection>
+
+	<MediaSection image={breakroom} alt="Coworkers relaxing in a break room lounge with two smart coolers" heading="Our Mission" eyebrow="Why we do it" reverse>
+		<p>
+			We bring vending, coffee, and micro market service to the Dallas–Fort Worth community. Our goal is fresh food,
+			good drinks, and convenient service that make every break a little better.
+		</p>
+		<p>We focus on three things: reliability, quality, and customer care.</p>
+	</MediaSection>
+
+	<PhotoPair
+		photos={[
+			{
+				image: teamLunch,
+				alt: 'Coworkers sharing lunch around an office table',
+				caption: 'A good break room keeps people on site and gives them a minute to recharge.',
+			},
+			{
+				image: teamMeeting,
+				alt: 'Coworkers talking and laughing during a meeting',
+				caption: 'Better breaks make for a better workday.',
+			},
+		]}
+	/>
+
+	<MediaSection image={facility} alt="Workers in safety vests at a break room table near vending machines" heading="How We Work" eyebrow="Our approach">
+		<ol>
+			<li><strong>We walk your site</strong> before we recommend anything: space, power, and traffic.</li>
+			<li><strong>We install for free</strong> at locations with at least 50 people in total foot traffic, counting employees and visitors.</li>
+			<li><strong>We run it.</strong> We stock, clean, and repair everything, and plan visits around your shifts, docks, and badge rules.</li>
+		</ol>
+		<p>
+			Every machine is cashless, our equipment reports sales in real time, and local technicians respond to reported issues
+			within 24 hours. See all <a href="/our-services/">our services</a> and the <a href="/industries-we-serve/">industries we serve</a>.
+		</p>
+		<p>
+			Find us at {ADDRESS.street}, {ADDRESS.city}, {ADDRESS.region} {ADDRESS.postalCode}. Call <a href={`tel:${PHONE_TEL}`}>{PHONE_DISPLAY}</a>, email <a href={`mailto:${EMAIL}`}>{EMAIL}</a>, or see the <a href="/about-us/cities/">cities we serve</a>.
+		</p>
+	</MediaSection>
+
+	<Testimonials />
+</ServiceLayout>

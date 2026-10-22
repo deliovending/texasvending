@@ -1,0 +1,133 @@
+---
+import ServiceLayout from '../../layouts/ServiceLayout.astro';
+import MediaSection from '../../components/MediaSection.astro';
+import PhotoPair from '../../components/PhotoPair.astro';
+import { industries } from '../../data/industries';
+import hero from '../../assets/industries/data-center/smart-cooler-breakroom.jpeg';
+import campus from '../../assets/industries/data-center/dfw-office-campus.jpeg';
+import lobbyVending from '../../assets/industries/data-center/lobby-smart-vending.jpg';
+import coolerTap from '../../assets/industries/data-center/smart-cooler-tap.jpg';
+import cardReader from '../../assets/industries/data-center/smart-cooler-card-reader.jpg';
+import smartStore from '../../assets/industries/data-center/smart-store-drinks.jpg';
+
+const faqs = [
+	{
+		question: 'Can you service a data center with strict access controls?',
+		answer:
+			'Yes. We plan every service visit around your badge rules and shift schedule. Equipment reports sales in real time, so visits are planned in advance and focused on what is running low.',
+	},
+	{
+		question: 'Does a data center qualify for free placement?',
+		answer:
+			'A location qualifies with at least 50 people in total foot traffic, counting employees and visitors. At a data center, contractors and vendors on site count as visitors. Qualifying sites pay $0 for equipment, delivery, and setup.',
+	},
+	{
+		question: 'How do overnight technicians buy food?',
+		answer:
+			'Smart coolers unlock with a tap and charge automatically for what is taken, and micro markets are self-checkout and open around the clock. No cashier and no cash are needed.',
+	},
+	{
+		question: 'What equipment fits a small data center break room?',
+		answer:
+			'An AI smart cooler holds fresh meals, snacks, and drinks in a small footprint. Larger sites with more staff may add vending machines or a micro market.',
+	},
+	{
+		question: 'What happens if equipment fails overnight?',
+		answer:
+			'Local technicians respond to reported issues within 24 hours, including after hours.',
+	},
+];
+---
+
+<ServiceLayout
+	title="Data Center Vending Services in DFW"
+	description="Free smart coolers, micro markets, and vending for Dallas–Fort Worth data centers. Self-service 24/7, cashless, with visits planned around your access rules."
+	h1="Data Center Vending Services in DFW"
+	eyebrow="Data Centers"
+	intro="Texas Vending places AI smart coolers, micro markets, and vending machines in Dallas–Fort Worth data centers, so technicians and security staff can eat without leaving a secure site. Placement is free at qualifying locations, and every visit follows your access rules."
+	heroImage={hero}
+	heroAlt="Two-door smart cooler of drinks beside microwaves in a modern break room"
+	serviceType="Data center vending services"
+	crumb="Data Centers"
+	parent={{ name: 'Industries We Serve', url: '/industries-we-serve/' }}
+	related={{ heading: 'Other Industries We Serve', items: industries }}
+	faqs={faqs}
+	cta={{
+		heading: 'Get Free Vending for Your Data Center',
+		text: 'Share your staffing, shifts, and access requirements. We will walk the site with your team and recommend equipment. No cost and no long-term contract.',
+	}}
+>
+	<MediaSection image={campus} alt="Glass office buildings and a full parking lot on a suburban business campus" heading="Secure Sites With Few Places to Eat" eyebrow="The challenge">
+		<p>
+			Data centers run all day and all night. Facility technicians, network engineers, and security officers work long
+			shifts, and someone is always on call. Leaving the building means badging out, passing security, and badging back
+			in. On a busy night, that is not an option.
+		</p>
+		<p>
+			Many sites sit in business parks or on the edge of town, with little open nearby after dark. Contractors on a
+			maintenance window or a build-out may be on site for long stretches with nowhere to go. The break room is often the
+			only food on the property.
+		</p>
+		<p>
+			During an outage or a major cutover, nobody leaves. Teams stay until the work is done, sometimes well past a normal
+			shift. Food in the building keeps them going.
+		</p>
+		<p>
+			Staff counts at a data center can be small compared with the floor space. Contractors, vendors, and visitors count
+			toward the traffic that qualifies a site, so ask us even if your own team is lean.
+		</p>
+	</MediaSection>
+
+	<MediaSection image={lobbyVending} alt="Two glass-door smart vending coolers with snacks and drinks in a marble lobby" heading="Compact, Self-Service Equipment" eyebrow="What we install" reverse>
+		<p>Data center break rooms are often small. We recommend equipment that does a lot in little space:</p>
+		<ul>
+			<li><a href="/our-services/ai-smart-cooler/">AI smart coolers</a> for meals, snacks, and drinks behind one locked door</li>
+			<li><a href="/our-services/vending-machine/">Vending machines</a> for snacks and energy drinks in security or NOC areas</li>
+			<li><a href="/our-services/micro-markets/">Micro markets</a> for larger campuses with more staff</li>
+			<li>Coffee machines for long overnight shifts; installation is free, and coffee and supplies are paid</li>
+		</ul>
+		<p>
+			A cooler stocked from our <a href="/fresh-food/">fresh food menu</a> gives the overnight crew sandwiches, wraps,
+			salads, ready-to-eat meals, and protein snacks, not just chips. Drinks include Coca-Cola, Pepsi, Dr Pepper, Monster,
+			and Red Bull.
+		</p>
+		<h3>Placement Inside a Secure Building</h3>
+		<p>
+			We look at where staff take breaks and which areas outside vendors can reach. A break room near the security desk,
+			rather than inside a restricted zone, often makes restocking simpler for everyone. Your facilities and security
+			teams decide what works, and we plan around their rules.
+		</p>
+	</MediaSection>
+
+	<PhotoPair
+		photos={[
+			{
+				image: coolerTap,
+				alt: 'Hand opening a smart cooler door with protein shakes on the shelf',
+				caption: 'One tap unlocks the door, and items put back before it closes are not charged.',
+			},
+			{
+				image: cardReader,
+				alt: 'Hand holding a credit card to the reader on a smart cooler',
+				caption: 'Cards, mobile wallets, and tap-to-pay work at any hour.',
+			},
+		]}
+	/>
+
+	<MediaSection image={smartStore} alt="Woman taking a can from a smart cabinet stocked with drinks and toiletries" heading="Service Visits That Follow Your Access Rules" eyebrow="How we serve data centers">
+		<ul>
+			<li><strong>Planned around security.</strong> We schedule visits around your badge rules and shifts, and we set a restocking schedule for your site.</li>
+			<li><strong>Fewer trips, better timed.</strong> Equipment reports sales in real time, so each visit brings what is running low.</li>
+			<li><strong>No cashier needed.</strong> Smart coolers and micro markets are self-service and cashless.</li>
+			<li><strong>24-hour response.</strong> Local technicians respond to reported issues within 24 hours, including after hours.</li>
+		</ul>
+		<p>
+			Because restocking follows real sales data, we do not run a fixed route through your building. That means fewer
+			visitors for your security team to log and badge in. Subsidized vending is also available on request if you want
+			to offer food as a benefit for overnight crews.
+		</p>
+		<p>
+			Have older machines on site? We provide <a href="/our-services/vending-repair/">vending machine repair</a> no matter who supplied them. To plan a site walk with your facilities and security teams, <a href="/contact-us/">contact Texas Vending</a>.
+		</p>
+	</MediaSection>
+</ServiceLayout>

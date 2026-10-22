@@ -1,0 +1,104 @@
+---
+import ServiceLayout from '../../layouts/ServiceLayout.astro';
+import MediaSection from '../../components/MediaSection.astro';
+import PhotoPair from '../../components/PhotoPair.astro';
+import { industries } from '../../data/industries';
+import hero from '../../assets/industries/hospitality/lobby-micro-market.jpeg';
+import residentShopping from '../../assets/industries/hospitality/apartment-micro-market.webp';
+import marketShelves from '../../assets/industries/hospitality/micro-market-shelves.jpg';
+import marketDisplay from '../../assets/industries/hospitality/micro-market-display.png';
+import marketKiosk from '../../assets/industries/hospitality/micro-market-kiosk.jpeg';
+import marketCheckout from '../../assets/industries/hospitality/micro-market-checkout.avif';
+
+const faqs = [
+	{
+		question: 'Do you provide micro markets for hotels and apartment communities?',
+		answer:
+			'Yes. Texas Vending serves hotels, apartment communities, and entertainment venues across Dallas–Fort Worth with micro markets, AI smart coolers, vending machines, and coffee and water service.',
+	},
+	{
+		question: 'Do guests need staff help to buy something?',
+		answer:
+			'No. Micro markets are self-checkout and open around the clock. Smart coolers unlock with a tap and charge automatically for items taken.',
+	},
+	{
+		question: 'Does our property qualify for free placement?',
+		answer:
+			'A location qualifies with at least 50 people in total foot traffic, counting employees and visitors. Guests, residents, and staff all count toward that one total.',
+	},
+	{
+		question: 'Can you service vending machines our property already owns?',
+		answer:
+			'Yes. Our local technicians repair and move machines no matter who supplied them, and they respond to reported issues within 24 hours, including after hours.',
+	},
+	{
+		question: 'Is there a long-term contract?',
+		answer:
+			'No. Equipment, delivery, and setup cost $0 at qualifying locations, with no installation fee, no service fee, and no long-term contract.',
+	},
+];
+---
+
+<ServiceLayout
+	title="Hotel and Hospitality Vending in DFW"
+	description="Hospitality vending in Dallas–Fort Worth: self-serve micro markets, smart coolers, and vending for hotels, apartments, and venues. Free at qualifying sites."
+	h1="Hospitality Vending for Hotels, Apartments, and Venues in DFW"
+	eyebrow="Hospitality"
+	intro="Texas Vending places self-serve micro markets, AI smart coolers, vending machines, and coffee service in Dallas–Fort Worth hotels, apartment communities, and entertainment venues, so guests and residents can buy food at any hour without front-desk help. Placement is free at qualifying sites, with no long-term contract."
+	heroImage={hero}
+	heroAlt="Micro market with a self-checkout kiosk, snack shelves, and coolers along a wall"
+	serviceType="Hospitality vending services"
+	crumb="Hospitality"
+	parent={{ name: 'Industries We Serve', url: '/industries-we-serve/' }}
+	related={{ heading: 'Other Industries We Serve', items: industries }}
+	faqs={faqs}
+	cta={{
+		heading: 'Get Free Vending for Your Property',
+		text: 'Tell us about your property, your guests or residents, and your space. We will walk the site and recommend the right equipment. No cost and no long-term contract.',
+	}}
+>
+	<MediaSection image={residentShopping} alt="Woman holding a wire basket reads a juice bottle beside refrigerated cases" heading="Guests and Residents Keep Their Own Hours" eyebrow="The challenge">
+		<p>Hotel guests check in after midnight, leave before breakfast, and get hungry after the restaurant closes. Apartment residents want a cold drink or a quick breakfast without driving to the store. Event venues need food that keeps up with a crowd at intermission, then sits ready for the next show.</p>
+		<p>A front-desk snack shelf seems simple until someone has to buy for it, price it, ring it up, and throw out what expired. That work lands on staff who are also checking in guests, answering phones, and handling maintenance requests.</p>
+		<p>Your own team has the same problem. Housekeeping, maintenance, security, and night audit staff often work while the kitchen is closed, and many cannot leave the property during a shift.</p>
+	</MediaSection>
+
+	<MediaSection image={marketShelves} alt="Micro market with drink coolers, snack shelves, fruit baskets, and a pay kiosk" heading="Self-Serve Markets for Lobbies and Clubhouses" eyebrow="What we install" reverse>
+		<p>We walk the property, look at the space and the traffic, and recommend:</p>
+		<ul>
+			<li><a href="/our-services/micro-markets/">Micro markets</a> for hotel lobbies, apartment clubhouses, and amenity spaces, with open shelves, coolers, and self-checkout</li>
+			<li><a href="/our-services/ai-smart-cooler/">AI smart coolers</a> for fresh food where floor space is tight</li>
+			<li><a href="/our-services/vending-machine/">Vending machines</a> for guest floors, pool areas, and venue concourses</li>
+			<li><a href="/our-services/coffee-water/">Coffee and water service</a> for guest lounges, meeting rooms, and staff rooms</li>
+		</ul>
+		<p>A property can run a guest market in the lobby and a separate setup in the employee break room. A small boutique hotel may need one smart cooler near the elevator. A large apartment community may want a full market in the clubhouse and a drink machine by the pool.</p>
+		<p>Each property type has its own rhythm. In an apartment community, a clubhouse market is an amenity residents can use any time, with no leasing agent behind a counter. An entertainment venue sees long quiet stretches, then a rush. Self-checkout and cashless payment help a crowd move through quickly, and sales data shows what to stock before the next event.</p>
+	</MediaSection>
+
+	<PhotoPair
+		photos={[
+			{
+				image: marketDisplay,
+				alt: 'Young man walking past a coffee machine, snack shelves, and fresh food coolers',
+				caption: 'Coffee, snacks, and fresh food can share one self-serve wall.',
+			},
+			{
+				image: marketKiosk,
+				alt: 'Woman tapping a card at a self-checkout kiosk in a micro market',
+				caption: 'Guests and residents check out on their own, with no front-desk help needed.',
+			},
+		]}
+	/>
+
+	<MediaSection image={marketCheckout} alt="Man in a gray polo using a self-checkout screen while holding snacks" heading="No Staff Needed at the Register" eyebrow="How we serve hospitality">
+		<ul>
+			<li><strong>Open around the clock.</strong> Micro markets are self-checkout, so a late arrival or a resident heading out early can shop without waiting on anyone.</li>
+			<li><strong>Cashless.</strong> Cards, mobile wallets, and tap-to-pay on every machine, micro market, and coffee system.</li>
+			<li><strong>Real food.</strong> Sandwiches, wraps, salads, ready-to-eat meals, yogurt, fruit cups, and breakfast burritos from our <a href="/fresh-food/">fresh food program</a>, plus drinks from Coca-Cola, Pepsi, Dr Pepper, Monster, and Red Bull.</li>
+			<li><strong>Restocked on real data.</strong> Equipment reports sales in real time, so restocking follows what is running low. The schedule is set per property, and visits are planned around check-in rushes, events, and building access.</li>
+			<li><strong>24-hour response.</strong> Local technicians respond to reported issues within 24 hours, including after hours. We also handle <a href="/our-services/vending-repair/">vending machine repair</a> for machines your property already owns, no matter who supplied them.</li>
+		</ul>
+		<p>Your front desk stays focused on guests, and the market stays stocked.</p>
+		<p>Our team is based in Dallas and serves hotels, apartment communities, and venues across Dallas–Fort Worth and North Texas. We walk the property before recommending equipment, so the guest area and the staff area each get what fits.</p>
+	</MediaSection>
+</ServiceLayout>

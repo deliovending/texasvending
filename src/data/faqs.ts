@@ -8,7 +8,7 @@ export const homeFaqs = [
 	{
 		question: 'Is there a cost to install vending machines or micro markets?',
 		answer:
-			'No. Installation, delivery, setup, and ongoing service are free for qualifying locations.',
+			'No. Installation, delivery, setup, and ongoing service are free for qualifying locations. A location qualifies with at least 50 people in total foot traffic, counting employees and visitors.',
 	},
 	{
 		question: 'Do you require a long-term contract?',
@@ -36,7 +36,7 @@ export const homeFaqs = [
 	{
 		question: 'How do service requests or maintenance issues get handled?',
 		answer:
-			'Call or email us with the request. We dispatch local technicians quickly, including after hours.',
+			'Call or email us with the request. Local technicians respond within 24 hours, including after hours.',
 	},
 	{
 		question: 'Can we request specific products or brands?',

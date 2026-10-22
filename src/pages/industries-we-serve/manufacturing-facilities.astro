@@ -1,0 +1,130 @@
+---
+import ServiceLayout from '../../layouts/ServiceLayout.astro';
+import MediaSection from '../../components/MediaSection.astro';
+import PhotoPair from '../../components/PhotoPair.astro';
+import { industries } from '../../data/industries';
+import hero from '../../assets/industries/manufacturing-facilities/plant-manager-vending.png';
+import workersLunch from '../../assets/industries/manufacturing-facilities/plant-workers-lunch.avif';
+import coolersBreakroom from '../../assets/industries/manufacturing-facilities/smart-coolers-breakroom.jpeg';
+import machineRow from '../../assets/industries/manufacturing-facilities/vending-machine-row.jpeg';
+import cardPayment from '../../assets/industries/manufacturing-facilities/card-payment-vending.jpg';
+import snackCoils from '../../assets/industries/manufacturing-facilities/smart-cooler-snacks.jpg';
+
+const faqs = [
+	{
+		question: 'Is vending free for manufacturing plants?',
+		answer:
+			'Yes, at qualifying locations. A plant qualifies with at least 50 people in total foot traffic, counting employees and visitors. Equipment, delivery, and setup cost $0, with no installation fee, no service fee, and no long-term contract.',
+	},
+	{
+		question: 'Can second and third shift get fresh food?',
+		answer:
+			'Yes. Micro markets are self-checkout and open around the clock, and smart coolers charge automatically for what is taken. Night crews get the same sandwiches, wraps, and meals as first shift.',
+	},
+	{
+		question: 'Can the company lower prices for employees?',
+		answer:
+			'Yes. Subsidized vending is available on request. The employer covers part of the price, and employees pay less at the machine.',
+	},
+	{
+		question: 'How do you handle restocking on an active production floor?',
+		answer:
+			'We plan service visits around your shifts, docks, and badge rules. Equipment reports sales in real time, so each visit is focused on what is running low.',
+	},
+	{
+		question: 'What happens when a machine breaks down?',
+		answer:
+			'Local technicians respond to reported issues within 24 hours, including after hours. We also repair and move machines that another company supplied.',
+	},
+];
+---
+
+<ServiceLayout
+	title="Manufacturing Vending Services in DFW"
+	description="Free vending machines, micro markets, and smart coolers for Dallas–Fort Worth manufacturing plants. Stocked for every shift, cashless, no long-term contract."
+	h1="Vending for Manufacturing Facilities in DFW"
+	eyebrow="Manufacturing Facilities"
+	intro="Texas Vending provides vending machines, micro markets, AI smart coolers, and coffee for manufacturing plants across Dallas–Fort Worth, stocked for first, second, and third shift. Placement is free at qualifying sites, and service is planned around your production schedule."
+	heroImage={hero}
+	heroAlt="Plant manager in a hard hat holding a clipboard near a drink vending machine"
+	serviceType="Manufacturing vending services"
+	crumb="Manufacturing Facilities"
+	parent={{ name: 'Industries We Serve', url: '/industries-we-serve/' }}
+	related={{ heading: 'Other Industries We Serve', items: industries }}
+	faqs={faqs}
+	cta={{
+		heading: 'Get Free Vending for Your Plant',
+		text: 'Share your headcount, shift pattern, and break room layout. We will walk the plant and recommend equipment. No cost and no long-term contract.',
+	}}
+>
+	<MediaSection image={workersLunch} alt="Two workers in hard hats eating sandwiches on a break" heading="Every Shift Needs a Real Meal" eyebrow="The challenge">
+		<p>
+			Plants run on fixed lines and fixed breaks. When the bell rings, the whole crew heads to the break room at once,
+			and the clock is already running. Workers need to remove gloves and gear, wash up, and walk from the floor before
+			they can eat.
+		</p>
+		<p>
+			First shift may have a food truck or a nearby restaurant. Second and third shift usually do not. The people
+			working nights end up with whatever they packed, or nothing at all. That shows up as fatigue late in the shift.
+			For many workers, the break room is where they eat the main meal of their shift.
+		</p>
+		<p>
+			Food inside the plant fixes this. Everyone gets the same options at every hour, and nobody burns a break in the
+			parking lot. If you are setting break schedules, our guide to <a href="/blog/texas-break-laws-employers/">Texas break laws for employers</a> covers what the law does and does not require.
+		</p>
+	</MediaSection>
+
+	<MediaSection image={coolersBreakroom} alt="Two glass-door smart coolers of snacks and sodas in a break room with a sink" heading="Equipment That Fits a Plant Break Room" eyebrow="What we install" reverse>
+		<p>We look at your break room size, crew count, and walking distance from the floor, then recommend a mix:</p>
+		<ul>
+			<li><a href="/our-services/vending-machine/">Snack and drink vending machines</a> near time clocks and side break areas</li>
+			<li><a href="/our-services/ai-smart-cooler/">AI smart coolers</a> for fresh meals in a small footprint</li>
+			<li><a href="/our-services/micro-markets/">Micro markets</a> for main break rooms that feed several shifts</li>
+			<li><a href="/our-services/coffee-water/">Coffee and water service</a> for early starts and hot work areas</li>
+		</ul>
+		<p>
+			Physical work calls for real food and plenty to drink. We stock sandwiches, wraps, ready-to-eat meals, breakfast
+			burritos, boiled eggs, and protein snacks, along with water, Coca-Cola, Pepsi, Dr Pepper, Monster, and Red Bull.
+			Coffee machine installation is free; coffee, tea, and supplies are paid.
+		</p>
+		<h3>Where Machines Go in a Plant</h3>
+		<p>
+			Distance matters on a large floor. If the break room sits at one end of the building, people on the far lines lose
+			part of their break to walking. During the site walk, we look at time clocks, entrances, and line locations, and
+			we may suggest a second, smaller spot such as a vending machine or smart cooler near the far end. Equipment stays
+			out of forklift paths and away from production areas.
+		</p>
+	</MediaSection>
+
+	<PhotoPair
+		photos={[
+			{
+				image: machineRow,
+				alt: 'Row of drink and snack vending machines with lit card reader panels',
+				caption: 'Snack and drink machines cover quick breaks close to the line.',
+			},
+			{
+				image: cardPayment,
+				alt: 'Woman paying at a snack vending machine with a credit card',
+				caption: 'Card and tap-to-pay keep the line moving when a whole shift breaks at once.',
+			},
+		]}
+	/>
+
+	<MediaSection image={snackCoils} alt="Close-up of chip bags held in the coils of a snack vending machine" heading="Service That Works Around Production" eyebrow="How we serve plants">
+		<ul>
+			<li><strong>Stocked before the rush.</strong> Equipment reports sales in real time, so we restock what is running low before a full shift hits the break room.</li>
+			<li><strong>Visits on your schedule.</strong> We plan service around shift changes, docks, and badge rules, and set a restocking schedule for your plant.</li>
+			<li><strong>Cashless everywhere.</strong> Cards, mobile wallets, and tap-to-pay on every machine, micro market, and coffee system.</li>
+			<li><strong>Subsidized vending on request.</strong> You can lower prices for your crew as a benefit.</li>
+			<li><strong>24-hour response.</strong> Local technicians respond to reported issues within 24 hours, including after hours.</li>
+		</ul>
+		<p>
+			Overtime weeks and new lines change demand fast. Because we see sales as they happen, we can restock more often
+			during a busy stretch and pull back when things slow down, without anyone at the plant making a call.
+		</p>
+		<p>
+			Rearranging the floor or opening a new building? We also offer <a href="/our-services/vending-moving/">vending machine moving</a> for any brand of machine, including ones we did not supply.
+		</p>
+	</MediaSection>
+</ServiceLayout>

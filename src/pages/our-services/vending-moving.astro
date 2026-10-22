@@ -1,0 +1,117 @@
+---
+import ServiceLayout from '../../layouts/ServiceLayout.astro';
+import MediaSection from '../../components/MediaSection.astro';
+import PhotoPair from '../../components/PhotoPair.astro';
+import hero from '../../assets/services/vending-moving/facilities-manager-vending-machine.png';
+import contractors from '../../assets/services/vending-moving/contractors-office-vending.jpeg';
+import twoCoolers from '../../assets/services/vending-moving/breakroom-two-smart-coolers.png';
+import officeKitchen from '../../assets/services/vending-moving/smart-cooler-office-kitchen.jpeg';
+import warehouseCafeteria from '../../assets/services/vending-moving/warehouse-cafeteria.avif';
+import lobby from '../../assets/services/vending-moving/lobby-smart-vending.jpg';
+import cafeteria from '../../assets/services/vending-moving/employee-cafeteria.png';
+
+const faqs = [
+	{
+		question: 'What equipment do you move?',
+		answer:
+			'Vending machines, smart coolers, micro market equipment, coffee brewers, water systems, kiosks, and related break room equipment.',
+	},
+	{
+		question: 'Do you move machines between buildings or cities?',
+		answer: 'Yes. We move equipment within a building, between buildings, and across cities throughout Dallas–Fort Worth.',
+	},
+	{
+		question: 'Do you set the machine up after the move?',
+		answer: 'Yes. We disconnect, move, place, level, connect, and test the equipment so it works when we leave.',
+	},
+	{
+		question: 'Can you move equipment after hours or on weekends?',
+		answer: 'Yes. After-hours and weekend moves are available to avoid disrupting your work.',
+	},
+	{
+		question: 'Do you move machines that Texas Vending did not install?',
+		answer: 'Yes. Moving service is available even if another company supplied the machines.',
+	},
+];
+---
+
+<ServiceLayout
+	title="Vending Machine Moving in DFW"
+	description="Vending machine moving across Dallas–Fort Worth. We move vending machines, smart coolers, and coffee equipment, then level, connect, and test them."
+	h1="Vending Machine Moving in DFW"
+	eyebrow="Vending moving service"
+	intro="Texas Vending moves vending machines, smart coolers, micro market equipment, and coffee machines across the building or across Dallas–Fort Worth. We disconnect, move, level, connect, and test every machine, including equipment we did not install."
+	heroImage={hero}
+	heroAlt="Facilities manager with a clipboard in a plant, with a vending machine in the background"
+	serviceType="Vending machine moving"
+	crumb="Vending Moving"
+	faqs={faqs}
+	cta={{
+		heading: 'Plan Your Vending Move',
+		text: 'Tell us what you are moving, where, and when. We will schedule the move around your hours.',
+		buttonLabel: 'Move it',
+	}}
+>
+	<MediaSection image={contractors} alt="Contractors in safety vests near vending machines in a facility office" heading="Moves Done Right" eyebrow="What we handle">
+		<p>Vending machines are heavy, top-heavy, and often refrigerated. A careful move covers every step:</p>
+		<ol>
+			<li><strong>Disconnect.</strong> We power down and disconnect the equipment.</li>
+			<li><strong>Protect.</strong> We wrap and secure each machine for loading and transport.</li>
+			<li><strong>Move.</strong> We use the right equipment to move it safely.</li>
+			<li><strong>Set up.</strong> We place, level, and connect the machine.</li>
+			<li><strong>Test.</strong> We make sure it works before we leave.</li>
+		</ol>
+	</MediaSection>
+
+	<MediaSection image={twoCoolers} alt="Break room lounge with two 24-hour smart vending coolers" heading="What We Move" eyebrow="Equipment" reverse>
+		<ul>
+			<li>Snack, drink, and combo vending machines</li>
+			<li>AI smart coolers and refrigerated machines</li>
+			<li>Micro market coolers, shelving, and kiosks</li>
+			<li>Coffee brewers and water systems</li>
+		</ul>
+		<p>
+			We move equipment from any supplier, not just machines Texas Vending installed.
+		</p>
+	</MediaSection>
+
+	<PhotoPair
+		photos={[
+			{
+				image: officeKitchen,
+				alt: 'Two smart coolers stocked with food and drinks in an office break room',
+				caption: 'Office remodels often mean moving coolers to a new kitchen.',
+			},
+			{
+				image: lobby,
+				alt: 'Two 24-hour smart vending coolers in an office lobby',
+				caption: 'Relocating machines to a lobby can serve visitors and staff.',
+			},
+		]}
+	/>
+
+	<MediaSection image={warehouseCafeteria} alt="Warehouse cafeteria with tables, chairs, and vending along the wall" heading="Across the Building or Across Town" eyebrow="Where we move">
+		<p>
+			We handle moves within a facility, between buildings on a campus, and between cities across Dallas–Fort Worth.
+			Common reasons to move a machine:
+		</p>
+		<ul>
+			<li>An office move or remodel</li>
+			<li>A new break room or a second building</li>
+			<li>Placing machines closer to where people work</li>
+		</ul>
+		<p>Moving between offices? We can also repair or replace tired equipment during the move.</p>
+	</MediaSection>
+
+	<MediaSection image={cafeteria} alt="Employee cafeteria with colorful seating and break areas" heading="After-Hours and Weekend Moves" eyebrow="On your schedule" reverse>
+		<p>
+			Moves happen when they disrupt the least. After-hours and weekend moves are available, and we follow your building's
+			check-in and badge rules.
+		</p>
+		<p>
+			Machine not working after someone else moved it? See <a href="/our-services/vending-repair/">vending machine
+			repair</a>. Want new equipment for the new space? Ask about free{' '}
+			<a href="/our-services/vending-machine/">vending machine placement</a>.
+		</p>
+	</MediaSection>
+</ServiceLayout>

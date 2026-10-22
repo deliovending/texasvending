@@ -1,0 +1,110 @@
+---
+import ServiceLayout from '../../layouts/ServiceLayout.astro';
+import MediaSection from '../../components/MediaSection.astro';
+import PhotoPair from '../../components/PhotoPair.astro';
+import hero from '../../assets/services/vending-repair/technician-inspecting-vending-machine.jpg';
+import cardReader from '../../assets/services/vending-repair/vending-card-reader.webp';
+import spiralMachine from '../../assets/services/vending-repair/spiral-snack-vending-machine.jpg';
+import selection from '../../assets/services/vending-repair/vending-machine-selection.jpg';
+import cooler from '../../assets/services/vending-repair/refrigerated-smart-cooler.jpeg';
+import shiftChange from '../../assets/services/vending-repair/breakroom-shift-change-vending.webp';
+import coolerShelves from '../../assets/services/vending-repair/smart-cooler-snack-shelves.jpg';
+
+const faqs = [
+	{
+		question: 'How fast do you respond to a vending machine repair call?',
+		answer: 'Our local technicians respond to reported service issues within 24 hours, including after hours.',
+	},
+	{
+		question: 'Do you repair machines you did not install?',
+		answer: 'Yes. We repair vending machines and coolers no matter who supplied them, depending on the machine type and condition.',
+	},
+	{
+		question: 'What do you repair?',
+		answer:
+			'Snack, drink, combo, and coffee machines, smart coolers, and cashless equipment, including card readers, refrigeration, and coin mechanisms.',
+	},
+	{
+		question: 'Do you offer preventive maintenance?',
+		answer: 'Yes. Preventive maintenance helps reduce breakdowns and keeps equipment running longer.',
+	},
+	{
+		question: 'How do I request a repair?',
+		answer: 'Call us or email us with the machine location and the problem, and we will schedule a technician.',
+	},
+];
+---
+
+<ServiceLayout
+	title="Vending Machine Repair in DFW"
+	description="Vending machine repair across Dallas–Fort Worth. Local technicians fix card readers, coolers, and coin mechs on any brand, with a 24-hour response."
+	h1="Vending Machine Repair in DFW"
+	eyebrow="Vending repair service"
+	intro="Texas Vending repairs snack, drink, coffee, and cashless vending equipment across Dallas–Fort Worth, no matter who supplied the machine. Our local technicians respond to reported service issues within 24 hours, including after hours."
+	heroImage={hero}
+	heroAlt="Technician kneeling beside a vending machine and writing on a clipboard"
+	serviceType="Vending machine repair"
+	crumb="Vending Repair"
+	faqs={faqs}
+	cta={{
+		heading: 'Machine Down? Call a Local Technician',
+		text: 'Tell us the machine, the location, and the problem. We respond to reported service issues within 24 hours.',
+		buttonLabel: 'Request a repair',
+	}}
+>
+	<MediaSection image={cardReader} alt="Card reader and touch screen on a vending machine" heading="What We Fix" eyebrow="Repair services">
+		<p>A broken machine costs goodwill fast. We repair the problems that take machines offline:</p>
+		<ul>
+			<li><strong>Card readers</strong> that decline cards or won't connect</li>
+			<li><strong>Refrigeration</strong> in drink machines, fresh food machines, and smart coolers</li>
+			<li><strong>Coin mechanisms</strong></li>
+			<li><strong>Snack, drink, and combo machines</strong> that won't vend</li>
+			<li><strong>Coffee machines</strong> and other break room equipment</li>
+		</ul>
+	</MediaSection>
+
+	<MediaSection image={spiralMachine} alt="Spiral snack vending machine stocked with chips and candy" heading="Any Machine, Any Supplier" eyebrow="Snack, drink, and combo" reverse>
+		<p>
+			You don't need to be a Texas Vending customer. We repair snack, drink, and combo machines, smart coolers, and cashless
+			equipment from other vendors, depending on the machine type and condition.
+		</p>
+		<p>
+			Tired of chasing an out-of-town provider? We can also replace old equipment or take over the full service. Ask about
+			free <a href="/our-services/vending-machine/">vending machine placement</a> for qualifying sites.
+		</p>
+	</MediaSection>
+
+	<PhotoPair
+		photos={[
+			{
+				image: selection,
+				alt: 'Person choosing a snack at a lit vending machine',
+				caption: 'Working machines keep breaks short and employees happy.',
+			},
+			{
+				image: cooler,
+				alt: 'Refrigerated smart cooler stocked with fresh food and drinks',
+				caption: 'Refrigeration problems put fresh food at risk, so report them right away.',
+			},
+		]}
+	/>
+
+	<MediaSection image={shiftChange} alt="Worker using the touch screen on a cashless drink and snack cooler" heading="24-Hour Response, Local Technicians" eyebrow="How repair works">
+		<ol>
+			<li><strong>Report it.</strong> Call or email us with the machine location and what is wrong.</li>
+			<li><strong>We respond.</strong> A local technician responds within 24 hours, including after hours.</li>
+			<li><strong>We fix it.</strong> We repair the machine on site to get it back in service.</li>
+		</ol>
+		<p>Our team is based in Dallas and works North Texas every day, so help is never coming from out of state.</p>
+	</MediaSection>
+
+	<MediaSection image={coolerShelves} alt="Smart cooler shelves stocked with chips and snacks" heading="Prevent Breakdowns Before They Happen" eyebrow="Preventive maintenance" reverse>
+		<p>
+			Preventive maintenance reduces breakdowns and helps equipment last longer. For machines we service, real-time
+			monitoring also flags problems so we can act before your team notices.
+		</p>
+		<p>
+			Moving a machine instead? See <a href="/our-services/vending-moving/">vending machine moving</a>.
+		</p>
+	</MediaSection>
+</ServiceLayout>

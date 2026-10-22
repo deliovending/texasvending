@@ -1,0 +1,113 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+import MediaSection from '../components/MediaSection.astro';
+import PhotoPair from '../components/PhotoPair.astro';
+import hero from '../assets/fresh-food/stocking-fresh-food.jpg';
+import chickenWrap from '../assets/fresh-food/chicken-wrap.webp';
+import sandwich from '../assets/fresh-food/egg-avocado-sandwich.jpeg';
+import quesadilla from '../assets/fresh-food/chicken-quesadilla.jpg';
+import salad from '../assets/fresh-food/green-salad.jpg';
+import burritos from '../assets/fresh-food/burritos-cooler.jpg';
+import teriyaki from '../assets/fresh-food/teriyaki-chicken.jpeg';
+
+const faqs = [
+	{
+		question: 'What fresh food can you stock in our break room?',
+		answer:
+			'Sandwiches, wraps, salads, ready-to-eat meals, yogurt, fruit cups, and breakfast items like burritos and boiled eggs, plus protein snacks and better-for-you drinks.',
+	},
+	{
+		question: 'Which equipment holds fresh food?',
+		answer:
+			'AI smart coolers, micro markets, and refrigerated fresh food vending machines. We recommend the right one after a site walk.',
+	},
+	{
+		question: 'Can employees buy fresh food at night?',
+		answer:
+			'Yes. Smart coolers and micro markets are self-service and cashless, so night and weekend shifts can buy meals without a cashier.',
+	},
+	{
+		question: 'Can we request specific meals or brands?',
+		answer: 'Yes. We add specific products and brands when there is enough demand at your location.',
+	},
+	{
+		question: 'Is there a cost to add fresh food?',
+		answer:
+			'Equipment, delivery, and setup are free at locations with at least 50 people in total foot traffic, counting employees and visitors. Employees pay for what they buy, and you can ask about subsidized pricing.',
+	},
+];
+---
+
+<ServiceLayout
+	title="Fresh Food for DFW Break Rooms"
+	description="Fresh sandwiches, wraps, salads, and ready-to-eat meals for Dallas–Fort Worth break rooms, sold through smart coolers and micro markets, 24/7 and cashless."
+	h1="Fresh Food for DFW Break Rooms"
+	eyebrow="Fresh food"
+	intro="Texas Vending stocks Dallas–Fort Worth break rooms with fresh sandwiches, wraps, salads, ready-to-eat meals, and breakfast items. We sell them through smart coolers, micro markets, and fresh food vending machines, so your team can eat a real meal without leaving the building."
+	heroImage={hero}
+	heroAlt="Woman loading packaged salads into a refrigerated fresh food machine"
+	serviceType="Workplace fresh food service"
+	crumb="Fresh Food"
+	parent={{ name: 'Fresh Food', url: '/fresh-food/' }}
+	faqs={faqs}
+	cta={{
+		heading: 'Add Fresh Food to Your Break Room',
+		text: 'Book a site walk and we will recommend the right equipment and menu for your team. No long-term contract.',
+	}}
+>
+	<MediaSection image={chickenWrap} alt="Hand holding a grilled chicken wrap cut in half" heading="Real Meals on Site" eyebrow="Why fresh food">
+		<p>
+			A bag of chips gets someone through an afternoon. It does not replace lunch. When the nearest restaurant is a drive
+			away, a short break is not enough time to get a real meal.
+		</p>
+		<p>
+			Fresh food on site lets employees eat well and still use their whole break to rest. It also shows your team you care
+			about more than keeping the snack machine full.
+		</p>
+	</MediaSection>
+
+	<MediaSection image={sandwich} alt="Egg, avocado, and greens sandwiches on whole grain bread" heading="What's on the Menu" eyebrow="Our selection" reverse>
+		<h3>Breakfast</h3>
+		<p>Breakfast burritos, boiled eggs, yogurt, and fruit cups for early shifts.</p>
+		<h3>Lunch and dinner</h3>
+		<p>Sandwiches, wraps, salads, and ready-to-eat meals for meal breaks on any shift.</p>
+		<h3>Snacks and drinks</h3>
+		<p>Protein snacks and better-for-you drinks, next to the classic favorites.</p>
+		<p>We adjust the menu based on what sells, and we add specific products and brands when there is enough demand.</p>
+	</MediaSection>
+
+	<PhotoPair
+		photos={[
+			{
+				image: quesadilla,
+				alt: 'Chicken quesadilla wedges with salsa and corn',
+				caption: 'Hearty options for long shifts.',
+			},
+			{
+				image: salad,
+				alt: 'Green salad with cucumber, avocado, and almonds',
+				caption: 'Lighter choices for people who want them.',
+			},
+		]}
+	/>
+
+	<MediaSection image={burritos} alt="Single-door smart cooler stocked with burritos, pizzas, and ice cream" heading="How We Serve Fresh Food" eyebrow="Equipment">
+		<ul>
+			<li><a href="/our-services/ai-smart-cooler/">AI smart coolers</a>: tap to unlock, take a meal, and get charged automatically.</li>
+			<li><a href="/our-services/micro-markets/">Micro markets</a>: open coolers and shelves with self-checkout, open around the clock.</li>
+			<li><a href="/our-services/vending-machine/">Refrigerated vending machines</a>: fresh food in a compact machine.</li>
+		</ul>
+		<p>Every option is cashless: cards, mobile wallets, and tap-to-pay.</p>
+	</MediaSection>
+
+	<MediaSection image={teriyaki} alt="Grilled teriyaki chicken pieces with a glossy glaze" heading="Kept Fresh, Restocked Often" eyebrow="Service" reverse>
+		<p>
+			Fresh food needs more care than shelf-stable snacks. Our equipment reports sales in real time, so we know what is
+			running low, and each location gets its own restocking schedule.
+		</p>
+		<p>
+			If a cooler has a problem, local technicians respond to reported issues within 24 hours, including after hours.
+			Running a hospital or clinic? See our guide to <a href="/blog/dallas-healthcare-vending-services/">Dallas healthcare vending services</a>.
+		</p>
+	</MediaSection>
+</ServiceLayout>

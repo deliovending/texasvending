@@ -1,0 +1,89 @@
+{
+	"$comment": "Social captions for blog posts. The publish script sends only variants with \"approved\": true, and only after the blog post is live in the RSS feed. The image is the post's RSS media:content image unless a variant sets mediaUrl.",
+	"posts": [
+		{
+			"slug": "texas-break-laws-employers",
+			"variants": [
+				{
+					"id": "break-laws-ig-a",
+					"platform": "instagram",
+					"approved": false,
+					"scheduledTime": "2026-10-28T14:00:00Z",
+					"altText": "Break room lounge with two 24-hour smart vending machines stocked with snacks and drinks",
+					"text": "Texas has no state law that requires lunch or rest breaks for adult employees.\n\nBut federal law still covers the breaks you give:\n\n• Breaks of about 20 minutes or less are paid time\n• A 30-minute meal can be unpaid only if the worker is fully off duty\n• Nursing employees get break time and a private space that is not a bathroom\n\nEating lunch while watching the dock door? That counts as work.\n\nFull guide for DFW facilities and HR teams at the link in bio. General info, not legal advice.\n\n#TexasEmployers #FacilitiesManagement #DFWBusiness #WarehouseOperations #BreakRoom"
+				},
+				{
+					"id": "break-laws-ig-b",
+					"platform": "instagram",
+					"approved": false,
+					"scheduledTime": "2026-10-28T14:00:00Z",
+					"altText": "Break room lounge with two 24-hour smart vending machines stocked with snacks and drinks",
+					"text": "Quick quiz for Texas employers: is a 15-minute break paid?\n\nYes. Under federal law, rest breaks of about 20 minutes or less count as hours worked.\n\nTexas itself sets no break rules for adults. So the length of every break is your call, and every minute of it matters.\n\nIf the nearest food is a drive away, a 15-minute break goes to traffic. Food in the building gives that time back.\n\nWhat does your site do for breaks? Tell us below.\n\nFull guide at the link in bio. General info, not legal advice.\n\n#TexasEmployers #HRTips #DFWBusiness #BreakRoom #Warehouse"
+				},
+				{
+					"id": "break-laws-fb-a",
+					"platform": "facebook",
+					"approved": false,
+					"scheduledTime": "2026-10-28T14:00:00Z",
+					"text": "Does Texas require lunch breaks? No, not for adult employees.\n\nFederal law still applies to the breaks you give:\n✔ Short breaks (about 20 minutes or less) are paid\n✔ Meal periods can be unpaid only when workers are fully off duty\n✔ Nursing employees get break time and a private, non-bathroom space\n\nOur new guide explains each rule, plus a 6-point break policy checklist for facilities managers.\n\nRead it here: https://texasvending.com/blog/texas-break-laws-employers/\n\n(General information, not legal advice.)"
+				},
+				{
+					"id": "break-laws-fb-b",
+					"platform": "facebook",
+					"approved": false,
+					"scheduledTime": "2026-10-30T14:00:00Z",
+					"text": "Facilities managers: time the walk from your floor to the nearest food and back.\n\nTexas has no state break law for adults, so your break policy sets the clock. If a 15-minute break is half gone before anyone eats, people come back late or skip it.\n\nOur new guide covers what federal law requires, and how DFW sites make short breaks count.\n\nhttps://texasvending.com/blog/texas-break-laws-employers/"
+				},
+				{
+					"id": "break-laws-li-a",
+					"platform": "linkedin",
+					"approved": false,
+					"scheduledTime": "2026-10-28T15:00:00Z",
+					"text": "Texas has no state law requiring meal or rest breaks for adult employees. That surprises a lot of facilities and HR teams.\n\nFederal law still sets three rules for the breaks you do give:\n\n1. Rest breaks of about 20 minutes or less are paid time (FLSA).\n2. Meal periods can be unpaid only if the employee is completely relieved from duty. Watching a dock door while eating is work.\n3. Under the PUMP Act, nursing employees get reasonable break time and a private space that is not a bathroom.\n\nWe wrote a plain-English guide with sources from the U.S. Department of Labor and a 6-point checklist for DFW sites:\nhttps://texasvending.com/blog/texas-break-laws-employers/\n\nGeneral information, not legal advice."
+				}
+			]
+		},
+		{
+			"slug": "vending-contract-checklist",
+			"variants": [
+				{
+					"id": "contract-ig-a",
+					"platform": "instagram",
+					"approved": false,
+					"scheduledTime": "2026-11-04T15:00:00Z",
+					"altText": "Office lounge with two smart vending machines, where coworkers relax and work on sofas",
+					"text": "Free vending is easy to find. Fair terms are not.\n\nBefore you sign with any vending company, ask:\n\n• How long is the term, and does it auto-renew?\n• Is it exclusive?\n• Are there any fees, minimums, or removal charges?\n• How fast do you fix a broken machine?\n• Who removes the equipment at the end?\n\nGet every answer in writing.\n\nAll 10 questions are in our new checklist. Link in bio.\n\n#FacilitiesManagement #OfficeManager #DFWBusiness #VendingServices #BreakRoom"
+				},
+				{
+					"id": "contract-ig-b",
+					"platform": "instagram",
+					"approved": false,
+					"scheduledTime": "2026-11-04T15:00:00Z",
+					"altText": "Office lounge with two smart vending machines, where coworkers relax and work on sofas",
+					"text": "\"Free vending machine\" should mean $0 for equipment, delivery, setup, and service.\n\nThe contract is where the difference shows up: auto-renewals, exclusivity, sales minimums, removal fees.\n\nSave this post for your next vendor call, and grab the full 10-question checklist at the link in bio.\n\nWhich question would you ask first?\n\n#OfficeManager #FacilitiesManager #DFWBusiness #VendingMachine #Workplace"
+				},
+				{
+					"id": "contract-fb-a",
+					"platform": "facebook",
+					"approved": false,
+					"scheduledTime": "2026-11-04T15:00:00Z",
+					"text": "Signing with a vending company? Ask these first:\n\n✔ Contract length and auto-renewal rule\n✔ Exclusivity scope\n✔ Any fees, minimums, or removal charges\n✔ Repair response time and after-hours coverage\n✔ Restocking schedule and product requests\n\nOur free 10-question checklist helps DFW offices and warehouses compare offers side by side:\nhttps://texasvending.com/blog/vending-contract-checklist/"
+				},
+				{
+					"id": "contract-fb-b",
+					"platform": "facebook",
+					"approved": false,
+					"scheduledTime": "2026-11-06T15:00:00Z",
+					"text": "Free install is standard. Service isn't.\n\nThe real test of a vending company is what happens after the machine arrives: empty slots, a broken card reader, a refund nobody processes.\n\nOur checklist turns that into 10 questions you can ask before you sign:\nhttps://texasvending.com/blog/vending-contract-checklist/"
+				},
+				{
+					"id": "contract-li-a",
+					"platform": "linkedin",
+					"approved": false,
+					"scheduledTime": "2026-11-04T16:00:00Z",
+					"text": "Many vending companies in Dallas–Fort Worth advertise free placement. The contract is where offers really differ.\n\nBefore you sign, get written answers on:\n\n1. Term length, auto-renewal, and the cancellation notice date\n2. Exclusivity scope\n3. Early exit for poor service\n4. Any fees, sales minimums, or removal charges\n5. Repair response time and after-hours coverage\n\nThe full 10-question checklist, ready to bring to your next vendor call:\nhttps://texasvending.com/blog/vending-contract-checklist/"
+				}
+			]
+		}
+	]
+}

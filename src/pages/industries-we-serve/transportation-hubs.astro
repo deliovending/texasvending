@@ -1,0 +1,104 @@
+---
+import ServiceLayout from '../../layouts/ServiceLayout.astro';
+import MediaSection from '../../components/MediaSection.astro';
+import PhotoPair from '../../components/PhotoPair.astro';
+import { industries } from '../../data/industries';
+import hero from '../../assets/industries/transportation-hubs/terminal-smart-coolers.jpeg';
+import foodCourt from '../../assets/industries/transportation-hubs/concourse-vending.webp';
+import terminalMarket from '../../assets/industries/transportation-hubs/terminal-micro-market.jpg';
+import mobilePay from '../../assets/industries/transportation-hubs/mobile-pay-vending.jpeg';
+import qrPay from '../../assets/industries/transportation-hubs/qr-pay-vending.jpeg';
+import travelerMachine from '../../assets/industries/transportation-hubs/traveler-vending-machine.jpg';
+
+const faqs = [
+	{
+		question: 'Do you provide vending for airports, bus stations, and rail stations?',
+		answer:
+			'Yes. Texas Vending serves transportation hubs across Dallas–Fort Worth and North Texas with vending machines, AI smart coolers, micro markets, and coffee and water service.',
+	},
+	{
+		question: 'Can you service equipment in secure or badged areas?',
+		answer:
+			'Yes. We plan service visits around your shifts, access points, and badge rules, and we set a restocking schedule for each location.',
+	},
+	{
+		question: 'How do travelers pay?',
+		answer:
+			'Every machine is cashless. Travelers and staff can pay with cards, mobile wallets, or tap-to-pay.',
+	},
+	{
+		question: 'Does our hub qualify for free placement?',
+		answer:
+			'A location qualifies with at least 50 people in total foot traffic, counting employees and visitors. Travelers count as visitors toward that one total.',
+	},
+	{
+		question: 'What if a machine breaks on a busy travel day?',
+		answer:
+			'Local technicians respond to reported service issues within 24 hours, including after hours. They also repair and move machines no matter who supplied them.',
+	},
+];
+---
+
+<ServiceLayout
+	title="Transportation Hub Vending Services in DFW"
+	description="Transportation hub vending in Dallas–Fort Worth: smart coolers, micro markets, and vending machines for travelers and staff. Cashless, free at qualifying sites."
+	h1="Vending for Airports, Stations, and Travel Centers in DFW"
+	eyebrow="Transportation Hubs"
+	intro="Texas Vending places vending machines, AI smart coolers, micro markets, and coffee service in Dallas–Fort Worth airports, bus and rail stations, and travel centers, for travelers in waiting areas and the crews who keep the hub running. Placement is free at qualifying sites, with no long-term contract."
+	heroImage={hero}
+	heroAlt="Two stocked smart vending coolers in a bright airport terminal"
+	serviceType="Transportation hub vending services"
+	crumb="Transportation Hubs"
+	parent={{ name: 'Industries We Serve', url: '/industries-we-serve/' }}
+	related={{ heading: 'Other Industries We Serve', items: industries }}
+	faqs={faqs}
+	cta={{
+		heading: 'Get Free Vending for Your Transportation Hub',
+		text: 'Tell us about your traffic, staff areas, and access rules. We will walk the site and recommend the right equipment. No cost and no long-term contract.',
+	}}
+>
+	<MediaSection image={foodCourt} alt="Large food court with orange chairs, tables, and a few people seated" heading="Travelers in a Hurry, Crews on Every Shift" eyebrow="The challenge">
+		<p>A transportation hub serves two groups at once. Travelers arrive early, sit through delays, and have a few minutes between a connection and a boarding call. Staff, from ticket agents and gate crews to mechanics, drivers, dispatchers, and security officers, work early mornings, overnights, weekends, and holidays.</p>
+		<p>Restaurants and newsstands keep their own hours. A late bus, a red-eye flight, or a delayed train can leave people waiting after the counters close. Employees in secure or back-of-house areas often cannot leave for food during a short break at all, and the nearest drive-through may be on the other side of a security checkpoint.</p>
+		<p>Food in a hub has to be fast, cashless, and open whenever people are in the building. It also has to fit tight spaces near gates, platforms, and break rooms without blocking foot traffic.</p>
+	</MediaSection>
+
+	<MediaSection image={terminalMarket} alt="Man choosing snacks at a micro market while a woman works on a laptop" heading="Grab-and-Go Food for Waiting Areas and Crew Rooms" eyebrow="What we install" reverse>
+		<p>We walk the hub first, then match the equipment to each area:</p>
+		<ul>
+			<li><a href="/our-services/ai-smart-cooler/">AI smart coolers</a> for fresh meals and drinks in a small footprint near gates and platforms</li>
+			<li><a href="/our-services/vending-machine/">Vending machines</a> for snacks, drinks, and energy drinks in waiting rooms and driver lounges</li>
+			<li><a href="/our-services/micro-markets/">Micro markets</a> for staff break rooms and large lounges that need the most variety</li>
+			<li><a href="/our-services/coffee-water/">Coffee and water service</a> for dispatch offices and crew rooms</li>
+		</ul>
+		<p>Public and staff areas can be set up separately, so crews have their own food away from passenger lines. A small bus terminal may only need a snack machine and a drink machine. A busy terminal with several concourses may need equipment in more than one spot.</p>
+		<p>Travel centers have their own pattern. Drivers pull in at all hours and want coffee, a cold drink, and a real meal fast, then get back on the road. A smart cooler next to the coffee station handles that without adding a cashier.</p>
+	</MediaSection>
+
+	<PhotoPair
+		photos={[
+			{
+				image: mobilePay,
+				alt: 'Hand holding a phone to the contactless reader on a snack machine',
+				caption: 'Tap-to-pay keeps the line moving when a boarding call is close.',
+			},
+			{
+				image: qrPay,
+				alt: 'Woman holding a phone with a scan-to-pay code at a vending machine',
+				caption: 'Cashless payment on every machine means nobody hunts for change.',
+			},
+		]}
+	/>
+
+	<MediaSection image={travelerMachine} alt="Woman in a puffy jacket and headphones looking into a lit vending machine at night" heading="Fast, Cashless, and Open Late" eyebrow="How we serve transportation hubs">
+		<ul>
+			<li><strong>Cashless.</strong> Cards, mobile wallets, and tap-to-pay on every machine. Travelers from out of town do not need cash or exact change.</li>
+			<li><strong>Quick checkout.</strong> Smart coolers unlock with a tap and charge automatically for items taken. Anything put back before the door closes is not charged. Micro markets are self-checkout and open around the clock.</li>
+			<li><strong>Food that travels.</strong> Sandwiches, wraps, salads, breakfast burritos, and protein snacks from our <a href="/fresh-food/">fresh food program</a>, plus drinks from Coca-Cola, Pepsi, Dr Pepper, Monster, and Red Bull.</li>
+			<li><strong>Service that respects security.</strong> We plan visits around your shifts, access points, and badge rules. Equipment reports sales in real time, so restocking follows what is running low, on a schedule set for your location.</li>
+			<li><strong>24-hour response.</strong> Local technicians respond to reported issues within 24 hours, including after hours.</li>
+		</ul>
+		<p>Setting break policy for crews on long shifts? Our guide to <a href="/blog/texas-break-laws-employers/">Texas break laws for employers</a> covers the basics.</p>
+		<p>Our team is based in Dallas and serves transportation hubs across Dallas–Fort Worth and North Texas. We walk the site, including staff-only areas, before recommending equipment. Subsidized vending, where the employer lowers prices for crews, is available on request.</p>
+	</MediaSection>
+</ServiceLayout>

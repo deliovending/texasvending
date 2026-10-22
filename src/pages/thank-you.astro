@@ -1,0 +1,20 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { PHONE_DISPLAY, PHONE_TEL } from '../consts';
+---
+
+<BaseLayout title="Thank You" description="Thanks for contacting Texas Vending. We received your message and will contact you soon to set up a free site visit." noindex>
+	<section class="bg-ink text-white">
+		<div class="mx-auto max-w-3xl px-4 py-24 text-center md:py-32">
+			<p class="eyebrow !text-white/60">Message sent</p>
+			<h1 class="mt-4 text-5xl uppercase md:text-6xl">Thank You</h1>
+			<p class="mt-6 text-lg text-white/80">
+				We received your message and will contact you soon to set up your free site visit. Need us sooner? Call <a href={`tel:${PHONE_TEL}`} class="font-semibold text-white underline">{PHONE_DISPLAY}</a>.
+			</p>
+			<div class="mt-10 flex flex-wrap justify-center gap-4">
+				<a href="/our-services/" class="btn btn-primary">See Our Services</a>
+				<a href="/" class="btn btn-outline">Back to Home</a>
+			</div>
+		</div>
+	</section>
+</BaseLayout>

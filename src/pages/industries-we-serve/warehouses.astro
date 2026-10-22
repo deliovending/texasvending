@@ -1,0 +1,110 @@
+---
+import ServiceLayout from '../../layouts/ServiceLayout.astro';
+import MediaSection from '../../components/MediaSection.astro';
+import PhotoPair from '../../components/PhotoPair.astro';
+import { industries } from '../../data/industries';
+import hero from '../../assets/industries/warehouses/warehouse-cafeteria.avif';
+import workerBreak from '../../assets/industries/warehouses/warehouse-worker-break.avif';
+import breakroomVending from '../../assets/industries/warehouses/workers-breakroom-vending.jpeg';
+import lunchBreak from '../../assets/industries/warehouses/workers-lunch-break.avif';
+import cashlessCooler from '../../assets/industries/warehouses/worker-cashless-cooler.webp';
+import smartCoolerMeal from '../../assets/industries/warehouses/smart-cooler-meal.jpg';
+
+const faqs = [
+	{
+		question: 'Do you provide vending services for warehouses and distribution centers?',
+		answer:
+			'Yes. Texas Vending serves warehouses across Dallas–Fort Worth with vending machines, micro markets, AI smart coolers, and coffee and water service.',
+	},
+	{
+		question: 'Can you support multi-shift and overnight warehouse operations?',
+		answer:
+			'Yes. Micro markets and smart coolers are self-service and cashless, so night and weekend crews can buy food at any hour. We plan restocking around your shifts, docks, and badge rules.',
+	},
+	{
+		question: 'How do you keep machines stocked in a busy warehouse?',
+		answer:
+			'Our equipment reports sales in real time, so we restock based on what is running low instead of a fixed calendar.',
+	},
+	{
+		question: 'Does my warehouse qualify for free vending?',
+		answer:
+			'A location qualifies with at least 50 people in total foot traffic, counting employees and visitors. Most warehouses with a full shift meet that easily.',
+	},
+	{
+		question: 'Can service grow with peak season?',
+		answer:
+			'Yes. We can restock more often, add products, or add equipment when your headcount grows.',
+	},
+];
+---
+
+<ServiceLayout
+	title="Warehouse Vending Services in DFW"
+	description="Free vending, micro markets, and smart coolers for Dallas–Fort Worth warehouses. Cashless, stocked for every shift, with 24-hour service response."
+	h1="Warehouse Vending Services in DFW"
+	eyebrow="Warehouses"
+	intro="Texas Vending puts vending machines, micro markets, and AI smart coolers inside Dallas–Fort Worth warehouses, so your team can eat on a short break without leaving the building. Placement is free at qualifying sites, and we stock for every shift."
+	heroImage={hero}
+	heroAlt="Large warehouse cafeteria with tables, chairs, and vending along the wall"
+	serviceType="Warehouse vending services"
+	crumb="Warehouses"
+	parent={{ name: 'Industries We Serve', url: '/industries-we-serve/' }}
+	related={{ heading: 'Other Industries We Serve', items: industries }}
+	faqs={faqs}
+	cta={{
+		heading: 'Get Free Vending for Your Warehouse',
+		text: 'Share your headcount and shifts. We will walk the site and recommend the right mix of equipment. No cost and no long-term contract.',
+	}}
+>
+	<MediaSection image={workerBreak} alt="Warehouse worker in a safety vest resting between shelves of boxes" heading="Short Breaks, Long Shifts" eyebrow="The challenge">
+		<p>
+			Warehouse teams work early shifts, late shifts, weekends, and peak seasons. Breaks are short, and many DFW
+			distribution buildings are a drive away from the nearest restaurant.
+		</p>
+		<p>
+			When food is off site, a 15-minute break goes to the parking lot and traffic. People come back late, skip the break,
+			or go without eating. Food inside the building fixes that.
+		</p>
+	</MediaSection>
+
+	<MediaSection image={breakroomVending} alt="Workers in safety vests at a break room table near vending machines" heading="The Right Mix for Your Floor" eyebrow="What we install" reverse>
+		<p>We match the equipment to your headcount, shifts, and space:</p>
+		<ul>
+			<li><a href="/our-services/vending-machine/">Vending machines</a> for snacks, drinks, and energy drinks</li>
+			<li><a href="/our-services/ai-smart-cooler/">AI smart coolers</a> for fresh meals in a small footprint</li>
+			<li><a href="/our-services/micro-markets/">Micro markets</a> for large break rooms and the most variety</li>
+			<li><a href="/our-services/coffee-water/">Coffee and water</a> for early starts and hot days</li>
+		</ul>
+		<p>Large buildings may need more than one location, so nobody spends the break walking.</p>
+	</MediaSection>
+
+	<PhotoPair
+		photos={[
+			{
+				image: lunchBreak,
+				alt: 'Warehouse workers in safety vests eating lunch together',
+				caption: 'Real meals on site keep the whole break for eating and resting.',
+			},
+			{
+				image: smartCoolerMeal,
+				alt: 'Worker taking a packaged meal from a smart cooler',
+				caption: 'Smart coolers hold sandwiches, wraps, and meals a coil machine cannot.',
+			},
+		]}
+	/>
+
+	<MediaSection image={cashlessCooler} alt="Worker using the touch screen on a cashless drink and snack cooler" heading="Built for Every Shift" eyebrow="How we serve warehouses">
+		<ul>
+			<li><strong>Open around the clock.</strong> Micro markets and smart coolers need no cashier, so night and weekend crews get the same food as days.</li>
+			<li><strong>Cashless.</strong> Cards, mobile wallets, and tap-to-pay on every machine.</li>
+			<li><strong>Restocked on real data.</strong> Equipment reports sales in real time, so we restock before items run out.</li>
+			<li><strong>Visits that fit your site.</strong> We plan service around your shifts, docks, and badge rules.</li>
+			<li><strong>24-hour response.</strong> Local technicians respond to reported issues within 24 hours, including after hours.</li>
+		</ul>
+		<p>
+			Setting break policy too? Read our guide to <a href="/blog/texas-break-laws-employers/">Texas break laws for
+			employers</a>.
+		</p>
+	</MediaSection>
+</ServiceLayout>

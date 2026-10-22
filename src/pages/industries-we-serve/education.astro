@@ -1,0 +1,106 @@
+---
+import ServiceLayout from '../../layouts/ServiceLayout.astro';
+import MediaSection from '../../components/MediaSection.astro';
+import PhotoPair from '../../components/PhotoPair.astro';
+import { industries } from '../../data/industries';
+import hero from '../../assets/industries/education/campus-micro-market.jpg';
+import studentCooler from '../../assets/industries/education/student-smart-cooler.jpg';
+import marketCoolers from '../../assets/industries/education/micro-market-coolers.jpg';
+import saladLunch from '../../assets/industries/education/smart-fridge.jpg';
+import coolerShelf from '../../assets/industries/education/smart-cooler-healthy-items.jpg';
+import phonePay from '../../assets/industries/education/smart-cooler-phone-pay.jpg';
+
+const faqs = [
+	{
+		question: 'Do you provide vending services for schools and colleges in DFW?',
+		answer:
+			'Yes. Texas Vending serves schools, colleges, universities, and training campuses across Dallas–Fort Worth with vending machines, micro markets, AI smart coolers, and coffee and water service.',
+	},
+	{
+		question: 'Is there a cost to the school?',
+		answer:
+			'Equipment, delivery, and setup cost $0 at qualifying locations. There is no installation fee, no service fee, and no long-term contract. Coffee machine installation is also free; coffee, tea, and supplies are paid.',
+	},
+	{
+		question: 'Does our campus qualify for free vending?',
+		answer:
+			'A location qualifies with at least 50 people in total foot traffic, counting employees and visitors. Students, faculty, staff, and campus visitors all count toward that one total.',
+	},
+	{
+		question: 'Can students pay without cash?',
+		answer:
+			'Yes. Every machine, micro market, and coffee system is cashless. Students and staff can pay with cards, mobile wallets, or tap-to-pay.',
+	},
+	{
+		question: 'What happens if a machine stops working during the school day?',
+		answer:
+			'Report it and a local technician responds within 24 hours, including after hours. Our technicians also repair and move machines no matter who supplied them.',
+	},
+];
+---
+
+<ServiceLayout
+	title="School and Campus Vending Services in DFW"
+	description="School and campus vending in Dallas–Fort Worth: vending machines, micro markets, and smart coolers for students, faculty, and staff. Free at qualifying sites."
+	h1="Vending for Schools, Colleges, and Campuses in DFW"
+	eyebrow="Education"
+	intro="Texas Vending places vending machines, micro markets, AI smart coolers, and coffee service in Dallas–Fort Worth schools, colleges, and training campuses, so students, faculty, and staff can get food on their own schedule. Placement is free at qualifying sites, with no long-term contract."
+	heroImage={hero}
+	heroAlt="Self-checkout mini market with snack shelves and glass-door drink coolers"
+	serviceType="School and campus vending services"
+	crumb="Education"
+	parent={{ name: 'Industries We Serve', url: '/industries-we-serve/' }}
+	related={{ heading: 'Other Industries We Serve', items: industries }}
+	faqs={faqs}
+	cta={{
+		heading: 'Get Free Vending for Your Campus',
+		text: 'Tell us about your buildings, hours, and who uses them. We will walk the campus and recommend the right mix of equipment. No cost and no long-term contract.',
+	}}
+>
+	<MediaSection image={studentCooler} alt="Young woman tapping the touch screen on a glass cooler door in a cafeteria" heading="Campus Hours Do Not Follow the Bell" eyebrow="The challenge">
+		<p>A campus runs on more than one schedule. Students move between classes, labs, practices, and late study sessions. Faculty teach early and grade late. Custodial, maintenance, and front-office staff often arrive before anyone else and leave after the last event of the night.</p>
+		<p>Each type of school is different. A high school may want machines in staff areas and near athletics. A community college may need food that stays open for evening classes. A university may need several spots across a large campus, including residence halls and the student union.</p>
+		<p>The cafeteria or dining hall covers lunch, but it closes. Outside those hours, people leave campus for food, skip a meal, or live on whatever is in a backpack or desk drawer. On a commuter campus, a drive off site can use up most of the gap between classes.</p>
+		<p>Food that is open when the building is open fixes that. The setup also has to fit the space you have: hallways, student lounges, libraries, athletic buildings, and staff rooms, without crowding walkways or blocking exits.</p>
+	</MediaSection>
+
+	<MediaSection image={marketCoolers} alt="Micro market with drink coolers, a grab-and-go cooler, snack shelves, and a pay kiosk" heading="Equipment Sized for Each Building" eyebrow="What we install" reverse>
+		<p>We walk the campus first, then recommend equipment building by building:</p>
+		<ul>
+			<li><a href="/our-services/vending-machine/">Vending machines</a> for snacks and drinks in hallways, gyms, and residence halls</li>
+			<li><a href="/our-services/micro-markets/">Micro markets</a> for student unions and large lounges that need the most variety</li>
+			<li><a href="/our-services/ai-smart-cooler/">AI smart coolers</a> for fresh meals in libraries, faculty lounges, and smaller buildings</li>
+			<li><a href="/our-services/coffee-water/">Coffee and water service</a> for teacher lounges, staff rooms, and front offices</li>
+		</ul>
+		<p>A large college may need several locations, so a student in the science building does not have to cross campus for a drink. A single school building may only need one or two machines. Share your campus rules on access and placement during the site walk, and we will plan around them.</p>
+	</MediaSection>
+
+	<PhotoPair
+		photos={[
+			{
+				image: saladLunch,
+				alt: 'Woman eating a salad at a cafe table with coffee and a notebook',
+				caption: 'Fresh salads and meals give faculty and staff a real lunch between classes.',
+			},
+			{
+				image: coolerShelf,
+				alt: 'Hand reaching into a lit glass cooler shelf stocked with protein powder tubs',
+				caption: 'Protein snacks and better-for-you items sit next to the classics.',
+			},
+		]}
+	/>
+
+	<MediaSection image={phonePay} alt="Hand holding a phone to the card reader on a snack vending machine" heading="Built for Class Schedules and Late Nights" eyebrow="How we serve schools">
+		<p>Students, faculty, and staff use campus food in short windows. Everything we install is built to be quick.</p>
+		<ul>
+			<li><strong>Cashless.</strong> Cards, mobile wallets, and tap-to-pay on every machine, micro market, and coffee system. Few students carry cash, and nobody needs exact change.</li>
+			<li><strong>Open around the clock.</strong> Micro markets are self-checkout, so a student lounge or residence hall stays open for late study nights and weekend events.</li>
+			<li><strong>Grab and go between classes.</strong> Smart coolers unlock with a tap and charge automatically for what is taken. Put an item back before the door closes and it is not charged.</li>
+			<li><strong>Real food, not just chips.</strong> Sandwiches, wraps, salads, yogurt, fruit cups, and breakfast burritos from our <a href="/fresh-food/">fresh food program</a>, alongside the snacks and drinks students expect.</li>
+			<li><strong>Restocked on real data.</strong> Equipment reports sales in real time, so restocking follows what is running low. The schedule is set per campus, and visits are planned around class times, events, and building access.</li>
+			<li><strong>24-hour response.</strong> Local technicians respond to reported issues within 24 hours, including after hours.</li>
+		</ul>
+		<p>Comparing providers before a new term? Use our <a href="/blog/vending-contract-checklist/">vending contract checklist</a> to see what to ask.</p>
+		<p>Our team is based in Dallas and serves campuses across Dallas–Fort Worth and North Texas. We walk each building before recommending anything, so the plan fits how your campus actually works. Want to offer faculty and staff a perk? Subsidized vending, where the school lowers prices, is available on request.</p>
+	</MediaSection>
+</ServiceLayout>

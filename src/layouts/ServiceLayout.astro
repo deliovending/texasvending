@@ -1,0 +1,136 @@
+---
+import { Image, getImage } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import BaseLayout from './BaseLayout.astro';
+import SchemaMarkup from '../components/SchemaMarkup.astro';
+import TrustBar from '../components/TrustBar.astro';
+import FAQ from '../components/FAQ.astro';
+import CTA from '../components/CTA.astro';
+import { PHONE_DISPLAY, PHONE_TEL } from '../consts';
+import { services } from '../data/services';
+import { breadcrumbSchema, faqPageSchema, serviceSchema } from '../lib/schema';
+
+interface Props {
+	/** <title> text, before the " | Texas Vending" suffix */
+	title: string;
+	description: string;
+	h1: string;
+	eyebrow: string;
+	/** Short answer shown under the H1 */
+	intro: string;
+	heroImage: ImageMetadata;
+	heroAlt: string;
+	/** Schema.org serviceType, e.g. "Vending machine service". Omit on pages that are not a service (no Service schema). */
+	serviceType?: string;
+	/** Name in the breadcrumb trail */
+	crumb: string;
+	faqs: { question: string; answer: string }[];
+	cta?: { heading: string; text: string; buttonLabel?: string };
+	/** Section this page belongs to (breadcrumb parent). Defaults to Our Services. */
+	parent?: { name: string; url: string };
+	/** Cards linking to sibling pages. Defaults to the other service pages. */
+	related?: { heading: string; items: { name: string; href: string; summary: string }[] };
+}
+
+const { title, description, h1, eyebrow, intro, heroImage, heroAlt, serviceType, crumb, faqs, cta } = Astro.props;
+const { parent = { name: 'Our Services', url: '/our-services/' } } = Astro.props;
+const path = Astro.url.pathname;
+// A section's landing page gets no parent crumb and no sibling cards
+const isHub = path === parent.url;
+
+const crumbs = [
+	{ name: 'Home', url: '/' },
+	{ name: parent.name, url: parent.url },
+	...(isHub ? [] : [{ name: crumb, url: path }]),
+];
+
+// Social cards and schema need a real image URL
+const socialImage = await getImage({ src: heroImage, width: 1200, height: 630, fit: 'cover', format: 'jpg' });
+const related = Astro.props.related ?? { heading: 'Other Breakroom Services', items: services };
+const siblings = related.items.filter((item) => item.href !== path);
+---
+
+<BaseLayout title={title} description={description} ogImage={socialImage.src}>
+	<SchemaMarkup
+		slot="head"
+		schema={[
+			...(serviceType ? [serviceSchema({ name: h1, serviceType, description, url: path, image: socialImage.src })] : []),
+			breadcrumbSchema(crumbs),
+			faqPageSchema(faqs),
+		]}
+	/>
+
+	<section class="relative isolate overflow-hidden bg-ink text-white">
+		<div
+			class="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top_right,rgba(188,33,39,0.5),transparent_60%),radial-gradient(ellipse_at_bottom_left,rgba(24,35,74,0.9),transparent_60%)]"
+			aria-hidden="true"
+		>
+		</div>
+		<div class="mx-auto grid max-w-6xl items-center gap-10 px-4 py-16 md:grid-cols-2 md:py-24">
+			<div>
+				<nav aria-label="Breadcrumb">
+					<ol class="flex flex-wrap gap-2 font-mono text-xs tracking-widest text-white/60 uppercase">
+						{
+							crumbs.map((item, i) => (
+								<li class="flex gap-2">
+									{i > 0 && <span aria-hidden="true">/</span>}
+									{i < crumbs.length - 1 ? (
+										<a href={item.url} class="hover:text-white">
+											{item.name}
+										</a>
+									) : (
+										<span aria-current="page">{item.name}</span>
+									)}
+								</li>
+							))
+						}
+					</ol>
+				</nav>
+				<p class="eyebrow mt-8 !text-white/60">{eyebrow}</p>
+				<h1 class="mt-4 text-5xl leading-[1.05] uppercase md:text-6xl">{h1}</h1>
+				<p class="mt-6 text-lg text-white/80">{intro}</p>
+				<div class="mt-8 flex flex-wrap gap-4">
+					<a href="/contact-us/" class="btn btn-primary">Book a Free Site Visit</a>
+					<a href={`tel:${PHONE_TEL}`} class="btn btn-outline">Call {PHONE_DISPLAY}</a>
+				</div>
+			</div>
+			<Image
+				src={heroImage}
+				alt={heroAlt}
+				widths={[480, 768, 1100]}
+				sizes="(min-width: 768px) 50vw, 100vw"
+				loading="eager"
+				fetchpriority="high"
+				class="aspect-[4/3] w-full rounded-soft object-cover shadow-2xl"
+			/>
+		</div>
+	</section>
+
+	<TrustBar />
+
+	<slot />
+
+	{
+		!isHub && (
+			<section class="bg-slate-100 py-16 md:py-20">
+				<div class="mx-auto max-w-6xl px-4">
+					<h2 class="text-center text-4xl uppercase">{related.heading}</h2>
+					<ul class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+						{siblings.map((service) => (
+							<li>
+								<a href={service.href} class="block h-full rounded-3xl bg-white p-6 ring-1 ring-slate-200 transition hover:ring-brand">
+									<span class="font-display text-2xl uppercase text-ink">{service.name}</span>
+									<span class="mt-2 block text-slate-600">{service.summary}</span>
+								</a>
+							</li>
+						))}
+					</ul>
+				</div>
+			</section>
+		)
+	}
+
+	<FAQ faqs={faqs} />
+
+	<CTA {...cta} />
+</BaseLayout>

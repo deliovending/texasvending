@@ -150,6 +150,58 @@ export function blogPostingSchema(post: {
 	};
 }
 
+export interface ServiceSchema {
+	'@context': typeof CONTEXT;
+	'@type': 'Service';
+	name: string;
+	serviceType: string;
+	description: string;
+	url: string;
+	image?: string;
+	provider: OrganizationRef;
+	areaServed: { '@type': 'Place'; name: string };
+}
+
+export interface BreadcrumbListSchema {
+	'@context': typeof CONTEXT;
+	'@type': 'BreadcrumbList';
+	itemListElement: { '@type': 'ListItem'; position: number; name: string; item: string }[];
+}
+
+export function serviceSchema(service: {
+	name: string;
+	serviceType: string;
+	description: string;
+	url: string;
+	image?: string;
+}): ServiceSchema {
+	return {
+		'@context': CONTEXT,
+		'@type': 'Service',
+		name: service.name,
+		serviceType: service.serviceType,
+		description: service.description,
+		url: absoluteUrl(service.url),
+		...(service.image && { image: absoluteUrl(service.image) }),
+		provider: businessRef,
+		areaServed: { '@type': 'Place', name: 'Dallas–Fort Worth, Texas' },
+	};
+}
+
+/** Crumbs in order, starting with Home. Each `url` is a site path. */
+export function breadcrumbSchema(crumbs: { name: string; url: string }[]): BreadcrumbListSchema {
+	return {
+		'@context': CONTEXT,
+		'@type': 'BreadcrumbList',
+		itemListElement: crumbs.map((crumb, i) => ({
+			'@type': 'ListItem',
+			position: i + 1,
+			name: crumb.name,
+			item: absoluteUrl(crumb.url),
+		})),
+	};
+}
+
 export function faqPageSchema(faqs: { question: string; answer: string }[]): FAQPageSchema {
 	return {
 		'@context': CONTEXT,

@@ -1,0 +1,123 @@
+---
+import ServiceLayout from '../../layouts/ServiceLayout.astro';
+import MediaSection from '../../components/MediaSection.astro';
+import PhotoPair from '../../components/PhotoPair.astro';
+import hero from '../../assets/services/coffee-water/office-coffee-station.jpg';
+import espresso from '../../assets/services/coffee-water/bean-to-cup-espresso.jpg';
+import coffeeMachine from '../../assets/services/coffee-water/office-coffee-machine.png';
+import meetingCoffee from '../../assets/services/coffee-water/coffee-and-snacks-meeting.png';
+import coffeeBar from '../../assets/services/coffee-water/coffee-bar.jpg';
+import bottledWater from '../../assets/services/coffee-water/meeting-bottled-water.jpg';
+import teamBreak from '../../assets/services/coffee-water/office-team-break.jpg';
+
+const faqs = [
+	{
+		question: 'Is office coffee service free?',
+		answer:
+			'Coffee machine installation is free. You pay only for the consumables your office uses, such as coffee, tea, and other supplies, which we deliver on schedule.',
+	},
+	{
+		question: 'What is included in your office coffee service?',
+		answer:
+			'Free installation of the coffee machine, equipment maintenance, and scheduled delivery of coffee, tea, and supplies. We set up the program to match your office.',
+	},
+	{
+		question: 'What kinds of coffee machines do you offer?',
+		answer: 'We offer single-serve brewers and larger commercial coffee machines, sized to how many people you have.',
+	},
+	{
+		question: 'Do you offer water service?',
+		answer: 'Yes. We provide filtered water coolers, with maintenance and supplies included.',
+	},
+	{
+		question: 'Which coffee brands do you carry?',
+		answer: 'Brands we carry include Starbucks, Ellis Coffee, and Rooted Grounds Coffee Co., plus teas.',
+	},
+	{
+		question: 'Can coffee service be combined with vending or a micro market?',
+		answer:
+			'Yes. One Texas Vending team can handle your coffee, water, vending machines, micro market, and smart coolers.',
+	},
+];
+---
+
+<ServiceLayout
+	title="Office Coffee & Water Service in DFW"
+	description="Office coffee and filtered water service in Dallas–Fort Worth. Free coffee machine installation; you pay only for coffee, tea, and supplies."
+	h1="Office Coffee & Water Service in DFW"
+	eyebrow="Coffee and water service"
+	intro="Texas Vending provides office coffee brewers and filtered water for Dallas–Fort Worth workplaces. Coffee machine installation is free. You pay only for the coffee, tea, and supplies you use, and we deliver them on schedule so your break room never runs dry."
+	heroImage={hero}
+	heroAlt="Office coffee station with a brewer, mugs, and coffee supplies on the counter"
+	serviceType="Office coffee and water service"
+	crumb="Coffee & Water"
+	faqs={faqs}
+	cta={{
+		heading: 'Upgrade Your Office Coffee',
+		text: 'Tell us how many people you have and how they drink their coffee. We will recommend the right brewer and water setup.',
+		buttonLabel: 'Pour a cup',
+	}}
+>
+	<MediaSection image={espresso} alt="Espresso pouring from a coffee machine into a white cup" heading="Coffee Your Team Will Actually Drink" eyebrow="Office coffee">
+		<p>
+			Good coffee keeps people at work instead of in a drive-through line. We size the equipment to your office, from
+			single-serve brewers for small teams to commercial machines for busy floors.
+		</p>
+		<p>
+			We stock coffee and tea from brands like Starbucks, Ellis Coffee, and Rooted Grounds Coffee Co., plus the supplies
+			that go with them.
+		</p>
+	</MediaSection>
+
+	<MediaSection image={coffeeMachine} alt="Coworkers getting coffee from an office espresso machine" heading="Equipment, Maintenance, and Supplies" eyebrow="What's included" reverse>
+		<p>Our coffee program covers the parts most offices don't want to manage:</p>
+		<ul>
+			<li><strong>Free installation</strong> of a coffee brewer sized to your headcount</li>
+			<li>Maintenance and cleaning</li>
+			<li>Repairs by local technicians, with a 24-hour response to reported issues</li>
+			<li>Coffee, tea, and supplies delivered on a set schedule</li>
+		</ul>
+		<p>
+			The machine and its installation cost you nothing. You pay only for the consumables, such as coffee, tea, and other
+			supplies, based on what your office uses.
+		</p>
+		<p>Coffee systems we install are cashless when they take payment: cards, mobile wallets, and tap-to-pay.</p>
+	</MediaSection>
+
+	<PhotoPair
+		photos={[
+			{
+				image: meetingCoffee,
+				alt: 'Coworkers at a meeting table with coffee cups and snacks',
+				caption: 'Coffee and snacks keep long meetings on track.',
+			},
+			{
+				image: coffeeBar,
+				alt: 'Coffee bar with a brewer, mugs, and coffee beans',
+				caption: 'A stocked coffee bar makes the break room a place people want to be.',
+			},
+		]}
+	/>
+
+	<MediaSection image={bottledWater} alt="Coworkers at a meeting with salads and bottled water on the table" heading="Filtered Water Service" eyebrow="Office water">
+		<p>
+			Cold, filtered water is the simplest break room upgrade. We provide water coolers for offices, warehouses, and
+			plants, with maintenance and supplies included.
+		</p>
+		<p>
+			On a Texas summer shift, easy access to water matters. Put it where people work, not just in the front office.
+		</p>
+	</MediaSection>
+
+	<MediaSection image={teamBreak} alt="Office team taking a break together around a table" heading="One Team for the Whole Break Room" eyebrow="Pair it up" reverse>
+		<p>
+			Coffee works best alongside food. Add a <a href="/our-services/micro-markets/">micro market</a>, an{' '}
+			<a href="/our-services/ai-smart-cooler/">AI smart cooler</a>, or <a href="/our-services/vending-machine/">vending
+			machines</a>, and one local team handles all of it.
+		</p>
+		<p>
+			We are based in Dallas and serve Dallas–Fort Worth and North Texas, with no long-term contract.{' '}
+			<a href="/contact-us/">Contact us</a> to plan your coffee and water setup.
+		</p>
+	</MediaSection>
+</ServiceLayout>

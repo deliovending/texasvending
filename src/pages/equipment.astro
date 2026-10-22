@@ -1,0 +1,114 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+import MediaSection from '../components/MediaSection.astro';
+import PhotoPair from '../components/PhotoPair.astro';
+import hero from '../assets/equipment/four-door-smart-cooler.jpeg';
+import branded from '../assets/equipment/texas-vending-smart-coolers.png';
+import vendingAndMarket from '../assets/equipment/vending-and-micro-market.webp';
+import spiralMachine from '../assets/equipment/spiral-snack-machine.jpg';
+import cardReader from '../assets/equipment/card-reader.webp';
+import coolerTypes from '../assets/equipment/smart-cooler-types.jpg';
+import traditional from '../assets/equipment/traditional-vending.jpeg';
+
+const faqs = [
+	{
+		question: 'What vending equipment do you offer?',
+		answer:
+			'Snack, drink, combo, and refrigerated vending machines, AI smart coolers, micro market coolers, shelves, and self-checkout kiosks, plus office coffee brewers and water coolers.',
+	},
+	{
+		question: 'Is the equipment free?',
+		answer:
+			'Vending machines, smart coolers, and micro markets are installed, set up, and serviced at no cost to locations with at least 50 people in total foot traffic, counting employees and visitors. Coffee machine installation is free; coffee, tea, and supplies are paid.',
+	},
+	{
+		question: 'Is every machine cashless?',
+		answer: 'Yes. Every machine accepts credit and debit cards, mobile wallets such as Apple Pay and Google Pay, and tap-to-pay.',
+	},
+	{
+		question: 'How do you choose where the equipment goes?',
+		answer:
+			'We walk your site first and check the space, power, and traffic. Then we recommend the equipment and the best spot for it.',
+	},
+	{
+		question: 'Who maintains the equipment?',
+		answer: 'We do. Local technicians respond to reported service issues within 24 hours, including after hours.',
+	},
+];
+---
+
+<ServiceLayout
+	title="Vending Equipment for DFW Businesses"
+	description="Cashless vending machines, AI smart coolers, micro market equipment, and coffee brewers for DFW workplaces. Installed and serviced free at qualifying sites."
+	h1="Vending Equipment for DFW Businesses"
+	eyebrow="Equipment"
+	intro="Texas Vending installs modern, cashless equipment in Dallas–Fort Worth workplaces: snack and drink machines, AI smart coolers, micro markets, and coffee brewers. At qualifying locations, the equipment, installation, setup, and ongoing service cost you nothing."
+	heroImage={hero}
+	heroAlt="Man choosing a drink from a multi-door smart cooler"
+	serviceType="Vending equipment placement"
+	crumb="Equipment"
+	parent={{ name: 'Equipment', url: '/equipment/' }}
+	faqs={faqs}
+	cta={{
+		heading: 'Find the Right Equipment for Your Site',
+		text: 'We will walk your space and recommend the machines that fit your team, power, and traffic. No long-term contract.',
+	}}
+>
+	<MediaSection image={spiralMachine} alt="Spiral snack vending machine stocked with chips and candy" heading="Vending Machines" eyebrow="Snack, drink, and combo">
+		<p>Classic machines for any break room, sized to your space:</p>
+		<ul>
+			<li><strong>Snack machines</strong> for chips, candy, pastries, and protein bars</li>
+			<li><strong>Drink machines</strong> for sodas, water, sports drinks, and energy drinks</li>
+			<li><strong>Combo machines</strong> with snacks and drinks in one cabinet</li>
+			<li><strong>Refrigerated machines</strong> for sandwiches, salads, and other fresh food</li>
+		</ul>
+		<p>See our <a href="/our-services/vending-machine/">vending machine service</a>.</p>
+	</MediaSection>
+
+	<MediaSection image={branded} alt="Texas Vending branded smart coolers stocked with drinks and snacks" heading="AI Smart Coolers" eyebrow="Tap, grab, and go" reverse>
+		<p>
+			Smart coolers unlock with a tap, let people take what they want, and charge automatically when the door closes. They
+			hold fresh meals and cold drinks in about the footprint of a refrigerator.
+		</p>
+		<p>Learn how <a href="/our-services/ai-smart-cooler/">AI smart coolers</a> work.</p>
+	</MediaSection>
+
+	<PhotoPair
+		photos={[
+			{
+				image: coolerTypes,
+				alt: 'Glass-front drink machine next to a 24-hour smart vending cooler',
+				caption: 'Drink machines and smart coolers can share one break room.',
+			},
+			{
+				image: traditional,
+				alt: 'Glass-front vending machine stocked with snacks and drinks',
+				caption: 'Glass-front machines show every product before you buy.',
+			},
+		]}
+	/>
+
+	<MediaSection image={vendingAndMarket} alt="Vending machines beside fresh food coolers and snack shelves" heading="Micro Market Equipment" eyebrow="Self-checkout stores">
+		<p>
+			A micro market combines glass-door coolers, open shelves, and a self-checkout kiosk. It carries the widest variety,
+			from fresh meals to snacks and drinks, and stays open around the clock.
+		</p>
+		<p>
+			See <a href="/our-services/micro-markets/">micro markets</a>. We also install office coffee brewers and water coolers
+			through our <a href="/our-services/coffee-water/">coffee and water service</a>.
+		</p>
+	</MediaSection>
+
+	<MediaSection image={cardReader} alt="Card being inserted into the reader on a vending machine" heading="Cashless and Connected" eyebrow="Technology" reverse>
+		<p>Every machine and market we install accepts:</p>
+		<ul>
+			<li>Credit and debit cards</li>
+			<li>Mobile wallets such as Apple Pay and Google Pay</li>
+			<li>Tap-to-pay</li>
+		</ul>
+		<p>
+			Our equipment also reports sales in real time, so we restock before items run out. Before installation, we walk your
+			site to pick the best location for each machine. Need a machine fixed or moved? See <a href="/our-services/vending-repair/">vending repair</a> and <a href="/our-services/vending-moving/">vending moving</a>.
+		</p>
+	</MediaSection>
+</ServiceLayout>
