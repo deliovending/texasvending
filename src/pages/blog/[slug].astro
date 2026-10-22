@@ -1,0 +1,129 @@
+---
+import { render } from 'astro:content';
+import { Image, getImage } from 'astro:assets';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SchemaMarkup from '../../components/SchemaMarkup.astro';
+import PostCard from '../../components/PostCard.astro';
+import CTA from '../../components/CTA.astro';
+import { formatDate, getPublishedPosts, readingTime, relatedPosts } from '../../lib/blog';
+import { blogPostingSchema } from '../../lib/schema';
+
+export async function getStaticPaths() {
+	const posts = await getPublishedPosts(); // newest first
+	return posts.map((post, i) => ({
+		params: { slug: post.id },
+		props: {
+			post,
+			newer: posts[i - 1],
+			older: posts[i + 1],
+			related: relatedPosts(post, posts),
+		},
+	}));
+}
+
+const { post, newer, older, related } = Astro.props;
+const { title, description, pubDate, updatedDate, author, image, imageAlt, tags } = post.data;
+const { Content } = await render(post);
+const minutes = readingTime(post.body);
+
+// Social cards and schema need a real image URL, so use a 1200px optimized copy
+const socialImage = await getImage({ src: image, width: 1200, format: 'jpg' });
+
+const schema = blogPostingSchema({
+	headline: title,
+	description,
+	url: Astro.url.pathname,
+	datePublished: pubDate,
+	dateModified: updatedDate,
+	image: socialImage.src,
+	author: { name: author },
+});
+---
+
+<BaseLayout title={title} description={description} ogImage={socialImage.src}>
+	<SchemaMarkup slot="head" schema={schema} />
+
+	<article>
+		<header class="bg-ink text-white">
+			<div class="mx-auto max-w-3xl px-4 pt-14 pb-32 md:pt-20">
+				<a href="/blog/" class="eyebrow !text-white/60 hover:!text-white">← All posts</a>
+				{tags.length > 0 && <p class="eyebrow mt-6 !text-white/70">{tags.join(' · ')}</p>}
+				<h1 class="mt-3 text-4xl leading-tight uppercase md:text-5xl">{title}</h1>
+				<p class="mt-5 text-white/75">
+					By {author}
+					<span aria-hidden="true"> · </span>
+					<time datetime={pubDate.toISOString()}>{formatDate(pubDate)}</time>
+					{
+						updatedDate && (
+							<>
+								<span aria-hidden="true"> · </span>Updated{' '}
+								<time datetime={updatedDate.toISOString()}>{formatDate(updatedDate)}</time>
+							</>
+						)
+					}
+					<span aria-hidden="true"> · </span>{minutes} min read
+				</p>
+			</div>
+		</header>
+
+		<div class="mx-auto -mt-24 max-w-4xl px-4">
+			<Image
+				src={image}
+				alt={imageAlt}
+				widths={[640, 960, 1200]}
+				sizes="(min-width: 896px) 896px, 100vw"
+				loading="eager"
+				fetchpriority="high"
+				class="aspect-[16/9] w-full rounded-soft object-cover shadow-2xl"
+			/>
+		</div>
+
+		<div class="prose prose-lg prose-slate mx-auto max-w-3xl px-4 py-14 prose-headings:font-display prose-headings:font-normal prose-headings:uppercase prose-headings:text-ink prose-a:text-brand">
+			<Content />
+		</div>
+	</article>
+
+	{
+		(older || newer) && (
+			<nav aria-label="More posts" class="mx-auto max-w-3xl px-4">
+				<ul class="grid gap-4 border-t border-slate-200 pt-10 sm:grid-cols-2">
+					<li>
+						{older && (
+							<a href={`/blog/${older.id}/`} rel="prev" class="block h-full rounded-3xl p-6 ring-1 ring-slate-200 transition hover:ring-brand">
+								<span class="eyebrow !text-[0.7rem] !text-slate-500">← Previous post</span>
+								<span class="mt-2 block font-display text-xl">{older.data.title}</span>
+							</a>
+						)}
+					</li>
+					<li>
+						{newer && (
+							<a href={`/blog/${newer.id}/`} rel="next" class="block h-full rounded-3xl p-6 text-right ring-1 ring-slate-200 transition hover:ring-brand">
+								<span class="eyebrow !text-[0.7rem] !text-slate-500">Next post →</span>
+								<span class="mt-2 block font-display text-xl">{newer.data.title}</span>
+							</a>
+						)}
+					</li>
+				</ul>
+			</nav>
+		)
+	}
+
+	{
+		related.length > 0 && (
+			<section class="mt-16 bg-slate-100 py-16 md:py-20">
+				<div class="mx-auto max-w-6xl px-4">
+					<h2 class="text-center text-4xl uppercase">Related Posts</h2>
+					<ul class="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+						{related.map((relatedPost) => (
+							<li>
+								<PostCard post={relatedPost} headingLevel="h3" />
+							</li>
+						))}
+					</ul>
+				</div>
+			</section>
+		)
+	}
+
+	<CTA />
+</BaseLayout>

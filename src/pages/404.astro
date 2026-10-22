@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { MAIN_MENU, PHONE_DISPLAY, PHONE_TEL } from '../consts';
+
+const services = MAIN_MENU.find((item) => item.label === 'Our Services')?.children ?? [];
+---
+
+<BaseLayout
+	title="Page Not Found"
+	description="The page you are looking for does not exist. Browse Texas Vending services or contact our Dallas–Fort Worth team."
+	noindex
+>
+	<section class="bg-ink text-white">
+		<div class="mx-auto max-w-3xl px-4 py-24 text-center md:py-32">
+			<p class="eyebrow !text-white/60">Error 404</p>
+			<h1 class="mt-4 text-5xl uppercase md:text-6xl">Page Not Found</h1>
+			<p class="mt-5 text-lg text-white/80">
+				This page moved or no longer exists. Try one of the links below, or call us at
+				<a href={`tel:${PHONE_TEL}`} class="font-semibold text-white underline">{PHONE_DISPLAY}</a>.
+			</p>
+			<a href="/" class="btn btn-primary mt-10">Back to the homepage</a>
+		</div>
+	</section>
+
+	<section class="mx-auto max-w-3xl px-4 py-16">
+		<h2 class="text-3xl uppercase">Our Services</h2>
+		<ul class="mt-6 grid gap-3 sm:grid-cols-2">
+			{
+				services.map((service) => (
+					<li>
+						<a href={service.href} class="font-semibold text-brand hover:underline">{service.label}</a>
+					</li>
+				))
+			}
+		</ul>
+	</section>
+</BaseLayout>

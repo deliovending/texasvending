@@ -1,9 +1,10 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig, fontProviders } from 'astro/config';
 
 import sitemap from '@astrojs/sitemap';
 import mdx from '@astrojs/mdx';
 import tailwindcss from '@tailwindcss/vite';
+import criticalCss from './integrations/critical-css.mjs';
 
 // Paths kept out of the sitemap (matches the path and anything below it)
 const SITEMAP_EXCLUDE = ['/thank-you', '/404', '/admin'];
@@ -17,10 +18,41 @@ const matchesPath = (pathname, base) => pathname === base || pathname.startsWith
 export default defineConfig({
   site: 'https://texasvending.com',
   output: 'static',
-  // Old live-site URLs that moved
-  redirects: {
-    '/about-us/cities/alliance': '/alliance-texas-vending-services/',
-  },
+  // Google Fonts are downloaded at build time and served from this site (no third-party requests)
+  fonts: [
+    {
+      provider: fontProviders.google(),
+      name: 'Raleway',
+      cssVariable: '--font-raleway',
+      weights: [400, 500, 600, 700],
+      styles: ['normal'],
+      subsets: ['latin'],
+      display: 'swap',
+      fallbacks: ['sans-serif'],
+    },
+    {
+      provider: fontProviders.google(),
+      name: 'Fjalla One',
+      cssVariable: '--font-fjalla-one',
+      weights: [400],
+      styles: ['normal'],
+      subsets: ['latin'],
+      display: 'swap',
+      fallbacks: ['sans-serif'],
+    },
+    {
+      provider: fontProviders.google(),
+      name: 'Space Mono',
+      cssVariable: '--font-space-mono',
+      weights: [400, 700],
+      styles: ['normal'],
+      subsets: ['latin'],
+      display: 'swap',
+      fallbacks: ['monospace'],
+    },
+  ],
+  // Matches Vercel's trailingSlash: true. Old-URL 301 redirects live in vercel.json.
+  trailingSlash: 'always',
   integrations: [
     sitemap({
       filter: (page) => {
@@ -42,6 +74,8 @@ export default defineConfig({
       },
     }),
     mdx(),
+    // Keep last: rewrites the final HTML of every page
+    criticalCss(),
   ],
 
   vite: {

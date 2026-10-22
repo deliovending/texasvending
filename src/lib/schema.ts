@@ -125,12 +125,12 @@ export function webPageSchema(page: { name: string; url: string; description?: s
 	};
 }
 
-/** Omit `author` to credit the business itself. `image` defaults to the site OG image. */
+/** Omit `author` to credit the business itself. `image` is required by Google for BlogPosting rich results. */
 export function blogPostingSchema(post: {
 	headline: string;
 	datePublished: Date | string;
 	dateModified?: Date | string;
-	image?: string;
+	image: string;
 	author?: { name: string; url?: string };
 	description?: string;
 	url?: string;
@@ -146,7 +146,7 @@ export function blogPostingSchema(post: {
 		publisher: businessRef,
 		datePublished: isoDate(post.datePublished),
 		dateModified: isoDate(post.dateModified ?? post.datePublished),
-		image: absoluteUrl(post.image ?? '/og-default.jpg'),
+		image: absoluteUrl(post.image),
 	};
 }
 

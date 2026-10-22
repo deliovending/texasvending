@@ -1,14 +1,12 @@
 ---
-import { getCollection } from 'astro:content';
 import { Image } from 'astro:assets';
+import { getPublishedPosts } from '../lib/blog';
 import logo from '../assets/texas-vending-logo-white-footer.png';
 import { ADDRESS, EMAIL, MAIN_MENU, PHONE_DISPLAY, PHONE_TEL } from '../consts';
 
 const services = MAIN_MENU.find((item) => item.label === 'Our Services')?.children ?? [];
 
-const recentPosts = (await getCollection('blog', ({ data }) => !data.draft))
-	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-	.slice(0, 3);
+const recentPosts = (await getPublishedPosts()).slice(0, 3);
 ---
 
 <footer class="bg-ink text-white/70">

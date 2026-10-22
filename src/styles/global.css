@@ -1,9 +1,10 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 @theme {
-  --font-sans: "Raleway", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Fjalla One", "Arial Narrow", sans-serif;
-  --font-mono: "Space Mono", ui-monospace, monospace;
+  --font-sans: var(--font-raleway), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-fjalla-one), "Arial Narrow", sans-serif;
+  --font-mono: var(--font-space-mono), ui-monospace, monospace;
   --color-brand: #bc2127;
   --color-brand-dark: #9c1b20;
   --color-ink: #223165;

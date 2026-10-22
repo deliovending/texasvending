@@ -13,13 +13,16 @@ import CTA from '../components/CTA.astro';
 import FAQ from '../components/FAQ.astro';
 import { homeFaqs } from '../data/faqs';
 import { faqPageSchema, localBusinessSchema } from '../lib/schema';
+import { getDefaultOgImage } from '../lib/og';
+
+const businessImage = await getDefaultOgImage();
 ---
 
 <BaseLayout
 	title="Free Vending Machine | DFW"
 	description="Get a free vending machine for your DFW business. Texas Vending installs, stocks, and services vending machines, micro markets, and coffee at zero cost."
 >
-	<SchemaMarkup slot="head" schema={[localBusinessSchema(), faqPageSchema(homeFaqs)]} />
+	<SchemaMarkup slot="head" schema={[localBusinessSchema({ image: businessImage }), faqPageSchema(homeFaqs)]} />
 	<Hero />
 	<Services />
 	<Mission />
