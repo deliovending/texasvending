@@ -3,6 +3,7 @@ import { Image } from 'astro:assets';
 import ServiceLayout from '../layouts/ServiceLayout.astro';
 import MediaSection from '../components/MediaSection.astro';
 import PhotoPair from '../components/PhotoPair.astro';
+import MidCTA from '../components/MidCTA.astro';
 import hero from '../assets/equipment/micro-market-install.webp';
 import drinkMachine from '../assets/equipment/drink-machine.webp';
 import snackMachine from '../assets/equipment/snack-machine.webp';
@@ -147,6 +148,8 @@ const faqs = [
 		</p>
 	</MediaSection>
 
+	<MidCTA heading="Not Sure Which Machine Fits?" text="We walk your site and match equipment to your space, power, and traffic. Free placement at qualifying sites." />
+
 	<MediaSection image={waterMachines} alt="Two filtered water machines with touch-screen dispensers" heading="Water and Ice Machines" eyebrow="Hydration">
 		<p>
 			We provide filtered water dispensers, water coolers, bottled water, and ice machines for offices, warehouses, gyms, schools, and busy break rooms. Water equipment brands include:
@@ -183,6 +186,7 @@ const faqs = [
 			},
 		]}
 	/>
+
 
 	<div class="mx-auto max-w-3xl px-4 pb-16 text-center text-lg text-slate-700">
 		<p>

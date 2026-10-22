@@ -3,6 +3,7 @@ import type { ImageMetadata } from 'astro';
 import ServiceLayout from '../../../layouts/ServiceLayout.astro';
 import MediaSection from '../../../components/MediaSection.astro';
 import PhotoPair from '../../../components/PhotoPair.astro';
+import MidCTA from '../../../components/MidCTA.astro';
 import { cities, cityBySlug, cityHref, cityPhotoAlt, industryInfo, type City } from '../../../data/cities';
 
 export function getStaticPaths() {
@@ -125,6 +126,8 @@ const faqs = [
 			{ ...pairRight, caption: 'Fresh food, snacks, and drinks stocked to match what your team buys.' },
 		]}
 	/>
+	<MidCTA heading={`Serving ${areaName} Businesses`} />
+
 
 	<MediaSection image={last.image} alt={last.alt} heading={`Breakroom Services for ${areaName} Workplaces`} eyebrow="What we offer">
 		<p>We match equipment to the people, shifts, and space at each site:</p>

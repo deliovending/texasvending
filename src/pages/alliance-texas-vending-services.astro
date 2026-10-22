@@ -1,11 +1,20 @@
 ---
+import { Image, getImage } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SchemaMarkup from '../components/SchemaMarkup.astro';
 import TrustBar from '../components/TrustBar.astro';
 import FAQ from '../components/FAQ.astro';
 import CTA from '../components/CTA.astro';
+import MidCTA from '../components/MidCTA.astro';
 import { PHONE_DISPLAY, PHONE_TEL } from '../consts';
 import { faqPageSchema } from '../lib/schema';
+import heroImage from '../assets/alliance/breakroom-smart-coolers.png';
+import aisles from '../assets/alliance/distribution-center-aisles.jpg';
+import palletJack from '../assets/alliance/warehouse-worker-pallet-jack.jpg';
+import cafeteria from '../assets/alliance/warehouse-cafeteria.avif';
+import cashlessCooler from '../assets/alliance/worker-cashless-cooler.webp';
+
+const socialImage = await getImage({ src: heroImage, width: 1200, height: 630, fit: 'cover', format: 'jpg' });
 
 const faqs = [
 	{
@@ -44,6 +53,7 @@ const faqs = [
 <BaseLayout
 	title="AllianceTexas Vending Services | Fort Worth"
 	description="AllianceTexas vending services for warehouses, offices, and logistics sites in Fort Worth. Free placement, cashless machines, and local 24/7 service."
+	ogImage={socialImage.src}
 >
 	<SchemaMarkup slot="head" schema={faqPageSchema(faqs)} />
 
@@ -53,7 +63,8 @@ const faqs = [
 			aria-hidden="true"
 		>
 		</div>
-		<div class="mx-auto max-w-3xl px-4 py-20 md:py-28">
+		<div class="mx-auto grid max-w-6xl items-center gap-10 px-4 py-16 md:grid-cols-2 md:py-24">
+		<div>
 			<p class="eyebrow !text-white/60">Fort Worth &amp; North Texas</p>
 			<h1 class="mt-4 text-5xl leading-[1.05] uppercase md:text-6xl">
 				AllianceTexas Vending Services for Fort Worth Businesses
@@ -74,6 +85,16 @@ const faqs = [
 					Call {PHONE_DISPLAY}
 				</a>
 			</div>
+		</div>
+		<Image
+			src={heroImage}
+			alt="Modern break room with tables, chairs, and smart coolers along the far wall"
+			widths={[480, 768, 1024]}
+			sizes="(min-width: 768px) 50vw, 100vw"
+			loading="eager"
+			fetchpriority="high"
+			class="aspect-[4/3] w-full rounded-soft object-cover shadow-2xl"
+		/>
 		</div>
 	</section>
 
@@ -102,6 +123,10 @@ const faqs = [
 			<a href="/our-services/vending-moving/">vending machine moving</a> across Fort Worth and North
 			Texas.
 		</p>
+		<figure class="mt-8">
+			<Image src={aisles} alt="Distribution center aisles with tall pallet racks and a pallet jack" widths={[480, 768]} sizes="(min-width: 768px) 768px, 100vw" class="aspect-[3/2] w-full rounded-3xl object-cover shadow-lg" />
+			<figcaption class="mt-2 text-sm text-slate-500">Large distribution buildings mean long walks to the break room.</figcaption>
+		</figure>
 
 		<h2>Who It's For</h2>
 		<p>
@@ -113,6 +138,11 @@ const faqs = [
 			Big buildings mean long walks to the break room. Short breaks mean no time to drive for food.
 			We size the setup to your building so nobody wastes their break walking.
 		</p>
+		<figure class="mt-8">
+			<Image src={palletJack} alt="Warehouse worker in a safety vest and hard hat pulling a pallet jack between shelves" widths={[480, 768]} sizes="(min-width: 768px) 768px, 100vw" class="aspect-[3/2] w-full rounded-3xl object-cover shadow-lg" />
+			<figcaption class="mt-2 text-sm text-slate-500">Warehouse crews need food close to the floor on every shift.</figcaption>
+		</figure>
+
 		<h3>Airport, rail, and trucking sites</h3>
 		<p>
 			Drivers and carriers come and go all day. Cashless machines and smart coolers let them grab
@@ -138,7 +168,12 @@ const faqs = [
 			<li><strong>We run it.</strong> We stock, clean, and repair everything. You do not have to manage a thing.</li>
 		</ol>
 
-		<h2>What to Expect</h2>
+	</div>
+
+	<MidCTA heading="Running a Site in AllianceTexas?" />
+
+	<div class="mx-auto max-w-3xl px-4 pb-16 text-lg leading-relaxed text-slate-700 [&_h2]:mt-14 [&_h2]:mb-4 [&_h2]:text-4xl [&_h2]:uppercase [&_h2]:text-slate-900 [&_h3]:mt-6 [&_h3]:text-2xl [&_h3]:text-slate-900 [&_p]:mt-4 [&_a]:font-semibold [&_a]:text-brand [&_a:hover]:underline">
+		<h2 class="!mt-4">What to Expect</h2>
 		<p>Once your equipment is in place, here is what working with us looks like:</p>
 		<ul class="mt-4 list-disc space-y-2 pl-6">
 			<li><strong>Smart restocking.</strong> Our machines report sales in real time. We restock when items run low, not on a random calendar.</li>
@@ -148,6 +183,16 @@ const faqs = [
 			<li><strong>Healthy choices.</strong> Fresh meals, protein snacks, and better-for-you drinks, plus the classic favorites.</li>
 			<li><strong>Room to grow.</strong> If your team grows or peak season hits, we add equipment or service more often.</li>
 		</ul>
+		<div class="mt-8 grid gap-6 sm:grid-cols-2">
+			<figure>
+				<Image src={cafeteria} alt="Warehouse cafeteria with workers at tables and colorful chairs" widths={[400, 600]} sizes="(min-width: 640px) 384px, 100vw" class="aspect-[3/2] w-full rounded-3xl object-cover shadow-lg" />
+				<figcaption class="mt-2 text-sm text-slate-500">Break rooms that serve every shift.</figcaption>
+			</figure>
+			<figure>
+				<Image src={cashlessCooler} alt="Worker using the touch screen on a cashless drink and snack cooler" widths={[400, 600]} sizes="(min-width: 640px) 384px, 100vw" class="aspect-[3/2] w-full rounded-3xl object-cover shadow-lg" />
+				<figcaption class="mt-2 text-sm text-slate-500">Cashless coolers work for drivers and visitors too.</figcaption>
+			</figure>
+		</div>
 
 		<h2>Why Choose Texas Vending</h2>
 		<p>

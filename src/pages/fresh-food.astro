@@ -3,6 +3,7 @@ import { Image } from 'astro:assets';
 import ServiceLayout from '../layouts/ServiceLayout.astro';
 import MediaSection from '../components/MediaSection.astro';
 import PhotoPair from '../components/PhotoPair.astro';
+import MidCTA from '../components/MidCTA.astro';
 import hero from '../assets/fresh-food/club-sandwich.webp';
 import stocking from '../assets/fresh-food/stocking-fresh-food.jpg';
 import salad from '../assets/fresh-food/garden-salad.webp';
@@ -112,6 +113,8 @@ const faqs = [
 		</div>
 	</section>
 
+	<MidCTA heading="Want Real Meals On Site?" />
+
 	<MediaSection image={mealTrays} alt="Meal trays of chicken, vegetables, and salad with bottles of juice" heading="Personalized Food Choices for Employee Well-Being" eyebrow="Better breaks">
 		<p>
 			A bag of chips gets someone through an afternoon, but it does not replace lunch. When the nearest restaurant is a drive away, a short break is not enough time for a real meal.
@@ -135,6 +138,7 @@ const faqs = [
 			},
 		]}
 	/>
+
 
 	<div class="mx-auto max-w-3xl px-4 py-12 text-lg leading-relaxed text-slate-700 [&_a]:font-semibold [&_a]:text-brand [&_a:hover]:underline [&_h2]:text-4xl [&_h2]:uppercase [&_h2]:text-slate-900 [&_li]:mt-2 [&_p]:mt-4">
 		<h2>How We Serve Fresh Food</h2>

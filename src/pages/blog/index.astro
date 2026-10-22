@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PostCard from '../../components/PostCard.astro';
+import MidCTA from '../../components/MidCTA.astro';
 import { getPublishedPosts } from '../../lib/blog';
 
 const posts = await getPublishedPosts();
@@ -37,4 +38,8 @@ const posts = await getPublishedPosts();
 			}
 		</div>
 	</section>
+
+	<div class="py-12">
+		<MidCTA heading="Want These Ideas in Your Break Room?" />
+	</div>
 </BaseLayout>

@@ -2,6 +2,7 @@
 import ServiceLayout from '../../layouts/ServiceLayout.astro';
 import MediaSection from '../../components/MediaSection.astro';
 import PhotoPair from '../../components/PhotoPair.astro';
+import MidCTA from '../../components/MidCTA.astro';
 import { industries } from '../../data/industries';
 import hero from '../../assets/industries/hospitals/hospital-waiting-room-vending.png';
 import stockingCooler from '../../assets/industries/hospitals/stocking-fresh-food-cooler.jpg';
@@ -113,6 +114,8 @@ const faqs = [
 			},
 		]}
 	/>
+	<MidCTA />
+
 
 	<MediaSection image={grabAndGo} alt="Wood-paneled grab-and-go case with sandwiches, salads, drinks, and snacks" heading="Food Available Around the Clock" eyebrow="How we serve hospitals">
 		<ul>

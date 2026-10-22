@@ -119,9 +119,10 @@ Every post follows the same template, which both drafts use:
 2. **"Short answer" paragraph first.** Two to three sentences that answer the query directly. Search snippets and AI answer engines quote this block.
 3. **H2 sections in question form** where they match real searches. H3s for steps or sub-questions. The page template supplies the H1.
 4. **Internal links:** at least two service pages (`/our-services/...`), one industry or fresh food page, and one or two related blog posts. Final CTA links to `/contact-us/`.
-5. **FAQ section plus FAQPage schema.** Questions in the MDX `faqs` export render on the page and in JSON-LD.
-6. **Sources section** with primary sources (government, standards bodies) for every statistic or legal claim.
-7. **Fact check:** every business claim must appear in the verified list in section 1.
+5. **Mid-post call to action.** Import `MidCTA` from `src/components/MidCTA.astro` and place `<MidCTA />` before the H2 closest to the middle of the post.
+6. **FAQ section plus FAQPage schema.** Questions in the MDX `faqs` export render on the page and in JSON-LD.
+7. **Sources section** with primary sources (government, standards bodies) for every statistic or legal claim.
+8. **Fact check:** every business claim must appear in the verified list in section 1.
 
 Approval flow: draft in repo (`draft: true`) → owner review → `draft: false` → live with the Astro site → post appears in RSS → social captions approved → posted (Blotato later).
 

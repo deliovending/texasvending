@@ -3,6 +3,7 @@ import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SchemaMarkup from '../components/SchemaMarkup.astro';
 import TrustBar from '../components/TrustBar.astro';
+import MidCTA from '../components/MidCTA.astro';
 import { ADDRESS, EMAIL, PHONE_DISPLAY, PHONE_TEL } from '../consts';
 import { services } from '../data/services';
 import { breadcrumbSchema, localBusinessSchema } from '../lib/schema';
@@ -151,6 +152,10 @@ const businessImage = await getDefaultOgImage();
 			/>
 		</aside>
 	</section>
+
+	<div class="pb-16">
+		<MidCTA heading="Prefer to Talk?" text={`Call us or email ${EMAIL}. Our local team serves businesses across Dallas–Fort Worth.`} buttonLabel="Email Us" href={`mailto:${EMAIL}`} />
+	</div>
 
 	<!-- Shows the error the form function reports through ?error= -->
 	<script is:inline>

@@ -2,6 +2,7 @@
 import ServiceLayout from '../../layouts/ServiceLayout.astro';
 import MediaSection from '../../components/MediaSection.astro';
 import PhotoPair from '../../components/PhotoPair.astro';
+import MidCTA from '../../components/MidCTA.astro';
 import Testimonials from '../../components/Testimonials.astro';
 import { ADDRESS, EMAIL, PHONE_DISPLAY, PHONE_TEL } from '../../consts';
 import hero from '../../assets/about/local-vending-service.jpg';
@@ -82,6 +83,8 @@ const faqs = [
 			},
 		]}
 	/>
+	<MidCTA />
+
 
 	<MediaSection image={facility} alt="Workers in safety vests at a break room table near vending machines" heading="How We Work" eyebrow="Our approach">
 		<ol>

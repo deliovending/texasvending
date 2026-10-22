@@ -2,6 +2,7 @@
 import ServiceLayout from '../../../layouts/ServiceLayout.astro';
 import MediaSection from '../../../components/MediaSection.astro';
 import PhotoPair from '../../../components/PhotoPair.astro';
+import MidCTA from '../../../components/MidCTA.astro';
 import { cities, cityHref, cityPhotoAlt } from '../../../data/cities';
 import { services } from '../../../data/services';
 import hero from '../../../assets/cities/office-campus.jpeg';
@@ -112,6 +113,8 @@ const faqs = [
 			{ image: smartCooler, alt: cityPhotoAlt['smart-cooler-kiosk.jpeg'], caption: 'Fresh food for warehouses and plants on every shift.' },
 		]}
 	/>
+	<MidCTA />
+
 
 	<MediaSection image={microMarket} alt={cityPhotoAlt['micro-market-stations.jpg']} heading="Everything Your Break Room Needs" eyebrow="Our services" reverse>
 		<p>
