@@ -1,0 +1,63 @@
+---
+import { Image } from 'astro:assets';
+import dealershipImage from '../assets/home/dealership-lounge-market.webp';
+import compactImage from '../assets/home/compact-market-counter.webp';
+import warehouseImage from '../assets/home/warehouse-cooler-setup.webp';
+
+const setups = [
+	{
+		image: dealershipImage,
+		alt: 'Toyota dealership customer lounge with drink coolers, a snack wall, a self-checkout kiosk, and a coffee bar',
+		title: 'Customer Lounges',
+		text: 'Coolers, snacks, and coffee for dealership and waiting-room guests.',
+		href: '/industries-we-serve/auto-dealerships/',
+	},
+	{
+		image: compactImage,
+		alt: 'Compact office market counter with mini coolers, snack racks, and a Delio self-checkout kiosk',
+		title: 'Small Offices',
+		text: 'A compact market on one counter, with self-checkout and cashless pay.',
+		href: '/our-services/micro-markets/',
+	},
+	{
+		image: warehouseImage,
+		alt: 'Warehouse break area with three glass-door coolers and a snack rack with a card reader',
+		title: 'Warehouses and Plants',
+		text: 'Coolers and snacks sized for shift crews, stocked around the clock.',
+		href: '/industries-we-serve/warehouses/',
+	},
+];
+---
+
+<section class="py-20 md:py-28">
+	<div class="mx-auto max-w-6xl px-4">
+		<div class="mx-auto max-w-2xl text-center">
+			<p class="eyebrow">Built to fit</p>
+			<h2 class="mt-3 text-4xl uppercase md:text-5xl">Setups for Every Space</h2>
+			<p class="mt-5 text-lg text-slate-600">
+				From a single counter to a full cafeteria wall, we design the break room around your space and your people.
+			</p>
+		</div>
+		<ul class="mt-12 grid gap-8 md:grid-cols-3">
+			{
+				setups.map((setup) => (
+					<li>
+						<a href={setup.href} class="group block h-full overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-slate-200 transition hover:ring-brand">
+							<Image
+								src={setup.image}
+								alt={setup.alt}
+								widths={[400, 600, 800]}
+								sizes="(min-width: 768px) 33vw, 100vw"
+								class="aspect-[4/3] w-full object-cover transition group-hover:scale-105"
+							/>
+							<div class="p-6">
+								<h3 class="text-2xl uppercase text-ink">{setup.title}</h3>
+								<p class="mt-2 text-slate-600">{setup.text}</p>
+							</div>
+						</a>
+					</li>
+				))
+			}
+		</ul>
+	</div>
+</section>

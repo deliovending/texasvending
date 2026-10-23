@@ -1,5 +1,6 @@
 ---
 import { Image } from 'astro:assets';
+import productsImage from '../assets/home/favorite-brands-products.webp';
 import coke from '../assets/brands/coke.png';
 import pepsi from '../assets/brands/pepsi.png';
 import drPepper from '../assets/brands/drp.png';
@@ -51,6 +52,13 @@ const brands = [
 				Name-brand drinks, snacks, coffee, and meals, stocked to match what your team actually buys.
 			</p>
 		</div>
+		<Image
+			src={productsImage}
+			alt="Name-brand drinks and snacks including Coca-Cola, Monster, Celsius, Gatorade, Quaker, and Nature&apos;s Bakery"
+			widths={[480, 768, 1100, 1536]}
+			sizes="(min-width: 896px) 896px, 100vw"
+			class="mx-auto mt-12 w-full max-w-4xl"
+		/>
 		<ul class="mt-14 grid grid-cols-3 gap-4 sm:grid-cols-4 md:gap-6 lg:grid-cols-6">
 			{
 				brands.map((brand) => (
