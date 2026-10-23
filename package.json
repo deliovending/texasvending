@@ -11,7 +11,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "seo:audit": "node scripts/seo-audit.mjs",
-    "social:publish": "node scripts/blotato-publish.mjs"
+    "social:publish": "node scripts/blotato-publish.mjs",
+    "indexnow": "node scripts/indexnow.mjs"
   },
   "dependencies": {
     "@astrojs/markdown-satteri": "^0.4.4",
