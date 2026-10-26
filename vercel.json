@@ -44,9 +44,9 @@
 		{ "source": "/after-hours-food-access-irving-hospitals-smart-coolers{/}?", "destination": "/blog/dallas-healthcare-vending-services/", "statusCode": 301 },
 		{ "source": "/free-vending-install-dallas-medical-facilities{/}?", "destination": "/blog/dallas-healthcare-vending-services/", "statusCode": 301 },
 
-		{ "source": "/fort-worth-businesses-how-to-qualify-for-a-free-vending-machine-2{/}?", "destination": "/blog/vending-contract-checklist/", "statusCode": 301 },
-		{ "source": "/free-vending-placement-fort-worth{/}?", "destination": "/blog/vending-contract-checklist/", "statusCode": 301 },
-		{ "source": "/how-to-get-a-vending-machine-in-dallas-with-0-installation-cost{/}?", "destination": "/blog/vending-contract-checklist/", "statusCode": 301 },
+		{ "source": "/fort-worth-businesses-how-to-qualify-for-a-free-vending-machine-2{/}?", "destination": "/blog/free-vending-machine-requirements/", "statusCode": 301 },
+		{ "source": "/free-vending-placement-fort-worth{/}?", "destination": "/blog/free-vending-machine-requirements/", "statusCode": 301 },
+		{ "source": "/how-to-get-a-vending-machine-in-dallas-with-0-installation-cost{/}?", "destination": "/blog/free-vending-machine-requirements/", "statusCode": 301 },
 		{ "source": "/first-30-days-new-vending-provider{/}?", "destination": "/blog/vending-contract-checklist/", "statusCode": 301 },
 		{ "source": "/switch-vending-companies-north-texas{/}?", "destination": "/blog/vending-contract-checklist/", "statusCode": 301 },
 		{ "source": "/why-companies-switch-to-local-vending-providers{/}?", "destination": "/blog/vending-contract-checklist/", "statusCode": 301 },
