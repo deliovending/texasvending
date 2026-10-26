@@ -55,8 +55,11 @@ const ogImageURL = new URL(ogImage ?? (await getDefaultOgImage()), Astro.site).h
 		<meta name="twitter:image" content={ogImageURL} />
 
 		<!-- Favicons -->
-		<link rel="icon" type="image/png" href="/favicon.png" />
-		<link rel="apple-touch-icon" href="/favicon.png" />
+		<!-- Google Search needs a square icon, at least 48x48 -->
+		<link rel="icon" href="/favicon.ico" sizes="48x48" />
+		<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+		<link rel="icon" type="image/png" href="/favicon-192x192.png" sizes="192x192" />
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 		<link rel="sitemap" href="/sitemap-index.xml" />
 
 		<!--
