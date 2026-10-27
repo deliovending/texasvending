@@ -3,6 +3,7 @@ import { Image } from 'astro:assets';
 import dealershipImage from '../assets/home/dealership-lounge-market.webp';
 import compactImage from '../assets/home/compact-market-counter.webp';
 import warehouseImage from '../assets/home/warehouse-cooler-setup.webp';
+import cafeteriaImage from '../assets/home/cafeteria-market-wall.webp';
 
 const setups = [
 	{
@@ -26,6 +27,13 @@ const setups = [
 		text: 'Coolers and snacks sized for shift crews, stocked around the clock.',
 		href: '/industries-we-serve/warehouses/',
 	},
+	{
+		image: cafeteriaImage,
+		alt: 'Large employee cafeteria with a full wall of drink coolers, fresh food, and snacks',
+		title: 'Cafeterias and Campuses',
+		text: 'A full wall of coolers, fresh food, and snacks for large employee cafeterias.',
+		href: '/industries-we-serve/corporate-offices/',
+	},
 ];
 ---
 
@@ -38,7 +46,7 @@ const setups = [
 				From a single counter to a full cafeteria wall, we design the break room around your space and your people.
 			</p>
 		</div>
-		<ul class="mt-12 grid gap-8 md:grid-cols-3">
+		<ul class="mt-12 grid gap-8 md:grid-cols-2">
 			{
 				setups.map((setup) => (
 					<li>
@@ -47,7 +55,7 @@ const setups = [
 								src={setup.image}
 								alt={setup.alt}
 								widths={[400, 600, 800]}
-								sizes="(min-width: 768px) 33vw, 100vw"
+								sizes="(min-width: 768px) 50vw, 100vw"
 								class="aspect-[4/3] w-full object-cover transition group-hover:scale-105"
 							/>
 							<div class="p-6">
