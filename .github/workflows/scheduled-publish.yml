@@ -1,0 +1,54 @@
+# Publishes scheduled blog posts. Posts with a future pubDate are left out of the build
+# (see src/lib/blog.ts), so each morning this checks for a post dated today and, if there is one,
+# asks Vercel to rebuild the site and then submits the sitemap to IndexNow.
+#
+# One-time setup:
+#   1. Vercel > Project > Settings > Git > Deploy Hooks: create a hook for the main branch.
+#   2. GitHub > repo > Settings > Secrets and variables > Actions: add the hook URL as VERCEL_DEPLOY_HOOK_URL.
+name: Scheduled publish
+
+on:
+  schedule:
+    # 12:00 UTC = 7:00 a.m. Dallas (CDT) / 6:00 a.m. (CST)
+    - cron: '0 12 * * *'
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Find posts dated today
+        id: due
+        run: |
+          today=$(TZ=America/Chicago date +%Y-%m-%d)
+          posts=$(grep -l "^pubDate: ${today}" src/content/blog/*.md* || true)
+          echo "Posts dated ${today}: ${posts:-none}"
+          if [ -n "$posts" ] || [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "deploy=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Trigger Vercel deploy
+        if: steps.due.outputs.deploy == 'true'
+        env:
+          HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK_URL }}
+        run: |
+          if [ -z "$HOOK" ]; then
+            echo "::error::Add the VERCEL_DEPLOY_HOOK_URL secret (see the setup notes at the top of this file)."
+            exit 1
+          fi
+          curl -fsS -X POST "$HOOK"
+
+      - name: Wait for the deploy to finish
+        if: steps.due.outputs.deploy == 'true'
+        run: sleep 300
+
+      - uses: actions/setup-node@v4
+        if: steps.due.outputs.deploy == 'true'
+        with:
+          node-version: 22
+
+      - name: Submit URLs to IndexNow
+        if: steps.due.outputs.deploy == 'true'
+        run: node scripts/indexnow.mjs

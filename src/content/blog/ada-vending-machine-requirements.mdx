@@ -1,0 +1,135 @@
+---
+title: "ADA Vending Machine Requirements"
+description: "What the 2010 ADA Standards say about vending machines, smart coolers, and kiosks: reach ranges, clear floor space, operable parts, and placement in hallways."
+pubDate: 2026-11-25
+author: Texas Vending
+image: ../../assets/blog/ada-vending-machine-requirements/vending-machine-bank.webp
+imageAlt: Bank of three vending machines with drinks on each side and snacks in the middle
+tags: [compliance, facilities, vending]
+draft: false
+---
+
+import SchemaMarkup from '../../components/SchemaMarkup.astro';
+import MidCTA from '../../components/MidCTA.astro';
+import BlogFigure from '../../components/BlogFigure.astro';
+import { faqPageSchema } from '../../lib/schema';
+import marketKiosk from '../../assets/blog/ada-vending-machine-requirements/market-with-kiosk.webp';
+import coolerReader from '../../assets/blog/ada-vending-machine-requirements/cooler-with-card-reader.webp';
+import marketShelves from '../../assets/blog/ada-vending-machine-requirements/market-shelves-and-cooler.webp';
+
+export const faqs = [
+	{
+		question: 'Do vending machines have to be ADA compliant?',
+		answer:
+			'Under section 228.1 of the 2010 ADA Standards, where vending machines are provided, at least one of each type must comply with the operable parts requirements in section 309: clear floor space, reach range, and easy operation.',
+	},
+	{
+		question: 'What is the ADA reach range for a vending machine?',
+		answer:
+			'For an unobstructed reach, operable parts such as the card reader, keypad, and selection buttons must be no higher than 48 inches and no lower than 15 inches above the floor, for both forward and side reach.',
+	},
+	{
+		question: 'How much clear floor space does a vending machine need?',
+		answer:
+			'A clear floor space at least 30 inches by 48 inches in front of the machine, positioned for a forward or side approach, and connected to an accessible route.',
+	},
+	{
+		question: 'Who is responsible for ADA compliance, the vendor or the business?',
+		answer:
+			'Both can have duties. The equipment design is the vendor\'s, while the space around it, the route to it, and its placement are usually the host business\'s. Talk with your vendor before installation and with an accessibility professional for formal reviews.',
+	},
+	{
+		question: 'Can a vending machine stick out into a hallway?',
+		answer:
+			'Objects with leading edges between 27 and 80 inches above the floor may protrude no more than 4 inches into a circulation path. A machine in a hallway should not narrow the route or create a hazard.',
+	},
+];
+
+<SchemaMarkup schema={faqPageSchema(faqs)} />
+
+**Short answer:** The 2010 ADA Standards for Accessible Design require that where vending machines are provided, at least one of each type is accessible. That means a clear floor space of at least 30 by 48 inches in front of it, operable parts such as the card reader and buttons between 15 and 48 inches above the floor, and controls that work with one hand without tight grasping, pinching, or twisting. Placement matters as much as the machine.
+
+Accessibility questions usually come up during a new build-out, a remodel, or an accessibility review. Vending machines, smart coolers, and micro market kiosks are easy to overlook. This post summarizes the rules that apply. It is general information, not legal advice.
+
+## Which ADA Rule Covers Vending Machines?
+
+Section **228.1** of the 2010 ADA Standards covers depositories, vending machines, change machines, mailboxes, and fuel dispensers. It says that where these are provided, **at least one of each type** must comply with section **309, Operable Parts**.
+
+"Each type" matters. A break room with a snack machine, a drink machine, and a smart cooler has three types. Each needs at least one accessible unit.
+
+<BlogFigure
+	src={coolerReader}
+	alt="Smart cooler with a card reader mounted beside the glass door"
+	caption="The card reader is an operable part, so its height counts."
+/>
+
+## What Does Section 309 Require?
+
+### Clear floor space (309.2 and 305.3)
+
+A clear floor or ground space at least **30 inches by 48 inches** must be in front of the operable parts. It can be positioned for a forward or a side approach, and it must connect to an accessible route.
+
+### Reach range (309.3 and 308)
+
+Operable parts must be within reach:
+
+- **Forward reach, unobstructed:** no higher than **48 inches** and no lower than **15 inches** above the floor.
+- **Side reach, unobstructed:** no higher than **48 inches** and no lower than **15 inches** above the floor.
+
+Operable parts include the card reader, keypad, selection buttons, touchscreen, and the product delivery bin.
+
+### Operation (309.4)
+
+Operable parts must work **with one hand** and must not require **tight grasping, pinching, or twisting of the wrist**. The force needed to activate them can be **no more than 5 pounds**.
+
+<BlogFigure
+	src={marketKiosk}
+	alt="Micro market with drink coolers, snack shelves, and a wall-mounted self-checkout kiosk"
+	caption="A kiosk screen and card reader should sit within the 15 to 48 inch reach range."
+/>
+
+<MidCTA heading="Planning a Break Room Build-Out?" text="We walk every site before we install, so placement, power, and space are planned up front. Free placement at qualifying DFW locations." />
+
+## Where Do Placement Problems Show Up?
+
+Most accessibility problems are not the machine. They are the spot:
+
+- **No clear space.** A trash can, a table, or a second machine blocks the 30 by 48 inch space.
+- **No accessible route.** The machine sits up a step, behind furniture, or down a hall that is too narrow.
+- **Protruding into a hallway.** Objects with leading edges between 27 and 80 inches above the floor may protrude **no more than 4 inches** into a circulation path. Machines in corridors should sit in an alcove or leave the route clear.
+- **High shelves in a market.** Open shelving above reach range makes some items hard to get. Keep a selection of each product type within reach.
+
+<BlogFigure
+	src={marketShelves}
+	alt="Micro market with open snack shelves next to a glass-door drink cooler"
+	caption="Stock popular items on shelves within easy reach, not only on the top rows."
+/>
+
+## Who Is Responsible?
+
+The vending company supplies the equipment. The host business controls the space, the route, and where the machine goes. In practice, both have a part:
+
+1. **Before install**, agree on a location with clear floor space and an accessible route.
+2. **Ask the vendor** which models meet the reach and operation requirements.
+3. **Keep the space clear** after install. Furniture and trash cans tend to drift.
+4. **For formal reviews**, work with an accessibility professional or your local building official.
+
+## Frequently Asked Questions
+
+{faqs.map((faq) => (
+	<>
+		<h3>{faq.question}</h3>
+		<p>{faq.answer}</p>
+	</>
+))}
+
+## Plan the Spot With Us
+
+Texas Vending walks every site before quoting and plans where [vending machines](/our-services/vending-machine/), [smart coolers](/our-services/ai-smart-cooler/), and [micro markets](/our-services/micro-markets/) go. Placement is free at locations with at least 50 people in total foot traffic, counting employees and visitors. [Book a free site visit](/contact-us/). For more on choosing a spot, read [where to put a vending machine at work](/blog/where-to-put-a-vending-machine/). Serving a [hospital](/industries-we-serve/hospitals/) or public building? Accessibility matters even more.
+
+*General information, not legal advice. Confirm requirements with an accessibility professional.*
+
+### Sources
+
+- U.S. Department of Justice, [2010 ADA Standards for Accessible Design](https://www.ada.gov/law-and-regs/design-standards/2010-stds/): sections 228.1, 305, 307.2, 308, and 309
+- U.S. Access Board, [ADA Accessibility Standards](https://www.access-board.gov/ada/)

@@ -4,9 +4,17 @@ export type BlogPost = CollectionEntry<'blog'>;
 
 const WORDS_PER_MINUTE = 225;
 
-/** Published posts (draft: false), newest first. */
+/**
+ * Published posts (draft: false), newest first. A post with a future pubDate stays hidden until a build
+ * runs on or after that date; .github/workflows/scheduled-publish.yml triggers that build each morning.
+ */
 export async function getPublishedPosts(): Promise<BlogPost[]> {
-	const posts = await getCollection('blog', ({ data }) => !data.draft);
+	// Compare calendar dates in Dallas time, so a post goes live on its date in Texas, not at 7 p.m. the day before
+	const today = new Date().toLocaleDateString('en-CA', { timeZone: 'America/Chicago' }); // YYYY-MM-DD
+	const posts = await getCollection(
+		'blog',
+		({ data }) => !data.draft && data.pubDate.toISOString().slice(0, 10) <= today,
+	);
 	return posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 }
 
