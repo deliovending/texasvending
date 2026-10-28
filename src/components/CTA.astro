@@ -5,12 +5,15 @@ interface Props {
 	heading?: string;
 	text?: string;
 	buttonLabel?: string;
+	/** Call button number. Defaults to the main line. */
+	phone?: { display: string; tel: string };
 }
 
 const {
 	heading = 'Get a Free Vending Machine for Your Business',
 	text = 'No installation cost and no long-term contract. Tell us about your location and we will recommend the right setup.',
 	buttonLabel = 'Beat the snack attack',
+	phone = { display: PHONE_DISPLAY, tel: PHONE_TEL },
 } = Astro.props;
 ---
 
@@ -22,7 +25,7 @@ const {
 		</div>
 		<div class="flex shrink-0 flex-wrap justify-center gap-4">
 			<a href="/contact-us/" class="btn bg-white text-ink hover:bg-slate-100">{buttonLabel}</a>
-			<a href={`tel:${PHONE_TEL}`} class="btn btn-outline">Call {PHONE_DISPLAY}</a>
+			<a href={`tel:${phone.tel}`} class="btn btn-outline">Call {phone.display}</a>
 		</div>
 	</div>
 </section>

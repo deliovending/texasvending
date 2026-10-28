@@ -28,6 +28,8 @@ interface Props {
 	crumb: string;
 	faqs: { question: string; answer: string }[];
 	cta?: { heading: string; text: string; buttonLabel?: string };
+	/** Call button number for the hero and CTA. Defaults to the main line. */
+	phone?: { display: string; tel: string };
 	/** Section this page belongs to (breadcrumb parent). Defaults to Our Services. */
 	parent?: { name: string; url: string };
 	/** Cards linking to sibling pages. Defaults to the other service pages. */
@@ -36,6 +38,7 @@ interface Props {
 
 const { title, description, h1, eyebrow, intro, heroImage, heroAlt, serviceType, crumb, faqs, cta } = Astro.props;
 const { parent = { name: 'Our Services', url: '/our-services/' }, areaServed } = Astro.props;
+const { phone = { display: PHONE_DISPLAY, tel: PHONE_TEL } } = Astro.props;
 const path = Astro.url.pathname;
 // A section's landing page gets no parent crumb and no sibling cards
 const isHub = path === parent.url;
@@ -93,7 +96,7 @@ const siblings = related.items.filter((item) => item.href !== path);
 				<p class="mt-6 text-lg text-white/80">{intro}</p>
 				<div class="mt-8 flex flex-wrap gap-4">
 					<a href="/contact-us/" class="btn btn-primary">Book a Free Site Visit</a>
-					<a href={`tel:${PHONE_TEL}`} class="btn btn-outline">Call {PHONE_DISPLAY}</a>
+					<a href={`tel:${phone.tel}`} class="btn btn-outline">Call {phone.display}</a>
 				</div>
 			</div>
 			<Image
@@ -134,5 +137,5 @@ const siblings = related.items.filter((item) => item.href !== path);
 
 	<FAQ faqs={faqs} />
 
-	<CTA {...cta} />
+	<CTA {...cta} phone={phone} />
 </BaseLayout>

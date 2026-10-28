@@ -7,6 +7,8 @@ interface Props {
 	text?: string;
 	buttonLabel?: string;
 	href?: string;
+	/** Call button number. Defaults to the main line. */
+	phone?: { display: string; tel: string };
 }
 
 const {
@@ -14,6 +16,7 @@ const {
 	text = 'Free placement at qualifying sites and no long-term contract. Book a site visit and we will recommend the right setup.',
 	buttonLabel = 'Book a Free Site Visit',
 	href = '/contact-us/',
+	phone = { display: PHONE_DISPLAY, tel: PHONE_TEL },
 } = Astro.props;
 ---
 
@@ -32,7 +35,7 @@ const {
 		</div>
 		<div class="mt-6 flex shrink-0 flex-wrap gap-3 @3xl:mt-0">
 			<a href={href} class="btn btn-primary">{buttonLabel}</a>
-			<a href={`tel:${PHONE_TEL}`} class="btn btn-outline">Call {PHONE_DISPLAY}</a>
+			<a href={`tel:${phone.tel}`} class="btn btn-outline">Call {phone.display}</a>
 		</div>
 	</div>
 </aside>

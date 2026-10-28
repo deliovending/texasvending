@@ -3,6 +3,9 @@ export const SITE_URL = 'https://texasvending.com';
 
 export const PHONE_DISPLAY = '(469) 304-9509';
 export const PHONE_TEL = '+1-469-304-9509';
+// Separate line that rings the moving team directly
+export const MOVING_PHONE_DISPLAY = '(469) 881-9286';
+export const MOVING_PHONE_TEL = '+1-469-881-9286';
 export const EMAIL = 'hi@texasvending.com';
 // TODO: add the suite number once confirmed
 export const ADDRESS = { street: '2777 N Stemmons Fwy', city: 'Dallas', region: 'TX', postalCode: '75207' };

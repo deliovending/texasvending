@@ -10,6 +10,10 @@ import officeKitchen from '../../assets/services/vending-moving/smart-cooler-off
 import warehouseCafeteria from '../../assets/services/vending-moving/warehouse-cafeteria.avif';
 import lobby from '../../assets/services/vending-moving/lobby-smart-vending.jpg';
 import cafeteria from '../../assets/services/vending-moving/employee-cafeteria.png';
+import { MOVING_PHONE_DISPLAY, MOVING_PHONE_TEL } from '../../consts';
+
+// The moving team has its own line
+const movingPhone = { display: MOVING_PHONE_DISPLAY, tel: MOVING_PHONE_TEL };
 
 const faqs = [
 	{
@@ -47,6 +51,7 @@ const faqs = [
 	serviceType="Vending machine moving"
 	crumb="Vending Moving"
 	faqs={faqs}
+	phone={movingPhone}
 	cta={{
 		heading: 'Plan Your Vending Move',
 		text: 'Tell us what you are moving, where, and when. We will schedule the move around your hours.',
@@ -90,7 +95,7 @@ const faqs = [
 			},
 		]}
 	/>
-	<MidCTA heading="Planning a Move?" text="Tell us what you are moving, where, and when. We schedule moves around your hours, including after hours and weekends." buttonLabel="Plan Your Move" />
+	<MidCTA heading="Planning a Move?" text="Tell us what you are moving, where, and when. We schedule moves around your hours, including after hours and weekends." buttonLabel="Plan Your Move" phone={movingPhone} />
 
 
 	<MediaSection image={warehouseCafeteria} alt="Warehouse cafeteria with tables, chairs, and vending along the wall" heading="Across the Building or Across Town" eyebrow="Where we move">
@@ -110,6 +115,10 @@ const faqs = [
 		<p>
 			Moves happen when they disrupt the least. After-hours and weekend moves are available, and we follow your building's
 			check-in and badge rules.
+		</p>
+		<p>
+			To schedule a move, call our moving line directly at{' '}
+			<a href={`tel:${MOVING_PHONE_TEL}`}>{MOVING_PHONE_DISPLAY}</a>.
 		</p>
 		<p>
 			Machine not working after someone else moved it? See <a href="/our-services/vending-repair/">vending machine
