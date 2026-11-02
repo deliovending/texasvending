@@ -16,14 +16,19 @@ const { city } = Astro.props as { city: City };
 const photoFiles = import.meta.glob<ImageMetadata>('../../../assets/cities/*', { eager: true, import: 'default' });
 const photo = (file: string) => ({ image: photoFiles[`../../../assets/cities/${file}`], alt: cityPhotoAlt[file] });
 const [hero, first, second, pairLeft, pairRight, last] = city.photos.map(photo);
+const keyword = city.keywordPage;
+const [equipmentPhoto, switchPhoto] = keyword?.photos.map(photo) ?? [];
 
 // Area pages cover several towns and are named for the area, not just the destination city
 const townNames = city.towns?.map((town) => town.name);
 const areaName = city.towns ? `the ${city.name} Area` : city.name;
-const title = city.towns ? `Vending Services in the ${city.name} Area` : `Vending Services in ${city.name}, TX`;
-const description = townNames
-	? `Free vending, micro markets, and smart coolers for ${townNames.join(', ')}. Cashless, no contract, 24-hour response.`
-	: `Free vending machines, micro markets, and smart coolers for ${city.name}, TX businesses. Cashless, no long-term contract, 24-hour response.`;
+const title =
+	keyword?.title ?? (city.towns ? `Vending Services in the ${city.name} Area` : `Vending Services in ${city.name}, TX`);
+const description =
+	keyword?.description ??
+	(townNames
+		? `Free vending, micro markets, and smart coolers for ${townNames.join(', ')}. Cashless, no contract, 24-hour response.`
+		: `Free vending machines, micro markets, and smart coolers for ${city.name}, TX businesses. Cashless, no long-term contract, 24-hour response.`);
 const placeList = townNames ? townNames.join(', ') : city.name;
 
 const nearbyCities = city.nearby.map(cityBySlug).filter((nearby): nearby is City => Boolean(nearby));
@@ -46,6 +51,7 @@ const faqs = [
 		question: `Do you offer free vending machines in ${areaName}?`,
 		answer: `Yes. Texas Vending places vending machines, micro markets, and AI smart coolers at no cost to ${city.name}-area locations with at least 50 people in total foot traffic, counting employees and visitors.`,
 	},
+	...(keyword?.faqs ?? []),
 	...(city.faq ? [city.faq] : []),
 	{
 		question: `Do you serve cities near ${city.name}?`,
@@ -67,7 +73,10 @@ const faqs = [
 	description={description}
 	h1={title}
 	eyebrow={city.towns ? city.region : `${city.name}, Texas`}
-	intro={`Texas Vending installs, stocks, and services vending machines, micro markets, AI smart coolers, and office coffee for businesses in ${placeList}. Placement is free at locations with at least 50 people in total foot traffic, counting employees and visitors, and no long-term contract is required.`}
+	intro={
+		keyword?.intro ??
+		`Texas Vending installs, stocks, and services vending machines, micro markets, AI smart coolers, and office coffee for businesses in ${placeList}. Placement is free at locations with at least 50 people in total foot traffic, counting employees and visitors, and no long-term contract is required.`
+	}
 	heroImage={hero.image}
 	heroAlt={hero.alt}
 	serviceType="Vending and breakroom services"
@@ -119,6 +128,42 @@ const faqs = [
 		</ul>
 		<p>Main routes: {city.highways}.</p>
 	</MediaSection>
+
+	{
+		keyword && (
+			<>
+				<MediaSection image={equipmentPhoto.image} alt={equipmentPhoto.alt} heading={`Vending Machine Options in ${city.name}`} eyebrow="Equipment">
+					<p>Every site is different, so we match the equipment to your people, shifts, and space:</p>
+					<ul>
+						{keyword.equipment.map((item) => (
+							<li>
+								<a href={item.href}>{item.name}</a>: {item.note}
+							</li>
+						))}
+					</ul>
+				</MediaSection>
+
+				<MediaSection image={switchPhoto.image} alt={switchPhoto.alt} heading={`Switching Vending Companies in ${city.name}`} eyebrow="Why businesses switch" reverse>
+					<p>Most {city.name} businesses that call us already have a vending machine. These are the problems we hear about most, and how we handle each:</p>
+					<ul>
+						{keyword.switchReasons.map((reason) => (
+							<li>
+								<strong>{reason.name}.</strong> {reason.note}
+							</li>
+						))}
+					</ul>
+					<h3>How to get a vending machine in {city.name}</h3>
+					<ol>
+						<li><strong>Tell us about your site</strong>: the address, your headcount, and your regular visitors.</li>
+						<li><strong>We walk the site</strong> and confirm whether it qualifies for free placement.</li>
+						<li><strong>We recommend a setup</strong> that fits your space and shifts.</li>
+						<li><strong>We install, stock, and service it</strong>, with no long-term contract.</li>
+					</ol>
+					<p>Before you switch any vendor, read our <a href="/blog/vending-contract-checklist/">vending contract checklist</a>.</p>
+				</MediaSection>
+			</>
+		)
+	}
 
 	<PhotoPair
 		photos={[

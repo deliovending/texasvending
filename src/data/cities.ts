@@ -35,6 +35,20 @@ export interface City {
 	photos: string[];
 	faq?: { question: string; answer: string };
 	sources: string[];
+	/** Extra sections for a city page that targets a priority keyword, such as "vending machines in Arlington" */
+	keywordPage?: {
+		/** <title> and H1 */
+		title: string;
+		description: string;
+		intro: string;
+		/** Equipment choices, each with a link to its service page */
+		equipment: { name: string; href: string; note: string }[];
+		/** Problems that make businesses switch vendors, and how we handle each */
+		switchReasons: { name: string; note: string }[];
+		faqs: { question: string; answer: string }[];
+		/** Two photo file names in src/assets/cities/, for the equipment and switching sections */
+		photos: [string, string];
+	};
 }
 
 export const cities: City[] = [
@@ -219,7 +233,9 @@ export const cities: City[] = [
 			"manufacturing",
 			"warehouses",
 			"hospitality",
-			"education"
+			"education",
+			"hospitals",
+			"offices"
 		],
 		"nearby": [
 			"fort-worth",
@@ -246,7 +262,34 @@ export const cities: City[] = [
 			"https://en.wikipedia.org/wiki/Great_Southwest_Industrial_District",
 			"https://arlingtontxhistory.org/article-999.php",
 			"https://www.arlingtontx.gov/News-Articles/2023/September/Invest-in-Our-Economy-General-Motors-Announces-500-Million-Plus-Investment-in-Arlington-Assembly"
-		]
+		],
+		"keywordPage": {
+			"title": "Vending Machines in Arlington, TX",
+			"description": "Free vending machines in Arlington, TX: snack, drink, and fresh food machines, micro markets, and smart coolers. Cashless, no contract, 24-hour response.",
+			"intro": "Texas Vending places free vending machines in Arlington, TX, along with micro markets, AI smart coolers, and office coffee. We install, stock, and service every machine for Arlington businesses with at least 50 people in total foot traffic, counting employees and visitors. No installation fee, no service fee, and no long-term contract.",
+			"equipment": [
+				{ "name": "Snack and drink vending machines", "href": "/our-services/vending-machine/", "note": "chips, candy, cold drinks, and energy drinks in a small footprint, for hallways, lobbies, and shop floors" },
+				{ "name": "AI smart coolers", "href": "/our-services/ai-smart-cooler/", "note": "fresh sandwiches, salads, and meals; tap to unlock, take what you want, and the cooler charges automatically" },
+				{ "name": "Micro markets", "href": "/our-services/micro-markets/", "note": "a self-checkout store with open shelves and coolers, open around the clock for every shift" },
+				{ "name": "Office coffee and water", "href": "/our-services/coffee-water/", "note": "machine installation is free; coffee, tea, water, and supplies are billed" },
+				{ "name": "Vending repair and moving", "href": "/our-services/vending-repair/", "note": "we fix and move machines across Arlington, including machines another company supplied" }
+			],
+			"switchReasons": [
+				{ "name": "Empty machines", "note": "Real-time monitoring tells us when a machine needs service, and we set a restocking schedule for your location." },
+				{ "name": "Slow repairs", "note": "Local technicians respond to reported issues within 24 hours, including after hours." },
+				{ "name": "Cash-only machines", "note": "Every machine takes cards, mobile wallets, and tap-to-pay." },
+				{ "name": "The same old snacks", "note": "We add specific products and brands when there is enough demand, and sales data shows what your team buys." },
+				{ "name": "A contract you can't leave", "note": "No long-term contract is required." }
+			],
+			"faqs": [
+				{ "question": "How do I get a free vending machine in Arlington?", "answer": "Tell us about your location and foot traffic. We walk the site, confirm whether it qualifies, and recommend the right equipment. At a qualifying Arlington location, the machine, delivery, setup, and service cost nothing." },
+				{ "question": "How many people do we need for a vending machine in Arlington?", "answer": "At least 50 people in total foot traffic, counting employees and visitors together. Customers, patients, students, drivers, and contractors all count." },
+				{ "question": "Can we switch from our current vending company?", "answer": "Yes. Review your current agreement for its term and removal rules, then tell us your timeline. We can also repair or move machines another company supplied." },
+				{ "question": "Can we request specific snacks and drinks?", "answer": "Yes. Texas Vending adds specific products and brands when there is enough demand, and sales data shows what sells at your site." },
+				{ "question": "How often are Arlington vending machines restocked?", "answer": "Each location gets its own restocking schedule. Real-time monitoring tells us when a machine needs service, so busy weeks get more visits." }
+			],
+			"photos": ["full-line-vending.jpeg", "worker-cashless-cooler.webp"]
+		}
 	},
 	{
 		"slug": "plano",
