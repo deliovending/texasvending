@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
 import ServiceLayout from '../layouts/ServiceLayout.astro';
 import MediaSection from '../components/MediaSection.astro';
 import MidCTA from '../components/MidCTA.astro';
@@ -7,6 +9,8 @@ import hero from '../assets/beverages/drink-coolers-market.webp';
 import grabbingJuice from '../assets/beverages/grabbing-juice-smart-cooler.webp';
 import juices from '../assets/beverages/cold-pressed-juices.webp';
 
+const productPhotos = import.meta.glob<ImageMetadata>('../assets/beverages/products/*.png', { eager: true, import: 'default' });
+const productPhoto = (drink: Beverage) => productPhotos[`../assets/beverages/products/${drink.slug}.png`];
 const grams = (value: number | string | null) => (value === null ? 'Not listed' : `${value} g`);
 const allergenText = (drink: Beverage) =>
 	drink.allergens.length ? `Contains: ${drink.allergens.join(', ')}` : 'None of the 9 major allergens listed';
@@ -17,7 +21,7 @@ const faqs = [
 	{
 		question: 'What drinks are in your vending machines?',
 		answer:
-			'Common choices include Coca-Cola, Diet Coke, Coke Zero Sugar, Sprite, Dr Pepper, Pepsi, bottled and sparkling water, Gatorade, 100% juices, Red Bull, Monster, and Starbucks Frappuccino. Selection varies by location and by what each team buys.',
+			'Common choices include Coca-Cola, Diet Coke, Coke Zero Sugar, Sprite, Dr Pepper, Pepsi, Dasani and Ozarka water, bubly sparkling water, Gatorade, 100% juices, Red Bull, Monster, Celsius, and Starbucks Frappuccino. Selection varies by location and by what each team buys.',
 	},
 	{
 		question: 'Why don\'t you list prices?',
@@ -27,7 +31,7 @@ const faqs = [
 	{
 		question: 'Which vending drink has the most caffeine?',
 		answer:
-			'Of the drinks in this catalog, Monster Energy (160 mg per 16 oz can) and Monster Zero Ultra (150 mg) have the most, followed by the Starbucks Frappuccino Mocha (105 mg) and Red Bull (80 mg per 8.4 oz can). Sprite, water, juices, and Gatorade have no caffeine.',
+			'Of the drinks in this catalog, Celsius has the most (200 mg per 12 oz can), followed by Monster Energy (160 mg per 16 oz can), Monster Zero Ultra (150 mg), the Starbucks Frappuccino Mocha (105 mg), and Red Bull (80 mg per 8.4 oz can). Sprite, water, juices, and Gatorade have no caffeine.',
 	},
 	{
 		question: 'Do any of these drinks contain allergens?',
@@ -41,7 +45,7 @@ const faqs = [
 	{
 		question: 'Do you offer zero-sugar drinks?',
 		answer:
-			'Yes. Diet Coke, Coke Zero Sugar, Gatorade Zero, Red Bull Sugarfree, Monster Zero Ultra, water, and sparkling water all have 0 g of sugar.',
+			'Yes. Diet Coke, Coke Zero Sugar, Gatorade Zero, Red Bull Sugarfree, Monster Zero Ultra, Celsius, water, and sparkling water all have 0 g of sugar.',
 	},
 ];
 ---
@@ -89,6 +93,15 @@ const faqs = [
 						.filter((drink) => drink.category === category.key)
 						.map((drink) => (
 							<li class="flex flex-col rounded-3xl bg-white p-6 shadow-lg ring-1 ring-slate-200">
+								{productPhoto(drink) && (
+									<Image
+										src={productPhoto(drink)}
+										alt={`${drink.name}, ${drink.size}`}
+										height={200}
+										densities={[1, 2]}
+										class="mx-auto mb-5 h-40 w-auto object-contain"
+									/>
+								)}
 								<h3 class="font-display text-2xl uppercase text-ink">{drink.name}</h3>
 								<p class="mt-1 font-mono text-xs tracking-widest text-slate-500 uppercase">{drink.size}</p>
 								<dl class="mt-5 grid grid-cols-2 gap-3 text-center">

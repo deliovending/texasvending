@@ -6,6 +6,8 @@
 export type BeverageCategory = 'sodas' | 'water' | 'sports' | 'juice' | 'energy' | 'coffee';
 
 export interface Beverage {
+	/** Also the product photo file name: src/assets/beverages/products/<slug>.png */
+	slug: string;
 	name: string;
 	category: BeverageCategory;
 	size: string;
@@ -40,6 +42,7 @@ export const categories: { key: BeverageCategory; label: string; intro: string }
 
 export const beverages: Beverage[] = [
 	{
+		slug: 'coca-cola',
 		name: 'Coca-Cola',
 		category: 'sodas',
 		size: '12 fl oz can',
@@ -58,6 +61,7 @@ export const beverages: Beverage[] = [
 		source: 'https://www.coca-cola.com/us/en/brands/coca-cola/products/original',
 	},
 	{
+		slug: 'diet-coke',
 		name: 'Diet Coke',
 		category: 'sodas',
 		size: '12 fl oz can',
@@ -77,6 +81,7 @@ export const beverages: Beverage[] = [
 		source: 'https://www.coca-cola.com/us/en/brands/diet-coke/products',
 	},
 	{
+		slug: 'coke-zero-sugar',
 		name: 'Coca-Cola Zero Sugar',
 		category: 'sodas',
 		size: '12 fl oz can',
@@ -96,6 +101,7 @@ export const beverages: Beverage[] = [
 		source: 'https://www.coca-cola.com/us/en/brands/coca-cola/products/zero',
 	},
 	{
+		slug: 'sprite',
 		name: 'Sprite',
 		category: 'sodas',
 		size: '12 fl oz can',
@@ -115,6 +121,7 @@ export const beverages: Beverage[] = [
 		source: 'https://www.coca-cola.com/us/en/brands/sprite/products',
 	},
 	{
+		slug: 'dr-pepper',
 		name: 'Dr Pepper',
 		category: 'sodas',
 		size: '12 fl oz can',
@@ -134,6 +141,7 @@ export const beverages: Beverage[] = [
 		source: 'https://fdc.nal.usda.gov/food-details/2571093/nutrients',
 	},
 	{
+		slug: 'pepsi',
 		name: 'Pepsi',
 		category: 'sodas',
 		size: '12 fl oz can',
@@ -153,6 +161,7 @@ export const beverages: Beverage[] = [
 		source: 'https://www.pepsicoproductfacts.com/Home/Product?gtin=00012000000133',
 	},
 	{
+		slug: 'dasani',
 		name: 'Dasani Purified Water',
 		category: 'water',
 		size: '16.9 fl oz bottle',
@@ -171,6 +180,27 @@ export const beverages: Beverage[] = [
 		source: 'https://www.coca-cola.com/us/en/brands/dasani',
 	},
 	{
+		slug: 'ozarka',
+		name: 'Ozarka 100% Natural Spring Water',
+		category: 'water',
+		size: '16.9 fl oz bottle',
+		calories: 0,
+		fatG: 0,
+		sodiumMg: 0,
+		carbsG: 0,
+		sugarsG: 0,
+		addedSugarsG: 0,
+		proteinG: 0,
+		caffeineMg: 0,
+		sweeteners: 'None',
+		ingredients: '100% natural spring water',
+		allergens: [],
+		phenylalanine: false,
+		note: 'Spring water from Texas sources.',
+		source: 'https://www.target.com/p/ozarka-100-natural-spring-water-32pk-16-9-fl-oz-bottles/-/A-84793263',
+	},
+	{
+		slug: 'bubly-lime',
 		name: 'bubly Sparkling Water, Lime',
 		category: 'water',
 		size: '12 fl oz can',
@@ -189,6 +219,7 @@ export const beverages: Beverage[] = [
 		source: 'https://www.pepsicoproductfacts.com/Home/Product?gtin=00012000171246',
 	},
 	{
+		slug: 'gatorade-cool-blue',
 		name: 'Gatorade Thirst Quencher, Cool Blue',
 		category: 'sports',
 		size: '20 fl oz bottle',
@@ -208,6 +239,7 @@ export const beverages: Beverage[] = [
 		source: 'https://www.pepsicoproductfacts.com/Home/Product?gtin=00052000324815',
 	},
 	{
+		slug: 'gatorade-zero-glacier-freeze',
 		name: 'Gatorade Zero, Glacier Freeze',
 		category: 'sports',
 		size: '20 fl oz bottle',
@@ -227,6 +259,7 @@ export const beverages: Beverage[] = [
 		source: 'https://www.gatorade.com/sports-drinks/gatorade-zero/glacier-freeze',
 	},
 	{
+		slug: 'minute-maid-apple',
 		name: 'Minute Maid 100% Apple Juice',
 		category: 'juice',
 		size: '12 fl oz bottle',
@@ -246,6 +279,7 @@ export const beverages: Beverage[] = [
 		source: 'https://www.coca-cola.com/us/en/brands/minute-maid/products/minute-maid-variety-juices',
 	},
 	{
+		slug: 'tropicana-orange',
 		name: 'Tropicana Pure Premium Orange Juice, No Pulp',
 		category: 'juice',
 		size: '11 fl oz bottle',
@@ -265,6 +299,7 @@ export const beverages: Beverage[] = [
 		source: 'https://hannaford.com/groceries/product/tropicana-pure-premium-no-pulp-100-orange-juice-11-oz-btl/366057',
 	},
 	{
+		slug: 'red-bull',
 		name: 'Red Bull Energy Drink',
 		category: 'energy',
 		size: '8.4 fl oz can',
@@ -284,6 +319,7 @@ export const beverages: Beverage[] = [
 		source: 'https://www.redbull.com/us-en/energydrink/red-bull-energy-drink-ingredients-list',
 	},
 	{
+		slug: 'red-bull-sugarfree',
 		name: 'Red Bull Sugarfree',
 		category: 'energy',
 		size: '8.4 fl oz can',
@@ -303,6 +339,7 @@ export const beverages: Beverage[] = [
 		source: 'https://www.redbull.com/us-en/energydrink/red-bull-sugarfree-ingredients-list',
 	},
 	{
+		slug: 'monster-original',
 		name: 'Monster Energy (Original)',
 		category: 'energy',
 		size: '16 fl oz can',
@@ -323,6 +360,7 @@ export const beverages: Beverage[] = [
 		source: 'https://giantfoodstores.com/groceries/product/monster-energy-drink-4-pk-16-oz-cans/143906',
 	},
 	{
+		slug: 'monster-zero-ultra',
 		name: 'Monster Energy Zero Ultra',
 		category: 'energy',
 		size: '16 fl oz can',
@@ -343,6 +381,28 @@ export const beverages: Beverage[] = [
 		source: 'https://www.monsterenergy.com/en-us/energy-drinks/zero-sugar/zero-ultra/',
 	},
 	{
+		slug: 'celsius',
+		name: 'Celsius Sparkling Orange',
+		category: 'energy',
+		size: '12 fl oz can',
+		calories: 10,
+		fatG: 0,
+		sodiumMg: 5,
+		carbsG: 0,
+		sugarsG: 0,
+		addedSugarsG: 0,
+		proteinG: 0,
+		caffeineMg: 200,
+		sweeteners: 'Sucralose',
+		ingredients:
+			'Carbonated filtered water, citric acid, taurine, guarana seed extract, caffeine, green tea extract, sucralose, calcium carbonate, ascorbic acid, glucuronolactone, ginger root extract, calcium pantothenate, niacinamide, natural flavor, pyridoxine hydrochloride, riboflavin, chromium chelate, biotin, beta-carotene (color), cyanocobalamin',
+		allergens: [],
+		phenylalanine: false,
+		note: 'Label advisory: not recommended for people who are caffeine sensitive, children under 18, or women who are pregnant or nursing. Do not exceed 2 servings per day.',
+		source: 'https://www.target.com/p/celsius-sparkling-orange-energy-drink-12-fl-oz-can/-/A-88371875',
+	},
+	{
+		slug: 'starbucks-frappuccino-mocha',
 		name: 'Starbucks Frappuccino, Mocha',
 		category: 'coffee',
 		size: '13.7 fl oz bottle',
