@@ -1,0 +1,201 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+import MediaSection from '../components/MediaSection.astro';
+import MidCTA from '../components/MidCTA.astro';
+import { beverages, categories, type Beverage } from '../data/beverages';
+import hero from '../assets/beverages/drink-coolers-market.webp';
+import grabbingJuice from '../assets/beverages/grabbing-juice-smart-cooler.webp';
+import juices from '../assets/beverages/cold-pressed-juices.webp';
+
+const grams = (value: number | string | null) => (value === null ? 'Not listed' : `${value} g`);
+const allergenText = (drink: Beverage) =>
+	drink.allergens.length ? `Contains: ${drink.allergens.join(', ')}` : 'None of the 9 major allergens listed';
+// Comparison table, highest caffeine first
+const byCaffeine = [...beverages].sort((a, b) => b.caffeineMg - a.caffeineMg);
+
+const faqs = [
+	{
+		question: 'What drinks are in your vending machines?',
+		answer:
+			'Common choices include Coca-Cola, Diet Coke, Coke Zero Sugar, Sprite, Dr Pepper, Pepsi, bottled and sparkling water, Gatorade, 100% juices, Red Bull, Monster, and Starbucks Frappuccino. Selection varies by location and by what each team buys.',
+	},
+	{
+		question: 'Why don\'t you list prices?',
+		answer:
+			'Prices are set for each location and shown on the machine, cooler, or kiosk. Ask us for the prices at your site during the site visit.',
+	},
+	{
+		question: 'Which vending drink has the most caffeine?',
+		answer:
+			'Of the drinks in this catalog, Monster Energy (160 mg per 16 oz can) and Monster Zero Ultra (150 mg) have the most, followed by the Starbucks Frappuccino Mocha (105 mg) and Red Bull (80 mg per 8.4 oz can). Sprite, water, juices, and Gatorade have no caffeine.',
+	},
+	{
+		question: 'Do any of these drinks contain allergens?',
+		answer:
+			'The Starbucks Frappuccino contains milk. None of the other drinks in this catalog list any of the 9 major food allergens in their ingredients. Diet Coke and Coke Zero Sugar contain phenylalanine. Always read the label on the product you buy.',
+	},
+	{
+		question: 'Can we request a drink that is not on this list?',
+		answer: 'Yes. We add specific products and brands when there is enough demand, and sales data shows what your team buys.',
+	},
+	{
+		question: 'Do you offer zero-sugar drinks?',
+		answer:
+			'Yes. Diet Coke, Coke Zero Sugar, Gatorade Zero, Red Bull Sugarfree, Monster Zero Ultra, water, and sparkling water all have 0 g of sugar.',
+	},
+];
+---
+
+<ServiceLayout
+	title="Vending Drinks: Nutrition and Allergens"
+	description="Vending drink catalog with nutrition facts, caffeine, and allergens for sodas, water, juices, sports drinks, energy drinks, and coffee drinks."
+	h1="Vending Beverage Catalog"
+	eyebrow="Drinks we stock"
+	intro="The drinks Texas Vending stocks most often in Dallas–Fort Worth vending machines, smart coolers, and micro markets, with calories, sugar, sodium, caffeine, and allergens for each. Selection varies by location, and we add products your team asks for."
+	heroImage={hero}
+	heroAlt="Micro market with glass-door drink coolers stocked with sodas, water, and energy drinks"
+	crumb="Beverages"
+	parent={{ name: 'Fresh Food', url: '/fresh-food/' }}
+	faqs={faqs}
+	cta={{
+		heading: 'Stock Your Break Room',
+		text: 'Book a site visit and tell us what your team drinks. Free placement at qualifying locations, with no long-term contract.',
+	}}
+>
+	<nav aria-label="Drink categories" class="mx-auto max-w-6xl px-4 pt-12">
+		<ul class="flex flex-wrap justify-center gap-3">
+			{
+				categories.map((category) => (
+					<li>
+						<a href={`#${category.key}`} class="inline-block rounded-full bg-slate-100 px-4 py-2 font-semibold text-ink ring-1 ring-slate-200 transition hover:bg-brand hover:text-white">
+							{category.label}
+						</a>
+					</li>
+				))
+			}
+			<li>
+				<a href="#compare" class="inline-block rounded-full bg-ink px-4 py-2 font-semibold text-white transition hover:bg-brand">Caffeine and Sugar Chart</a>
+			</li>
+		</ul>
+	</nav>
+
+	{
+		categories.map((category) => (
+			<section id={category.key} class="mx-auto max-w-6xl scroll-mt-28 px-4 py-12">
+				<h2 class="text-4xl uppercase text-slate-900">{category.label}</h2>
+				<p class="mt-2 text-lg text-slate-600">{category.intro}</p>
+				<ul class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+					{beverages
+						.filter((drink) => drink.category === category.key)
+						.map((drink) => (
+							<li class="flex flex-col rounded-3xl bg-white p-6 shadow-lg ring-1 ring-slate-200">
+								<h3 class="font-display text-2xl uppercase text-ink">{drink.name}</h3>
+								<p class="mt-1 font-mono text-xs tracking-widest text-slate-500 uppercase">{drink.size}</p>
+								<dl class="mt-5 grid grid-cols-2 gap-3 text-center">
+									<div class="rounded-2xl bg-slate-50 p-3">
+										<dt class="text-xs text-slate-500 uppercase">Calories</dt>
+										<dd class="font-display text-2xl text-ink">{drink.calories}</dd>
+									</div>
+									<div class="rounded-2xl bg-slate-50 p-3">
+										<dt class="text-xs text-slate-500 uppercase">Sugars</dt>
+										<dd class="font-display text-2xl text-ink">{drink.sugarsG} g</dd>
+									</div>
+									<div class="rounded-2xl bg-slate-50 p-3">
+										<dt class="text-xs text-slate-500 uppercase">Sodium</dt>
+										<dd class="font-display text-2xl text-ink">{drink.sodiumMg} mg</dd>
+									</div>
+									<div class="rounded-2xl bg-slate-50 p-3">
+										<dt class="text-xs text-slate-500 uppercase">Caffeine</dt>
+										<dd class="font-display text-2xl text-ink">{drink.caffeineMg} mg</dd>
+									</div>
+								</dl>
+								<p class:list={['mt-4 rounded-xl px-3 py-2 text-sm font-semibold', drink.allergens.length ? 'bg-amber-50 text-amber-900' : 'bg-emerald-50 text-emerald-900']}>
+									{allergenText(drink)}
+								</p>
+								{drink.phenylalanine && (
+									<p class="mt-2 rounded-xl bg-amber-50 px-3 py-2 text-sm font-semibold text-amber-900">
+										Phenylketonurics: contains phenylalanine
+									</p>
+								)}
+								<details class="group mt-4 text-sm text-slate-700">
+									<summary class="cursor-pointer font-semibold text-brand">Full nutrition and ingredients</summary>
+									<table class="mt-3 w-full">
+										<tbody class="[&_td]:py-1 [&_td:last-child]:text-right [&_tr]:border-b [&_tr]:border-slate-100">
+											<tr><td>Total fat</td><td>{drink.fatG} g</td></tr>
+											<tr><td>Sodium</td><td>{drink.sodiumMg} mg</td></tr>
+											<tr><td>Total carbohydrate</td><td>{drink.carbsG} g</td></tr>
+											<tr><td>Total sugars</td><td>{drink.sugarsG} g</td></tr>
+											<tr><td>Added sugars</td><td>{grams(drink.addedSugarsG)}</td></tr>
+											<tr><td>Protein</td><td>{drink.proteinG} g</td></tr>
+											<tr><td>Caffeine</td><td>{drink.caffeineMg} mg</td></tr>
+										</tbody>
+									</table>
+									<p class="mt-3"><strong>Sweeteners:</strong> {drink.sweeteners}</p>
+									<p class="mt-2"><strong>Ingredients:</strong> {drink.ingredients}</p>
+									{drink.note && <p class="mt-2">{drink.note}</p>}
+									<p class="mt-2">
+										<a href={drink.source} rel="noopener" class="underline hover:text-brand">Label source</a>
+									</p>
+								</details>
+							</li>
+						))}
+				</ul>
+			</section>
+		))
+	}
+
+	<MidCTA heading="Want Different Drinks?" text="Tell us what your team asks for. We add specific products and brands when there is enough demand, and placement is free at qualifying sites." />
+
+	<section id="compare" class="mx-auto max-w-4xl scroll-mt-28 px-4 py-12">
+		<h2 class="text-4xl uppercase text-slate-900">Caffeine and Sugar at a Glance</h2>
+		<p class="mt-2 text-lg text-slate-600">Per container, highest caffeine first.</p>
+		<div class="mt-6 overflow-x-auto rounded-3xl ring-1 ring-slate-200">
+			<table class="w-full text-left text-sm">
+				<thead class="bg-ink text-white">
+					<tr>
+						<th scope="col" class="px-3 py-3 sm:px-4">Drink</th>
+						<th scope="col" class="hidden px-4 py-3 sm:table-cell">Size</th>
+						<th scope="col" class="px-4 py-3 text-right">Caffeine</th>
+						<th scope="col" class="px-4 py-3 text-right">Sugars</th>
+						<th scope="col" class="px-4 py-3 text-right">Calories</th>
+					</tr>
+				</thead>
+				<tbody class="divide-y divide-slate-100 bg-white">
+					{
+						byCaffeine.map((drink) => (
+							<tr>
+								<th scope="row" class="px-4 py-2 font-semibold text-ink">{drink.name}</th>
+								<td class="hidden px-4 py-2 text-slate-600 sm:table-cell">{drink.size}</td>
+								<td class="px-4 py-2 text-right">{drink.caffeineMg} mg</td>
+								<td class="px-4 py-2 text-right">{drink.sugarsG} g</td>
+								<td class="px-4 py-2 text-right">{drink.calories}</td>
+							</tr>
+						))
+					}
+				</tbody>
+			</table>
+		</div>
+	</section>
+
+	<MediaSection image={grabbingJuice} alt="Hand taking a bottle of juice from a smart cooler shelf" heading="How Drinks Are Sold" eyebrow="Cashless, around the clock">
+		<p>Every drink here can be sold in any of our equipment:</p>
+		<ul>
+			<li><a href="/our-services/vending-machine/">Drink vending machines</a>: pay at the reader and the drink drops.</li>
+			<li><a href="/our-services/ai-smart-cooler/">AI smart coolers</a>: tap to unlock, take a drink, and the cooler charges automatically.</li>
+			<li><a href="/our-services/micro-markets/">Micro markets</a>: open coolers with self-checkout, open around the clock.</li>
+		</ul>
+		<p>Every option is cashless: cards, mobile wallets, and tap-to-pay. Equipment reports sales in real time, so each location's restocking schedule follows what actually sells.</p>
+	</MediaSection>
+
+	<MediaSection image={juices} alt="Three bottles of cold-pressed juice on a wooden table" heading="About the Nutrition Facts" eyebrow="How to read this catalog" reverse>
+		<p>
+			Numbers are per container, as packaged, from each brand's published label data, checked in November 2026. The "Label source" link on each drink shows where they came from.
+		</p>
+		<p>
+			Brands change recipes and sizes, and a drink's label always wins over this page. If you have a food allergy, a medical diet, or a caffeine limit, read the label on the product you buy.
+		</p>
+		<p>
+			Prices are set for each location and shown on the machine. Want food too? See our <a href="/fresh-food/">fresh food</a> menu. Stocking a school or campus? See <a href="/industries-we-serve/education/">education vending</a>.
+		</p>
+	</MediaSection>
+</ServiceLayout>

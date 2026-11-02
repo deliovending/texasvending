@@ -30,7 +30,14 @@ export const MAIN_MENU: MenuItem[] = [
 			{ label: 'Vending Moving', href: '/our-services/vending-moving/' },
 		],
 	},
-	{ label: 'Fresh Food', href: '/fresh-food/' },
+	{
+		label: 'Fresh Food',
+		href: '/fresh-food/',
+		children: [
+			{ label: 'Fresh Meals', href: '/fresh-food/' },
+			{ label: 'Beverage Catalog', href: '/beverages/' },
+		],
+	},
 	{ label: 'Equipment', href: '/equipment/' },
 	{
 		label: 'Industries We Serve',
