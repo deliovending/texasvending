@@ -22,6 +22,8 @@ const guide = city.guide;
 
 // Area pages cover several towns and are named for the area, not just the destination city
 const townNames = city.towns?.map((town) => town.name);
+// "Roanoke and Northlake", "Sherman, Melissa, and Anna"
+const townList = townNames && new Intl.ListFormat('en', { style: 'long', type: 'conjunction' }).format(townNames);
 const areaName = city.towns ? `the ${city.name} Area` : city.name;
 const title =
 	keyword?.title ?? (city.towns ? `Vending Services in the ${city.name} Area` : `Vending Services in ${city.name}, TX`);
@@ -31,9 +33,9 @@ const description =
 	keyword?.description ??
 	guide?.description ??
 	(townNames
-		? `Free vending, micro markets, and smart coolers for ${townNames.join(', ')}. Cashless, no contract, 24-hour response.`
+		? `Free vending, micro markets, and smart coolers for ${townList}. Cashless, no contract, 24-hour response.`
 		: `Free vending machines, micro markets, and smart coolers for ${city.name}, TX businesses. Cashless, no long-term contract, 24-hour response.`);
-const placeList = townNames ? townNames.join(', ') : city.name;
+const placeList = townList ?? city.name;
 
 const nearbyCities = city.nearby.map(cityBySlug).filter((nearby): nearby is City => Boolean(nearby));
 // "Wikipedia: Plano, Texas" for Wikipedia links, the site name otherwise; repeats get a number

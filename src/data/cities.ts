@@ -1438,7 +1438,7 @@ export const cities: City[] = [
 		"county": "Denton County, with a small part in Tarrant County",
 		"highways": "SH-114 (Northwest Parkway), US-377, and Byron Nelson Boulevard (Business SH-114)",
 		"about": [
-			"Roanoke pairs a dining district with distribution work. The city calls itself the Unique Dining Capital of Texas, and most of its restaurants sit on historic Oak Street or US-377. Along SH-114 and toward the Alliance industrial complex, large distribution buildings hold employers such as General Motors, W.W. Grainger, Martin Brower, Cardinal Health, and AmerisourceBergen, all on the city's 2022 list of principal employers.",
+			"Roanoke pairs a dining district with distribution work. The city calls itself the Unique Dining Capital of Texas, and most of its restaurants sit on historic Oak Street or US-377. Along SH-114 and toward the Alliance industrial complex, large distribution buildings hold employers such as General Motors, W.W. Grainger, Martin Brower, Cardinal Health, and AmerisourceBergen, all on the city's 2022 list of principal employers. Next door, Northlake's Alliance Northport at I-35W and SH-114 adds distribution centers for Stanley Black & Decker, Schluter Systems, and Mainfreight.",
 			"That gives Roanoke two kinds of break rooms. Warehouse and distribution crews work shifts and need food at odd hours, while restaurant staff work evenings and weekends. Micro markets stay open around the clock, and service visits are planned around shifts and dock schedules."
 		],
 		"businessAreas": [
@@ -1461,6 +1461,10 @@ export const cities: City[] = [
 			{
 				"name": "Alliance industrial complex",
 				"note": "large industrial area near Alliance Airport, a short drive from town"
+			},
+			{
+				"name": "Alliance Northport (Northlake)",
+				"note": "distribution centers at I-35W and SH-114 for tenants such as Stanley Black & Decker, Schluter Systems, Mainfreight, and Crown Equipment"
 			}
 		],
 		"focus": [
@@ -1473,6 +1477,18 @@ export const cities: City[] = [
 			"keller",
 			"southlake",
 			"fort-worth"
+		],
+		"towns": [
+			{
+				"name": "Roanoke",
+				"county": "Denton County, with a small part in Tarrant County",
+				"note": "the Unique Dining Capital of Texas, with distribution buildings along SH-114"
+			},
+			{
+				"name": "Northlake",
+				"county": "Denton County",
+				"note": "home to Alliance Northport at I-35W and SH-114, and one of the fastest-growing towns in the area, from 5,201 people in 2020 to an estimated 12,036 in 2025"
+			}
 		],
 		"photos": [
 			"drink-coolers-kiosk.jpeg",
@@ -1491,7 +1507,10 @@ export const cities: City[] = [
 			"https://en.wikipedia.org/wiki/Texas_State_Highway_114",
 			"https://roanoketexas.gov/92/Businesses",
 			"https://communityimpact.com/keller-roanoke-northeast-fort-worth/dining/recipe-for-growth-roanoke-bolsters-development-with-unique-dining-options/",
-			"https://www.costar.com/article/902610198/work-begins-on-new-roanoke-industrial-building"
+			"https://www.costar.com/article/902610198/work-begins-on-new-roanoke-industrial-building",
+			"https://en.wikipedia.org/wiki/Northlake,_Texas",
+			"https://www.alliancetexas.com/Portals/0/Alliance%20Northport%20Sector.pdf",
+			"https://www.areadevelopment.com/newsItems/2-6-2019/stanley-black--decker-distribution-center-northlake-denton-county-texas.shtml"
 		]
 	},
 	{
