@@ -18,14 +18,18 @@ const photo = (file: string) => ({ image: photoFiles[`../../../assets/cities/${f
 const [hero, first, second, pairLeft, pairRight, last] = city.photos.map(photo);
 const keyword = city.keywordPage;
 const [equipmentPhoto, switchPhoto] = keyword?.photos.map(photo) ?? [];
+const guide = city.guide;
 
 // Area pages cover several towns and are named for the area, not just the destination city
 const townNames = city.towns?.map((town) => town.name);
 const areaName = city.towns ? `the ${city.name} Area` : city.name;
 const title =
 	keyword?.title ?? (city.towns ? `Vending Services in the ${city.name} Area` : `Vending Services in ${city.name}, TX`);
+// A guide changes the <title> only; the H1 keeps the vending heading
+const pageTitle = guide?.title ?? title;
 const description =
 	keyword?.description ??
+	guide?.description ??
 	(townNames
 		? `Free vending, micro markets, and smart coolers for ${townNames.join(', ')}. Cashless, no contract, 24-hour response.`
 		: `Free vending machines, micro markets, and smart coolers for ${city.name}, TX businesses. Cashless, no long-term contract, 24-hour response.`);
@@ -52,6 +56,7 @@ const faqs = [
 		answer: `Yes. Texas Vending places vending machines, micro markets, and AI smart coolers at no cost to ${city.name}-area locations with at least 50 people in total foot traffic, counting employees and visitors.`,
 	},
 	...(keyword?.faqs ?? []),
+	...(guide?.faqs ?? []),
 	...(city.faq ? [city.faq] : []),
 	{
 		question: `Do you serve cities near ${city.name}?`,
@@ -69,7 +74,7 @@ const faqs = [
 ---
 
 <ServiceLayout
-	title={title}
+	title={pageTitle}
 	description={description}
 	h1={title}
 	eyebrow={city.towns ? city.region : `${city.name}, Texas`}
@@ -128,6 +133,34 @@ const faqs = [
 		</ul>
 		<p>Main routes: {city.highways}.</p>
 	</MediaSection>
+
+	{
+		guide && (
+			<>
+				<section id="local-guide" class="mx-auto max-w-3xl px-4 pt-12 text-center">
+					<p class="eyebrow">Local guide</p>
+					<h2 class="mt-3 text-4xl uppercase text-slate-900 md:text-5xl">{city.name} Schools, Hospitals, and Employers</h2>
+					<p class="mt-5 text-lg text-slate-600">{guide.summary}</p>
+				</section>
+				{guide.sections.map((section, i) => {
+					const sectionPhoto = photo(section.photo);
+					return (
+						<MediaSection image={sectionPhoto.image} alt={sectionPhoto.alt} heading={section.heading} eyebrow={section.eyebrow} reverse={i % 2 === 0}>
+							{section.paragraphs.map((paragraph) => <p set:html={paragraph} />)}
+							{section.list && (
+								<ul>
+									{section.list.map((item) => <li set:html={item} />)}
+								</ul>
+							)}
+							<p class="rounded-2xl bg-slate-100 p-4 text-base">
+								<strong>What it means for break rooms:</strong> <span set:html={section.need} />
+							</p>
+						</MediaSection>
+					);
+				})}
+			</>
+		)
+	}
 
 	{
 		keyword && (

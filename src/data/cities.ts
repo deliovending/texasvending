@@ -49,6 +49,26 @@ export interface City {
 		/** Two photo file names in src/assets/cities/, for the equipment and switching sections */
 		photos: [string, string];
 	};
+	/** Local guide to the city's schools, health care, and major employers, shown below "Where We Serve" */
+	guide?: {
+		/** <title> override; the H1 stays "Vending Services in <city>, TX" */
+		title: string;
+		description: string;
+		/** Short summary that opens the guide */
+		summary: string;
+		sections: {
+			heading: string;
+			eyebrow: string;
+			/** Photo file name in src/assets/cities/ */
+			photo: string;
+			/** Paragraphs and list items may contain inline HTML such as links */
+			paragraphs: string[];
+			list?: string[];
+			/** What this kind of site needs from a break room. May contain links. */
+			need: string;
+		}[];
+		faqs: { question: string; answer: string }[];
+	};
 }
 
 export const cities: City[] = [
@@ -2014,8 +2034,67 @@ export const cities: City[] = [
 			"https://en.wikipedia.org/wiki/Royse_City,_Texas",
 			"https://www.roysecitycdc.org/workforce/major-employers/",
 			"https://www.roysecitycdc.org/news-center/p/item/38029/manufacturing-month-a-great-time-to-celebrate-the-industry-in-royse-city",
-			"https://www.roysecitycdc.org/about/partners/p/item/15248/royse-city-main-street"
-		]
+			"https://www.roysecitycdc.org/about/partners/p/item/15248/royse-city-main-street",
+			"https://www.roysecitycdc.org/news-center/p/item/49365/royse-city-isd-continues-to-provide-educational-abundance-through-local-affordable-initiatives",
+			"https://www.ketr.org/news/2023-05-11/royse-city-isd-to-construct-new-high-school-in-fate-on-fm-552",
+			"https://www.huntregional.org/hunt-regional-healthcare-opens-emergency-department-in-royse-city/",
+			"https://www.nutexhealth.com/nutex-health-announces-the-opening-of-a-new-hospital-in-texas-bringing-the-first-hospital-and-mri-to-royse-city"
+		],
+		"guide": {
+			"title": "Royse City Schools, Hospitals & Vending",
+			"description": "Vending for Royse City, TX businesses, plus a local guide to Royse City ISD, the new ERs on I-30, and major employers. Free placement, no contract.",
+			"summary": "Royse City is growing fast, from 13,508 people in the 2020 census to an estimated 28,307 in 2025. Royse City ISD is the biggest institution in town and is building a second high school. Two emergency facilities now sit on I-30, and most other jobs are in schools, local government, highway retail, and small manufacturing plants.",
+			"sections": [
+				{
+					"heading": "Royse City ISD",
+					"eyebrow": "Schools",
+					"photo": "campus-micro-market.jpg",
+					"paragraphs": [
+						"Royse City ISD serves the whole city. It runs elementary schools, middle schools, an early childhood center, and Royse City High School, which is still the only high school in town. The district reports a 97% graduation rate, and about 35% of its high school students graduate with an associate's degree.",
+						"Its bond history shows how fast it is growing:"
+					],
+					"list": [
+						"<strong>2018 bond:</strong> paid for Bobby Summers Middle School.",
+						"<strong>2021 bond ($230 million):</strong> built a new Ruth Cherry Elementary and turned the old building into the Arnold Early Childhood Center.",
+						"<strong>2023 bond ($863 million):</strong> approved by about two-thirds of voters. It pays for a second high school on FM 552 in Fate, a new middle school, three elementary schools, an early childhood center, and a transportation center."
+					],
+					"need": "Teachers arrive early, coaches stay late, and custodial and transportation crews work around both. Machines in staff lounges and athletic buildings help. Food sold to students during the school day has to meet federal Smart Snacks standards, so student and staff machines are often kept separate. See <a href=\"/industries-we-serve/education/\">education vending</a>."
+				},
+				{
+					"heading": "Hospitals and Health Services",
+					"eyebrow": "Health care",
+					"photo": "waiting-area-vending.png",
+					"paragraphs": [
+						"Until 2023, Royse City had no hospital of its own. That changed in two steps.",
+						"<strong>Royse City Emergency Hospital.</strong> Nutex Health opened this microhospital in 2023 at 890 S. Erby Campbell Blvd, just off I-30. It has an emergency room with eight private exam rooms, four inpatient beds, an in-house pharmacy, a lab, and imaging, including the first MRI in Royse City. It is open around the clock.",
+						"<strong>Hunt Regional Medical Center Royse City.</strong> Hunt Regional Healthcare opened a 12-bed emergency department on June 1, 2026, about half a mile east of FM 2642 on I-30. It runs 24 hours a day, has a helipad and ambulance bay, and sits inside a 65,000-square-foot medical building where primary and specialty care clinics already see patients."
+					],
+					"need": "ERs and clinics have two groups who need food: staff on 12-hour shifts and families waiting for news. Neither can leave easily. A cashless smart cooler or a small micro market lets a nurse grab a real meal at 3 a.m. and lets a parent buy a drink without hunting for change. See <a href=\"/industries-we-serve/hospitals/\">hospital vending</a>."
+				},
+				{
+					"heading": "Major Employers in Royse City",
+					"eyebrow": "Employers",
+					"photo": "plant-workers-lunch.avif",
+					"paragraphs": [
+						"The Royse City Community Development Corporation lists these among the city's major employers:"
+					],
+					"list": [
+						"Royse City ISD",
+						"The City of Royse City and Rockwall County",
+						"Buc-ee's and Walmart on the I-30 frontage",
+						"Royse City Emergency Hospital",
+						"Artisan Masonry",
+						"Hilton"
+					],
+					"need": "Some of the steadiest jobs are in the industrial park on Industrial Drive, where Dust Free, J&M Plastics, United Diecasting, and Texas Medical Industries run their plants. Most are small and mid-sized, often with one break room and short breaks. A few full-line machines or a compact smart cooler, cashless payment, and restocking based on what sells fit those sites. See <a href=\"/industries-we-serve/manufacturing-facilities/\">manufacturing vending</a>."
+				}
+			],
+			"faqs": [
+				{ "question": "What school district serves Royse City, Texas?", "answer": "Royse City ISD serves the whole city. Royse City High School is its only high school today, and a second high school is being built on FM 552 in Fate under the $863 million bond voters approved in May 2023." },
+				{ "question": "Is there a hospital in Royse City?", "answer": "Yes. Royse City Emergency Hospital, a Nutex Health microhospital at 890 S. Erby Campbell Blvd, opened in 2023 with an emergency room, four inpatient beds, a lab, a pharmacy, and the city's first MRI. Hunt Regional Healthcare opened a 24-hour, 12-bed emergency department on I-30 on June 1, 2026." },
+				{ "question": "Who are the major employers in Royse City?", "answer": "The Royse City Community Development Corporation lists Royse City ISD, the City of Royse City, Rockwall County, Buc-ee's, Walmart, Royse City Emergency Hospital, Artisan Masonry, and Hilton. Manufacturers on Industrial Drive include Dust Free, J&M Plastics, and United Diecasting." }
+			]
+		}
 	},
 	{
 		"slug": "waxahachie",
@@ -2100,6 +2179,9 @@ export const industryInfo: Record<IndustryKey, { label: string; href: string; ne
 
 /** Alt text for each photo in src/assets/cities/ */
 export const cityPhotoAlt: Record<string, string> = {
+	'campus-micro-market.jpg': 'Campus micro market with drink coolers, snack shelves, and a self-checkout kiosk',
+	'waiting-area-vending.png': 'Spacious seating area with vending machines along the wall',
+	'plant-workers-lunch.avif': 'Two workers in hard hats and a safety vest eating lunch on a job site',
 	'warehouse-cafeteria.avif': 'Warehouse cafeteria with workers at tables and colorful chairs',
 	'distribution-breakroom.jpeg': 'Large break room with bar tables, stools, and glass-door coolers',
 	'warehouse-worker-break.avif': 'Warehouse worker in a safety vest resting between shelves of boxes',
