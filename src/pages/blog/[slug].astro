@@ -7,6 +7,7 @@ import PostCard from '../../components/PostCard.astro';
 import CTA from '../../components/CTA.astro';
 import { formatDate, getPublishedPosts, readingTime, relatedPosts } from '../../lib/blog';
 import { blogPostingSchema } from '../../lib/schema';
+import { SITE_NAME } from '../../consts';
 
 export async function getStaticPaths() {
 	const posts = await getPublishedPosts(); // newest first
@@ -36,7 +37,8 @@ const schema = blogPostingSchema({
 	datePublished: pubDate,
 	dateModified: updatedDate,
 	image: socialImage.src,
-	author: { name: author },
+	// A post credited to the business itself has no Person author
+	...(author !== SITE_NAME && { author: { name: author } }),
 });
 ---
 
@@ -81,6 +83,22 @@ const schema = blogPostingSchema({
 		<div class="prose prose-lg prose-slate mx-auto max-w-3xl px-4 py-14 prose-headings:font-display prose-headings:font-normal prose-headings:uppercase prose-headings:text-ink prose-a:text-brand">
 			<Content />
 		</div>
+
+		{
+			author !== SITE_NAME && (
+				<aside aria-label="About the author" class="mx-auto max-w-3xl px-4 pb-14">
+					<div class="flex items-center gap-4 rounded-3xl bg-slate-100 p-6">
+						<span aria-hidden="true" class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-ink font-display text-xl text-white">
+							{author.split(' ').map((part) => part[0]).join('')}
+						</span>
+						<p class="text-slate-700">
+							<span class="block font-display text-xl uppercase text-ink">{author}</span>
+							Writes the Texas Vending blog on vending, break rooms, and workplace food across Dallas–Fort Worth.
+						</p>
+					</div>
+				</aside>
+			)
+		}
 	</article>
 
 	{

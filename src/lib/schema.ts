@@ -65,7 +65,7 @@ export interface BlogPostingSchema {
 	description?: string;
 	url?: string;
 	mainEntityOfPage?: string;
-	author: { '@type': 'Person'; name: string; url?: string } | OrganizationRef;
+	author: { '@type': 'Person'; name: string; url?: string; worksFor: OrganizationRef } | OrganizationRef;
 	publisher: OrganizationRef;
 	datePublished: string;
 	dateModified: string;
@@ -142,7 +142,7 @@ export function blogPostingSchema(post: {
 		headline: post.headline,
 		...(post.description && { description: post.description }),
 		...(url && { url, mainEntityOfPage: url }),
-		author: post.author ? { '@type': 'Person', ...post.author } : businessRef,
+		author: post.author ? { '@type': 'Person', ...post.author, worksFor: businessRef } : businessRef,
 		publisher: businessRef,
 		datePublished: isoDate(post.datePublished),
 		dateModified: isoDate(post.dateModified ?? post.datePublished),

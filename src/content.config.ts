@@ -11,7 +11,7 @@ const blog = defineCollection({
 			description: z.string().max(160),
 			pubDate: z.coerce.date(),
 			updatedDate: z.coerce.date().optional(),
-			author: z.string().default('Texas Vending'),
+			author: z.string().default('Maica Ibarra'),
 			// Path relative to the post file, e.g. ../../assets/images/photo.png
 			image: image(),
 			imageAlt: z.string(),
