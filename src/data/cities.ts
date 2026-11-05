@@ -623,7 +623,7 @@ export const cities: City[] = [
 			"https://en.wikipedia.org/wiki/U.S._Route_377_in_Texas",
 			"https://communityimpact.com/keller-roanoke-northeast-fort-worth/government/qa-learn-more-about-kellers-new-city-manager-aaron-rector/",
 			"https://citybudgets.tarrantcounty.com/flipbook/CityBudgets/2025/Keller/files/basic-html/page20.html",
-			"https://popup.regencycenters.com/en/buildings/keller-town-center",
+			"https://www.regencycenters.com/property/detail/675/KellerTownCenter",
 			"https://turquoise.health/care/providers/baylor-scott-white-emergency-hospital-keller-keller-tx/"
 		]
 	},
@@ -1644,7 +1644,7 @@ export const cities: City[] = [
 		"county": "Dallas, Denton, and Collin Counties",
 		"highways": "I-35E and the President George Bush Turnpike, with the Sam Rayburn Tollway (SH-121) at the far north end",
 		"about": [
-			"Carrollton's industrial base runs on logistics. The city lists seven major business parks, led by Valwood Industrial Park northwest of I-635 and I-35E and Frankford Trade Center on I-35E, which holds a Foreign Trade Zone. Large employers include Cencora, Halliburton, Thomson Reuters, Western Extrusions, and Securus Technologies, and G6 Hospitality, the parent of Motel 6, is headquartered here.",
+			"Carrollton's industrial base runs on logistics. The city lists seven major business parks, led by Valwood Industrial Park northwest of I-635 and I-35E and Frankford Trade Center on I-35E, which holds a Foreign Trade Zone. Large employers include Cencora, Thomson Reuters, Western Extrusions, and Securus Technologies, and G6 Hospitality, the parent of Motel 6, is headquartered here.",
 			"Warehouse, extrusion, and assembly floors in these parks run early, late, and weekend shifts, often with short breaks and no restaurant within walking distance. Corporate offices keep steadier hours but large headcounts. Three DART rail stations and the A-train at Trinity Mills bring in commuters who arrive without a lunch plan."
 		],
 		"businessAreas": [
@@ -1698,7 +1698,7 @@ export const cities: City[] = [
 			"https://en.wikipedia.org/wiki/Carrollton,_Texas",
 			"https://www.carrolltontxdevelopment.com/community/business-parks",
 			"https://www.carrolltontxdevelopment.com/site-selectors/business-parks/industrial-parks",
-			"https://capitalanalyticsassociates.com/?p=65866",
+			"https://www.carrolltontxdevelopment.com/home/showpublisheddocument/33128/637781180668530000",
 			"https://www.commercialsearch.com/commercial-property/us/tx/carrollton/valwood-industrial-park-1270-champion-circle/",
 			"https://www.dart.org/about/news-and-events/newsreleases/newsrelease-detail/silver-line-launches-oct.-25--connecting-seven-cities-and-dfw-airport-with-modern--reliable-transit"
 		]
@@ -1732,7 +1732,7 @@ export const cities: City[] = [
 			},
 			{
 				"name": "East SH-114 near DFW Airport",
-				"note": "industrial sites, including fuel storage and distribution and concrete works"
+				"note": "industrial sites, including the fuel storage farm on Mustang Court"
 			}
 		],
 		"focus": [
@@ -1765,7 +1765,7 @@ export const cities: City[] = [
 			"https://citybudgets.tarrantcounty.com/flipbook/CityBudgets/2026/Southlake/files/basic-html/page94.html",
 			"https://www.connectcre.com/stories/jv-acquires-sabre-hq-building-in-southlake/",
 			"https://communityimpact.com/grapevine-colleyville-southlake/healthcare/guide-hospitals-urgent-care-facilities-grapevine-colleyville-southlake/",
-			"https://editions.communityimpact.com/view/3331579/18",
+			"https://mysouthlakenews.com/explorer-pipeline-to-construct-a-new-fuel-storage-facility-tank/",
 			"https://wfaa.com/article/news/southlake-mega-church-debuts-massive-new-home/287-338194908"
 		]
 	},
@@ -2053,7 +2053,7 @@ export const cities: City[] = [
 			"https://en.wikipedia.org/wiki/Royse_City,_Texas",
 			"https://www.roysecitycdc.org/workforce/major-employers/",
 			"https://www.roysecitycdc.org/news-center/p/item/38029/manufacturing-month-a-great-time-to-celebrate-the-industry-in-royse-city",
-			"https://www.roysecitycdc.org/about/partners/p/item/15248/royse-city-main-street",
+			"https://www.roysecitycdc.org/workforce/major-employers/p/item/15248/royse-city-main-street",
 			"https://www.roysecitycdc.org/news-center/p/item/49365/royse-city-isd-continues-to-provide-educational-abundance-through-local-affordable-initiatives",
 			"https://www.ketr.org/news/2023-05-11/royse-city-isd-to-construct-new-high-school-in-fate-on-fm-552",
 			"https://www.huntregional.org/hunt-regional-healthcare-opens-emergency-department-in-royse-city/",

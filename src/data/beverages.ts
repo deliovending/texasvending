@@ -138,7 +138,7 @@ export const beverages: Beverage[] = [
 			'Carbonated water, high fructose corn syrup, caramel color, phosphoric acid, natural and artificial flavors, sodium benzoate (preservative), caffeine',
 		allergens: [],
 		phenylalanine: false,
-		source: 'https://fdc.nal.usda.gov/food-details/2571093/nutrients',
+		source: 'https://www.target.com/p/dr-pepper-soda-12pk-12-fl-oz-cans/-/A-12965290',
 	},
 	{
 		slug: 'pepsi',
