@@ -7,6 +7,14 @@ export const PHONE_TEL = '+1-469-304-9509';
 export const MOVING_PHONE_DISPLAY = '(469) 881-9286';
 export const MOVING_PHONE_TEL = '+1-469-881-9286';
 export const EMAIL = 'hi@texasvending.com';
+// Official social profiles. No Google Business Profile yet; add it here when one exists.
+export const SOCIAL_LINKS = [
+	{ name: 'Facebook', href: 'https://www.facebook.com/profile.php?id=61596037267366' },
+	{ name: 'Instagram', href: 'https://www.instagram.com/texas_vending' },
+];
+/** One-line description used in schema and the footer */
+export const BUSINESS_DESCRIPTION =
+	'Free vending machines, micro markets, smart coolers, coffee service, vending repair, and vending moving for businesses across Dallas–Fort Worth and North Texas.';
 // TODO: add the suite number once confirmed
 export const ADDRESS = { street: '2777 N Stemmons Fwy', city: 'Dallas', region: 'TX', postalCode: '75207' };
 

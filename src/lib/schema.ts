@@ -1,4 +1,4 @@
-import { ADDRESS, PHONE_TEL, SITE_NAME, SITE_URL } from '../consts';
+import { ADDRESS, BUSINESS_DESCRIPTION, EMAIL, PHONE_TEL, SITE_NAME, SITE_URL, SOCIAL_LINKS } from '../consts';
 
 const CONTEXT = 'https://schema.org';
 const BUSINESS_ID = `${SITE_URL}/#business`;
@@ -28,7 +28,11 @@ export interface LocalBusinessSchema {
 	'@id': string;
 	name: string;
 	url: string;
+	description: string;
+	logo: string;
 	telephone: string;
+	email: string;
+	sameAs: string[];
 	address: {
 		'@type': 'PostalAddress';
 		streetAddress: string;
@@ -90,7 +94,12 @@ export function localBusinessSchema(options: { image?: string } = {}): LocalBusi
 		'@id': BUSINESS_ID,
 		name: SITE_NAME,
 		url: `${SITE_URL}/`,
+		description: BUSINESS_DESCRIPTION,
+		logo: absoluteUrl('/logo.png'),
 		telephone: PHONE_TEL,
+		email: EMAIL,
+		// Ties the business to its official profiles, for Google and AI answer engines
+		sameAs: SOCIAL_LINKS.map((link) => link.href),
 		address: {
 			'@type': 'PostalAddress',
 			streetAddress: ADDRESS.street,
