@@ -14,7 +14,7 @@ export const SOCIAL_LINKS = [
 ];
 /** One-line description used in schema and the footer */
 export const BUSINESS_DESCRIPTION =
-	'Free vending machines, micro markets, smart coolers, coffee service, vending repair, and vending moving for businesses across Dallas–Fort Worth and North Texas.';
+	'DFW vending company and free vending machine provider. Vending machines, micro markets, smart coolers, coffee, repair, and moving across Dallas–Fort Worth and North Texas.';
 // TODO: add the suite number once confirmed
 export const ADDRESS = { street: '2777 N Stemmons Fwy', city: 'Dallas', region: 'TX', postalCode: '75207' };
 

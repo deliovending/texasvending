@@ -1,4 +1,5 @@
 import { ADDRESS, BUSINESS_DESCRIPTION, EMAIL, PHONE_TEL, SITE_NAME, SITE_URL, SOCIAL_LINKS } from '../consts';
+import { cities } from '../data/cities';
 
 const CONTEXT = 'https://schema.org';
 const BUSINESS_ID = `${SITE_URL}/#business`;
@@ -41,7 +42,7 @@ export interface LocalBusinessSchema {
 		postalCode: string;
 		addressCountry: string;
 	};
-	areaServed: { '@type': 'Place'; name: string };
+	areaServed: { '@type': 'Place'; name: string }[];
 	openingHoursSpecification: {
 		'@type': 'OpeningHoursSpecification';
 		dayOfWeek: string[];
@@ -108,7 +109,16 @@ export function localBusinessSchema(options: { image?: string } = {}): LocalBusi
 			postalCode: ADDRESS.postalCode,
 			addressCountry: 'US',
 		},
-		areaServed: { '@type': 'Place', name: 'Dallas–Fort Worth, Texas' },
+		// The metro and region, then every city with a page under /about-us/cities/
+		areaServed: [
+			{ '@type': 'Place', name: 'Dallas–Fort Worth, Texas' },
+			{ '@type': 'Place', name: 'North Texas' },
+			// Place, not City: Alliance and Las Colinas are districts
+			...cities.flatMap((city) => (city.towns ? city.towns.map((town) => town.name) : [city.name])).map((name) => ({
+				'@type': 'Place' as const,
+				name: `${name}, TX`,
+			})),
+		],
 		// Open 24/7
 		openingHoursSpecification: {
 			'@type': 'OpeningHoursSpecification',

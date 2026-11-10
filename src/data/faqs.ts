@@ -11,6 +11,11 @@ export const homeFaqs = [
 			'No. Installation, delivery, setup, and ongoing service are free for qualifying locations. A location qualifies with at least 50 people in total foot traffic, counting employees and visitors.',
 	},
 	{
+		question: 'How does a free vending machine provider make money?',
+		answer:
+			'Texas Vending owns the equipment and earns its money from product sales. At a location with enough people buying, those sales cover the machine, delivery, setup, and service, so the business pays nothing.',
+	},
+	{
 		question: 'Do you require a long-term contract?',
 		answer: 'No. Our agreements are flexible, and no long-term contract is required.',
 	},
@@ -44,6 +49,7 @@ export const homeFaqs = [
 	},
 	{
 		question: 'Which areas in Texas do you currently serve?',
-		answer: 'We serve Dallas–Fort Worth and the surrounding North Texas cities.',
+		answer:
+			'Texas Vending is a DFW vending company. We serve Dallas, Fort Worth, Arlington, Irving, Plano, Frisco, McKinney, and the surrounding North Texas cities.',
 	},
 ];
