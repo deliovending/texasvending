@@ -1,0 +1,188 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import ServiceLayout from '../../layouts/ServiceLayout.astro';
+import MediaSection from '../../components/MediaSection.astro';
+import MidCTA from '../../components/MidCTA.astro';
+import { coffeeProducts, coffeeGroups, roasts, type CoffeeProduct } from '../../data/coffee-menu';
+import hero from '../../assets/fresh-food/coffee/coffee-menu-lineup.webp';
+import espresso from '../../assets/services/coffee-water/bean-to-cup-espresso.jpg';
+import coffeeMachines from '../../assets/equipment/coffee-machines.webp';
+
+const productPhotos = import.meta.glob<ImageMetadata>('../../assets/fresh-food/coffee/products/*.webp', { eager: true, import: 'default' });
+const productPhoto = (product: CoffeeProduct) => productPhotos[`../../assets/fresh-food/coffee/products/${product.slug}.webp`];
+const coffees = coffeeProducts.filter((product) => product.roast);
+const roastLevel = (product: CoffeeProduct) => roasts.indexOf(product.roast!) + 1;
+const coffeeBrands = [...new Set(coffees.map((product) => product.brand))];
+
+const faqs = [
+	{
+		question: 'What coffee brands are on your office coffee menu?',
+		answer: `${coffeeBrands.slice(0, -1).join(', ')}, and ${coffeeBrands.at(-1)}, in whole bean and ground. Selection varies by location, and we add brands your team asks for.`,
+	},
+	{
+		question: 'Should our office get whole bean or ground coffee?',
+		answer:
+			'Whole bean coffee is for bean-to-cup machines, which grind each cup fresh. Ground coffee is for drip and batch brewers. We match the coffee to the machine we install for you.',
+	},
+	{
+		question: 'Do you have decaf coffee?',
+		answer: "Yes. Dunkin' Decaf ground coffee is on the menu, and we can add other decaf options when your team asks for them.",
+	},
+	{
+		question: 'Do you supply creamer and sweetener too?',
+		answer:
+			"Yes. Creamers include International Delight and Coffee mate single-serve cups, Coffee mate pump and pour bottles, Land O'Lakes half and half, and Starbucks creamer. Sweeteners include Splenda, Sweet'N Low, Sugar in the Raw, and Truvia packets.",
+	},
+	{
+		question: 'Is office coffee free?',
+		answer:
+			'Coffee machine installation is free. You pay only for the coffee, creamer, sweetener, and supplies your office uses, and we deliver them on a set schedule.',
+	},
+	{
+		question: 'Why are there no prices on the coffee menu?',
+		answer: 'Pricing depends on the products and amounts your office orders. Ask us for a quote during your free site visit.',
+	},
+];
+---
+
+<ServiceLayout
+	title="Office Coffee Menu: Beans, Creamer & Sweetener"
+	description="Office coffee menu for DFW workplaces: Starbucks, Peet's, Dunkin', Caribou, and Community Coffee in whole bean and ground, plus creamers and sweeteners."
+	h1="Office Coffee Menu"
+	eyebrow="Coffee we deliver"
+	intro={`The coffee, creamer, and sweetener Texas Vending delivers to Dallas–Fort Worth offices: ${coffees.length} whole bean and ground coffees from ${coffeeBrands.length} brands, from medium to dark roast, plus the creamers and sweeteners your team adds to the cup.`}
+	heroImage={hero}
+	heroAlt="Bags of Community Coffee, Starbucks, Peet's, Caribou, Copper Moon, and Merit coffee and a Dunkin' canister"
+	serviceType="Office coffee supply"
+	crumb="Coffee Menu"
+	parent={{ name: 'Fresh Food', url: '/fresh-food/' }}
+	faqs={faqs}
+	related={{
+		heading: 'More From the Break Room',
+		items: [
+			{ name: 'Coffee & Water Service', href: '/our-services/coffee-water/', summary: 'Free coffee machine installation, maintenance, and scheduled supply delivery.' },
+			{ name: 'Fresh Meals', href: '/fresh-food/', summary: 'Sandwiches, salads, macro meals, and breakfast sold 24/7 from smart coolers.' },
+			{ name: 'Beverage Catalog', href: '/beverages/', summary: 'Sodas, water, energy drinks, and juices with nutrition and allergens.' },
+		],
+	}}
+	cta={{
+		heading: 'Get Better Coffee in the Office',
+		text: 'Tell us how many people you have and what they drink. We will recommend the machine and the coffee to go with it.',
+		buttonLabel: 'Book a Free Site Visit',
+	}}
+>
+	<nav aria-label="Coffee menu sections" class="mx-auto max-w-6xl px-4 pt-12">
+		<ul class="flex flex-wrap justify-center gap-3">
+			{
+				coffeeGroups.map((group) => (
+					<li>
+						<a href={`#${group.key}`} class="inline-block rounded-full bg-slate-100 px-4 py-2 font-semibold text-ink ring-1 ring-slate-200 transition hover:bg-brand hover:text-white">
+							{group.label}
+						</a>
+					</li>
+				))
+			}
+			<li>
+				<a href="#roast-guide" class="inline-block rounded-full bg-ink px-4 py-2 font-semibold text-white transition hover:bg-brand">Roast Guide</a>
+			</li>
+		</ul>
+	</nav>
+
+	{
+		coffeeGroups.map((group) => (
+			<section id={group.key} class="mx-auto max-w-6xl scroll-mt-28 px-4 py-12">
+				<h2 class="text-4xl uppercase text-slate-900">{group.label}</h2>
+				<p class="mt-2 text-lg text-slate-600">{group.intro}</p>
+				<ul class="mt-8 grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-4">
+					{coffeeProducts
+						.filter((product) => product.group === group.key)
+						.map((product) => (
+							<li id={product.slug} class="flex scroll-mt-28 flex-col rounded-3xl bg-white p-4 shadow-lg ring-1 ring-slate-200 sm:p-5">
+								<Image
+									src={productPhoto(product)}
+									alt={`${product.brand} ${product.name}, ${product.size}`}
+									width={240}
+									height={240}
+									densities={[1, 2]}
+									class="mx-auto aspect-square w-full max-w-48 object-contain"
+								/>
+								<p class="mt-4 font-mono text-[0.7rem] tracking-widest text-slate-500 uppercase">{product.brand}</p>
+								<h3 class="mt-1 font-display text-xl leading-tight uppercase text-ink sm:text-2xl">{product.name}</h3>
+								{product.roast && (
+									<div class="mt-3">
+										<p class="text-sm font-semibold text-ink">{product.roast} roast</p>
+										<div class="mt-1 flex gap-1" aria-hidden="true">
+											{roasts.map((_, i) => (
+												<span class:list={['h-1.5 flex-1 rounded-full', i < roastLevel(product) ? 'bg-amber-900' : 'bg-slate-200']} />
+											))}
+										</div>
+									</div>
+								)}
+								<p class="mt-3 text-sm text-slate-500">{product.size}</p>
+								<p class="mt-2 hidden text-sm text-slate-600 sm:block">{product.notes}</p>
+								{product.contains && <p class="mt-3 rounded-xl bg-amber-50 px-3 py-1.5 text-xs font-semibold text-amber-900">{product.contains}</p>}
+							</li>
+						))}
+				</ul>
+			</section>
+		))
+	}
+
+	<MidCTA heading="Want a Brand You Don't See?" text="Tell us what your team drinks. We add brands when there is demand, and coffee machine installation is free." />
+
+	<section id="roast-guide" class="mx-auto max-w-6xl scroll-mt-28 px-4 py-12">
+		<h2 class="text-4xl uppercase text-slate-900">Roast Guide</h2>
+		<p class="mt-2 text-lg text-slate-600">Not sure what your team likes? Start with the roast.</p>
+		<ul class="mt-8 grid gap-6 md:grid-cols-3">
+			{
+				roasts.map((roast) => (
+					<li class="rounded-3xl bg-slate-50 p-6 ring-1 ring-slate-200">
+						<h3 class="font-display text-2xl uppercase text-ink">{roast} roast</h3>
+						<p class="mt-2 text-slate-600">
+							{roast === 'Medium' && 'Balanced and smooth, with more of the bean\'s own flavor. A safe pick for a whole office.'}
+							{roast === 'Medium Dark' && 'Fuller body with some roasty sweetness, without the smoky edge of a dark roast.'}
+							{roast === 'Dark' && 'Bold, heavy, and smoky. Stands up to cream and sugar, and to long shifts.'}
+						</p>
+						<ul class="mt-4 space-y-1 text-sm">
+							{coffees
+								.filter((product) => product.roast === roast)
+								.map((product) => (
+									<li>
+										<a href={`#${product.slug}`} class="font-semibold text-brand hover:underline">
+											{product.brand} {product.name}
+										</a>
+										<span class="text-slate-500"> · {product.form}</span>
+									</li>
+								))}
+						</ul>
+					</li>
+				))
+			}
+		</ul>
+	</section>
+
+	<MediaSection image={espresso} alt="Espresso pouring from a bean-to-cup machine into a white cup" heading="Whole Bean or Ground?" eyebrow="Match the coffee to the machine">
+		<p>
+			<strong>Whole bean</strong> coffee goes in bean-to-cup machines. They grind each cup fresh, so the coffee tastes closer to a café pour.
+		</p>
+		<p>
+			<strong>Ground</strong> coffee goes in drip and batch brewers. It is quick, consistent, and easy to brew a full pot for a meeting.
+		</p>
+		<p>
+			We match the coffee to the machine we install, so you don't have to work it out. See the <a href="/equipment/">coffee machines</a> we install.
+		</p>
+	</MediaSection>
+
+	<MediaSection image={coffeeMachines} alt="Lineup of office coffee machines, from a single-cup brewer to a bean-to-cup machine" heading="How Office Coffee Supply Works" eyebrow="Delivered on schedule" reverse>
+		<ul>
+			<li><strong>Free installation</strong> of a coffee machine sized to your headcount</li>
+			<li>Coffee, creamer, sweetener, and supplies delivered on a set schedule</li>
+			<li>You pay only for the supplies your office uses</li>
+			<li>Local technicians respond to reported issues within 24 hours</li>
+		</ul>
+		<p>
+			Add a <a href="/our-services/micro-markets/">micro market</a> or <a href="/our-services/ai-smart-cooler/">AI smart cooler</a> and one Dallas team handles coffee, snacks, and <a href="/fresh-food/">fresh meals</a>. Read more about our <a href="/our-services/coffee-water/">office coffee and water service</a>.
+		</p>
+	</MediaSection>
+</ServiceLayout>

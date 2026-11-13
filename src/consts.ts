@@ -44,6 +44,7 @@ export const MAIN_MENU: MenuItem[] = [
 		children: [
 			{ label: 'Fresh Meals', href: '/fresh-food/' },
 			{ label: 'Beverage Catalog', href: '/beverages/' },
+			{ label: 'Coffee Menu', href: '/fresh-food/coffee-menu/' },
 		],
 	},
 	{ label: 'Equipment', href: '/equipment/' },

@@ -1,15 +1,15 @@
 ---
 import { Image } from 'astro:assets';
-import ServiceLayout from '../layouts/ServiceLayout.astro';
-import MediaSection from '../components/MediaSection.astro';
-import PhotoPair from '../components/PhotoPair.astro';
-import MidCTA from '../components/MidCTA.astro';
-import hero from '../assets/fresh-food/club-sandwich.webp';
-import stocking from '../assets/fresh-food/stocking-fresh-food.jpg';
-import mealTrays from '../assets/fresh-food/hot-meal-trays.webp';
-import factor from '../assets/fresh-food/factor-meals.webp';
-import helloFresh from '../assets/fresh-food/hellofresh-meals.webp';
-import { freshMenus } from '../data/fresh-menu';
+import ServiceLayout from '../../layouts/ServiceLayout.astro';
+import MediaSection from '../../components/MediaSection.astro';
+import PhotoPair from '../../components/PhotoPair.astro';
+import MidCTA from '../../components/MidCTA.astro';
+import hero from '../../assets/fresh-food/club-sandwich.webp';
+import stocking from '../../assets/fresh-food/stocking-fresh-food.jpg';
+import mealTrays from '../../assets/fresh-food/hot-meal-trays.webp';
+import factor from '../../assets/fresh-food/factor-meals.webp';
+import helloFresh from '../../assets/fresh-food/hellofresh-meals.webp';
+import { freshMenus } from '../../data/fresh-menu';
 
 const faqs = [
 	{
@@ -126,7 +126,7 @@ const faqs = [
 				}
 			</ul>
 			<p class="mt-10 text-center text-slate-600">
-				Looking for drinks? See the <a href="/beverages/" class="font-semibold text-brand hover:underline">beverage catalog</a> with nutrition and allergens.
+				Looking for drinks? See the <a href="/beverages/" class="font-semibold text-brand hover:underline">beverage catalog</a> with nutrition and allergens, or the <a href="/fresh-food/coffee-menu/" class="font-semibold text-brand hover:underline">office coffee menu</a> of beans, creamers, and sweeteners.
 			</p>
 		</div>
 	</section>
