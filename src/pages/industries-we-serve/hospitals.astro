@@ -4,6 +4,8 @@ import MediaSection from '../../components/MediaSection.astro';
 import PhotoPair from '../../components/PhotoPair.astro';
 import MidCTA from '../../components/MidCTA.astro';
 import { industries } from '../../data/industries';
+import IndustryCities from '../../components/IndustryCities.astro';
+import { cityFaq, liveIndustryUpdate } from '../../data/industry-updates';
 import hero from '../../assets/industries/hospitals/hospital-waiting-room-vending.png';
 import stockingCooler from '../../assets/industries/hospitals/stocking-fresh-food-cooler.jpg';
 import marketFreshFood from '../../assets/industries/hospitals/micro-market-fresh-food.jpeg';
@@ -38,10 +40,12 @@ const faqs = [
 			'Local technicians respond to reported issues within 24 hours, including after hours. We also repair and move machines another company supplied.',
 	},
 ];
+
+const update = liveIndustryUpdate('hospitals');
 ---
 
 <ServiceLayout
-	title="Hospital Vending Services in DFW"
+	title={update ? `${update.title} (Updated ${update.short})` : 'Hospital Vending Services in DFW'}
 	description="Free smart coolers, micro markets, and vending for Dallas–Fort Worth hospitals and medical facilities. Fresh food for staff and visitors at any hour."
 	h1="Hospital Vending Services in DFW"
 	eyebrow="Hospitals"
@@ -52,7 +56,7 @@ const faqs = [
 	crumb="Hospitals"
 	parent={{ name: 'Industries We Serve', url: '/industries-we-serve/' }}
 	related={{ heading: 'Other Industries We Serve', items: industries }}
-	faqs={faqs}
+	faqs={update ? [...faqs, cityFaq(update)] : faqs}
 	cta={{
 		heading: 'Get Free Vending for Your Hospital',
 		text: 'Tell us about your staff, shifts, and visitor areas. We will walk the facility and recommend equipment. No cost and no long-term contract.',
@@ -133,4 +137,6 @@ const faqs = [
 			Planning food access across a hospital, clinic, or medical office building? Read our guide to <a href="/blog/dallas-healthcare-vending-services/">Dallas healthcare vending services</a> for placement and planning advice.
 		</p>
 	</MediaSection>
+
+	{update && <IndustryCities update={update} />}
 </ServiceLayout>

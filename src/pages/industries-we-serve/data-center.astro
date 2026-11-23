@@ -4,7 +4,8 @@ import MediaSection from '../../components/MediaSection.astro';
 import PhotoPair from '../../components/PhotoPair.astro';
 import MidCTA from '../../components/MidCTA.astro';
 import { industries } from '../../data/industries';
-import { cities, cityHref } from '../../data/cities';
+import IndustryCities from '../../components/IndustryCities.astro';
+import { cityFaq, liveIndustryUpdate } from '../../data/industry-updates';
 import hero from '../../assets/industries/data-center/smart-cooler-breakroom.jpeg';
 import campus from '../../assets/industries/data-center/dfw-office-campus.jpeg';
 import lobbyVending from '../../assets/industries/data-center/lobby-smart-vending.jpg';
@@ -12,23 +13,11 @@ import coolerTap from '../../assets/industries/data-center/smart-cooler-tap.jpg'
 import cardReader from '../../assets/industries/data-center/smart-cooler-card-reader.jpg';
 import smartStore from '../../assets/industries/data-center/smart-store-drinks.jpg';
 
-// Shown in the <title> and on the page. Change both by editing this one date when the page is updated.
-const updated = { short: 'Nov 22, 2026', long: 'November 22, 2026', iso: '2026-11-22' };
-
-// Cities with known data center campuses (facts from src/data/cities.ts) lead the list
-const hubs = ['irving', 'plano', 'desoto'];
-const serviceCities = [...hubs.map((slug) => cities.find((city) => city.slug === slug)!), ...cities.filter((city) => !hubs.includes(city.slug))];
-
 const faqs = [
 	{
 		question: 'Can you service a data center with strict access controls?',
 		answer:
 			'Yes. We plan every service visit around your badge rules and shift schedule. Equipment reports sales in real time, so visits are planned in advance and focused on what is running low.',
-	},
-	{
-		question: 'Which DFW cities do you serve with data center vending?',
-		answer:
-			'We serve data centers in every Dallas–Fort Worth city we cover, including Dallas, Irving and Las Colinas, Plano, Richardson, Carrollton, Allen, Frisco, McKinney, Fort Worth and Alliance, Arlington, and Red Oak, Lancaster, and DeSoto in southern Dallas and Ellis Counties.',
 	},
 	{
 		question: 'Does a data center qualify for free placement?',
@@ -51,10 +40,12 @@ const faqs = [
 			'Local technicians respond to reported issues within 24 hours, including after hours.',
 	},
 ];
+
+const update = liveIndustryUpdate('datacenter');
 ---
 
 <ServiceLayout
-	title={`Data Center Vending in DFW (Updated ${updated.short})`}
+	title={update ? `${update.title} (Updated ${update.short})` : 'Data Center Vending Services in DFW'}
 	description="Data center vending in Dallas, Irving, Plano, Red Oak, and across DFW: free smart coolers and micro markets, cashless 24/7, planned around access rules."
 	h1="Data Center Vending Services Across DFW"
 	eyebrow="Data Centers"
@@ -65,7 +56,7 @@ const faqs = [
 	crumb="Data Centers"
 	parent={{ name: 'Industries We Serve', url: '/industries-we-serve/' }}
 	related={{ heading: 'Other Industries We Serve', items: industries }}
-	faqs={faqs}
+	faqs={update ? [...faqs, cityFaq(update)] : faqs}
 	cta={{
 		heading: 'Get Free Vending for Your Data Center',
 		text: 'Share your staffing, shifts, and access requirements. We will walk the site with your team and recommend equipment. No cost and no long-term contract.',
@@ -147,44 +138,6 @@ const faqs = [
 		</p>
 	</MediaSection>
 
-	<section id="cities" class="bg-slate-50 py-16 md:py-20">
-		<div class="mx-auto max-w-6xl px-4">
-			<div class="mx-auto max-w-3xl text-center">
-				<p class="eyebrow">Updated <time datetime={updated.iso}>{updated.long}</time></p>
-				<h2 class="mt-3 text-4xl uppercase md:text-5xl">Data Center Vending in Your DFW City</h2>
-				<p class="mt-4 text-lg text-slate-600">
-					Texas Vending serves data centers across Dallas–Fort Worth and North Texas, from colocation campuses to enterprise server rooms. The same equipment, 24-hour response, and access-aware service reach every city below.
-				</p>
-			</div>
-			<div class="mt-12 grid gap-6 md:grid-cols-3">
-				<div class="rounded-3xl bg-white p-6 ring-1 ring-slate-200">
-					<h3 class="font-display text-2xl uppercase text-ink">Irving and Las Colinas</h3>
-					<p class="mt-2 text-slate-600">QTS runs a large data center campus on Longhorn Drive, and airport and data center sites across Irving run on shifts with strict access rules. See <a href="/about-us/cities/irving/" class="font-semibold text-brand hover:underline">vending in Irving</a>.</p>
-				</div>
-				<div class="rounded-3xl bg-white p-6 ring-1 ring-slate-200">
-					<h3 class="font-display text-2xl uppercase text-ink">Plano</h3>
-					<p class="mt-2 text-slate-600">Data center developers have built in the Legacy area alongside corporate campuses, and those sites run around the clock with small crews. See <a href="/about-us/cities/plano/" class="font-semibold text-brand hover:underline">vending in Plano</a>.</p>
-				</div>
-				<div class="rounded-3xl bg-white p-6 ring-1 ring-slate-200">
-					<h3 class="font-display text-2xl uppercase text-ink">Red Oak and South Dallas</h3>
-					<p class="mt-2 text-slate-600">Red Oak has become a data center town on I-35E, where Compass Datacenters and Google have bought large sites. See <a href="/about-us/cities/desoto/" class="font-semibold text-brand hover:underline">vending in DeSoto, Lancaster, and Red Oak</a>.</p>
-				</div>
-			</div>
-			<h3 class="mt-12 text-center font-display text-2xl uppercase text-ink">All Cities We Serve</h3>
-			<ul class="mt-6 flex flex-wrap justify-center gap-3">
-				{
-					serviceCities.map((city) => (
-						<li>
-							<a href={cityHref(city)} class="inline-block rounded-full bg-white px-4 py-2 font-semibold text-ink ring-1 ring-slate-200 transition hover:bg-brand hover:text-white">
-								{city.slug === 'desoto' ? 'DeSoto, Lancaster & Red Oak' : city.name}
-							</a>
-						</li>
-					))
-				}
-			</ul>
-			<p class="mt-8 text-center text-slate-600">
-				Don't see your city? We serve all of Dallas–Fort Worth and North Texas. <a href="/contact-us/" class="font-semibold text-brand hover:underline">Ask about your data center</a>.
-			</p>
-		</div>
-	</section>
+
+	{update && <IndustryCities update={update} />}
 </ServiceLayout>

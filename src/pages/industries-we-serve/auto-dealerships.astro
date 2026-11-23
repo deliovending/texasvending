@@ -4,6 +4,8 @@ import MediaSection from '../../components/MediaSection.astro';
 import PhotoPair from '../../components/PhotoPair.astro';
 import MidCTA from '../../components/MidCTA.astro';
 import { industries } from '../../data/industries';
+import IndustryCities from '../../components/IndustryCities.astro';
+import { cityFaq, liveIndustryUpdate } from '../../data/industry-updates';
 import hero from '../../assets/industries/auto-dealerships/customer-lounge-vending.png';
 import compactMarket from '../../assets/industries/auto-dealerships/compact-micro-market.jpg';
 import drinkCoolers from '../../assets/industries/auto-dealerships/drink-coolers-snacks.webp';
@@ -38,10 +40,12 @@ const faqs = [
 			'Yes. Our local technicians repair and move machines no matter who supplied them, and they respond to reported issues within 24 hours, including after hours.',
 	},
 ];
+
+const update = liveIndustryUpdate('dealerships');
 ---
 
 <ServiceLayout
-	title="Auto Dealership Vending Services in DFW"
+	title={update ? `${update.title} (Updated ${update.short})` : 'Auto Dealership Vending Services in DFW'}
 	description="Auto dealership vending in Dallas–Fort Worth: snacks, drinks, fresh food, and coffee for customer lounges and service staff. Cashless, no long-term contract."
 	h1="Vending and Coffee for Auto Dealerships in DFW"
 	eyebrow="Auto Dealerships"
@@ -52,7 +56,7 @@ const faqs = [
 	crumb="Auto Dealerships"
 	parent={{ name: 'Industries We Serve', url: '/industries-we-serve/' }}
 	related={{ heading: 'Other Industries We Serve', items: industries }}
-	faqs={faqs}
+	faqs={update ? [...faqs, cityFaq(update)] : faqs}
 	cta={{
 		heading: 'Get Free Vending for Your Dealership',
 		text: 'Tell us about your lounge, service drive, and staff. We will walk the store and recommend the right equipment. No cost and no long-term contract.',
@@ -104,4 +108,6 @@ const faqs = [
 		<p>Want to treat your team? Subsidized vending, where the dealership lowers prices for employees, is available on request.</p>
 		<p>Our team is based in Dallas and serves dealerships across Dallas–Fort Worth and North Texas. We walk the store before recommending equipment, so the lounge and the break room each get what fits. Changing your layout during a remodel? Our technicians also move machines, no matter who supplied them.</p>
 	</MediaSection>
+
+	{update && <IndustryCities update={update} />}
 </ServiceLayout>

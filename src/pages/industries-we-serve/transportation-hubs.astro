@@ -4,6 +4,8 @@ import MediaSection from '../../components/MediaSection.astro';
 import PhotoPair from '../../components/PhotoPair.astro';
 import MidCTA from '../../components/MidCTA.astro';
 import { industries } from '../../data/industries';
+import IndustryCities from '../../components/IndustryCities.astro';
+import { cityFaq, liveIndustryUpdate } from '../../data/industry-updates';
 import hero from '../../assets/industries/transportation-hubs/terminal-smart-coolers.jpeg';
 import foodCourt from '../../assets/industries/transportation-hubs/concourse-vending.webp';
 import terminalMarket from '../../assets/industries/transportation-hubs/terminal-micro-market.jpg';
@@ -38,10 +40,12 @@ const faqs = [
 			'Local technicians respond to reported service issues within 24 hours, including after hours. They also repair and move machines no matter who supplied them.',
 	},
 ];
+
+const update = liveIndustryUpdate('transportation');
 ---
 
 <ServiceLayout
-	title="Transportation Hub Vending Services in DFW"
+	title={update ? `${update.title} (Updated ${update.short})` : 'Transportation Hub Vending Services in DFW'}
 	description="Transportation hub vending in Dallas–Fort Worth: smart coolers, micro markets, and vending machines for travelers and staff. Cashless, free at qualifying sites."
 	h1="Vending for Airports, Stations, and Travel Centers in DFW"
 	eyebrow="Transportation Hubs"
@@ -52,7 +56,7 @@ const faqs = [
 	crumb="Transportation Hubs"
 	parent={{ name: 'Industries We Serve', url: '/industries-we-serve/' }}
 	related={{ heading: 'Other Industries We Serve', items: industries }}
-	faqs={faqs}
+	faqs={update ? [...faqs, cityFaq(update)] : faqs}
 	cta={{
 		heading: 'Get Free Vending for Your Transportation Hub',
 		text: 'Tell us about your traffic, staff areas, and access rules. We will walk the site and recommend the right equipment. No cost and no long-term contract.',
@@ -104,4 +108,6 @@ const faqs = [
 		<p>Setting break policy for crews on long shifts? Our guide to <a href="/blog/texas-break-laws-employers/">Texas break laws for employers</a> covers the basics.</p>
 		<p>Our team is based in Dallas and serves transportation hubs across Dallas–Fort Worth and North Texas. We walk the site, including staff-only areas, before recommending equipment. Subsidized vending, where the employer lowers prices for crews, is available on request.</p>
 	</MediaSection>
+
+	{update && <IndustryCities update={update} />}
 </ServiceLayout>

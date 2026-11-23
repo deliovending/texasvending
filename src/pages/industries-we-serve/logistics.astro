@@ -4,6 +4,8 @@ import MediaSection from '../../components/MediaSection.astro';
 import PhotoPair from '../../components/PhotoPair.astro';
 import MidCTA from '../../components/MidCTA.astro';
 import { industries } from '../../data/industries';
+import IndustryCities from '../../components/IndustryCities.astro';
+import { cityFaq, liveIndustryUpdate } from '../../data/industry-updates';
 import hero from '../../assets/industries/logistics/distribution-center-breakroom.jpeg';
 import coolersCheckout from '../../assets/industries/logistics/drink-coolers-self-checkout.jpeg';
 import freshFood from '../../assets/industries/logistics/smart-cooler-fresh-food.jpeg';
@@ -38,10 +40,12 @@ const faqs = [
 			'Yes. Our local technicians repair and move vending machines no matter who supplied them, and they respond to reported issues within 24 hours, including after hours.',
 	},
 ];
+
+const update = liveIndustryUpdate('logistics');
 ---
 
 <ServiceLayout
-	title="Logistics Vending Services in DFW"
+	title={update ? `${update.title} (Updated ${update.short})` : 'Logistics Vending Services in DFW'}
 	description="Free vending, micro markets, and smart coolers for logistics and distribution centers in Dallas–Fort Worth. Cashless, open 24/7, and planned around your docks."
 	h1="Vending for Logistics & Distribution Centers in DFW"
 	eyebrow="Logistics & Distribution"
@@ -52,7 +56,7 @@ const faqs = [
 	crumb="Logistics & Distribution"
 	parent={{ name: 'Industries We Serve', url: '/industries-we-serve/' }}
 	related={{ heading: 'Other Industries We Serve', items: industries }}
-	faqs={faqs}
+	faqs={update ? [...faqs, cityFaq(update)] : faqs}
 	cta={{
 		heading: 'Get Free Vending for Your Distribution Center',
 		text: 'Tell us your headcount, shifts, and where drivers check in. We will walk the site and recommend equipment. No cost and no long-term contract.',
@@ -137,4 +141,6 @@ const faqs = [
 			Already have machines from another vendor? We offer <a href="/our-services/vending-repair/">vending machine repair</a> for any brand. Comparing providers? Use our <a href="/blog/vending-contract-checklist/">vending contract checklist</a> before you sign anything.
 		</p>
 	</MediaSection>
+
+	{update && <IndustryCities update={update} />}
 </ServiceLayout>

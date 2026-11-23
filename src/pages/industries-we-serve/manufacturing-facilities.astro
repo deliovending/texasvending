@@ -4,6 +4,8 @@ import MediaSection from '../../components/MediaSection.astro';
 import PhotoPair from '../../components/PhotoPair.astro';
 import MidCTA from '../../components/MidCTA.astro';
 import { industries } from '../../data/industries';
+import IndustryCities from '../../components/IndustryCities.astro';
+import { cityFaq, liveIndustryUpdate } from '../../data/industry-updates';
 import hero from '../../assets/industries/manufacturing-facilities/plant-manager-vending.png';
 import workersLunch from '../../assets/industries/manufacturing-facilities/plant-workers-lunch.avif';
 import coolersBreakroom from '../../assets/industries/manufacturing-facilities/smart-coolers-breakroom.jpeg';
@@ -38,10 +40,12 @@ const faqs = [
 			'Local technicians respond to reported issues within 24 hours, including after hours. We also repair and move machines that another company supplied.',
 	},
 ];
+
+const update = liveIndustryUpdate('manufacturing');
 ---
 
 <ServiceLayout
-	title="Manufacturing Vending Services in DFW"
+	title={update ? `${update.title} (Updated ${update.short})` : 'Manufacturing Vending Services in DFW'}
 	description="Free vending machines, micro markets, and smart coolers for Dallas–Fort Worth manufacturing plants. Stocked for every shift, cashless, no long-term contract."
 	h1="Vending for Manufacturing Facilities in DFW"
 	eyebrow="Manufacturing Facilities"
@@ -52,7 +56,7 @@ const faqs = [
 	crumb="Manufacturing Facilities"
 	parent={{ name: 'Industries We Serve', url: '/industries-we-serve/' }}
 	related={{ heading: 'Other Industries We Serve', items: industries }}
-	faqs={faqs}
+	faqs={update ? [...faqs, cityFaq(update)] : faqs}
 	cta={{
 		heading: 'Get Free Vending for Your Plant',
 		text: 'Share your headcount, shift pattern, and break room layout. We will walk the plant and recommend equipment. No cost and no long-term contract.',
@@ -130,4 +134,6 @@ const faqs = [
 			Rearranging the floor or opening a new building? We also offer <a href="/our-services/vending-moving/">vending machine moving</a> for any brand of machine, including ones we did not supply.
 		</p>
 	</MediaSection>
+
+	{update && <IndustryCities update={update} />}
 </ServiceLayout>

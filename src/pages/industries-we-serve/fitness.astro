@@ -4,6 +4,8 @@ import MediaSection from '../../components/MediaSection.astro';
 import PhotoPair from '../../components/PhotoPair.astro';
 import MidCTA from '../../components/MidCTA.astro';
 import { industries } from '../../data/industries';
+import IndustryCities from '../../components/IndustryCities.astro';
+import { cityFaq, liveIndustryUpdate } from '../../data/industry-updates';
 import hero from '../../assets/industries/fitness/gym-smart-coolers.jpg';
 import hallwayCoolers from '../../assets/industries/fitness/tap-grab-go-coolers.webp';
 import lobbyCoolers from '../../assets/industries/fitness/smart-cooler-tap-grab-go.jpg';
@@ -38,10 +40,12 @@ const faqs = [
 			'Yes. Our local technicians repair and move vending machines no matter who supplied them, and they respond to reported issues within 24 hours, including after hours.',
 	},
 ];
+
+const update = liveIndustryUpdate('fitness');
 ---
 
 <ServiceLayout
-	title="Gym and Fitness Center Vending in DFW"
+	title={update ? `${update.title} (Updated ${update.short})` : 'Gym and Fitness Center Vending in DFW'}
 	description="Gym and fitness center vending in Dallas–Fort Worth: smart coolers, micro markets, and machines with protein snacks and fresh food. Free at qualifying sites."
 	h1="Vending for Gyms and Recreation Centers in DFW"
 	eyebrow="Fitness and Recreation"
@@ -52,7 +56,7 @@ const faqs = [
 	crumb="Fitness and Recreation Centers"
 	parent={{ name: 'Industries We Serve', url: '/industries-we-serve/' }}
 	related={{ heading: 'Other Industries We Serve', items: industries }}
-	faqs={faqs}
+	faqs={update ? [...faqs, cityFaq(update)] : faqs}
 	cta={{
 		heading: 'Get Free Vending for Your Gym',
 		text: 'Tell us about your hours, members, and floor plan. We will walk the site and recommend the right equipment. No cost and no long-term contract.',
@@ -105,4 +109,6 @@ const faqs = [
 		<p>Want to give your own staff a perk too? Subsidized vending, where the employer lowers the price, is available on request.</p>
 		<p>Our team is based in Dallas and serves gyms and recreation centers across Dallas–Fort Worth and North Texas. We walk the facility before recommending equipment.</p>
 	</MediaSection>
+
+	{update && <IndustryCities update={update} />}
 </ServiceLayout>

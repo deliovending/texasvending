@@ -4,6 +4,8 @@ import MediaSection from '../../components/MediaSection.astro';
 import PhotoPair from '../../components/PhotoPair.astro';
 import MidCTA from '../../components/MidCTA.astro';
 import { industries } from '../../data/industries';
+import IndustryCities from '../../components/IndustryCities.astro';
+import { cityFaq, liveIndustryUpdate } from '../../data/industry-updates';
 import hero from '../../assets/industries/corporate-offices/office-lounge-vending.png';
 import officeLounge from '../../assets/industries/corporate-offices/office-lounge.png';
 import smartFridge from '../../assets/industries/corporate-offices/office-smart-fridge.webp';
@@ -38,10 +40,12 @@ const faqs = [
 			'Yes. We walk the building first and recommend where equipment should go. Service visits are planned around your hours and building access rules.',
 	},
 ];
+
+const update = liveIndustryUpdate('offices');
 ---
 
 <ServiceLayout
-	title="Corporate Office Vending Services in DFW"
+	title={update ? `${update.title} (Updated ${update.short})` : 'Corporate Office Vending Services in DFW'}
 	description="Free smart coolers, micro markets, vending, and coffee machine setup for Dallas–Fort Worth corporate offices. Cashless, fresh food, and no long-term contract."
 	h1="Corporate Office Vending Services in DFW"
 	eyebrow="Corporate Offices"
@@ -52,7 +56,7 @@ const faqs = [
 	crumb="Corporate Offices"
 	parent={{ name: 'Industries We Serve', url: '/industries-we-serve/' }}
 	related={{ heading: 'Other Industries We Serve', items: industries }}
-	faqs={faqs}
+	faqs={update ? [...faqs, cityFaq(update)] : faqs}
 	cta={{
 		heading: 'Upgrade Your Office Break Room',
 		text: 'Tell us your headcount, floors, and office hours. We will walk the space and recommend the right setup. No cost for equipment and no long-term contract.',
@@ -134,4 +138,6 @@ const faqs = [
 			<a href="/about-us/cities/farmers-branch/">Farmers Branch</a>. Switching from another provider? Our <a href="/blog/vending-contract-checklist/">vending contract checklist</a> shows what to look for before you sign.
 		</p>
 	</MediaSection>
+
+	{update && <IndustryCities update={update} />}
 </ServiceLayout>

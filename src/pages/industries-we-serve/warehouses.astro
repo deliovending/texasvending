@@ -4,6 +4,8 @@ import MediaSection from '../../components/MediaSection.astro';
 import PhotoPair from '../../components/PhotoPair.astro';
 import MidCTA from '../../components/MidCTA.astro';
 import { industries } from '../../data/industries';
+import IndustryCities from '../../components/IndustryCities.astro';
+import { cityFaq, liveIndustryUpdate } from '../../data/industry-updates';
 import hero from '../../assets/industries/warehouses/warehouse-cafeteria.avif';
 import workerBreak from '../../assets/industries/warehouses/warehouse-worker-break.avif';
 import breakroomVending from '../../assets/industries/warehouses/workers-breakroom-vending.jpeg';
@@ -38,10 +40,12 @@ const faqs = [
 			'Yes. We can restock more often, add products, or add equipment when your headcount grows.',
 	},
 ];
+
+const update = liveIndustryUpdate('warehouses');
 ---
 
 <ServiceLayout
-	title="Warehouse Vending Services in DFW"
+	title={update ? `${update.title} (Updated ${update.short})` : 'Warehouse Vending Services in DFW'}
 	description="Free vending, micro markets, and smart coolers for Dallas–Fort Worth warehouses. Cashless, stocked for every shift, with 24-hour service response."
 	h1="Warehouse Vending Services in DFW"
 	eyebrow="Warehouses"
@@ -52,7 +56,7 @@ const faqs = [
 	crumb="Warehouses"
 	parent={{ name: 'Industries We Serve', url: '/industries-we-serve/' }}
 	related={{ heading: 'Other Industries We Serve', items: industries }}
-	faqs={faqs}
+	faqs={update ? [...faqs, cityFaq(update)] : faqs}
 	cta={{
 		heading: 'Get Free Vending for Your Warehouse',
 		text: 'Share your headcount and shifts. We will walk the site and recommend the right mix of equipment. No cost and no long-term contract.',
@@ -110,4 +114,6 @@ const faqs = [
 			employers</a>.
 		</p>
 	</MediaSection>
+
+	{update && <IndustryCities update={update} />}
 </ServiceLayout>

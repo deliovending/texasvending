@@ -4,6 +4,8 @@ import MediaSection from '../../components/MediaSection.astro';
 import PhotoPair from '../../components/PhotoPair.astro';
 import MidCTA from '../../components/MidCTA.astro';
 import { industries } from '../../data/industries';
+import IndustryCities from '../../components/IndustryCities.astro';
+import { cityFaq, liveIndustryUpdate } from '../../data/industry-updates';
 import hero from '../../assets/industries/hospitality/lobby-micro-market.jpeg';
 import residentShopping from '../../assets/industries/hospitality/apartment-micro-market.webp';
 import marketShelves from '../../assets/industries/hospitality/micro-market-shelves.jpg';
@@ -38,10 +40,12 @@ const faqs = [
 			'No. Equipment, delivery, and setup cost $0 at qualifying locations, with no installation fee, no service fee, and no long-term contract.',
 	},
 ];
+
+const update = liveIndustryUpdate('hospitality');
 ---
 
 <ServiceLayout
-	title="Hotel and Hospitality Vending in DFW"
+	title={update ? `${update.title} (Updated ${update.short})` : 'Hotel and Hospitality Vending in DFW'}
 	description="Hospitality vending in Dallas–Fort Worth: self-serve micro markets, smart coolers, and vending for hotels, apartments, and venues. Free at qualifying sites."
 	h1="Hospitality Vending for Hotels, Apartments, and Venues in DFW"
 	eyebrow="Hospitality"
@@ -52,7 +56,7 @@ const faqs = [
 	crumb="Hospitality"
 	parent={{ name: 'Industries We Serve', url: '/industries-we-serve/' }}
 	related={{ heading: 'Other Industries We Serve', items: industries }}
-	faqs={faqs}
+	faqs={update ? [...faqs, cityFaq(update)] : faqs}
 	cta={{
 		heading: 'Get Free Vending for Your Property',
 		text: 'Tell us about your property, your guests or residents, and your space. We will walk the site and recommend the right equipment. No cost and no long-term contract.',
@@ -104,4 +108,6 @@ const faqs = [
 		<p>Your front desk stays focused on guests, and the market stays stocked.</p>
 		<p>Our team is based in Dallas and serves hotels, apartment communities, and venues across Dallas–Fort Worth and North Texas. We walk the property before recommending equipment, so the guest area and the staff area each get what fits.</p>
 	</MediaSection>
+
+	{update && <IndustryCities update={update} />}
 </ServiceLayout>

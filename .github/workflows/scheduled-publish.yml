@@ -1,5 +1,6 @@
-# Publishes scheduled blog posts. Posts with a future pubDate are left out of the build
-# (see src/lib/blog.ts), so each morning this checks for a post dated today and, if there is one,
+# Publishes scheduled blog posts and industry page refreshes. Posts with a future pubDate are left out of
+# the build (see src/lib/blog.ts), and industry pages keep their old version until their date in
+# src/data/industry-updates.ts. Each morning this checks for either dated today and, if there is one,
 # asks Vercel to rebuild the site and then submits the sitemap to IndexNow.
 #
 # One-time setup:
@@ -25,7 +26,10 @@ jobs:
           today=$(TZ=America/Chicago date +%Y-%m-%d)
           posts=$(grep -l "^pubDate: ${today}" src/content/blog/*.md* || true)
           echo "Posts dated ${today}: ${posts:-none}"
-          if [ -n "$posts" ] || [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+          # Industry pages refreshed today (src/data/industry-updates.ts)
+          pages=$(grep -l "date: '${today}'" src/data/industry-updates.ts || true)
+          echo "Page updates dated ${today}: ${pages:-none}"
+          if [ -n "$posts" ] || [ -n "$pages" ] || [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             echo "deploy=true" >> "$GITHUB_OUTPUT"
           fi
 

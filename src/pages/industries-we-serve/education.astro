@@ -4,6 +4,8 @@ import MediaSection from '../../components/MediaSection.astro';
 import PhotoPair from '../../components/PhotoPair.astro';
 import MidCTA from '../../components/MidCTA.astro';
 import { industries } from '../../data/industries';
+import IndustryCities from '../../components/IndustryCities.astro';
+import { cityFaq, liveIndustryUpdate } from '../../data/industry-updates';
 import hero from '../../assets/industries/education/campus-micro-market.jpg';
 import studentCooler from '../../assets/industries/education/student-smart-cooler.jpg';
 import marketCoolers from '../../assets/industries/education/micro-market-coolers.jpg';
@@ -54,10 +56,12 @@ const faqs = [
 			'Report it and a local technician responds within 24 hours, including after hours. Our technicians also repair and move machines no matter who supplied them.',
 	},
 ];
+
+const update = liveIndustryUpdate('education');
 ---
 
 <ServiceLayout
-	title="Free School Vending Machine Placement in DFW"
+	title={update ? `${update.title} (Updated ${update.short})` : 'Free School Vending Machine Placement in DFW'}
 	description="Free school vending machine placement in Dallas–Fort Worth: fresh food and healthy vending machines, plus free service and restocking at qualifying campuses."
 	h1="Free Vending for Schools, Colleges, and Campuses in DFW"
 	eyebrow="Education"
@@ -68,7 +72,7 @@ const faqs = [
 	crumb="Education"
 	parent={{ name: 'Industries We Serve', url: '/industries-we-serve/' }}
 	related={{ heading: 'Other Industries We Serve', items: industries }}
-	faqs={faqs}
+	faqs={update ? [...faqs, cityFaq(update)] : faqs}
 	cta={{
 		heading: 'Get Free Vending for Your Campus',
 		text: 'Tell us about your buildings, hours, and who uses them. We will walk the campus and recommend the right mix of equipment. No cost and no long-term contract.',
@@ -129,4 +133,6 @@ const faqs = [
 		<p>Comparing providers before a new term? Use our <a href="/blog/vending-contract-checklist/">vending contract checklist</a> to see what to ask.</p>
 		<p>Our team is based in Dallas and serves campuses across Dallas–Fort Worth and North Texas. We walk each building before recommending anything, so the plan fits how your campus actually works. Want to offer faculty and staff a perk? Subsidized vending, where the school lowers prices, is available on request.</p>
 	</MediaSection>
+
+	{update && <IndustryCities update={update} />}
 </ServiceLayout>
