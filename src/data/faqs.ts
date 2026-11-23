@@ -1,4 +1,4 @@
-// Questions match the live texasvending.com homepage. Shared by the FAQ section and FAQPage schema.
+// Homepage FAQs. Shared by the FAQ section and FAQPage schema.
 export const homeFaqs = [
 	{
 		question: 'What services does Texas Vending provide?',
@@ -8,12 +8,22 @@ export const homeFaqs = [
 	{
 		question: 'Is there a cost to install vending machines or micro markets?',
 		answer:
-			'No. Installation, delivery, setup, and ongoing service are free for qualifying locations. A location qualifies with at least 50 people in total foot traffic, counting employees and visitors.',
+			'No. For qualifying locations, vending is 100% free to the business: installation, delivery, setup, and ongoing service cost nothing, and employees pay only for what they buy. A location qualifies with at least 50 people in total foot traffic, counting employees and visitors.',
 	},
 	{
 		question: 'How does a free vending machine provider make money?',
 		answer:
 			'Texas Vending owns the equipment and earns its money from product sales. At a location with enough people buying, those sales cover the machine, delivery, setup, and service, so the business pays nothing.',
+	},
+	{
+		question: 'Are you one of the full-service vending providers in Dallas and the Dallas–Fort Worth (DFW) area?',
+		answer:
+			'Yes. Texas Vending is a full-service vending provider based in Dallas. We supply the equipment, install it, stock and restock it, repair it, and move it for businesses across Dallas–Fort Worth and North Texas.',
+	},
+	{
+		question: 'What is a fully managed vending machine service?',
+		answer:
+			'A fully managed vending machine service means the vending company handles everything: equipment, installation, product selection, restocking, cashless payments, repairs, and service visits. Your business provides floor space, a power outlet, and access for our team.',
 	},
 	{
 		question: 'Do you require a long-term contract?',
