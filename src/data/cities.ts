@@ -111,6 +111,7 @@ export const cities: City[] = [
 			"hospitality"
 		],
 		"nearby": [
+			"north-dallas",
 			"irving",
 			"addison",
 			"richardson",
@@ -134,6 +135,154 @@ export const cities: City[] = [
 			"https://en.wikipedia.org/wiki/Stemmons_Corridor",
 			"https://wilmeredc.com/news-media/article/by-rail-truck-dallas-inland-port-is-at-the-crossroads-of-commerce-logistics"
 		]
+	},
+	{
+		"slug": "north-dallas",
+		"name": "North Dallas",
+		"region": "Dallas and Central",
+		"county": "Dallas County, with small parts in Collin and Denton Counties",
+		"highways": "I-35E, US-75 (Central Expressway), the Dallas North Tollway, Northwest Highway (Loop 12), I-635 (LBJ Freeway), Belt Line Road, and the President George Bush Turnpike",
+		"about": [
+			"North Dallas is the part of Dallas north of Northwest Highway (Loop 12), including Far North Dallas above I-635. Most of it is in Dallas County, with small parts in Collin and Denton Counties. Harry Hines Boulevard runs through a wholesale district of warehouses and the Asian Trade District. Texas Instruments has its headquarters here, and the Platinum Corridor of offices starts just north of I-635 along the Dallas North Tollway. Medical City Dallas and Texas Health Presbyterian Hospital Dallas are two of the area's large hospitals.",
+			"That mix calls for different break rooms. Warehouse crews along Harry Hines work early and late shifts and need cold drinks and filling food at any hour. Offices near Galleria Dallas and Preston Center want coffee, fresh food, and smart coolers that fit a lounge or break room. Hospitals run around the clock. Texas Vending is based on N Stemmons Freeway in Dallas, south of North Dallas."
+		],
+		"businessAreas": [
+			{
+				"name": "Harry Hines wholesale district",
+				"note": "wholesale warehouses and the Asian Trade District along Harry Hines Boulevard"
+			},
+			{
+				"name": "Platinum Corridor",
+				"note": "offices and Galleria Dallas, starting just north of I-635 along the Dallas North Tollway"
+			},
+			{
+				"name": "Texas Instruments headquarters",
+				"note": "TI's corporate headquarters in North Dallas"
+			},
+			{
+				"name": "Preston Center",
+				"note": "one of North Dallas's major business areas"
+			},
+			{
+				"name": "Medical City Dallas",
+				"note": "876-bed hospital on Forest Lane, west of US-75"
+			},
+			{
+				"name": "Texas Health Presbyterian Hospital Dallas",
+				"note": "875-bed hospital in the Vickery Meadow area"
+			},
+			{
+				"name": "Love Field",
+				"note": "city airport near Bluffview and Devonshire"
+			}
+		],
+		"focus": [
+			"warehouses",
+			"offices",
+			"hospitals"
+		],
+		"nearby": [
+			"dallas",
+			"addison",
+			"farmers-branch",
+			"richardson",
+			"carrollton"
+		],
+		"photos": [
+			"warehouse-worker-break.avif",
+			"distribution-breakroom.jpeg",
+			"workers-breakroom-vending.jpeg",
+			"smart-cooler-breakroom.jpeg",
+			"lounge-smart-coolers.png",
+			"warehouse-cafeteria.avif"
+		],
+		"sources": [
+			"https://en.wikipedia.org/wiki/North_Dallas",
+			"https://en.wikipedia.org/wiki/Harry_Hines_Boulevard",
+			"https://en.wikipedia.org/wiki/Platinum_Corridor",
+			"https://en.wikipedia.org/wiki/Medical_City_Dallas_Hospital",
+			"https://en.wikipedia.org/wiki/Texas_Health_Presbyterian_Hospital_Dallas"
+		],
+		"keywordPage": {
+			"title": "Warehouse Vending Machines in North Dallas, TX",
+			"description": "Warehouse vending machines in North Dallas, TX, plus office vending and AI smart coolers from a local break room vending service company. Free, no contract.",
+			"intro": "Texas Vending is a North Dallas break room vending service company for warehouses, offices, and hospitals. We provide vending service for warehouses in North Dallas, from the Harry Hines wholesale district to the I-635 corridor, plus office vending and AI smart coolers near the Dallas North Tollway and Preston Center. Placement is free at locations with at least 50 people in total foot traffic, counting employees and visitors, and no long-term contract is required.",
+			"equipment": [
+				{
+					"name": "Warehouse vending machines",
+					"href": "/our-services/vending-machine/",
+					"note": "snack, drink, and energy drink machines for docks, shop floors, and shift changes"
+				},
+				{
+					"name": "AI smart coolers",
+					"href": "/our-services/ai-smart-cooler/",
+					"note": "fresh sandwiches, salads, and meals for offices and break rooms; tap to unlock, take what you want, and the cooler charges automatically"
+				},
+				{
+					"name": "Micro markets",
+					"href": "/our-services/micro-markets/",
+					"note": "a self-checkout store with open shelves and coolers, open around the clock for every shift"
+				},
+				{
+					"name": "Office coffee and water",
+					"href": "/our-services/coffee-water/",
+					"note": "machine installation is free; coffee, tea, water, and supplies are billed"
+				},
+				{
+					"name": "Vending repair and moving",
+					"href": "/our-services/vending-repair/",
+					"note": "we fix and move machines across North Dallas, including machines another company supplied"
+				}
+			],
+			"switchReasons": [
+				{
+					"name": "Empty machines",
+					"note": "Real-time monitoring tells us when a machine needs service, and we set a restocking schedule for your location."
+				},
+				{
+					"name": "Slow repairs",
+					"note": "Local technicians respond to reported issues within 24 hours, including after hours."
+				},
+				{
+					"name": "Cash-only machines",
+					"note": "Every machine takes cards, mobile wallets, and tap-to-pay."
+				},
+				{
+					"name": "Nothing for the night shift",
+					"note": "Micro markets and AI smart coolers stay open around the clock, so late crews get the same food as the day shift."
+				},
+				{
+					"name": "A contract you can't leave",
+					"note": "No long-term contract is required."
+				}
+			],
+			"faqs": [
+				{
+					"question": "Do you provide vending service for warehouses in North Dallas?",
+					"answer": "Yes. Texas Vending provides vending service for warehouses in North Dallas, including the wholesale district along Harry Hines Boulevard. We place snack and drink machines, AI smart coolers, and micro markets, and we plan restocking visits around your shifts, docks, and badge rules."
+				},
+				{
+					"question": "How do I get a free warehouse vending machine in North Dallas, TX?",
+					"answer": "Tell us your address, headcount, and regular visitors. We walk the site, confirm whether it qualifies, and recommend the right setup. A North Dallas warehouse qualifies with at least 50 people in total foot traffic, counting employees, drivers, and visitors. At a qualifying site, the machine, delivery, setup, and service cost nothing."
+				},
+				{
+					"question": "Are you a North Dallas break room vending service company?",
+					"answer": "Yes. Texas Vending is a Dallas-based break room vending service company serving North Dallas warehouses, offices, and hospitals. Local technicians respond to reported issues within 24 hours, every machine is cashless, and no long-term contract is required."
+				},
+				{
+					"question": "Do you put AI smart coolers in North Dallas offices?",
+					"answer": "Yes. Offices along LBJ Freeway, the Dallas North Tollway, and around Preston Center can add an AI smart cooler stocked with fresh sandwiches, salads, and meals. Tap to unlock, take what you want, and the cooler charges automatically."
+				},
+				{
+					"question": "Can we switch from our current vending company?",
+					"answer": "Yes. Review your current agreement for its term and removal rules, then tell us your timeline. We can also repair or move machines another company supplied."
+				}
+			],
+			"photos": [
+				"full-line-vending.jpeg",
+				"smart-cooler-kiosk.jpeg"
+			]
+		}
 	},
 	{
 		"slug": "fort-worth",
@@ -724,6 +873,7 @@ export const cities: City[] = [
 			"transportation"
 		],
 		"nearby": [
+			"north-dallas",
 			"dallas",
 			"farmers-branch",
 			"richardson",
@@ -1275,6 +1425,7 @@ export const cities: City[] = [
 			"hospitals"
 		],
 		"nearby": [
+			"north-dallas",
 			"plano",
 			"addison",
 			"dallas",
@@ -1609,6 +1760,7 @@ export const cities: City[] = [
 			"education"
 		],
 		"nearby": [
+			"north-dallas",
 			"carrollton",
 			"addison",
 			"dallas",
