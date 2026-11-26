@@ -32,6 +32,7 @@ export const MAIN_MENU: MenuItem[] = [
 		children: [
 			{ label: 'Micro Market', href: '/our-services/micro-markets/' },
 			{ label: 'AI Smart Cooler', href: '/our-services/ai-smart-cooler/' },
+			{ label: 'Healthy Vending', href: '/our-services/healthy-vending/' },
 			{ label: 'Coffee & Water', href: '/our-services/coffee-water/' },
 			{ label: 'Vending Machine', href: '/our-services/vending-machine/' },
 			{ label: 'Vending Repair', href: '/our-services/vending-repair/' },

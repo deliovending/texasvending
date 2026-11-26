@@ -1,0 +1,146 @@
+---
+import ServiceLayout from '../../layouts/ServiceLayout.astro';
+import MediaSection from '../../components/MediaSection.astro';
+import PhotoPair from '../../components/PhotoPair.astro';
+import MidCTA from '../../components/MidCTA.astro';
+import hero from '../../assets/services/ai-smart-cooler/smart-cooler-fresh-meals.jpeg';
+import officeFridge from '../../assets/industries/corporate-offices/office-smart-fridge.webp';
+import meetingSalads from '../../assets/industries/corporate-offices/office-meeting-salads.jpg';
+import studentCooler from '../../assets/industries/education/student-smart-cooler.jpg';
+import parfaits from '../../assets/fresh-food/yogurt-parfaits.webp';
+import proteinBowls from '../../assets/fresh-food/protein-bowls.webp';
+import fruit from '../../assets/fresh-food/fresh-fruit.webp';
+
+// Healthy vending for offices and schools. Delio (deliotx.com/vending/healthy/) targets general DFW workplace
+// healthy vending, so this page leads with the office, employee wellness, and school angle instead.
+const faqs = [
+	{
+		question: 'What is healthy vending?',
+		answer:
+			'Healthy vending means stocking break room machines, smart coolers, and micro markets with better-for-you food and drinks: salads, wraps, fresh fruit, yogurt parfaits, protein snacks, water, and zero-sugar drinks, next to the regular favorites.',
+	},
+	{
+		question: 'Do you place healthy vending machines in Dallas offices?',
+		answer:
+			'Yes. Texas Vending places healthy vending machines, AI smart coolers, and micro markets in Dallas offices at no cost to locations with at least 50 people in total foot traffic, counting employees and visitors. We install, stock, and service everything, and no long-term contract is required.',
+	},
+	{
+		question: 'How does employee wellness vending work in Dallas, TX?',
+		answer:
+			'Tell us your wellness goals, and we build the product mix around them: more fresh meals, water, and low-sugar drinks, and fewer items your team does not buy. Employees pay for what they buy with a card, mobile wallet, or tap-to-pay, and you can ask about subsidized pricing.',
+	},
+	{
+		question: 'Do healthy vending machines in schools have to follow Smart Snacks rules?',
+		answer:
+			'Yes, for K–12 machines that students can use during the school day: federal Smart Snacks standards apply. Tell us which machines students use and when, and we plan the product mix with those rules in mind. Smart Snacks do not apply to colleges, and machines in staff-only areas are generally outside the rule. Confirm with your district.',
+	},
+	{
+		question: 'Is healthy vending free for our office or school?',
+		answer:
+			'Yes at qualifying locations. The equipment, delivery, setup, stocking, and service cost nothing at sites with at least 50 people in total foot traffic. People pay only for what they buy.',
+	},
+	{
+		question: 'Can we keep regular snacks and sodas too?',
+		answer:
+			'Yes. Healthy items sit next to the classics, and sales data shows what your team buys. We add specific products and brands when there is enough demand.',
+	},
+];
+---
+
+<ServiceLayout
+	title="Healthy Vending Machines for Dallas Offices & Schools"
+	description="Healthy vending machines for Dallas offices and schools: employee wellness vending with fresh meals, protein snacks, and zero-sugar drinks. Free placement."
+	h1="Healthy Vending for Dallas Offices and Schools"
+	eyebrow="Healthy vending"
+	intro="Dallas healthy vending from Texas Vending puts fresh salads, wraps, fruit, protein snacks, water, and zero-sugar drinks in your office break room or on your campus. We install, stock, and service healthy vending machines, AI smart coolers, and micro markets at no cost to qualifying Dallas–Fort Worth offices and schools, with no long-term contract."
+	heroImage={hero}
+	heroAlt="Glass-door cooler stocked with salads, sandwiches, fruit cups, and yogurt beside a self-checkout kiosk"
+	serviceType="Healthy vending service"
+	crumb="Healthy Vending"
+	faqs={faqs}
+	related={{
+		heading: 'Related Pages',
+		items: [
+			{ name: 'Fresh Food', href: '/fresh-food/', summary: 'Fresh meals, macro meals, breakfast, and protein treats for DFW break rooms.' },
+			{ name: 'Beverage Catalog', href: '/beverages/', summary: 'Every drink we stock, with calories, sugar, sodium, and caffeine.' },
+			{ name: 'Corporate Offices', href: '/industries-we-serve/corporate-offices/', summary: 'Break room vending, coffee, and fresh food for DFW offices.' },
+			{ name: 'Education', href: '/industries-we-serve/education/', summary: 'Free school vending machine placement for DFW campuses.' },
+		],
+	}}
+	cta={{
+		heading: 'Get Healthy Vending for Your Team',
+		text: 'Book a site walk. Tell us your headcount and wellness goals, and we will recommend the right equipment and product mix. No long-term contract.',
+	}}
+>
+	<MediaSection image={meetingSalads} alt="Coworkers at a meeting table with fresh salads and bottles of Ozarka water" heading="What We Stock for Healthy Vending" eyebrow="Better-for-you options">
+		<p>Healthy vending works when the better choice is also the easy one. We stock:</p>
+		<ul>
+			<li><strong>Fresh food:</strong> salads, wraps, grain bowls, macro meals with a protein, carb, and vegetable, fresh fruit, and yogurt parfaits</li>
+			<li><strong>Protein snacks:</strong> protein cookies, muffins, and donuts from Sweet Addison's and Dough'd Up</li>
+			<li><strong>Water:</strong> Dasani, Ozarka spring water, and bubly sparkling water</li>
+			<li><strong>Zero- and low-sugar drinks:</strong> Gatorade Zero, Coca-Cola Zero Sugar, Diet Coke, Red Bull Sugarfree, Monster Zero Ultra, and Celsius</li>
+			<li><strong>Juice:</strong> Tribal cold-pressed juices</li>
+		</ul>
+		<p>
+			See the full <a href="/fresh-food/">fresh food menu</a>. Our <a href="/beverages/">beverage catalog</a> lists the
+			calories, sugar, sodium, and caffeine in every drink, so you can pick the mix that fits your goals.
+		</p>
+	</MediaSection>
+
+	<MediaSection image={officeFridge} alt="Coworkers sharing lunch at a table near a touch-screen smart fridge" heading="Healthy Vending Machines for Dallas Offices" eyebrow="Office break rooms" reverse>
+		<p>
+			Fresh food needs the right equipment. For Dallas offices, we match the setup to your headcount and space:
+		</p>
+		<ul>
+			<li><a href="/our-services/ai-smart-cooler/">AI smart coolers</a>: tap to unlock, take a salad or meal, and the cooler charges automatically</li>
+			<li><a href="/our-services/micro-markets/">Micro markets</a>: open shelves and coolers where people can read every label before they buy</li>
+			<li><a href="/our-services/vending-machine/">Vending machines</a>: better-for-you snacks and drinks in a small footprint</li>
+			<li><a href="/our-services/coffee-water/">Coffee and water</a>: filtered water and coffee, with free machine installation</li>
+		</ul>
+		<p>
+			Every machine is cashless. Real-time monitoring tells us when fresh items need restocking, and local technicians
+			respond to reported issues within 24 hours.
+		</p>
+	</MediaSection>
+
+	<PhotoPair
+		photos={[
+			{
+				image: parfaits,
+				alt: 'Two yogurt parfaits with granola, berry compote, and blueberries',
+				caption: 'Yogurt parfaits and fruit make an easy morning choice.',
+			},
+			{
+				image: proteinBowls,
+				alt: 'Prepared meal bowls with grilled chicken, rice, and vegetables',
+				caption: 'Protein-packed meals keep teams going through the afternoon.',
+			},
+		]}
+	/>
+	<MidCTA heading="Healthy Vending at No Cost" text="Free equipment, setup, and service at qualifying Dallas offices and schools. No long-term contract." />
+
+	<MediaSection image={fruit} alt="Close-up of sliced limes, peaches, blueberries, and raspberries" heading="Employee Wellness Vending in Dallas, TX" eyebrow="Employee wellness">
+		<p>
+			A wellness program is easier to keep when the break room supports it. Employee wellness vending puts fresh meals,
+			water, and low-sugar drinks within reach, so people do not have to leave the building to eat well.
+		</p>
+		<ul>
+			<li><strong>Your goals, your mix.</strong> Tell us what matters to your team, and we shape the products around it.</li>
+			<li><strong>Every shift.</strong> Smart coolers and micro markets stay open around the clock.</li>
+			<li><strong>Real data.</strong> Sales data shows which healthy items your team buys, and we adjust the mix to match.</li>
+			<li><strong>Employer support.</strong> Ask about subsidized pricing if you want to help cover the cost of healthy items.</li>
+		</ul>
+	</MediaSection>
+
+	<MediaSection image={studentCooler} alt="Young woman tapping the touch screen on a glass cooler door in a cafeteria" heading="Healthy Vending for Schools and Campuses" eyebrow="Schools and colleges" reverse>
+		<p>
+			Schools, colleges, and universities across Dallas–Fort Worth can add healthy vending at no cost to qualifying
+			campuses. Smart coolers and micro markets give students and staff fresh food in buildings with no cafeteria nearby.
+		</p>
+		<p>
+			For K–12 machines students can use during the school day, federal Smart Snacks standards apply. Read our guide to
+			<a href="/blog/smart-snacks-school-vending-texas/">Smart Snacks rules for Texas schools</a>, and see how we work with
+			campuses on our <a href="/industries-we-serve/education/">school vending page</a>.
+		</p>
+	</MediaSection>
+</ServiceLayout>
