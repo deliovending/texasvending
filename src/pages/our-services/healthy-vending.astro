@@ -10,6 +10,8 @@ import studentCooler from '../../assets/industries/education/student-smart-coole
 import parfaits from '../../assets/fresh-food/yogurt-parfaits.webp';
 import proteinBowls from '../../assets/fresh-food/protein-bowls.webp';
 import fruit from '../../assets/fresh-food/fresh-fruit.webp';
+import coolerYogurt from '../../assets/services/healthy-vending/smart-cooler-yogurt-baked-chips-protein-snacks.webp';
+import coolerProtein from '../../assets/services/healthy-vending/smart-cooler-protein-shakes-meals-water.webp';
 
 // Healthy vending for offices and schools. Delio (deliotx.com/vending/healthy/) targets general DFW workplace
 // healthy vending, so this page leads with the office, employee wellness, and school angle instead.
@@ -86,6 +88,22 @@ const faqs = [
 			calories, sugar, sodium, and caffeine in every drink, so you can pick the mix that fits your goals.
 		</p>
 	</MediaSection>
+
+	<PhotoPair
+		portrait
+		photos={[
+			{
+				image: coolerYogurt,
+				alt: 'Smart cooler with a tap-to-pay reader, stocked with Chobani Greek yogurt, Baked Ruffles, salmon snack packs, Celsius, and vitaminwater',
+				caption: 'Greek yogurt, baked chips, and protein snack packs sit next to the classics in one tap-to-pay cooler.',
+			},
+			{
+				image: coolerProtein,
+				alt: 'Smart cooler stocked with Fairlife protein shakes, ready-to-heat meals, pistachios, Baked Lay\'s, Gatorade Zero, and bottled water',
+				caption: 'Protein shakes, quick meals, nuts, zero-sugar drinks, and water for a better-for-you break.',
+			},
+		]}
+	/>
 
 	<MediaSection image={officeFridge} alt="Coworkers sharing lunch at a table near a touch-screen smart fridge" heading="Healthy Vending Machines for Dallas Offices" eyebrow="Office break rooms" reverse>
 		<p>
