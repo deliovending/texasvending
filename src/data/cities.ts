@@ -810,6 +810,7 @@ export const cities: City[] = [
 			"offices"
 		],
 		"nearby": [
+			"lewisville",
 			"irving",
 			"las-colinas",
 			"carrollton",
@@ -1698,6 +1699,7 @@ export const cities: City[] = [
 			"logistics"
 		],
 		"nearby": [
+			"lewisville",
 			"frisco",
 			"carrollton",
 			"plano",
@@ -1790,6 +1792,147 @@ export const cities: City[] = [
 		]
 	},
 	{
+		"slug": "lewisville",
+		"name": "Lewisville",
+		"region": "Collin County and North",
+		"county": "Denton County, with portions in Dallas County",
+		"highways": "I-35E, SH-121 (Sam Rayburn Tollway), FM 1171 (Main Street), FM 407, and FM 3040 (Round Grove Road)",
+		"about": [
+			"Lewisville sits at the southern end of Denton County, with portions in Dallas County, at the northern edge of the Dallas–Fort Worth metroplex. Its top employers include JPMorgan Chase, Lewisville ISD, and Nationstar Mortgage. Food distributors such as Sysco and Meadowbrook Meat Company have branches here, Texas–New Mexico Power and Responsive Education Solutions have their headquarters in the city, and auto dealerships such as Huffines and Village Auto Group operate here.",
+			"That puts offices, distribution branches, dealerships, and schools in one city. Office teams want coffee and fresh food during the workday, distribution crews work early and late shifts, and dealership staff and waiting customers both need snacks and cold drinks. Lewisville had 111,822 people at the 2020 census and has grown since, including the Castle Hills annexation in 2021."
+		],
+		"businessAreas": [
+			{
+				"name": "Vista Ridge Mall area",
+				"note": "retail at I-35E and Round Grove Road (FM 3040), open since 1989"
+			},
+			{
+				"name": "Old Town Lewisville",
+				"note": "historic downtown east of I-35E, home of the Lewisville Grand Theater and an A-train station"
+			},
+			{
+				"name": "Food distribution branches",
+				"note": "Sysco and Meadowbrook Meat Company"
+			},
+			{
+				"name": "Auto dealerships",
+				"note": "dealers including Huffines and Village Auto Group"
+			},
+			{
+				"name": "Castle Hills",
+				"note": "development northeast of the city, annexed in 2021 with almost 3,000 acres and 18,000 residents"
+			},
+			{
+				"name": "A-train corridor",
+				"note": "Old Town, Hebron, and Highland Village/Lewisville Lake stations, plus DCTA's rail maintenance facility"
+			}
+		],
+		"focus": [
+			"offices",
+			"warehouses",
+			"dealerships",
+			"education"
+		],
+		"nearby": [
+			"carrollton",
+			"the-colony",
+			"coppell",
+			"farmers-branch",
+			"addison"
+		],
+		"photos": [
+			"office-lounge-vending.png",
+			"distribution-breakroom.jpeg",
+			"waiting-area-vending.png",
+			"smart-cooler-phone.jpg",
+			"micro-market-coffee.jpg",
+			"technician-vending.jpg"
+		],
+		"sources": [
+			"https://en.wikipedia.org/wiki/Lewisville,_Texas"
+		],
+		"keywordPage": {
+			"title": "Vending Service in Lewisville, TX",
+			"description": "Vending service in Lewisville, TX: free vending machines, micro markets, and AI smart coolers for Lewisville businesses. Cashless, no contract, 24-hour response.",
+			"intro": "Texas Vending provides full vending service in Lewisville, TX. We install, stock, and service vending machines, micro markets, AI smart coolers, and office coffee for Lewisville offices, distribution branches, dealerships, and schools. Vending machines in Lewisville, TX are free at locations with at least 50 people in total foot traffic, counting employees and visitors. No installation fee, no service fee, and no long-term contract.",
+			"equipment": [
+				{
+					"name": "Snack and drink vending machines",
+					"href": "/our-services/vending-machine/",
+					"note": "chips, candy, cold drinks, and energy drinks in a small footprint, for offices, shop floors, and dealership waiting areas"
+				},
+				{
+					"name": "AI smart coolers",
+					"href": "/our-services/ai-smart-cooler/",
+					"note": "fresh sandwiches, salads, and meals; tap to unlock, take what you want, and the cooler charges automatically"
+				},
+				{
+					"name": "Micro markets",
+					"href": "/our-services/micro-markets/",
+					"note": "a self-checkout store with open shelves and coolers, open around the clock for every shift"
+				},
+				{
+					"name": "Office coffee and water",
+					"href": "/our-services/coffee-water/",
+					"note": "machine installation is free; coffee, tea, water, and supplies are billed"
+				},
+				{
+					"name": "Vending repair and moving",
+					"href": "/our-services/vending-repair/",
+					"note": "we fix and move machines across Lewisville, including machines another company supplied"
+				}
+			],
+			"switchReasons": [
+				{
+					"name": "Empty machines",
+					"note": "Real-time monitoring tells us when a machine needs service, and we set a restocking schedule for your location."
+				},
+				{
+					"name": "Slow repairs",
+					"note": "Local technicians respond to reported issues within 24 hours, including after hours."
+				},
+				{
+					"name": "Cash-only machines",
+					"note": "Every machine takes cards, mobile wallets, and tap-to-pay."
+				},
+				{
+					"name": "The same old snacks",
+					"note": "We add specific products and brands when there is enough demand, and sales data shows what your team buys."
+				},
+				{
+					"name": "A contract you can't leave",
+					"note": "No long-term contract is required."
+				}
+			],
+			"faqs": [
+				{
+					"question": "What does your vending service in Lewisville include?",
+					"answer": "Equipment, delivery, setup, stocking, cashless payment, and repairs. Real-time monitoring tells us when a machine needs service, and local technicians respond to reported issues within 24 hours, including after hours."
+				},
+				{
+					"question": "How do I get free vending machines in Lewisville, TX?",
+					"answer": "Tell us about your location and foot traffic. We walk the site, confirm whether it qualifies, and recommend the right equipment. At a qualifying Lewisville location with at least 50 people in total foot traffic, the machines, delivery, setup, and service cost nothing."
+				},
+				{
+					"question": "Do you serve Lewisville distribution centers and dealerships?",
+					"answer": "Yes. For distribution sites, we plan restocking visits around your shifts and docks. At dealerships, machines can serve both staff and customers in the waiting area. Customers and visitors count toward the 50-person foot traffic minimum."
+				},
+				{
+					"question": "Can we switch from our current vending company?",
+					"answer": "Yes. Review your current agreement for its term and removal rules, then tell us your timeline. We can also repair or move machines another company supplied."
+				},
+				{
+					"question": "Can we request specific snacks and drinks?",
+					"answer": "Yes. Texas Vending adds specific products and brands when there is enough demand, and sales data shows what sells at your site."
+				}
+			],
+			"photos": [
+				"full-line-vending.jpeg",
+				"drink-coolers-kiosk.jpeg"
+			]
+		}
+	},
+	{
 		"slug": "carrollton",
 		"name": "Carrollton",
 		"region": "Dallas and Central",
@@ -1828,6 +1971,7 @@ export const cities: City[] = [
 			"offices"
 		],
 		"nearby": [
+			"lewisville",
 			"farmers-branch",
 			"coppell",
 			"addison",
